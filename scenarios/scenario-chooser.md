@@ -61,6 +61,10 @@ the KB files to read in full next.
 | Train across organizations or devices without pooling data | Federated averaging; add differential privacy for a real privacy claim | [[federated-learning-and-differential-privacy]], [[ai-security-privacy-compliance]] |
 | Recognize or match items from a few examples; add classes without retraining | Pretrained embeddings + nearest prototype; metric learning with many training classes | [[metric-learning-and-few-shot]], [[embeddings]], [[face-and-pose]] |
 | Model very long sequences (audio, genomics, logs) or cut KV-cache cost | State space / hybrid SSM-attention models | [[state-space-models]], [[long-context]] |
+| Detect hidden regimes or smooth/fuse noisy sensor readings over time | HMM for discrete states, Kalman filter for continuous state | [[hidden-markov-models-and-kalman-filters]], [[anomaly-detection]] |
+| Order search results, listings or candidates by relevance | LambdaMART (LightGBM/XGBoost ranker) on query-grouped data | [[learning-to-rank]], [[rerankers]], [[recommender-systems]] |
+| Tag one input with several labels, or predict several targets from one model | Per-label sigmoid outputs with tuned thresholds; shared encoder with task heads | [[multi-label-and-multi-task-learning]], [[model-evaluation-and-metrics]] |
+| Find and fix mislabeled training data | Confident learning on out-of-fold probabilities, then human review | [[label-noise-and-data-cleaning]], [[data-labeling-and-synthetic-data]] |
 | Make a model smaller or cheaper to serve | Quantize first, then distil into a small student | [[quantization]], [[knowledge-distillation-and-compression]], [[edge-on-device]] |
 | Recommend items / personalise a feed | Embedding retrieval + ranker; popularity baseline first | [[recommender-systems]], [[embeddings]], [[ecommerce-retail]] |
 | Find items bought together / bundles | Frequent itemsets and association rules, ranked by lift | [[association-rules-market-basket]], [[recommender-systems]] |
