@@ -54,13 +54,17 @@ the KB files to read in full next.
 | Forecast a number over time (demand, load) | Time-series models, gradient boosting with lag features | [[time-series-forecasting]], [[gradient-boosting-tabular]] |
 | Predict a label/value from a table (churn, credit, price) | Gradient boosting baseline; LLM only for text columns | [[gradient-boosting-tabular]], [[classic-ml-scikit-learn]], [[experiment-tracking]] |
 | Predict when something happens (churn date, failure, default) | Survival models that handle censored rows | [[survival-analysis]], [[gradient-boosting-tabular]] |
-| Measure whether an action caused an outcome / target an offer | A/B test first; causal ML or uplift models on the data | [[causal-inference-and-uplift]], [[model-evaluation-and-metrics]] |
+| Measure whether an action caused an outcome / target an offer | A/B test first; causal ML or uplift models on the data | [[statistics-and-ab-testing]], [[causal-inference-and-uplift]], [[model-evaluation-and-metrics]] |
+| Tell whether a metric change or model gain is real | Power analysis up front, then a test with a confidence interval | [[statistics-and-ab-testing]] |
 | Predict with honest uncertainty on small data | Gaussian process or Bayesian model; conformal intervals otherwise | [[bayesian-and-gaussian-processes]] |
 | Make a model smaller or cheaper to serve | Quantize first, then distil into a small student | [[quantization]], [[knowledge-distillation-and-compression]], [[edge-on-device]] |
 | Recommend items / personalise a feed | Embedding retrieval + ranker; popularity baseline first | [[recommender-systems]], [[embeddings]], [[ecommerce-retail]] |
+| Find items bought together / bundles | Frequent itemsets and association rules, ranked by lift | [[association-rules-market-basket]], [[recommender-systems]] |
+| Keep a model current as data changes | Drift monitoring + scheduled retrain; online learning if labels arrive fast | [[online-learning-and-concept-drift]], [[mlops-lifecycle]] |
 | Detect anomalies / fraud / failures | Unsupervised or semi-supervised detectors plus rules | [[anomaly-detection]], [[finance]], [[manufacturing-iot]], [[security-defensive]] |
 | Generate or edit images | Diffusion model API or local; check licence and provenance | [[image-generation-models]], [[diffusion-models]], [[model-licenses]] |
 | Label data / create training data | LLM-assisted labelling with human review | [[data-labeling-and-synthetic-data]] |
+| Train with few labels and many unlabelled examples | Pretrained embeddings, active learning to pick labels, label spreading / pseudo-labels | [[semi-supervised-and-active-learning]], [[data-labeling-and-synthetic-data]] |
 | Build a personal assistant with memory | Agent + memory store + calendar/mail tools | [[personal-assistants]], [[agent-memory]] |
 
 ### 2. Cross-cutting decisions
