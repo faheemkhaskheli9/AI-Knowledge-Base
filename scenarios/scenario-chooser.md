@@ -57,6 +57,10 @@ the KB files to read in full next.
 | Measure whether an action caused an outcome / target an offer | A/B test first; causal ML or uplift models on the data | [[statistics-and-ab-testing]], [[causal-inference-and-uplift]], [[model-evaluation-and-metrics]] |
 | Tell whether a metric change or model gain is real | Power analysis up front, then a test with a confidence interval | [[statistics-and-ab-testing]] |
 | Predict with honest uncertainty on small data | Gaussian process or Bayesian model; conformal intervals otherwise | [[bayesian-and-gaussian-processes]] |
+| Put guaranteed intervals / label sets around any model, escalate unsure cases | Split conformal prediction on a held-out calibration set | [[conformal-prediction-and-uncertainty]], [[model-evaluation-and-metrics]] |
+| Train across organizations or devices without pooling data | Federated averaging; add differential privacy for a real privacy claim | [[federated-learning-and-differential-privacy]], [[ai-security-privacy-compliance]] |
+| Recognize or match items from a few examples; add classes without retraining | Pretrained embeddings + nearest prototype; metric learning with many training classes | [[metric-learning-and-few-shot]], [[embeddings]], [[face-and-pose]] |
+| Model very long sequences (audio, genomics, logs) or cut KV-cache cost | State space / hybrid SSM-attention models | [[state-space-models]], [[long-context]] |
 | Make a model smaller or cheaper to serve | Quantize first, then distil into a small student | [[quantization]], [[knowledge-distillation-and-compression]], [[edge-on-device]] |
 | Recommend items / personalise a feed | Embedding retrieval + ranker; popularity baseline first | [[recommender-systems]], [[embeddings]], [[ecommerce-retail]] |
 | Find items bought together / bundles | Frequent itemsets and association rules, ranked by lift | [[association-rules-market-basket]], [[recommender-systems]] |
