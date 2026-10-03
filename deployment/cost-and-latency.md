@@ -77,6 +77,7 @@ Levers, roughly in order of effort:
 
 ## Related
 - [[prompt-caching-and-cost]] - provider caching mechanics.
+- [[llm-gateways-and-routing]] - model routing, fallbacks and multi-provider gateways.
 - [[llm-observability]] - tracking tokens and latency.
 - [[gpu-cloud-options]] - renting GPUs for self-hosting.
 - [[model-selection]], [[small-language-models]] - cheaper models.
