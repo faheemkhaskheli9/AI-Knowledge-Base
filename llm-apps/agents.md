@@ -92,6 +92,7 @@ Note: `spent` sums per-call input tokens, which re-counts the growing history ea
 - [[agent-memory]] - state across turns/sessions.
 - [[guardrails-and-safety]] - limits and approvals.
 - [[reasoning-models]] - built-in planning.
+- [[computer-use-agents]] - agents that drive a GUI from screenshots.
 
 ## References
 - Anthropic, Building effective agents: https://www.anthropic.com/engineering/building-effective-agents
