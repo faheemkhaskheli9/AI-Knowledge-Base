@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}AI Knowledge Base{% endblock %}</title>
+<style>
+  :root { --bg: #fff; --fg: #1f2328; --muted: #656d76; --line: #d0d7de; --accent: #0969da; --code: #f6f8fa; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0d1117; --fg: #e6edf3; --muted: #8d96a0; --line: #30363d; --accent: #4493f8; --code: #161b22; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, sans-serif; }
+  header { border-bottom: 1px solid var(--line); padding: 12px 16px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  header a.home { font-weight: 600; color: var(--fg); }
+  header form { flex: 1; min-width: 200px; }
+  input[type=search] { width: 100%; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--fg); font: inherit; }
+  main { max-width: 960px; margin: 0 auto; padding: 16px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .muted { color: var(--muted); font-size: 14px; }
+  .chip { display: inline-block; padding: 0 8px; margin: 2px; border: 1px solid var(--line); border-radius: 12px; font-size: 13px; }
+  .chip.on { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  pre, code { background: var(--code); border-radius: 6px; font-family: ui-monospace, monospace; font-size: 14px; }
+  code { padding: 1px 4px; }
+  pre { padding: 12px; overflow-x: auto; }
+  pre code { padding: 0; }
+  table { border-collapse: collapse; display: block; overflow-x: auto; }
+  th, td { border: 1px solid var(--line); padding: 4px 8px; text-align: left; }
+  .missing { color: #cf222e; text-decoration: line-through; }
+</style>
+</head>
+<body>
+<header>
+  <a class="home" href="{% url 'index' %}">AI Knowledge Base</a>
+  <form action="{% url 'index' %}"><input type="search" name="q" value="{{ q }}" placeholder="Search topics" aria-label="Search topics"></form>
+</header>
+<main>{% block content %}{% endblock %}</main>
+</body>
+</html>

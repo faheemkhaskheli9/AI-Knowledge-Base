@@ -36,3 +36,15 @@ text (Ctrl+S saves) and create new files. Edits write straight to the files here
 The **Rebuild INDEX.md** button runs `build_index.py` after you add or edit topics.
 It listens on 127.0.0.1 only, rejects foreign Host/Origin headers, needs a per-run token for writes, only touches
 text files inside the repo, and refuses to overwrite a file that changed on disk since you opened it.
+
+## Read-only Django site
+
+A read-only Django site over the same Markdown files, with search, category
+and tag filters, `[[links]]` and backlinks. It has no database, so edits to the
+files show up on refresh.
+
+```bash
+pip install -r requirements.txt
+python manage.py runserver      # http://127.0.0.1:8000
+python manage.py test webapp
+```

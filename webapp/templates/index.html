@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<nav aria-label="Categories">
+  <a class="chip{% if not category %} on{% endif %}" href="?q={{ q|urlencode }}">all ({{ total }})</a>
+  {% for name, n in counts %}
+  <a class="chip{% if name == category %} on{% endif %}" href="?category={{ name }}&q={{ q|urlencode }}">{{ name }} ({{ n }})</a>
+  {% endfor %}
+</nav>
+<p class="muted">
+  {{ shown }} of {{ total }} topics{% if q %} matching "{{ q }}"{% endif %}{% if tag %} tagged <b>{{ tag }}</b> (<a href="?category={{ category }}&q={{ q|urlencode }}">clear</a>){% endif %}
+</p>
+{% for name, items in groups %}
+<h2>{{ name }}</h2>
+<ul>
+  {% for t in items %}
+  <li>
+    <a href="{% url 'topic' t.stem %}">{{ t.title }}</a>
+    {% if t.status %}<span class="muted">· {{ t.status }}</span>{% endif %}
+    {% if t.use_cases %}<div class="muted">{{ t.use_cases.0 }}</div>{% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% empty %}
+<p>No topics match.</p>
+{% endfor %}
+{% endblock %}
