@@ -74,6 +74,7 @@ image.save("backpack.png")
 - [[fine-tuning-and-peft]] - LoRA concept shared with LLMs.
 - [[marketing-content]] - typical commercial use.
 - [[gpu-cuda-setup]] - getting the GPU stack working.
+- [[ddpm-diffusion-from-scratch-numpy]] - DDPM built in NumPy: noise schedule, epsilon-prediction, ancestral sampling.
 
 ## References
 - Ho et al., DDPM: https://arxiv.org/abs/2006.11239

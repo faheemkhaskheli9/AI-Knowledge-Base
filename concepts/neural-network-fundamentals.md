@@ -99,6 +99,7 @@ Swap `nn.Sequential(nn.Linear(2, 2))` in to see a linear model fail on the same 
 - [[cnn-and-rnn-architectures]] - layers specialised for images and sequences.
 - [[transformers-and-attention]] - the architecture behind LLMs.
 - [[pytorch-basics]] - the production training loop (DataLoader, GPU, AMP, checkpoints).
+- [[universal-approximation-and-depth-vs-width]] - what one hidden layer can represent and why depth still helps.
 
 ## References
 - Goodfellow, Bengio, Courville, *Deep Learning* (free online): https://www.deeplearningbook.org/

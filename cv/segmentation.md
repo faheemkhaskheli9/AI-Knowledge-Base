@@ -80,6 +80,7 @@ Trained instance segmentation with Ultralytics: `YOLO("<seg-weights>.pt")` using
 - [[video-analytics]] - tracking segmented objects.
 - [[data-labeling-and-synthetic-data]] - SAM-assisted labelling.
 - [[pytorch-basics]] - training custom models.
+- [[slic-superpixels-from-scratch]] - SLIC superpixels built by hand as a pre-segmentation step.
 
 ## References
 - https://github.com/facebookresearch/sam2

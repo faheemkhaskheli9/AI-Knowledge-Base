@@ -82,6 +82,7 @@ Fine-tuning: see the Hugging Face sequence/token classification task guides (use
 - [[huggingface-transformers]] - library setup.
 - [[data-labeling-and-synthetic-data]] - creating training labels.
 - [[llm-evaluation]] - evaluating classifiers and labellers.
+- [[kneser-ney-ngram-lm-from-scratch]] - a Kneser-Ney smoothed n-gram LM built by hand, with perplexity.
 
 ## References
 - https://huggingface.co/docs/transformers/main/en/tasks/sequence_classification

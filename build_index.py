@@ -7,7 +7,13 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-SKIP = {"README.md", "AGENTS.md", "CLAUDE.md", "INDEX.md", "_template.md"}
+SKIP = {"README.md", "AGENTS.md", "CLAUDE.md", "INDEX.md", "ROADMAP.md", "_template.md"}
+
+
+def links(text):
+    """[[wiki-links]] in prose; code is stripped so `[[1, 2]]` lists don't count."""
+    prose = re.sub(r"`[^`\n]*`", "", re.sub(r"```.*?```", "", text, flags=re.S))
+    return [l.strip() for l in re.findall(r"\[\[([^\]|#]+)", prose)]
 
 
 def frontmatter(text):
@@ -29,12 +35,14 @@ def frontmatter(text):
 
 
 def build():
-    rows, bad = [], []
+    rows, bad, out_links = [], [], {}
     for path in sorted(ROOT.rglob("*.md")):
         rel = path.relative_to(ROOT).as_posix()
         if path.name in SKIP or rel.startswith("."):
             continue
-        meta = frontmatter(path.read_text(encoding="utf-8"))
+        text = path.read_text(encoding="utf-8")
+        out_links[path.stem] = (rel, links(text))
+        meta = frontmatter(text)
         if not meta or "title" not in meta:
             bad.append(rel)
             continue
@@ -56,11 +64,16 @@ def build():
         "",
     ]
     (ROOT / "INDEX.md").write_text("\n".join(out), encoding="utf-8", newline="\n")
-    return rows, bad
+    broken = [f"{rel} -> [[{l}]]" for rel, ls in out_links.values() for l in ls if l not in out_links]
+    linked = {l for stem, (_, ls) in out_links.items() for l in ls if l != stem}
+    orphans = sorted(rel for stem, (rel, _) in out_links.items() if stem not in linked)
+    return rows, bad, broken, orphans
 
 
 if __name__ == "__main__":
-    rows, bad = build()
+    rows, bad, broken, orphans = build()
     print(f"indexed {len(rows)} topics")
-    if bad:
-        raise SystemExit(f"missing/invalid frontmatter: {bad}")
+    if orphans:
+        print(f"warning: {len(orphans)} topic(s) no other topic links to: {orphans}")
+    if bad or broken:
+        raise SystemExit(f"missing/invalid frontmatter: {bad}\nbroken [[links]]: {broken}")

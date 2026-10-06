@@ -86,6 +86,7 @@ Combine with LoRA via `peft_config=` to fit on one GPU.
 - [[guardrails-and-safety]] - alignment is one layer of safety.
 - [[llm-evaluation]] - needed to detect reward hacking.
 - [[data-labeling-and-synthetic-data]] - building preference datasets.
+- [[grpo-from-scratch-numpy]] - GRPO built in NumPy: group-relative advantages, clipped ratio, k3 KL.
 
 ## References
 - Ouyang et al., InstructGPT: https://arxiv.org/abs/2203.02155

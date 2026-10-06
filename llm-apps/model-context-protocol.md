@@ -103,6 +103,7 @@ The Claude Agent SDK can also host in-process MCP servers via `create_sdk_mcp_se
 - [[agent-frameworks]] - framework MCP support.
 - [[prompt-injection]] - MCP-specific attack paths.
 - [[guardrails-and-safety]] - approvals and least privilege.
+- [[design-tools-for-claude]] - Figma MCP and plugin options for giving Claude design context.
 
 ## References
 - MCP specification: https://modelcontextprotocol.io/specification/latest

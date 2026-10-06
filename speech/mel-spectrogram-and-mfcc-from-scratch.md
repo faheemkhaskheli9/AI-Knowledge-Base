@@ -135,6 +135,7 @@ One second of audio becomes 98 frames of 40 log-mel values or 13 MFCCs. The loud
 - [[hmm-from-scratch]] - the GMM-HMM pipelines MFCCs were designed for.
 - [[convolution-layer-from-scratch-numpy]] - CNNs that treat a log-mel spectrogram as an image.
 - [[voice-agents]] - where feature extraction sits in a real-time speech pipeline.
+- [[phase-vocoder-time-stretch-from-scratch]] - time-stretch and pitch-shift on the same STFT with phase propagation.
 
 ## References
 - librosa `feature.mfcc` and `feature.melspectrogram`: https://librosa.org/doc/latest/generated/librosa.feature.mfcc.html

@@ -120,6 +120,7 @@ Expected shape of the output: MSE lands near the mean (~12.5), L1 and Huber near
 - [[gradient-boosting-tabular]] - the same objectives (Huber, quantile, Tweedie) in GBM libraries.
 - [[metric-learning-and-few-shot]] - contrastive and triplet losses for embeddings.
 - [[knowledge-distillation-and-compression]] - KL loss on softened teacher outputs.
+- [[focal-loss-from-scratch-numpy]] - focal loss built in NumPy with a hand-derived gradient for class imbalance.
 
 ## References
 - PyTorch loss functions: https://pytorch.org/docs/stable/nn.html#loss-functions

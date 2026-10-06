@@ -113,6 +113,8 @@ model.save("ppo_cartpole")
 - [[reasoning-models]] - RL with verifiable rewards for reasoning.
 - [[recommender-systems]] - bandits for exploration in recommendations.
 - [[computer-use-agents]] - LLM agents, a different meaning of "agent".
+- [[dqn-from-scratch-numpy]] - DQN built in NumPy: replay buffer, target network, double DQN on CartPole.
+- [[mcts-from-scratch]] - Monte Carlo tree search (UCT) built by hand on tic-tac-toe.
 
 ## References
 - Sutton & Barto, *Reinforcement Learning: An Introduction*, 2nd ed.: http://incompleteideas.net/book/the-book-2nd.html

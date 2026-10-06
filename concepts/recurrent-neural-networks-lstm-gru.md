@@ -147,6 +147,7 @@ In a real stream loop, also call `loss.backward()` and `opt.step()` inside each 
 - [[state-space-models]] - modern linear-time recurrent alternatives (Mamba).
 - [[time-series-forecasting]] - LSTM forecasting next to classical and boosted models.
 - [[transformers-and-attention]] - the default replacement for RNNs on text.
+- [[gru-from-scratch-numpy]] - GRU built in NumPy with BPTT, checked against PyTorch.
 
 ## References
 - PyTorch `nn.LSTM`: https://pytorch.org/docs/stable/generated/torch.nn.LSTM.html

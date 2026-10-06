@@ -120,6 +120,7 @@ scikit-learn equivalent for out-of-core batches:
 - [[anomaly-detection]] - detecting unusual points rather than shifts.
 - [[time-series-forecasting]] - forecasting series that also drift.
 - [[finance]], [[security-defensive]] - adversarial drift.
+- [[cusum-change-point-detection-from-scratch]] - CUSUM built by hand for detecting small mean shifts in a stream.
 
 ## References
 - River: https://riverml.xyz/latest/

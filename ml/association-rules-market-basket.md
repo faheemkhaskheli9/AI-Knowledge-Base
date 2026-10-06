@@ -104,6 +104,7 @@ Rules come in both directions with the same lift but different confidence.
 - [[clustering]] - segment customers or baskets instead of items.
 - [[ecommerce-retail]] - cross-sell and bundling scenarios.
 - [[statistics-and-ab-testing]] - test whether a bundle actually lifts sales.
+- [[apriori-from-scratch]] - Apriori built by hand: candidate pruning, support, confidence, lift.
 
 ## References
 - mlxtend FP-Growth: https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/fpgrowth/
