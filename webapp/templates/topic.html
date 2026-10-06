@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{ t.title }} · AI Knowledge Base{% endblock %}
+{% block content %}
+<p class="muted">
+  <a href="{% url 'index' %}?category={{ t.category }}">{{ t.category }}</a>
+  {% if t.status %}· {{ t.status }}{% endif %}
+  {% if t.last_verified %}· verified {{ t.last_verified }}{% endif %}
+  · <code>{{ t.rel }}</code>
+</p>
+{% if t.tags %}
+<p>{% for tag in t.tags %}<a class="chip" href="{% url 'index' %}?tag={{ tag|urlencode }}">{{ tag }}</a>{% endfor %}</p>
+{% endif %}
+<article>{{ body|safe }}</article>
+{% if t.sources %}
+<h2>Sources</h2>
+<ul>{% for s in t.sources %}<li><a href="{{ s }}" rel="noopener">{{ s }}</a></li>{% endfor %}</ul>
+{% endif %}
+{% if backlinks %}
+<h2>Linked from</h2>
+<ul>{% for o in backlinks %}<li><a href="{% url 'topic' o.stem %}">{{ o.title }}</a></li>{% endfor %}</ul>
+{% endif %}
+{% endblock %}
