@@ -105,6 +105,7 @@ as a structured array of (event, time).
 - [[anomaly-detection]] - early warning signals for failures.
 - [[causal-inference-and-uplift]] - who to target with a retention offer.
 - [[healthcare]], [[manufacturing-iot]], [[finance]] - main application areas.
+- [[kaplan-meier-survival-from-scratch]] - Kaplan-Meier, Greenwood CI and log-rank test built by hand.
 
 ## References
 - lifelines: https://lifelines.readthedocs.io/en/latest/

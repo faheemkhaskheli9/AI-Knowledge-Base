@@ -25,9 +25,13 @@ Quick search without reading the index: `grep -ril "<keyword>" --include=*.md .`
    official SDK/API.
 3. Cite official sources for volatile facts. Set `last_verified` to today.
    Do not invent version numbers, benchmarks or prices; leave them out instead.
-4. Run `python build_index.py` (stdlib only). It regenerates `INDEX.md` and
-   fails on a file with missing frontmatter.
-5. Use LF line endings and UTF-8.
+4. Link a new topic from at least one existing topic's `## Related` (usually
+   its overview topic), or agents following links never reach it.
+5. Run `python build_index.py` (stdlib only). It regenerates `INDEX.md`, fails
+   on missing frontmatter or a broken `[[link]]`, and warns on orphan topics.
+6. Use LF line endings and UTF-8.
+
+Planned improvements live in `ROADMAP.md`.
 
 ## Categories
 

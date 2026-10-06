@@ -79,6 +79,7 @@ PyOD (`pip install pyod`) offers 40+ detectors behind one API for comparison.
 - [[gradient-boosting-tabular]] - supervised alternative when labels exist.
 - [[image-classification]] - visual inspection pipelines.
 - [[data-labeling-and-synthetic-data]] - building a validation set for anomalies.
+- [[isolation-forest-from-scratch]] - Isolation Forest built by hand: random isolation trees and path-length scores.
 
 ## References
 - https://scikit-learn.org/stable/modules/outlier_detection.html

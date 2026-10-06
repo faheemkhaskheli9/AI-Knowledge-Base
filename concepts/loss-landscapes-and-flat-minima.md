@@ -172,6 +172,7 @@ def sam_step(model, loss_fn, xb, yb, opt, rho=0.05):
 - [[learning-rate-schedules]] - warmup, cycles and weight averaging that steer toward flat regions.
 - [[regularization-in-deep-learning]] - other ways to improve generalisation.
 - [[gradient-descent]] - curvature, condition number and step-size limits.
+- [[sam-sharpness-aware-minimization-from-scratch-numpy]] - SAM built in NumPy: the optimiser that seeks flat minima directly.
 
 ## References
 - Li et al., Visualizing the Loss Landscape of Neural Nets (2018): https://arxiv.org/abs/1712.09913

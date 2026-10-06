@@ -102,6 +102,7 @@ Many vector DBs do hybrid natively (Qdrant sparse+dense with fusion, Weaviate, E
 - [[rerankers]] - model choices.
 - [[prompt-caching-and-cost]] - makes contextual retrieval affordable.
 - [[agents]] - agentic/iterative retrieval.
+- [[semantic-chunking-from-scratch]] - semantic chunking by embedding-distance breakpoints, built by hand.
 
 ## References
 - Anthropic, Introducing Contextual Retrieval: https://www.anthropic.com/news/contextual-retrieval

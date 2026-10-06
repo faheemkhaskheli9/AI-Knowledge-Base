@@ -95,6 +95,7 @@ On this data Lasso keeps 19 of 50 weights and gets a slightly lower MAE than Rid
 - [[classic-ml-scikit-learn]] - pipelines and the wider scikit-learn workflow.
 - [[model-interpretability]] - explaining models whose weights are not directly readable.
 - [[neural-network-fundamentals]] - a neural network is stacked logistic regressions with non-linearities.
+- [[lda-from-scratch]] - linear discriminant analysis built by hand as classifier and Fisher projection.
 
 ## References
 - scikit-learn linear models: https://scikit-learn.org/stable/modules/linear_model.html

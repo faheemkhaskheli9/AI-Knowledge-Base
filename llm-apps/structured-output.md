@@ -91,6 +91,7 @@ t = res.choices[0].message.parsed
 - [[llm-evaluation]] - measure field-level accuracy against labeled data.
 - [[document-parsing]] - upstream step that turns PDFs into text for extraction.
 - [[text-to-sql]] - structured output for query generation.
+- [[grammar-constrained-decoding-from-scratch]] - how constrained decoding guarantees valid output: DFA token masks built by hand.
 
 ## References
 - https://platform.claude.com/docs/en/build-with-claude/structured-outputs

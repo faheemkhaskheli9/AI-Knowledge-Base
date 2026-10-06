@@ -94,6 +94,7 @@ hits = q.query_points("docs", query=[0.1]*384, limit=5,
 - [[embedding-models]] - dimensions and metrics.
 - [[agent-memory]] - semantic memory tier.
 - [[embeddings]] - concept background.
+- [[hnsw-from-scratch]] - the HNSW index most vector DBs use, built by hand.
 
 ## References
 - https://github.com/pgvector/pgvector

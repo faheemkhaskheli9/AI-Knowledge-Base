@@ -89,6 +89,7 @@ print("test:", model.score(X_test, y_test))           # report once
 - [[feature-engineering]] - turning raw data into useful inputs.
 - [[neural-network-fundamentals]] - the deep-learning branch of the same ideas.
 - [[gradient-boosting-tabular]] - the usual strongest tabular model.
+- [[exploratory-data-analysis]] - the EDA pass to run before any modelling.
 
 ## References
 - Google Machine Learning Crash Course: https://developers.google.com/machine-learning/crash-course

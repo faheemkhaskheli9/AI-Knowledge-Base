@@ -140,6 +140,7 @@ Since PyTorch 2.5, SDPA also accepts `enable_gqa=True` with fewer K/V heads than
 - [[efficient-training-mixed-precision]] - bf16, checkpointing and fused kernels in training.
 - [[state-space-models]] - linear-time alternatives to attention.
 - [[quantization]] - shrinking weights and KV cache further.
+- [[flash-attention-online-softmax-from-scratch-numpy]] - FlashAttention tiling and online softmax built in NumPy.
 
 ## References
 - PyTorch `scaled_dot_product_attention`: https://pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention.html

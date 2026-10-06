@@ -85,6 +85,7 @@ Hosted APIs expose `temperature`, `top_p`, `top_k` (provider dependent) and `max
 - [[inference-servers-vllm]] - speculative decoding and sampling params at scale.
 - [[hallucination-and-grounding]] - low temperature helps but does not fix hallucination.
 - [[cost-and-latency]] - decoding choices affect latency.
+- [[speculative-decoding-from-scratch-numpy]] - speculative decoding built in NumPy, exact to the target distribution.
 
 ## References
 - Transformers generation strategies: https://huggingface.co/docs/transformers/generation_strategies

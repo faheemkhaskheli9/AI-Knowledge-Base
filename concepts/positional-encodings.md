@@ -110,6 +110,7 @@ In Hugging Face `transformers`, RoPE scaling is a config setting (`rope_scaling`
 - [[tokenization]] - positions count tokens, not characters or words.
 - [[sequence-to-sequence-and-ctc]] - encoder-decoder models that use these encodings.
 - [[pretraining-and-scaling-laws]] - training-length choices that positions must match.
+- [[alibi-attention-bias-from-scratch-numpy]] - ALiBi built in NumPy, with per-head slopes and a length-extrapolation check.
 
 ## References
 - Vaswani et al., Attention Is All You Need (sinusoidal): https://arxiv.org/abs/1706.03762

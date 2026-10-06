@@ -85,6 +85,7 @@ Here single models score 0.992-0.996 ROC-AUC, and the voting and stacking ensemb
 - [[model-evaluation-and-metrics]] - calibration and cross-validation used to judge ensembles.
 - [[hyperparameter-tuning]] - nested CV for an honest comparison.
 - [[svm-knn-naive-bayes]] - diverse base models to combine.
+- [[adaboost-from-scratch]] - AdaBoost built by hand: stumps, sample re-weighting, exponential loss.
 
 ## References
 - scikit-learn ensemble guide: https://scikit-learn.org/stable/modules/ensemble.html

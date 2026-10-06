@@ -161,6 +161,7 @@ Track 0 overlaps both detections equally (IoU 0.6 each), and greedy, breaking th
 - [[object-detection]] - DETR's set-prediction loss and the detectors whose boxes are matched.
 - [[kalman-filter-from-scratch]] - the motion model that predicts track boxes before matching.
 - [[classification-metrics-and-cross-validation-from-scratch]] - matching predictions to ground truth before scoring is the same step in detection mAP.
+- [[sinkhorn-optimal-transport-from-scratch]] - Sinkhorn: the soft, differentiable version of this hard assignment.
 
 ## References
 - Kuhn (1955), "The Hungarian method for the assignment problem", Naval Research Logistics Quarterly: https://doi.org/10.1002/nav.3800020109

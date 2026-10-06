@@ -131,6 +131,7 @@ print(topic_model.get_topic_info().head())      # topic id, size, top words; -1 
 - [[dimensionality-reduction]] - NMF, SVD and UMAP.
 - [[word-embeddings-word2vec]] - word vectors and the bag-of-words baseline.
 - [[customer-support]] - ticket theme discovery in practice.
+- [[nmf-from-scratch]] - NMF built by hand with multiplicative updates for parts-based topics.
 
 ## References
 - scikit-learn, LatentDirichletAllocation: https://scikit-learn.org/stable/modules/decomposition.html#latentdirichletallocation

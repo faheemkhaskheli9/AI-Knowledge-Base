@@ -79,6 +79,7 @@ Model names change with releases; confirm the current family and weights in the 
 - [[data-labeling-and-synthetic-data]] - labelling boxes.
 - [[edge-on-device]] - export and deployment.
 - [[manufacturing-iot]] - inspection scenarios.
+- [[hog-descriptor-from-scratch]] - HOG features built by hand, the classic pre-CNN detector descriptor.
 
 ## References
 - https://docs.ultralytics.com/quickstart/

@@ -81,6 +81,7 @@ Open models: reasoning-tuned checkpoints (for example DeepSeek-R1 distills, Qwen
 - [[agents]] - where reasoning helps most.
 - [[cost-and-latency]] - budgeting thinking tokens.
 - [[decoding-and-sampling]] - best-of-n and self-consistency.
+- [[self-consistency-voting-from-scratch]] - self-consistency: majority voting over sampled reasoning paths, built by hand.
 
 ## References
 - Wei et al., Chain-of-Thought: https://arxiv.org/abs/2201.11903
