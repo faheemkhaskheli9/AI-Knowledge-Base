@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knowledge Base</title>
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<header>
+  <button id="menu" title="Toggle sidebar" aria-label="Toggle sidebar">☰</button>
+  <strong id="title">Knowledge Base</strong>
+  <input id="search" type="search" placeholder="Search all files (Enter)…" aria-label="Search">
+  <span id="actions"></span>
+  <button id="new">+ New</button>
+</header>
+<div id="layout">
+  <nav id="side"><input id="filter" type="search" placeholder="Filter files…" aria-label="Filter files"><div id="tree"></div></nav>
+  <main>
+    <div id="bar" hidden>
+      <span id="crumb"></span>
+      <span id="status"></span>
+      <button id="toggle">Edit</button>
+      <button id="save" hidden>Save</button>
+    </div>
+    <article id="view"><p class="muted">Pick a file on the left, or search.</p></article>
+    <textarea id="editor" spellcheck="false" hidden aria-label="Editor"></textarea>
+  </main>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
