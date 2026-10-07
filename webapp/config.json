@@ -1,0 +1,1 @@
+{"title":"AI KB","port":8773,"extensions":[".md",".txt",".csv",".json",".yml",".yaml",".toml",".py",".sh"],"skip_dirs":["node_modules","__pycache__","venv",".venv"],"readonly":[],"actions":{"Rebuild INDEX.md":["python3","build_index.py"]}}
