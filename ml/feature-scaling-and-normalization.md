@@ -7,7 +7,7 @@ use_cases:
   - "fix a k-NN, SVM or neural net that performs badly on raw tabular features"
   - "speed up slow or non-converging gradient-based training on unscaled data"
   - "scale features with outliers or heavy tails without letting them dominate"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/preprocessing.html

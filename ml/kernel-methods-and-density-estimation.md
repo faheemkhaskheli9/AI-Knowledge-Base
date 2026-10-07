@@ -7,7 +7,7 @@ use_cases:
   - "scale an RBF-kernel model to hundreds of thousands of rows with a kernel approximation"
   - "estimate the probability density of a variable to flag rare values or sample synthetic ones"
   - "replace a histogram with a smooth density estimate for a report or anomaly threshold"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/kernel_ridge.html

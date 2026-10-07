@@ -6,7 +6,7 @@ use_cases:
   - "split documents into chunks for RAG without cutting sentences or facts in half"
   - "choose chunk size and overlap and check what they do to the chunks before indexing"
   - "understand what LangChain's RecursiveCharacterTextSplitter actually does with separators and overlap"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://github.com/langchain-ai/langchain/tree/master/libs/text-splitters

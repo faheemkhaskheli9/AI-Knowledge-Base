@@ -8,7 +8,7 @@ use_cases:
   - "analyse long legal, financial or clinical documents in one request"
   - "reduce cost of repeated long prompts with caching and compaction"
   - "extend an open model's context window with RoPE scaling"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://arxiv.org/abs/2307.03172

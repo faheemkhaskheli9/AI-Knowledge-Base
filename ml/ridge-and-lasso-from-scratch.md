@@ -6,7 +6,7 @@ use_cases:
   - "implement ridge regression and lasso from scratch"
   - "understand why L1 gives sparse weights and L2 does not"
   - "write coordinate descent with soft-thresholding and check it against scikit-learn"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/linear_model.html#ridge-regression-and-classification

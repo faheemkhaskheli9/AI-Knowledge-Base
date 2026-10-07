@@ -76,6 +76,7 @@ ticket -> agent (sandboxed checkout, read repo + instructions file)
   controls: no prod credentials, allowlisted commands, step/cost budget
 ```
 
+<!-- skip-check: illustrative pipeline fragment, needs your inputs -->
 ```python
 # Minimal agent loop skeleton: tool results (test output) drive iteration
 for step in range(MAX_STEPS):                     # bounded, never while True

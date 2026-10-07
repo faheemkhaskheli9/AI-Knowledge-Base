@@ -6,7 +6,7 @@ use_cases:
   - "improve LLM accuracy on math, logic or extraction questions by sampling several answers and voting"
   - "get a cheap confidence score for an LLM answer from agreement between samples"
   - "decide how many samples to draw and when to stop early to control cost"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://arxiv.org/abs/2203.11171

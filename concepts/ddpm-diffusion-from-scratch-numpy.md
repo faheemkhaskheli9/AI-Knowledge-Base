@@ -7,7 +7,7 @@ use_cases:
   - "train a noise-prediction network and sample new points from pure noise"
   - "check that a diffusion model covers all modes of a toy distribution"
   - "explain the forward process, the training loss and the sampling loop in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/2006.11239

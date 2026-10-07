@@ -7,7 +7,7 @@ use_cases:
   - "decide which parameters go to Muon and which stay on AdamW (embeddings, heads, biases, norms)"
   - "implement the Newton-Schulz orthogonalisation step and check how close it gets to U V^T"
   - "benchmark a new optimizer fairly against a tuned Adam baseline"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://kellerjordan.github.io/posts/muon/

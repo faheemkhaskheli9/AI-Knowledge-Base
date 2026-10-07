@@ -7,7 +7,7 @@ use_cases:
   - "understand single, complete, average and Ward linkage and when each works"
   - "build a dendrogram and choose the number of clusters from merge heights"
   - "cluster a few thousand items when a full hierarchy (taxonomy) is useful"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html

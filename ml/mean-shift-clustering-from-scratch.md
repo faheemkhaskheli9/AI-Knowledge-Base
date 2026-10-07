@@ -7,7 +7,7 @@ use_cases:
   - "cluster data without choosing the number of clusters in advance"
   - "see how the bandwidth controls the number of clusters and how outliers end up in tiny clusters"
   - "explain mean shift as gradient ascent on a kernel density estimate in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1109/34.1000236

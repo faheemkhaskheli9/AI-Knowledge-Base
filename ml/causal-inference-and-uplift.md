@@ -8,7 +8,7 @@ use_cases:
   - "measure an effect from observational data when an A/B test is not possible"
   - "find which customer segments respond most to a treatment"
   - "check that a churn or risk model is not mistaken for a model of what to do"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://www.pywhy.org/dowhy/

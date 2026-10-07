@@ -6,7 +6,7 @@ use_cases:
   - "implement a random forest from scratch for learning or an interview"
   - "understand why averaging many decision trees beats one tree"
   - "compute an out-of-bag score instead of holding out a validation set"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/ensemble.html#random-forests

@@ -7,7 +7,7 @@ use_cases:
   - "understand how PCA relates to the SVD and the covariance matrix"
   - "pick the number of components from explained variance"
   - "project, reconstruct and measure reconstruction error with PCA"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/decomposition.html#pca

@@ -7,7 +7,7 @@ use_cases:
   - "compare bandit policies by cumulative regret and how often they lock onto the best arm"
   - "see why pure greedy fails and why UCB1's exploration bonus can be too large in practice"
   - "explain exploration vs exploitation and bandits vs A/B tests in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1707.02038

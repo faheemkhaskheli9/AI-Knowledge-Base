@@ -4,9 +4,13 @@ Run after adding or editing a topic:  python build_index.py
 Stdlib only; parses the simple frontmatter shape used in _template.md.
 """
 import re
+from datetime import date, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).parent
+# Categories whose facts (model IDs, prices, versions) go out of date.
+VOLATILE = ("models", "setup", "deployment")
+STALE_DAYS = 90
 SKIP = {"README.md", "AGENTS.md", "CLAUDE.md", "INDEX.md", "ROADMAP.md", "_template.md"}
 
 
@@ -34,8 +38,19 @@ def frontmatter(text):
     return meta
 
 
-def build():
-    rows, bad, out_links = [], [], {}
+def stale(meta, rel, today):
+    """True for a volatile-category topic whose last_verified is missing, malformed or too old."""
+    if rel.split("/")[0] not in VOLATILE:
+        return False
+    try:
+        return date.fromisoformat(meta.get("last_verified", "")) < today - timedelta(days=STALE_DAYS)
+    except ValueError:
+        return True
+
+
+def build(today=None):
+    today = today or date.today()
+    rows, bad, out_links, old = [], [], {}, []
     for path in sorted(ROOT.rglob("*.md")):
         rel = path.relative_to(ROOT).as_posix()
         if path.name in SKIP or rel.startswith("."):
@@ -46,6 +61,8 @@ def build():
         if not meta or "title" not in meta:
             bad.append(rel)
             continue
+        if stale(meta, rel, today):
+            old.append(f"{rel} ({meta.get('last_verified', 'no date')})")
         uses = meta.get("use_cases", [])
         rows.append(
             f"| [{meta['title']}]({rel}) | {meta.get('category', rel.split('/')[0])} "
@@ -67,13 +84,15 @@ def build():
     broken = [f"{rel} -> [[{l}]]" for rel, ls in out_links.values() for l in ls if l not in out_links]
     linked = {l for stem, (_, ls) in out_links.items() for l in ls if l != stem}
     orphans = sorted(rel for stem, (rel, _) in out_links.items() if stem not in linked)
-    return rows, bad, broken, orphans
+    return rows, bad, broken, orphans, old
 
 
 if __name__ == "__main__":
-    rows, bad, broken, orphans = build()
+    rows, bad, broken, orphans, old = build()
     print(f"indexed {len(rows)} topics")
     if orphans:
         print(f"warning: {len(orphans)} topic(s) no other topic links to: {orphans}")
+    if old:
+        print(f"warning: {len(old)} topic(s) in {'/'.join(VOLATILE)} not verified in {STALE_DAYS} days, re-check their sources: {old}")
     if bad or broken:
         raise SystemExit(f"missing/invalid frontmatter: {bad}\nbroken [[links]]: {broken}")

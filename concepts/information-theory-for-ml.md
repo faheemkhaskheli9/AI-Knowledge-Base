@@ -8,7 +8,7 @@ use_cases:
   - "know what the KL term in a VAE, distillation or RLHF objective is doing"
   - "measure non-linear dependence between a feature and a target with mutual information"
   - "pick the direction of KL (forward vs reverse) for a fitting or distillation objective"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.entropy.html

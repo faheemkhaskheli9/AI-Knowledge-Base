@@ -7,7 +7,7 @@ use_cases:
   - "see how the generator's gradient flows through the discriminator"
   - "understand why the non-saturating generator loss is used in practice"
   - "explain GAN training instability and mode collapse in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1406.2661

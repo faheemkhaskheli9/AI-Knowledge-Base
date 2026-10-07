@@ -7,7 +7,7 @@ use_cases:
   - "predict missing user-item ratings and rank unseen items for a user"
   - "see why regularization and rank decide whether MF beats a global-mean baseline"
   - "explain ALS vs SGD, biases and cold start in a recommender-systems interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://datajobs.com/data-science-repo/Recommender-Systems-%5BNetflix%5D.pdf

@@ -8,7 +8,7 @@ use_cases:
   - "monitor application metrics and alert on abnormal behaviour"
   - "find defective items from images of only good samples"
   - "detect data drift or corrupted records in an ML pipeline"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://scikit-learn.org/stable/modules/outlier_detection.html

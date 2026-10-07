@@ -7,7 +7,7 @@ use_cases:
   - "see why adding raw scores from different retrievers fails and rank-based fusion does not"
   - "pick between RRF and normalized score fusion for hybrid search"
   - "explain hybrid search and RRF in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1145/1571941.1572114

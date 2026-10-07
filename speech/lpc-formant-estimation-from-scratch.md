@@ -6,7 +6,7 @@ use_cases:
   - "estimate vowel formants (F1, F2, F3) from a recording for phonetics, speech therapy or accent analysis"
   - "understand linear prediction, the spectral envelope model behind classic speech codecs and vocoders"
   - "choose the LPC order and pre-emphasis, and know when formant tracks are not to be trusted (high pitch, noise)"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://doi.org/10.1109/PROC.1975.9792

@@ -7,7 +7,7 @@ use_cases:
   - "track position and velocity from noisy position-only measurements"
   - "check whether a filter's uncertainty is honest (consistency) and tune Q and R"
   - "explain the Kalman gain, predict/update steps and filter vs smoother in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf

@@ -7,7 +7,7 @@ use_cases:
   - "understand where the log-loss gradient (p - y) * x comes from"
   - "check a hand-written gradient against finite differences"
   - "match a from-scratch model to scikit-learn's LogisticRegression and its C parameter"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression

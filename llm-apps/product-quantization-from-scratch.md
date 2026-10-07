@@ -7,7 +7,7 @@ use_cases:
   - "understand what IVF-PQ / PQ settings in FAISS, Milvus or a vector DB actually do"
   - "pick the number of PQ subquantizers (m) for a recall / memory budget"
   - "explain product quantization and asymmetric distance computation in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1109/TPAMI.2010.57

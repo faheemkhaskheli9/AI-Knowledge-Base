@@ -7,7 +7,7 @@ use_cases:
   - "decide between SMOTE, random oversampling, class weights and threshold tuning"
   - "understand how SMOTE generates synthetic minority samples"
   - "explain why resampling must happen inside cross-validation folds"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1106.1813

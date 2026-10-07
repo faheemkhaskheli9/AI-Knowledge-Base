@@ -7,7 +7,7 @@ use_cases:
   - "implement and train a small MLP without PyTorch or TensorFlow for teaching or an interview"
   - "derive the backward pass of softmax plus cross-entropy and ReLU by hand"
   - "verify hand-written gradients with a numerical gradient check"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://cs231n.github.io/neural-networks-case-study/

@@ -7,7 +7,7 @@ use_cases:
   - "understand why an LLM's good paraphrase gets a low BLEU or ROUGE score"
   - "choose between corpus BLEU, sentence BLEU, ROUGE-1/2/L and a learned or LLM-judge metric"
   - "report BLEU numbers that are comparable with published ones"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://aclanthology.org/P02-1040/

@@ -6,7 +6,7 @@ use_cases:
   - "speed audio up or slow it down without changing the pitch"
   - "add speed/pitch perturbation augmentation to a speech or audio training set"
   - "understand why naive frame dropping makes audio sound phasey or robotic"
-status: draft
+status: stable
 last_verified: 2026-10-06
 sources:
   - https://doi.org/10.1002/j.1538-7305.1966.tb01706.x

@@ -4,7 +4,7 @@ category: <folder name: concepts | models | llm-apps | ml | cv | speech | setup 
 tags: [keyword, keyword, library-name]
 use_cases:
   - <phrased like a project request, e.g. "fine-tune a 7B model on a single 24GB GPU">
-status: draft            # draft | stable | needs-review
+status: draft            # draft | stable | needs-review (see AGENTS.md)
 last_verified: YYYY-MM-DD
 sources:
   - <official doc / paper URL>

@@ -7,7 +7,7 @@ use_cases:
   - "pick the group size, KL coefficient and learning rate for RL with verifiable rewards"
   - "debug a GRPO run whose reward stops moving because every group is all-right or all-wrong"
   - "explain how GRPO replaces PPO's value network with a per-prompt group baseline"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/2402.03300

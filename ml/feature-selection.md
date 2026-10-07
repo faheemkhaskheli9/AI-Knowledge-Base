@@ -8,7 +8,7 @@ use_cases:
   - "find which sensor readings or survey questions matter for predicting an outcome"
   - "remove redundant, constant or leaky columns before training"
   - "select features without leaking the test set into the choice"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/feature_selection.html

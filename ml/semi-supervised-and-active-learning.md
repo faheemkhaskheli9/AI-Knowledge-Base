@@ -7,7 +7,7 @@ use_cases:
   - "choose which examples to send to annotators to get the most accuracy per label"
   - "use a large pool of unlabelled data to improve a small labelled set"
   - "cut labelling cost for document review or image annotation"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://scikit-learn.org/stable/modules/semi_supervised.html

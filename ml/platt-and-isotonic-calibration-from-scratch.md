@@ -7,7 +7,7 @@ use_cases:
   - "fix an overconfident classifier's probabilities and measure ECE, Brier score and log loss"
   - "match scikit-learn's IsotonicRegression exactly"
   - "choose between Platt scaling, isotonic regression and temperature scaling"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/calibration.html

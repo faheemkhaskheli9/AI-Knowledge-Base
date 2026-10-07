@@ -7,7 +7,7 @@ use_cases:
   - "extract interpretable topics from a document-term matrix without LDA"
   - "see why NMF components are interpretable and PCA components are not"
   - "explain NMF and Lee-Seung multiplicative updates in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1038/44565

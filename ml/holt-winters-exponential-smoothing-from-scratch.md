@@ -7,7 +7,7 @@ use_cases:
   - "see what each smoothing parameter (alpha, beta, gamma) controls"
   - "compare simple exponential smoothing, Holt and Holt-Winters against a seasonal-naive baseline"
   - "explain exponential smoothing / ETS in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://otexts.com/fpp3/holt-winters.html

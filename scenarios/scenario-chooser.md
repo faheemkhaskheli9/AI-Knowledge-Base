@@ -7,7 +7,7 @@ use_cases:
   - "decide between prompting, RAG and fine-tuning for my project"
   - "decide between a hosted API and a local open-weights model"
   - "map a task type (extraction, classification, forecasting, vision, speech) to the right files"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://docs.anthropic.com/en/docs/build-with-claude/overview

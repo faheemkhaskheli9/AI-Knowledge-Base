@@ -7,7 +7,7 @@ use_cases:
   - "compute a differentiable Wasserstein-style loss or soft matching inside a model"
   - "choose the entropic regularisation epsilon and avoid NaNs from Sinkhorn at small epsilon"
   - "turn a cost matrix into a balanced soft assignment (clusters, tokens to experts, prototypes)"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://arxiv.org/abs/1306.0895

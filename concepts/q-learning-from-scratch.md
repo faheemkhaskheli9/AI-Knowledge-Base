@@ -7,7 +7,7 @@ use_cases:
   - "check a learned Q-table against the exact optimum from value iteration"
   - "see the on-policy vs off-policy difference on the cliff-walking gridworld"
   - "explain the Bellman equation, TD targets and exploration in a reinforcement-learning interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - http://incompleteideas.net/book/the-book-2nd.html

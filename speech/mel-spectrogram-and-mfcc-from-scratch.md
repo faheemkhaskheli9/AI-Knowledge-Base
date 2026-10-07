@@ -7,7 +7,7 @@ use_cases:
   - "choose between log-mel spectrograms and MFCCs as model input"
   - "understand what Whisper-style models see instead of the waveform"
   - "debug audio features that differ between training and on-device inference"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://librosa.org/doc/latest/generated/librosa.feature.mfcc.html

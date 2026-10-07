@@ -7,7 +7,7 @@ use_cases:
   - "see why greedy decoding is not the most likely sequence and what beam search fixes"
   - "understand what temperature, top_k and top_p actually do to the next-token distribution"
   - "explain decoding parameters and their trade-offs in an LLM interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1904.09751

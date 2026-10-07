@@ -7,7 +7,7 @@ use_cases:
   - "see why dropping censored rows or treating them as events biases survival estimates"
   - "compare two groups' time-to-event curves with a log-rank test"
   - "explain censoring and the Kaplan-Meier estimator in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1080/01621459.1958.10501452

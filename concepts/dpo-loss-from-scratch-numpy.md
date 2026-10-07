@@ -7,7 +7,7 @@ use_cases:
   - "choose beta for DPO and predict how far the policy drifts from the SFT model"
   - "explain why DPO needs no reward model and no sampling during training"
   - "debug a DPO run where the chosen responses' log-probabilities go down"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/2305.18290

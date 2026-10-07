@@ -7,7 +7,7 @@ use_cases:
   - "turn a model into readable if-then rules a business team can check"
   - "classify loan applications or customer churn with mixed numeric and categorical inputs"
   - "get a quick out-of-bag accuracy estimate without a separate validation set"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://scikit-learn.org/stable/modules/tree.html

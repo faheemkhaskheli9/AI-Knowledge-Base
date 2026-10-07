@@ -7,7 +7,7 @@ use_cases:
   - "cluster data with non-convex shapes where k-means fails"
   - "find clusters without choosing the number of clusters, and flag outliers as noise"
   - "pick eps for DBSCAN from a k-distance plot"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/clustering.html#dbscan

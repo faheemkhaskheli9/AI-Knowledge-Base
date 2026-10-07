@@ -7,7 +7,7 @@ use_cases:
   - "choose the reprojection threshold and confidence for cv2.findHomography with RANSAC"
   - "work out how many RANSAC iterations a given outlier rate needs"
   - "understand why least squares on all matches fails and RANSAC does not"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://doi.org/10.1145/358669.358692

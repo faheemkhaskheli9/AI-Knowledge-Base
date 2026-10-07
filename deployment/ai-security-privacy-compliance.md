@@ -7,7 +7,7 @@ use_cases:
   - "decide whether my AI feature falls under the EU AI Act and what to do about it"
   - "keep API keys and model credentials out of git and logs"
   - "set data retention and vendor terms for an AI feature in healthcare or finance"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://artificialintelligenceact.eu/implementation-timeline/

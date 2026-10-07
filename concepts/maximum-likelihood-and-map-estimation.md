@@ -8,7 +8,7 @@ use_cases:
   - "write a custom loss for a model that predicts a distribution"
   - "explain L2/L1 regularization as a prior on the weights"
   - "estimate a rate from very few observations without getting 0% or 100%"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.fit.html

@@ -7,7 +7,7 @@ use_cases:
   - "see why a rank-r adapter with 6% of the parameters can beat full fine-tuning on little data"
   - "pick a LoRA rank and alpha and understand the B = 0 initialisation"
   - "explain LoRA, adapter merging and why it adds no inference latency in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/2106.09685

@@ -7,7 +7,7 @@ use_cases:
   - "compress hundreds of correlated features before clustering or a linear model"
   - "shrink embedding vectors to cut vector-database storage and search cost"
   - "check whether classes are separable before building a classifier"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://scikit-learn.org/stable/modules/decomposition.html

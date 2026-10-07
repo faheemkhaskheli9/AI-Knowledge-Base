@@ -8,7 +8,7 @@ use_cases:
   - "segment a sequence into states that persist over time instead of classifying each point alone"
   - "fuse two sensors with different noise levels into one estimate"
   - "track objects between detector frames in video"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://www.cs.ubc.ca/~murphyk/Bayes/rabiner.pdf

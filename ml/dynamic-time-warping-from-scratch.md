@@ -7,7 +7,7 @@ use_cases:
   - "classify sensor, gesture or ECG sequences with a nearest-neighbour baseline"
   - "align two recordings of the same event point by point"
   - "explain DTW and the Sakoe-Chiba band in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1109/TASSP.1978.1163055

@@ -6,7 +6,7 @@ use_cases:
   - "understand what ALiBi adds to attention scores and why it needs no position embeddings"
   - "see why a model with ALiBi keeps its attention focused when run on longer inputs than it was trained on"
   - "compute ALiBi slopes for any head count (including non-powers of 2) when porting a model such as BLOOM or MPT"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://arxiv.org/abs/2108.12409

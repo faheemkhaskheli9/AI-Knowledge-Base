@@ -7,7 +7,7 @@ use_cases:
   - "understand how structured outputs, JSON mode, GBNF grammars and Outlines work under the hood"
   - "debug a constrained generation that stops early, loops, or produces odd values"
   - "decide between prompting plus validation, provider structured outputs and local grammar decoding"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://arxiv.org/abs/2307.09702

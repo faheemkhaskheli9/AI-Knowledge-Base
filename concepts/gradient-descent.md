@@ -7,7 +7,7 @@ use_cases:
   - "choose between full-batch, mini-batch and stochastic gradient descent"
   - "fix a model whose loss diverges or crawls because of the learning rate or unscaled features"
   - "implement linear or logistic regression from scratch for teaching or an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://www.deeplearningbook.org/contents/numerical.html

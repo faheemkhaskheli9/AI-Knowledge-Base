@@ -29,7 +29,20 @@ Quick search without reading the index: `grep -ril "<keyword>" --include=*.md .`
    its overview topic), or agents following links never reach it.
 5. Run `python build_index.py` (stdlib only). It regenerates `INDEX.md`, fails
    on missing frontmatter or a broken `[[link]]`, and warns on orphan topics.
-6. Use LF line endings and UTF-8.
+6. Run `python check_code.py <your file>`. It runs the file's python blocks (needs
+   numpy etc. installed). Mark a deliberate fragment with `<!-- skip-check: reason -->`
+   above its fence; give a slow benchmark `<!-- check-timeout: 900 -->`.
+7. Use LF line endings and UTF-8.
+
+### Status
+- `draft`: new, or its code has not been run by `check_code.py`.
+- `stable`: `check_code.py` ran its code clean and it cites sources (`python check_code.py --promote`
+  sets this). It means the code runs, not that the facts are current: check `last_verified`.
+- `needs-review`: was `stable` and its code now fails, or its facts need re-checking.
+Topics whose code needs torch, API keys or downloads stay `draft` until run in a full environment.
+
+`python build_index.py` also warns about `models/`, `setup/` and `deployment/` topics not
+verified in 90 days.
 
 Planned improvements live in `ROADMAP.md`.
 

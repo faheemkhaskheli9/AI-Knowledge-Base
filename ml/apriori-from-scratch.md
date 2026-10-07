@@ -7,7 +7,7 @@ use_cases:
   - "find which products are bought together in transaction data (market basket analysis)"
   - "understand why the Apriori property makes frequent-itemset mining tractable"
   - "explain support, confidence and lift, and why confidence alone misleads, in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://www.vldb.org/conf/1994/P487.PDF

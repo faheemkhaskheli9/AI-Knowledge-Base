@@ -8,7 +8,7 @@ use_cases:
   - "price insurance from claim frequency and severity with exposure"
   - "predict a target with many exact zeros plus a skewed positive tail (pure premium, spend)"
   - "get interpretable multiplicative effects (rate ratios) a regulator or actuary can read"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/linear_model.html#generalized-linear-models

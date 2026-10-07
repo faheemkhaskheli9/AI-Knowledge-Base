@@ -7,7 +7,7 @@ use_cases:
   - "balance CartPole with a neural-network Q-function without Gym or PyTorch"
   - "see what breaks when you remove the target network or the replay buffer"
   - "explain why naive Q-learning with a neural network diverges in a reinforcement-learning interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1038/nature14236
@@ -39,6 +39,7 @@ DQN is Q-learning with a neural network in place of the Q-table, so it works whe
 ## Setup & code
 NumPy only. The CartPole dynamics are implemented inline with the same equations and constants as Gymnasium's `CartPole-v1`, so no Gym install is needed. The full script takes about 3 minutes on a laptop CPU (9 training runs of 60k steps).
 
+<!-- check-timeout: 900 -->
 ```python
 import numpy as np
 

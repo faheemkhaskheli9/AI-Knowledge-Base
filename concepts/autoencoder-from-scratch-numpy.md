@@ -7,7 +7,7 @@ use_cases:
   - "show that a linear autoencoder learns the PCA subspace"
   - "compress data to a small code and use it as features"
   - "understand reconstruction error as the basis of autoencoder anomaly detection"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://www.science.org/doi/10.1126/science.1127647

@@ -7,7 +7,7 @@ use_cases:
   - "understand why k-means needs good seeding and several restarts"
   - "write k-means++ initialisation and match scikit-learn's KMeans"
   - "pick k with the elbow of inertia and know its limits"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/clustering.html#k-means

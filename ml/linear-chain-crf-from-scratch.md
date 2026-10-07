@@ -7,7 +7,7 @@ use_cases:
   - "add a CRF layer on top of a BiLSTM or transformer token classifier"
   - "understand why per-token classifiers produce invalid BIO sequences"
   - "implement the forward algorithm, marginals and Viterbi decoding for a chain model"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://repository.upenn.edu/cis_papers/159/

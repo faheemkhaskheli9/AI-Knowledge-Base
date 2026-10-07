@@ -7,7 +7,7 @@ use_cases:
   - "see how MCTS strength grows with the simulation budget against a random and a perfect opponent"
   - "explain how UCT applies the UCB1 bandit rule at every tree node"
   - "explain how AlphaZero replaces random rollouts with a policy/value network"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1007/11871842_29

@@ -8,7 +8,7 @@ use_cases:
   - "find similar customers/products from mixed or binary features"
   - "flag outliers that are far from the data's correlation structure (Mahalanobis)"
   - "understand why kNN accuracy collapses on unscaled or high-dimensional data"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://docs.scipy.org/doc/scipy/reference/spatial.distance.html

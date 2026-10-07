@@ -7,7 +7,7 @@ use_cases:
   - "predict several related targets (churn, upsell, complaint) from one model"
   - "pick a decision threshold per label instead of 0.5 for all"
   - "share one encoder across tasks to save compute and help small tasks"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://scikit-learn.org/stable/modules/multiclass.html

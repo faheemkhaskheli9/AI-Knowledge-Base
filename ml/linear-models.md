@@ -7,7 +7,7 @@ use_cases:
   - "explain to a regulator or manager which inputs push a prediction up or down"
   - "predict house or product prices from a handful of numeric features"
   - "select a small set of useful features out of hundreds with Lasso"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://scikit-learn.org/stable/modules/linear_model.html

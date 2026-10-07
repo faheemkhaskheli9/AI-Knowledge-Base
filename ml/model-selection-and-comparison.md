@@ -7,7 +7,7 @@ use_cases:
   - "decide whether model A is really better than model B or it is noise"
   - "pick between several algorithms on a small dataset"
   - "compare two classifiers that were each evaluated on one fixed test set"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/auto_examples/model_selection/plot_nested_cross_validation_iris.html
@@ -80,6 +80,7 @@ print(f"LR {a.mean():.4f} vs RF {b.mean():.4f}  corrected p={p:.3f}  "
 Output (scikit-learn 1.9): non-nested 0.9789, nested 0.9754. LR 0.9766 vs RF 0.9637, corrected p = 0.093, naive p = 0.001. The naive test calls the gap highly significant. The corrected test says it could be noise.
 
 McNemar on a fixed test set, given predictions `pa`, `pb` and labels `yt`:
+<!-- skip-check: fragment, takes your predictions pa, pb and labels yt -->
 ```python
 from statsmodels.stats.contingency_tables import mcnemar
 table = [[np.sum((pa == yt) & (pb == yt)), np.sum((pa == yt) & (pb != yt))],

@@ -8,7 +8,7 @@ use_cases:
   - "difference a trending series (ARIMA d=1) and integrate the forecast back"
   - "compare ARIMA with naive and drift baselines using rolling-origin evaluation"
   - "explain stationarity, differencing and AR/MA terms in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://otexts.com/fpp3/arima.html

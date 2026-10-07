@@ -6,7 +6,7 @@ use_cases:
   - "understand what cv2.Canny's two thresholds and the blur before it actually do"
   - "pick the smoothing sigma and low/high thresholds for edge detection on noisy images"
   - "build a classical edge pre-processing step for Hough lines, document boundary detection or contour measurement"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://doi.org/10.1109/TPAMI.1986.4767851

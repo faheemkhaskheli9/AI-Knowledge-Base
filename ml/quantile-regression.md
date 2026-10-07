@@ -8,7 +8,7 @@ use_cases:
   - "estimate worst-case delivery time or latency (P95)"
   - "model a target whose spread grows with the input (heteroscedastic noise)"
   - "replace mean regression when the cost of under- and over-predicting differs"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/linear_model.html#quantile-regression

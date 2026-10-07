@@ -7,7 +7,7 @@ use_cases:
   - "show that a RoPE attention score depends only on the relative offset between tokens"
   - "understand the base / theta frequency and why context-extension tricks (PI, NTK, YaRN) change it"
   - "explain RoPE vs sinusoidal vs learned vs ALiBi positions in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/2104.09864

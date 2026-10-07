@@ -7,7 +7,7 @@ use_cases:
   - "check empirically that speculative decoding samples exactly from the target model"
   - "see how acceptance rate and draft length k set the tokens generated per target forward pass"
   - "explain speculative decoding, draft models, Medusa/EAGLE and their limits in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/2211.17192
