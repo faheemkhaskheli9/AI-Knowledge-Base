@@ -7,7 +7,7 @@ use_cases:
   - "choose between per-tensor and per-channel scales, or symmetric and zero-point quantization"
   - "understand why activation outliers break naive int8 LLM inference and how LLM.int8() handles them"
   - "explain quantization error and int32 accumulation in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1712.05877

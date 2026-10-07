@@ -7,7 +7,7 @@ use_cases:
   - "group similar support tickets, documents or embeddings into topics"
   - "find natural groups of stores, products or sensors with similar behaviour"
   - "pick the number of clusters and check whether the clusters are real"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://scikit-learn.org/stable/modules/clustering.html

@@ -6,7 +6,7 @@ use_cases:
   - "implement multiclass logistic regression (softmax regression) from scratch"
   - "derive and check the gradient of softmax cross-entropy"
   - "make softmax numerically stable and understand why it overflows"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression

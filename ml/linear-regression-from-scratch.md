@@ -7,7 +7,7 @@ use_cases:
   - "derive and solve the normal equation without inverting X^T X"
   - "write ridge regression in closed form and match scikit-learn's alpha"
   - "fit linear regression with gradient descent and map the weights back to unscaled features"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares

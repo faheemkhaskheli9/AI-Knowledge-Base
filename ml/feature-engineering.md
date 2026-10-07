@@ -8,7 +8,7 @@ use_cases:
   - "create date, aggregate and ratio features that improve a churn or fraud model"
   - "encode a high-cardinality column like city, product ID or merchant"
   - "make sure training and serving compute features the same way"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://scikit-learn.org/stable/modules/preprocessing.html

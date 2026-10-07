@@ -7,7 +7,7 @@ use_cases:
   - "decide whether to reduce or select features before a distance-based model"
   - "explain why a model with thousands of features and few rows overfits"
   - "pick a model that copes with wide data (genomics, text, sensor arrays)"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/neighbors.html

@@ -7,7 +7,7 @@ use_cases:
   - "combine a gradient-boosting model and a linear model for a more stable prediction"
   - "reduce the variance of an unstable model such as a deep decision tree"
   - "decide whether a stacked ensemble is worth its serving and maintenance cost"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://scikit-learn.org/stable/modules/ensemble.html

@@ -7,7 +7,7 @@ use_cases:
   - "tell whether a model is underfitting or overfitting and what to change"
   - "explain why a very flexible model does worse on new data than a simpler one"
   - "pick model complexity (tree depth, polynomial degree, regularization) from a plot"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/learning_curve.html

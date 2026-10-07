@@ -8,7 +8,7 @@ use_cases:
   - "fix a random forest, SVM or boosted model whose probabilities are too extreme or too timid"
   - "compare models on probability quality, not just ranking (AUC)"
   - "keep probabilities honest after resampling or class weighting for imbalanced data"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/calibration.html

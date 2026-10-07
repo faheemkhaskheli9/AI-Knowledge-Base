@@ -7,7 +7,7 @@ use_cases:
   - "learn an embedding from unlabelled data with positive pairs, then evaluate it with k-NN"
   - "understand how augmentations define what a contrastive model learns to ignore"
   - "explain temperature, in-batch negatives and the log N bound in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1807.03748

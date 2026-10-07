@@ -7,7 +7,7 @@ use_cases:
   - "trade recall against latency for semantic search or RAG retrieval"
   - "explain why HNSW recall drops on clustered embeddings and how the neighbour heuristic fixes it"
   - "measure recall@k of an ANN index against brute-force search on my own data"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1603.09320

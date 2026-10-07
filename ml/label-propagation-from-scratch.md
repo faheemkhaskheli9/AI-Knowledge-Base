@@ -7,7 +7,7 @@ use_cases:
   - "classify a dataset where only a handful of points are labelled but the clusters follow a manifold"
   - "compare graph-based semi-supervised learning with a classifier trained on the labelled points only"
   - "explain the cluster/manifold assumption, alpha and the normalised graph Laplacian in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://papers.nips.cc/paper/2003/hash/87682805257e619d49b8e0dfdc14affa-Abstract.html

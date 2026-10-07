@@ -7,7 +7,7 @@ use_cases:
   - "get predictions with honest error bars that widen away from the data"
   - "choose kernel hyperparameters by maximising the log marginal likelihood"
   - "explain GP posterior mean/variance, kernels and O(n^3) cost in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://gaussianprocess.org/gpml/chapters/RW2.pdf

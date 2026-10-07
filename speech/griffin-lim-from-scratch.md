@@ -7,7 +7,7 @@ use_cases:
   - "listen to what a spectrogram-based model or augmentation actually produces"
   - "understand why TTS systems need a vocoder and what Griffin-Lim artefacts sound like"
   - "choose iterations and momentum for librosa.griffinlim or torchaudio GriffinLim"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1109/TASSP.1984.1164317

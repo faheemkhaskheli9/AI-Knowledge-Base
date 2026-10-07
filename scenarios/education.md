@@ -8,7 +8,7 @@ use_cases:
   - "generate quizzes and study material from course content"
   - "answer student questions over course documents"
   - "deploy AI for minors while respecting privacy law"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://studentprivacy.ed.gov/ferpa

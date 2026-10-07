@@ -8,7 +8,7 @@ use_cases:
   - "explain to stakeholders why a bigger model needs more data, not just more parameters"
   - "choose a model size for a cost-sensitive product given inference volume"
   - "plan data curation and deduplication for a corpus in a low-resource language"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://arxiv.org/abs/2001.08361

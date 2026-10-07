@@ -7,7 +7,7 @@ use_cases:
   - "compare a learned V(s) baseline (Monte Carlo advantage) with one-step TD actor-critic on CartPole"
   - "see the bias-variance trade-off between Monte Carlo returns and bootstrapped TD targets"
   - "explain advantage, TD error and why A2C/PPO use a critic in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - http://incompleteideas.net/book/the-book-2nd.html
@@ -38,6 +38,7 @@ An actor-critic agent has two parts. The actor is a policy `π_θ(a | s)`. The c
 ## Setup & code
 `pip install numpy`. Runs in about a minute on CPU (pure-Python step loop, 10 runs of 600 episodes).
 
+<!-- check-timeout: 900 -->
 ```python
 import numpy as np
 

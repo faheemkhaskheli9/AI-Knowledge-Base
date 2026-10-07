@@ -7,7 +7,7 @@ use_cases:
   - "project labelled data to K-1 dimensions that best separate the classes"
   - "explain the difference between LDA, PCA, QDA, naive Bayes and logistic regression"
   - "fix LDA when there are more features than samples (shrinkage)"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/lda_qda.html

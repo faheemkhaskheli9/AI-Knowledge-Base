@@ -7,7 +7,7 @@ use_cases:
   - "understand why autocorrelation pitch trackers make octave errors and how YIN avoids them"
   - "choose fmin, fmax, frame length and threshold for librosa.yin or librosa.pyin"
   - "detect voiced vs unvoiced frames for prosody, intonation or singing-practice features"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://doi.org/10.1121/1.1458024

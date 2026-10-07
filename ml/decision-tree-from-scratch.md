@@ -7,7 +7,7 @@ use_cases:
   - "understand how a tree chooses a feature and threshold with Gini impurity"
   - "see why max_depth and min_samples control overfitting in trees"
   - "match a from-scratch tree's splits to scikit-learn's DecisionTreeClassifier"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/tree.html

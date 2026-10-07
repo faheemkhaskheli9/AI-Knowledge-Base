@@ -7,7 +7,7 @@ use_cases:
   - "see why an MoE has many more parameters than it uses per token, and what that buys"
   - "understand expert collapse and how the Switch-Transformer load-balancing loss prevents it"
   - "explain router gradients, gate renormalisation and the auxiliary loss in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1701.06538

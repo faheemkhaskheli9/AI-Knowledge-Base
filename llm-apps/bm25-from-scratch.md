@@ -7,7 +7,7 @@ use_cases:
   - "add a keyword retriever next to vector search for hybrid RAG"
   - "understand what the k1 and b parameters do and when to tune them"
   - "explain BM25 vs TF-IDF vs dense embeddings in a search or RAG interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1561/1500000019

@@ -7,7 +7,7 @@ use_cases:
   - "build an internal arena-style leaderboard with confidence intervals"
   - "understand why Chatbot Arena moved from online Elo to a Bradley-Terry fit"
   - "decide whether two models are really different or within noise on a pairwise eval"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://doi.org/10.2307/2334029

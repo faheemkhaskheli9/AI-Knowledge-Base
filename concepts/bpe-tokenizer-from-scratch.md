@@ -7,7 +7,7 @@ use_cases:
   - "understand why LLM tokenizers split text with a regex before merging"
   - "see why non-English text and emoji cost more tokens per character"
   - "explain how GPT-style tokenizers work and where their quirks come from in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://aclanthology.org/P16-1162/

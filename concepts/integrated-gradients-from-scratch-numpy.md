@@ -7,7 +7,7 @@ use_cases:
   - "get feature attributions that add up to the change in model output"
   - "understand why plain gradients fail on saturated networks"
   - "pick a baseline and step count for Captum's IntegratedGradients"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1703.01365

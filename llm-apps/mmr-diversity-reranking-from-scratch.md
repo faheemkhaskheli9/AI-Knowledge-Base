@@ -7,7 +7,7 @@ use_cases:
   - "return search or recommendation results that cover several aspects of a query"
   - "tune the lambda / fetch_k settings of a vector store's MMR search"
   - "explain the relevance vs diversity trade-off in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1145/290941.291025

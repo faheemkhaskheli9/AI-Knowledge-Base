@@ -6,7 +6,7 @@ use_cases:
   - "implement AdaBoost with decision stumps from scratch"
   - "understand how boosting re-weights misclassified samples"
   - "compare a hand-written AdaBoost to scikit-learn's AdaBoostClassifier"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/ensemble.html#adaboost

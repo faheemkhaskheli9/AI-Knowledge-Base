@@ -7,7 +7,7 @@ use_cases:
   - "see why soft targets carry more information than one-hot labels when labeled data is scarce"
   - "get the temperature and T² gradient scaling of the distillation loss right"
   - "explain knowledge distillation in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1503.02531

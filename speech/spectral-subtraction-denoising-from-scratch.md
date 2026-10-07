@@ -7,7 +7,7 @@ use_cases:
   - "clean audio before speech-to-text or a voice agent without a neural model or GPU"
   - "understand musical noise and how over-subtraction, spectral floors and Wiener gains reduce it"
   - "decide between classical spectral denoising and a learned speech enhancement model"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://doi.org/10.1109/TASSP.1979.1163209

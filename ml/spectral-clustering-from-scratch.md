@@ -7,7 +7,7 @@ use_cases:
   - "cluster non-convex shapes (rings, moons) where k-means fails"
   - "pick the number of clusters with the eigengap heuristic"
   - "explain the graph Laplacian, eigenvectors and the neighbour parameter in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/0711.0189

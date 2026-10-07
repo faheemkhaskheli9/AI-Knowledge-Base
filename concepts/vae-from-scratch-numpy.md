@@ -7,7 +7,7 @@ use_cases:
   - "understand the ELBO as reconstruction loss plus a KL penalty"
   - "generate new samples by decoding draws from the prior"
   - "diagnose inactive latent dimensions (posterior collapse)"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1312.6114

@@ -7,7 +7,7 @@ use_cases:
   - "choose between Gumbel-softmax and REINFORCE for a discrete latent variable or a sampled action"
   - "pick the temperature and hard/soft mode for torch.nn.functional.gumbel_softmax"
   - "sample from a categorical distribution with argmax over perturbed logits"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://arxiv.org/abs/1611.01144

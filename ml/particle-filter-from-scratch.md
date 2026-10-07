@@ -7,7 +7,7 @@ use_cases:
   - "track a hidden state through nonlinear dynamics and a nonlinear measurement where a Kalman filter fails"
   - "see weight degeneracy, effective sample size and why resampling is needed"
   - "explain particle filters vs EKF/UKF and sequential importance resampling in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1049/ip-f-2.1993.0015

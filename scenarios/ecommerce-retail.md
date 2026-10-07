@@ -8,7 +8,7 @@ use_cases:
   - "generate or enrich product descriptions and catalog attributes"
   - "forecast demand and optimise inventory"
   - "detect fake reviews, fraud or returns abuse"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://scikit-learn.org/stable/

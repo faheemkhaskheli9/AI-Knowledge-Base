@@ -7,7 +7,7 @@ use_cases:
   - "decide which annotations to send back for review"
   - "train a usable model on crowdsourced or weakly labeled data"
   - "audit a dataset for duplicates, outliers and label errors"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://arxiv.org/abs/1911.00068
