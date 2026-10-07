@@ -8,7 +8,7 @@ use_cases:
   - "know why training diverges at a given learning rate"
   - "read an ML paper or library doc without getting lost in the notation"
   - "avoid NaNs and overflow in softmax, log-likelihoods and probabilities"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://mml-book.github.io/

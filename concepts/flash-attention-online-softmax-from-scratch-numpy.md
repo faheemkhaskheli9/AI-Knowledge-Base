@@ -7,7 +7,7 @@ use_cases:
   - "compute a numerically safe softmax in one streaming pass"
   - "explain why attention memory is O(N) with FlashAttention and O(N^2) without it"
   - "answer 'how does FlashAttention work' in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/2205.14135

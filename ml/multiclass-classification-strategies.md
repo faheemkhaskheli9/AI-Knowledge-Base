@@ -7,7 +7,7 @@ use_cases:
   - "turn a binary-only model such as an SVM into a multiclass one"
   - "choose metrics for a 10- or 1000-class problem"
   - "handle hundreds of classes or a label set that keeps growing"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/multiclass.html

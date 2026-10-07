@@ -7,7 +7,7 @@ use_cases:
   - "decode hidden regimes (fair/loaded, bull/bear, speech/silence) from an observed sequence"
   - "understand why HMM probabilities need scaling or log space on long sequences"
   - "explain Viterbi vs posterior decoding and EM local optima in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1109/5.18626

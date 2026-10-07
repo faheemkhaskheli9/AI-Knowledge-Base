@@ -7,7 +7,7 @@ use_cases:
   - "see why PPO clips the probability ratio: what goes wrong when you reuse a batch for many epochs without it"
   - "explain the PPO objective, the ratio, GAE lambda and the KL / clip-fraction diagnostics in an interview"
   - "understand the RL step behind RLHF before reading an LLM PPO implementation"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1707.06347
@@ -38,6 +38,7 @@ Proximal Policy Optimization (Schulman et al., 2017) is the actor-critic method 
 ## Setup & code
 `pip install numpy`. About 1.5 minutes on CPU (30 runs of 30 iterations × 2048 steps, pure-Python step loop).
 
+<!-- check-timeout: 900 -->
 ```python
 import numpy as np
 

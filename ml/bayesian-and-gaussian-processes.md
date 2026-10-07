@@ -8,7 +8,7 @@ use_cases:
   - "pool estimates across many small groups (stores, clinics, products) with a hierarchical model"
   - "build a surrogate model for expensive experiments or simulations"
   - "decide what to measure next (active learning, Bayesian optimization)"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://scikit-learn.org/stable/modules/gaussian_process.html

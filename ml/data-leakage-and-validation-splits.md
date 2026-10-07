@@ -8,7 +8,7 @@ use_cases:
   - "validate a forecasting or churn model without using the future to predict the past"
   - "scale, impute or select features without leaking test data into training"
   - "tune hyperparameters and still report an honest test score"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/common_pitfalls.html

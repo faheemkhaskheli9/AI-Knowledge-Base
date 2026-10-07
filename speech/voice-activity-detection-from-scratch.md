@@ -7,7 +7,7 @@ use_cases:
   - "endpoint user turns in a voice agent (when has the user stopped talking)"
   - "trim silence from audio datasets or skip silent chunks to save transcription cost"
   - "understand why a simple energy VAD fails in noise and what a neural VAD buys"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://doi.org/10.1002/j.1538-7305.1975.tb02828.x

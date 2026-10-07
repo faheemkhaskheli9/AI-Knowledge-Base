@@ -7,7 +7,7 @@ use_cases:
   - "classify nodes in a graph when only a few nodes are labelled"
   - "understand the D^-1/2 (A + I) D^-1/2 normalisation and why self-loops are added"
   - "explain over-smoothing and why GCNs are shallow in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1609.02907

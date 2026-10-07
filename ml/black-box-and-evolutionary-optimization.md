@@ -8,7 +8,7 @@ use_cases:
   - "search a bumpy objective with many local minima"
   - "calibrate a physical or financial model to match observed data"
   - "optimize a non-differentiable metric or a policy without backpropagation"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://docs.scipy.org/doc/scipy/reference/optimize.html

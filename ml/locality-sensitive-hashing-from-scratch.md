@@ -7,7 +7,7 @@ use_cases:
   - "see the recall vs candidates-scanned trade-off controlled by bits per table (K) and number of tables (L)"
   - "understand how vector databases avoid scanning every embedding before reaching for HNSW or IVF"
   - "explain the LSH collision probability and the K/L amplification trick in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://www.cs.princeton.edu/courses/archive/spr04/cos598B/bib/CharikarEstim.pdf

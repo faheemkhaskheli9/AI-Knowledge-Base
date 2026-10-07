@@ -7,7 +7,7 @@ use_cases:
   - "tune the regularisation strength and noise level from the training data alone, without a validation split"
   - "pick a model (polynomial degree, basis) by marginal likelihood instead of cross-validation"
   - "explain how ridge regression, MAP estimation and the Bayesian posterior relate in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/

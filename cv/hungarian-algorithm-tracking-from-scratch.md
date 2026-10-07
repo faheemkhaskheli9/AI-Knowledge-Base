@@ -7,7 +7,7 @@ use_cases:
   - "solve a min-cost one-to-one assignment (workers to jobs, predictions to ground truth)"
   - "understand the bipartite matching step in DETR / set-prediction losses"
   - "see why greedy matching swaps IDs and when it is good enough"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1002/nav.3800020109

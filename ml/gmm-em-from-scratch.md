@@ -7,7 +7,7 @@ use_cases:
   - "write a numerically stable E-step with log-sum-exp and Cholesky"
   - "check a hand-written GMM against sklearn GaussianMixture"
   - "compute BIC by hand to choose the number of components"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/mixture.html

@@ -7,7 +7,7 @@ use_cases:
   - "alert on gradual drift that a fixed 3-sigma threshold misses"
   - "trade detection delay against false-alarm rate with two parameters"
   - "explain CUSUM in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1093/biomet/41.1-2.100

@@ -81,6 +81,7 @@ contract PDF -> parse (keep page + char offsets) -> clause segmentation
   -> reviewer UI: highlights, accept/override -> report + audit log
 ```
 
+<!-- skip-check: illustrative pipeline fragment, needs your inputs -->
 ```python
 def verified(item, source_text):
     # reject any extraction whose quoted evidence is not in the document

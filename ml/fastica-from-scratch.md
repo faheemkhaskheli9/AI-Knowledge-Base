@@ -7,7 +7,7 @@ use_cases:
   - "solve the cocktail-party problem: recover sources from several microphone mixtures"
   - "see why PCA decorrelates but does not separate sources, and why Gaussian sources cannot be separated"
   - "explain whitening, non-Gaussianity and ICA ambiguities in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1016/S0893-6080(00)00026-5

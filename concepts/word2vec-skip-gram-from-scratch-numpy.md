@@ -7,7 +7,7 @@ use_cases:
   - "understand how an embedding table is learned from co-occurrence alone"
   - "derive the negative-sampling gradients and the sparse embedding update"
   - "see why the unigram^0.75 noise distribution and small batches matter"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1301.3781

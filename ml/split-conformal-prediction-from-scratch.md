@@ -7,7 +7,7 @@ use_cases:
   - "see why the (n+1) finite-sample quantile correction matters for small calibration sets"
   - "make conformal intervals adapt to heteroscedastic noise with a normalized score"
   - "explain marginal vs conditional coverage of conformal prediction in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/2107.07511

@@ -7,7 +7,7 @@ use_cases:
   - "verify hand-written RNN gradients with a numerical gradient check"
   - "understand truncated BPTT, hidden-state carry-over and gradient clipping"
   - "train a tiny character-level language model in pure NumPy"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://karpathy.github.io/2015/05/21/rnn-effectiveness/

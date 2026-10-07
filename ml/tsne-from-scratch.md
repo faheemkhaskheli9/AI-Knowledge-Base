@@ -7,7 +7,7 @@ use_cases:
   - "understand what perplexity controls and how sigma is found per point"
   - "visualise high-dimensional embeddings or features in 2-D"
   - "explain why t-SNE cluster sizes and gaps should not be read literally"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://www.jmlr.org/papers/v9/vandermaaten08a.html

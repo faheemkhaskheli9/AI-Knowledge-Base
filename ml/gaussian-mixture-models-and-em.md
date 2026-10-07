@@ -8,7 +8,7 @@ use_cases:
   - "choose the number of clusters with BIC instead of guessing k"
   - "fit a model with hidden (latent) variables or missing labels using EM"
   - "find elliptical clusters of different sizes where k-means fails"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/mixture.html

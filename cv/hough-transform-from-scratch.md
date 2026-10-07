@@ -7,7 +7,7 @@ use_cases:
   - "fit several lines at once to points with many outliers and gaps"
   - "choose rho/theta resolution and threshold for cv2.HoughLines or cv2.HoughLinesP"
   - "understand why least squares fails on cluttered points and voting does not"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://doi.org/10.1145/361237.361242

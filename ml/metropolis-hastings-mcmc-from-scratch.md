@@ -7,7 +7,7 @@ use_cases:
   - "tune the proposal step size and see how it changes acceptance rate and effective sample size"
   - "check MCMC convergence with multiple chains, burn-in and the Gelman-Rubin R-hat"
   - "explain the acceptance ratio, detailed balance and why MCMC samples are correlated in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1063/1.1699114

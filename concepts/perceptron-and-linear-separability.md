@@ -7,7 +7,7 @@ use_cases:
   - "implement the perceptron learning rule from scratch for teaching or an interview"
   - "decide whether a linear model is enough or the problem needs a hidden layer"
   - "show why XOR breaks a linear classifier and how an MLP fixes it"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/linear_model.html#perceptron

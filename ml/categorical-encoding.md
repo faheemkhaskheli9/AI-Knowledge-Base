@@ -7,7 +7,7 @@ use_cases:
   - "handle a categorical column with thousands of levels without blowing up memory"
   - "use target encoding without leaking the label into the features"
   - "deal with categories at prediction time that never appeared in training"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/preprocessing.html#encoding-categorical-features

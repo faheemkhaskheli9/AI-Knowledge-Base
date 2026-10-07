@@ -8,7 +8,7 @@ use_cases:
   - "compare two models fairly with cross-validation instead of one lucky split"
   - "report regression error in business units (e.g. rupees or units of stock)"
   - "check whether predicted probabilities can be trusted as real probabilities"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://scikit-learn.org/stable/modules/model_evaluation.html

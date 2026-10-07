@@ -7,7 +7,7 @@ use_cases:
   - "choose window size and pyramid levels for cv2.calcOpticalFlowPyrLK"
   - "understand why points on edges or flat regions track badly and how to pick good ones"
   - "estimate how fast objects move in a fixed camera feed without a deep model"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://www.ri.cmu.edu/pub_files/pub3/lucas_bruce_d_1981_2/lucas_bruce_d_1981_2.pdf

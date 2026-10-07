@@ -7,7 +7,7 @@ use_cases:
   - "choose the NMS IoU threshold for crowded vs sparse scenes"
   - "compute mAP@0.5 / AP75 for a detector on my own labelled data"
   - "understand why a detector's mAP changes with post-processing settings"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://pytorch.org/vision/stable/generated/torchvision.ops.nms.html

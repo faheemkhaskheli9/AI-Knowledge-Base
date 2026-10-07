@@ -8,7 +8,7 @@ use_cases:
   - "put a confidence interval on a model metric or business KPI"
   - "compare two models' offline scores and know if the gap is real"
   - "analyse a skewed metric like revenue per user"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://docs.scipy.org/doc/scipy/reference/stats.html

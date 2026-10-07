@@ -7,7 +7,7 @@ use_cases:
   - "compute pairwise distances fast in NumPy without Python loops"
   - "see why feature scaling and the choice of k matter for k-NN"
   - "match scikit-learn's KNeighborsClassifier with a few lines of NumPy"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/neighbors.html

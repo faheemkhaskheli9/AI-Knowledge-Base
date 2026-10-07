@@ -7,7 +7,7 @@ use_cases:
   - "understand what ROC-AUC actually measures and why it ignores the threshold"
   - "write a stratified k-fold splitter and report a metric as mean plus spread"
   - "check hand-written metrics against scikit-learn on every fold"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/model_evaluation.html

@@ -7,7 +7,7 @@ use_cases:
   - "understand why anomalies have short paths in random trees"
   - "score outliers in tabular data with no labels"
   - "explain the c(n) normaliser and the 0.5 score threshold in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1109/ICDM.2008.17

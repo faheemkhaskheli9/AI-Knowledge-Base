@@ -7,7 +7,7 @@ use_cases:
   - "understand why each boosting tree fits the residuals of the previous ones"
   - "see how learning rate and number of trees trade off, and why boosting needs early stopping"
   - "reproduce scikit-learn's GradientBoostingRegressor exactly with a short loop"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/ensemble.html#gradient-boosting

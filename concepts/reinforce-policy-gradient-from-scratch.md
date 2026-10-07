@@ -7,7 +7,7 @@ use_cases:
   - "balance CartPole with a logistic policy trained from episode returns"
   - "see how a baseline and reward-to-go cut policy-gradient variance"
   - "explain the log-derivative trick and why PPO/GRPO add baselines and clipping in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://doi.org/10.1007/BF00992696

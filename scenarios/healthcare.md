@@ -85,6 +85,7 @@ Audio (consent captured) -> STT + diarization (in-boundary or BAA-covered)
  -> audit log (who, what model, version) ; retention per policy
 ```
 
+<!-- skip-check: illustrative pipeline fragment, needs your inputs -->
 ```python
 # Minimal draft step; deployment must run under a BAA / in-boundary model.
 NOTE_SCHEMA = {"subjective": "", "objective": "", "assessment": "", "plan": ""}

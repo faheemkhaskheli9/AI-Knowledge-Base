@@ -11,12 +11,15 @@ ml 105 vs models 13, setup 7, deployment 9).
 1. [x] **Link integrity in the build.** `build_index.py` fails on a broken
    `[[link]]` (code blocks ignored) and warns on orphan topics. Wire the 30
    orphans into their parent topic's `## Related`.
-2. [ ] **Run the code.** A `check_code.py` that extracts the python block(s)
+2. [x] **Run the code.** A `check_code.py` that extracts the python block(s)
    of each from-scratch topic and runs them, so the "minimal and runnable"
    rule in AGENTS.md is tested rather than assumed. Start with NumPy-only files.
-3. [ ] **Status promotion.** Move a topic `draft -> stable` once its code runs
+   Done: `check_code.py` runs every topic whose imports are installed and skips
+   the rest; 147 pass. Still unrun: topics needing torch, API keys or downloads
+   (a CI job with torch would cover the torch ones).
+3. [x] **Status promotion.** Move a topic `draft -> stable` once its code runs
    (task 2) and its sources resolve. Today the column carries no signal.
-4. [ ] **Staleness report.** `build_index.py` lists `models/`, `setup/` and
+4. [x] **Staleness report.** `build_index.py` lists `models/`, `setup/` and
    `deployment/` files whose `last_verified` is older than 90 days, the ones
    whose facts (model IDs, prices, versions) rot.
 5. [ ] **Fill thin categories.** Add applied topics before more from-scratch

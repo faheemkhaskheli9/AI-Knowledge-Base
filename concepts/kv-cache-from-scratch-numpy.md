@@ -7,7 +7,7 @@ use_cases:
   - "understand why LLM decoding is fast after the first token and what prefill vs decode means"
   - "estimate KV cache memory for a model, context length and batch size before choosing hardware"
   - "explain KV caching, GQA and MQA in an LLM inference interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1706.03762

@@ -8,7 +8,7 @@ use_cases:
   - "explore new items in a recommender instead of always showing the current top items"
   - "tune a price, bid or notification time online from click or conversion feedback"
   - "evaluate a new selection policy offline from logged data before deploying it"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://tor-lattimore.com/downloads/book/book.pdf

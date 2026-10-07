@@ -7,7 +7,7 @@ use_cases:
   - "verify a CTC implementation against brute-force enumeration and finite differences"
   - "see why repeated labels need a blank between them and how greedy CTC decoding collapses paths"
   - "explain CTC for speech or handwriting recognition in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://www.cs.toronto.edu/~graves/icml_2006.pdf

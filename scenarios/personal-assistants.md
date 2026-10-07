@@ -8,7 +8,7 @@ use_cases:
   - "build a voice assistant"
   - "automate personal workflows (notes, tasks, research)"
   - "run a private assistant locally on my own data"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://modelcontextprotocol.io/

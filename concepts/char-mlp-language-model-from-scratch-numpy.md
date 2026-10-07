@@ -7,7 +7,7 @@ use_cases:
   - "implement an embedding layer and its scatter-add backward pass"
   - "compare a neural language model with count-based n-gram baselines using perplexity"
   - "sample text from a trained language model"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://www.jmlr.org/papers/v3/bengio03a.html

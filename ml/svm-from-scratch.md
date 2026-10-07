@@ -6,7 +6,7 @@ use_cases:
   - "implement a linear SVM from scratch for learning or an interview"
   - "understand the hinge loss, the margin and what C controls in an SVM"
   - "train an SVM in the primal with subgradient descent and match scikit-learn"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://scikit-learn.org/stable/modules/svm.html

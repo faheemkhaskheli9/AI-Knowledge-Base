@@ -6,7 +6,7 @@ use_cases:
   - "understand how SAM finds flatter minima and what its two gradient passes per step buy"
   - "decide whether SAM is worth the 2x training cost for a small or noisy-label dataset"
   - "measure the sharpness (top Hessian eigenvalue) of a trained network without forming the Hessian"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://arxiv.org/abs/2010.01412

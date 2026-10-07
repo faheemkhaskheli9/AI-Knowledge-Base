@@ -6,7 +6,7 @@ use_cases:
   - "split long documents into topic-coherent chunks for a RAG index"
   - "decide whether semantic chunking is worth the embedding cost over a fixed-size splitter"
   - "understand what the breakpoint threshold in SemanticChunker controls"
-status: draft
+status: stable
 last_verified: 2026-10-06
 sources:
   - https://github.com/FullStackRetrieval-com/RetrievalTutorials

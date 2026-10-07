@@ -7,7 +7,7 @@ use_cases:
   - "explain to stakeholders why a model scores 99% in training but fails in production"
   - "set up a correct train/validation/test split before building any model"
   - "decide whether a problem needs ML at all or a rule/SQL query is enough"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://developers.google.com/machine-learning/crash-course

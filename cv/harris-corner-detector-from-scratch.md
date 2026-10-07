@@ -7,7 +7,7 @@ use_cases:
   - "choose between cv2.cornerHarris and cv2.goodFeaturesToTrack and set their thresholds"
   - "understand why corners are good points to track or match and edges are not"
   - "find stable points for image registration, homography estimation or camera calibration"
-status: draft
+status: stable
 last_verified: 2026-10-05
 sources:
   - https://doi.org/10.5244/C.2.23

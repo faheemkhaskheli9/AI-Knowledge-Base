@@ -39,6 +39,7 @@ scikit-learn is the default Python library for non-deep-learning ML on tabular d
 ```bash
 pip install scikit-learn pandas joblib
 ```
+<!-- skip-check: needs your own customers.csv -->
 ```python
 import pandas as pd
 from sklearn.compose import ColumnTransformer
