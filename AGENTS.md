@@ -45,8 +45,10 @@ Quick search without reading the index: `grep -ril "<keyword>" --include=*.md .`
 - `needs-review`: was `stable` and its code now fails, or its facts need re-checking.
 Topics whose code needs torch, API keys or downloads stay `draft` until run in a full environment.
 
-`python build_index.py` also warns about `models/`, `setup/` and `deployment/` topics not
-verified in 90 days.
+`python build_index.py` also warns about topics not verified in 90 days when they sit in
+`models/`, `setup/` or `deployment/`, or anywhere else name an API model ID (`claude-...`,
+`gpt-...`, `gemini-...`). Example code copies its model ID from the table in
+`models/<provider>.md`, so when an ID is retired that table says what replaces it.
 
 Planned improvements live in `ROADMAP.md`.
 
