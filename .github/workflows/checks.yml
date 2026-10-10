@@ -19,3 +19,11 @@ jobs:
       # Topics needing torch, API keys or downloads are skipped, not failed.
       - run: python3 -m pip install numpy scipy scikit-learn pandas statsmodels matplotlib
       - run: python3 check_code.py --jobs 4
+  webapp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - run: python3 -m pip install -r requirements.txt
+      # Django test client against the real topic files; a broken view fails here.
+      - run: python3 manage.py test webapp
