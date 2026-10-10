@@ -50,6 +50,10 @@ Topics whose code needs torch, API keys or downloads stay `draft` until run in a
 `gpt-...`, `gemini-...`). Example code copies its model ID from the table in
 `models/<provider>.md`, so when an ID is retired that table says what replaces it.
 
+A fact with a known end date (an introductory price, a deprecation date) gets
+`<!-- valid-until: YYYY-MM-DD -->` on its line; `build_index.py` warns once that date is
+14 days away or has passed, whatever the file's `last_verified` says.
+
 Planned improvements live in `ROADMAP.md`.
 
 ## Categories
