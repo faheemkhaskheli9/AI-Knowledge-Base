@@ -123,6 +123,9 @@ def pick_model(prompt: str) -> str:
 - [[serving-with-fastapi]] - writing a thin custom gateway yourself.
 - [[inference-servers-vllm]] - self-hosted backends behind the gateway.
 - [[api-sdk-setup]] - native SDKs for provider-specific features.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/api-gateway-and-service-mesh.md - the general gateway pattern.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/rate-limiting.md - token bucket and per-tenant limits.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/resilience-patterns.md - retries, timeouts and circuit breakers behind fallbacks.
 
 ## References
 - LiteLLM Router (load balancing, retries, fallbacks): https://docs.litellm.ai/docs/routing

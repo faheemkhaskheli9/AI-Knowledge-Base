@@ -77,6 +77,7 @@ Validate after every conversion: compare outputs to the original on a test set (
 - [[llama-cpp-gguf]] - LLMs on CPUs and phones.
 - [[object-detection]], [[image-classification]] - typical edge workloads.
 - [[gpu-cuda-setup]] - NVIDIA basics.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/deployment-strategies.md - staged rollouts of new models to devices.
 
 ## References
 - ONNX Runtime: https://onnxruntime.ai/docs/

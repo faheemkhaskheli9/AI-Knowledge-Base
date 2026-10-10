@@ -99,6 +99,7 @@ Frameworks: Promptfoo, Inspect, DeepEval, Ragas, OpenAI Evals, LangSmith/Braintr
 - [[prompt-engineering]] - what evals iterate.
 - [[llm-observability]] - production monitoring.
 - [[hallucination-and-grounding]] - groundedness checks.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/testing/testing-strategy-and-pyramid.md - where evals sit next to unit and integration tests.
 
 ## References
 - Anthropic, Define success and build evaluations: https://platform.claude.com/docs/en/test-and-evaluate/develop-tests

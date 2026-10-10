@@ -85,6 +85,9 @@ Engineering checklist:
 - [[api-sdk-setup]] - key handling.
 - [[gpu-cloud-options]] - where data is processed.
 - [[healthcare]], [[finance]], [[legal]] - sector scenarios.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/security/threat-modeling.md - threat-modelling the whole system.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/security/secrets-management.md - API keys and credentials.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/security/owasp-top-10.md - web-app risks around the model.
 
 ## References
 - EU AI Act timeline: https://artificialintelligenceact.eu/implementation-timeline/

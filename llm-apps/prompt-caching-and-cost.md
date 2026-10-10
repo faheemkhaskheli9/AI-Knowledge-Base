@@ -90,6 +90,7 @@ Track cost per request from `usage` and log it per feature/tenant ([[llm-observa
 - [[llm-observability]] - per-request cost tracking.
 - [[model-selection]] - routing between models.
 - [[long-context]] - when to stuff vs retrieve.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/caching-strategies.md - application-level caching beyond provider prompt caches.
 
 ## References
 - Anthropic prompt caching: https://platform.claude.com/docs/en/build-with-claude/prompt-caching
