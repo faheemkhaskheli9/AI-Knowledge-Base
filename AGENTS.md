@@ -26,9 +26,12 @@ Quick search without reading the index: `grep -ril "<keyword>" --include=*.md .`
 3. Cite official sources for volatile facts. Set `last_verified` to today.
    Do not invent version numbers, benchmarks or prices; leave them out instead.
 4. Link a new topic from at least one existing topic's `## Related` (usually
-   its overview topic), or agents following links never reach it.
+   its overview topic), or agents following links never reach it. A new
+   overview (not from-scratch) topic also needs a link from a `scenarios/` file,
+   usually a row in `scenarios/scenario-chooser.md`.
 5. Run `python build_index.py` (stdlib only). It regenerates `INDEX.md`, fails
-   on missing frontmatter or a broken `[[link]]`, and warns on orphan topics.
+   on missing frontmatter or a broken `[[link]]`, and warns on orphan topics
+   and on overview topics no scenario links to.
 6. Run `python check_code.py <your file>`. It runs the file's python blocks (needs
    numpy etc. installed). Mark a deliberate fragment with `<!-- skip-check: reason -->`
    above its fence; give a slow benchmark `<!-- check-timeout: 900 -->`.

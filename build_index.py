@@ -84,14 +84,21 @@ def build(today=None):
     broken = [f"{rel} -> [[{l}]]" for rel, ls in out_links.values() for l in ls if l not in out_links]
     linked = {l for stem, (_, ls) in out_links.items() for l in ls if l != stem}
     orphans = sorted(rel for stem, (rel, _) in out_links.items() if stem not in linked)
-    return rows, bad, broken, orphans, old
+    # Overview = any non-scenario topic that is not a from-scratch walkthrough.
+    from_scenarios = {l for rel, ls in out_links.values() if rel.startswith("scenarios/") for l in ls}
+    unreached = sorted(rel for stem, (rel, _) in out_links.items()
+                       if "/" in rel and not rel.startswith("scenarios/")
+                       and "from-scratch" not in stem and stem not in from_scenarios)
+    return rows, bad, broken, orphans, old, unreached
 
 
 if __name__ == "__main__":
-    rows, bad, broken, orphans, old = build()
+    rows, bad, broken, orphans, old, unreached = build()
     print(f"indexed {len(rows)} topics")
     if orphans:
         print(f"warning: {len(orphans)} topic(s) no other topic links to: {orphans}")
+    if unreached:
+        print(f"warning: {len(unreached)} overview topic(s) no scenarios/ file links to: {unreached}")
     if old:
         print(f"warning: {len(old)} topic(s) in {'/'.join(VOLATILE)} not verified in {STALE_DAYS} days, re-check their sources: {old}")
     if bad or broken:

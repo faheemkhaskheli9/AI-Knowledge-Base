@@ -19,8 +19,9 @@ sources:
 ## Summary
 Start here when you have a task but not an approach. Section 1 routes by task
 type, section 2 settles the cross-cutting choices (prompt vs RAG vs fine-tune,
-API vs local, LLM vs classic ML), section 3 routes by industry. Each row names
-the KB files to read in full next.
+API vs local, LLM vs classic ML), section 3 routes by industry and section 4
+routes the stages of building and training your own model. Each row names the
+KB files to read in full next.
 
 ## Key concepts
 - Cheapest thing that meets the quality bar wins: prompt first, then RAG or
@@ -74,6 +75,17 @@ the KB files to read in full next.
 | Label data / create training data | LLM-assisted labelling with human review | [[data-labeling-and-synthetic-data]] |
 | Train with few labels and many unlabelled examples | Pretrained embeddings, active learning to pick labels, label spreading / pseudo-labels | [[semi-supervised-and-active-learning]], [[data-labeling-and-synthetic-data]] |
 | Build a personal assistant with memory | Agent + memory store + calendar/mail tools | [[personal-assistants]], [[agent-memory]] |
+| Drive a browser or desktop app that has no API | Computer-use agent in a sandbox, approval for side effects | [[computer-use-agents]], [[agents]] |
+| Turn designs (Figma) into UI code with Claude | Design MCP server or plugin, then check the result in a browser | [[design-tools-for-claude]], [[coding-agents]] |
+| Group customers or items without labels (segments) | Scale features, then k-means / HDBSCAN / Gaussian mixture; inspect in 2D | [[clustering]], [[gaussian-mixture-models-and-em]], [[dimensionality-reduction]], [[distance-metrics-and-similarity]] |
+| Find the themes in a pile of text | Topic model: BERTopic on embeddings, LDA/NMF on bag-of-words | [[topic-modeling]], [[word-embeddings-word2vec]], [[embeddings]] |
+| Pick which variant to show while still learning (offers, layouts) | Multi-armed or contextual bandit | [[multi-armed-bandits]], [[statistics-and-ab-testing]] |
+| Learn a behaviour by trial and error (control, games) | Reinforcement learning in a simulator | [[reinforcement-learning]] |
+| Predict ordered grades, counts or a range instead of one number | Ordinal regression; Poisson/Tweedie GLM for counts; quantile models for intervals | [[ordinal-regression]], [[generalized-linear-models]], [[quantile-regression]] |
+| Flag inputs unlike the training data and abstain on them | OOD score checked on a held-out shift set; uncertainty-aware models | [[out-of-distribution-detection]], [[bayesian-deep-learning-and-uncertainty]] |
+| Optimise something you cannot differentiate (simulator, config) | Evolutionary or other black-box optimiser | [[black-box-and-evolutionary-optimization]], [[hyperparameter-tuning]] |
+| Build a fast surrogate for a physical simulation | Physics-informed network or neural operator | [[physics-informed-neural-networks]] |
+| Learn from relations in a graph (fraud rings, molecules, links) | Graph neural network | [[graph-neural-networks]] |
 
 ### 2. Cross-cutting decisions
 - **Prompt vs RAG vs fine-tune.** Missing or changing facts, need citations ->
@@ -95,7 +107,8 @@ the KB files to read in full next.
   stuff them in ([[long-context]], [[prompt-caching-and-cost]]); large or
   changing corpus -> RAG.
 - **Cost and latency.** [[cost-and-latency]], [[prompt-caching-and-cost]],
-  [[quantization]], [[small-language-models]].
+  [[quantization]], [[small-language-models]]. Several providers or models
+  behind one endpoint, with fallbacks: [[llm-gateways-and-routing]].
 - **Trust.** Hallucination risk -> [[hallucination-and-grounding]]; untrusted
   input -> [[prompt-injection]], [[guardrails-and-safety]].
 
@@ -104,6 +117,24 @@ the KB files to read in full next.
 [[ecommerce-retail]], [[education]], [[legal]], [[manufacturing-iot]],
 [[software-engineering]], [[security-defensive]], [[marketing-content]],
 [[data-analytics]], [[personal-assistants]].
+
+### 4. Building and training your own model
+| Stage | Read |
+|---|---|
+| Learn the foundations | [[ml-fundamentals]], [[math-for-machine-learning]], [[information-theory-for-ml]], [[maximum-likelihood-and-map-estimation]], [[gradient-descent]], [[perceptron-and-linear-separability]], [[universal-approximation-and-depth-vs-width]] |
+| Explore and prepare tabular data | [[exploratory-data-analysis]], [[missing-data-and-imputation]], [[feature-engineering]], [[categorical-encoding]], [[feature-scaling-and-normalization]], [[feature-selection]], [[curse-of-dimensionality]] |
+| Validate without leakage, pick the metric | [[data-leakage-and-validation-splits]], [[model-selection-and-comparison]], [[bias-variance-and-learning-curves]], [[regression-metrics-and-residual-analysis]], [[probability-calibration]], [[imbalanced-data]], [[multiclass-classification-strategies]] |
+| Pick and tune a tabular model | [[linear-models]], [[generalized-additive-models-and-splines]], [[decision-trees-and-random-forests]], [[ensemble-methods]], [[svm-knn-naive-bayes]], [[kernel-methods-and-density-estimation]], [[probabilistic-graphical-models]], [[deep-learning-for-tabular-data]], [[hyperparameter-tuning]], [[automl]] |
+| Explain a model's predictions | [[model-interpretability]], [[saliency-maps-and-neural-attribution]], [[mechanistic-interpretability]] |
+| Pick a deep-learning framework | [[pytorch-basics]], [[keras-and-tensorflow]], [[jax-and-flax]], [[tensor-shapes-broadcasting-and-einsum]] |
+| Design a neural network | [[neural-network-fundamentals]], [[activation-functions]], [[weight-initialization]], [[normalization-layers]], [[residual-and-skip-connections]], [[cnn-and-rnn-architectures]], [[convolution-arithmetic-and-receptive-field]], [[recurrent-neural-networks-lstm-gru]], [[sequence-to-sequence-and-ctc]], [[backpropagation-and-autograd]], [[loss-functions]], [[neural-architecture-search]] |
+| Train it well | [[deep-learning-training]], [[optimizers]], [[learning-rate-schedules]], [[batch-size-and-gradient-noise]], [[regularization-in-deep-learning]], [[data-augmentation]], [[data-loading-pipelines]], [[generalization-in-deep-learning]], [[loss-landscapes-and-flat-minima]] |
+| Training fails (NaNs, flat loss) | [[debugging-neural-network-training]], [[vanishing-and-exploding-gradients]] |
+| Train bigger or faster, save and export | [[efficient-training-mixed-precision]], [[distributed-training]], [[model-checkpointing-and-export]] |
+| Reuse a pretrained model on new data | [[transfer-learning-and-domain-adaptation]], [[continual-learning]], [[meta-learning]], [[autoencoders-and-self-supervised-learning]] |
+| Harden a model against attacks | [[adversarial-examples-and-robustness]] |
+| Train a generative model | [[generative-adversarial-networks]], [[normalizing-flows-and-energy-based-models]] |
+| Understand how LLMs work inside | [[transformers-and-attention]], [[attention-variants-and-efficient-attention]], [[positional-encodings]], [[tokenization]], [[decoding-and-sampling]], [[mixture-of-experts]], [[pretraining-and-scaling-laws]], [[rlhf-and-preference-optimization]] |
 
 ## Setup & code
 Environment first: [[python-env-uv]], [[api-sdk-setup]], and for local
