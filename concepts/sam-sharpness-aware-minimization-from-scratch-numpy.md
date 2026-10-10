@@ -36,6 +36,7 @@ SAM (Foret et al. 2021) trains for weights whose whole neighbourhood has low los
 ## Setup & code
 NumPy only, about 40 seconds on a laptop CPU. The network is a 2-64-1 tanh MLP with all weights in one flat vector, so SAM's perturbation is one vector operation. Training uses 200 points, 20% of them with flipped labels. Each setting is averaged over 3 seeds; test accuracy is measured against the clean labels.
 
+<!-- check-timeout: 600 -->
 ```python
 import numpy as np
 
