@@ -42,6 +42,9 @@ Quick search without reading the index: `grep -ril "<keyword>" --include=*.md .`
 - `draft`: new, or its code has not been run by `check_code.py`.
 - `stable`: `check_code.py` ran its code clean and it cites sources (`python check_code.py --promote`
   sets this). It means the code runs, not that the facts are current: check `last_verified`.
+  A topic with no python block (`check_code.py` reports "no code") becomes `stable` when every
+  URL in `sources` resolves and someone other than its author has read the whole file and found
+  no wrong claims; change only its `status:` line and say who reviewed it in the commit.
 - `needs-review`: was `stable` and its code now fails, or its facts need re-checking.
 Topics whose code needs torch, API keys or downloads stay `draft` until run in a full environment.
 
@@ -71,11 +74,16 @@ Planned improvements live in `ROADMAP.md`.
 | `scenarios/` | Industry/problem -> recommended approach, linking the files above |
 
 ## Sibling knowledge bases
-This repo is one of three: `faheemkhaskheli9/Cyber-Security-Knowledge-Base`, `faheemkhaskheli9/Personal-Knowledge-Base`,
-`faheemkhaskheli9/AI-Knowledge-Base`. If a task could use the others and they are not in the session, attach them
-with `add_repo` (read access is enough unless you need to push) and clone them next to this one. Each has a
-`webapp/` for manual viewing and editing (`python3 webapp/server.py --open`).
-For the general system-design side of an AI system (load balancing, caching, queues, rate limits,
-resilience, SLOs, observability) use `faheemkhaskheli9/Software-Engineering-KnowledgeBase`. Link its
-topics as plain "See also (SE KB): <GitHub URL>" lines, never `[[links]]` (the build checks those
-against this repo only).
+| Repo | Holds | `webapp/` |
+|---|---|---|
+| `faheemkhaskheli9/AI-Knowledge-Base` (this one) | AI models, concepts, setup, deployment, scenarios | yes |
+| `faheemkhaskheli9/Software-Engineering-KnowledgeBase` | system design: load balancing, caching, queues, rate limits, resilience, SLOs, observability, security, testing | no |
+| `faheemkhaskheli9/Personal-Knowledge-Base` (private) | the owner's profile, CVs and per-project notes | yes |
+| `faheemkhaskheli9/Cyber-Security-Knowledge-Base` | security topics | yes |
+
+If a task could use another one and it is not in the session, attach it with `add_repo` (read access
+is enough unless you need to push) and clone it next to this one. Where there is a `webapp/`, it is
+for manual viewing and editing (`python3 webapp/server.py --open`).
+An AI system's general system-design side belongs to the SE KB. Link its topics as plain
+"See also (SE KB): <GitHub URL>" lines, never `[[links]]` (the build checks those against this
+repo only).
