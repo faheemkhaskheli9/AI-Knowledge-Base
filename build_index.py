@@ -12,6 +12,8 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 # Categories whose facts (model IDs, prices, versions) go out of date.
 VOLATILE = ("models", "setup", "deployment")
+# A hard-coded API model ID (claude-sonnet-5-5, gpt-5.1, gemini-3.8-flash) rots anywhere.
+MODEL_ID = re.compile(r"\b(?:claude|gpt|gemini|grok|mistral|o[1-9])-[a-z0-9.-]*\d")
 STALE_DAYS = 90
 # INDEX.md section order: the entry point first, then the categories in AGENTS.md order.
 ORDER = ("scenarios", "concepts", "models", "llm-apps", "ml", "cv", "speech", "setup", "deployment")
@@ -42,9 +44,9 @@ def frontmatter(text):
     return meta
 
 
-def stale(meta, rel, today):
-    """True for a volatile-category topic whose last_verified is missing, malformed or too old."""
-    if rel.split("/")[0] not in VOLATILE:
+def stale(meta, rel, today, text=""):
+    """True for a volatile topic (volatile folder, or names a model ID) whose last_verified is missing, malformed or too old."""
+    if rel.split("/")[0] not in VOLATILE and not MODEL_ID.search(text):
         return False
     try:
         return date.fromisoformat(meta.get("last_verified", "")) < today - timedelta(days=STALE_DAYS)
@@ -65,7 +67,7 @@ def build(today=None):
         if not meta or "title" not in meta:
             bad.append(rel)
             continue
-        if stale(meta, rel, today):
+        if stale(meta, rel, today, text):
             old.append(f"{rel} ({meta.get('last_verified', 'no date')})")
         uses = meta.get("use_cases", [])
         row = (
@@ -107,7 +109,7 @@ if __name__ == "__main__":
     if unreached:
         print(f"warning: {len(unreached)} overview topic(s) no scenarios/ file links to: {unreached}")
     if old:
-        print(f"warning: {len(old)} topic(s) in {'/'.join(VOLATILE)} not verified in {STALE_DAYS} days, re-check their sources: {old}")
+        print(f"warning: {len(old)} topic(s) in {'/'.join(VOLATILE)} or naming a model ID not verified in {STALE_DAYS} days, re-check their sources: {old}")
     if bad or broken:
         raise SystemExit(f"missing/invalid frontmatter: {bad}\nbroken [[links]]: {broken}")
     # --strict (CI): orphan and unreached warnings fail too; stale ones never do.
