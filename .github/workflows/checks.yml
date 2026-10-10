@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      # Fails on missing frontmatter or a broken [[link]].
-      - run: python3 build_index.py
+      # Fails on missing frontmatter, a broken [[link]], an orphan or an unreached overview topic.
+      - run: python3 build_index.py --strict
       # Fails if INDEX.md was not regenerated and committed.
       - run: git diff --exit-code INDEX.md
   code:

@@ -1,9 +1,11 @@
 """Regenerate INDEX.md from the frontmatter of every topic file.
 
 Run after adding or editing a topic:  python build_index.py
+CI runs  python build_index.py --strict  so orphan/unreached warnings fail too.
 Stdlib only; parses the simple frontmatter shape used in _template.md.
 """
 import re
+import sys
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -108,3 +110,6 @@ if __name__ == "__main__":
         print(f"warning: {len(old)} topic(s) in {'/'.join(VOLATILE)} not verified in {STALE_DAYS} days, re-check their sources: {old}")
     if bad or broken:
         raise SystemExit(f"missing/invalid frontmatter: {bad}\nbroken [[links]]: {broken}")
+    # --strict (CI): orphan and unreached warnings fail too; stale ones never do.
+    if "--strict" in sys.argv[1:] and (orphans or unreached):
+        raise SystemExit("--strict: fix the orphan/unreached topics above")
