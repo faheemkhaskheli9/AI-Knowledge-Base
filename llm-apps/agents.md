@@ -93,6 +93,8 @@ Note: `spent` sums per-call input tokens, which re-counts the growing history ea
 - [[guardrails-and-safety]] - limits and approvals.
 - [[reasoning-models]] - built-in planning.
 - [[computer-use-agents]] - agents that drive a GUI from screenshots.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/resilience-patterns.md - timeouts, retries and budgets for agents in production.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/distributed-systems/idempotency-and-exactly-once.md - safe retries of side-effecting actions.
 
 ## References
 - Anthropic, Building effective agents: https://www.anthropic.com/engineering/building-effective-agents

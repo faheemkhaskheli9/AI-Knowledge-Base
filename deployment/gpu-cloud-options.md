@@ -81,6 +81,8 @@ Decision shortcut:
 - [[cost-and-latency]] - break-even versus hosted APIs.
 - [[fine-tuning-and-peft]] - training workloads.
 - [[mlops-lifecycle]] - reproducible deployments.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/capacity-planning-and-autoscaling.md - how many GPUs and when to scale.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/kubernetes-basics.md - scheduling GPU workloads on a cluster.
 
 ## References
 - AWS EC2 instance types: https://aws.amazon.com/ec2/instance-types/

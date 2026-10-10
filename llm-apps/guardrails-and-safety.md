@@ -91,6 +91,7 @@ Approval gate for risky tools: return a pending action to a human UI and only ex
 - [[hallucination-and-grounding]] - factuality controls.
 - [[ai-security-privacy-compliance]] - data protection and compliance.
 - [[llm-evaluation]] - red-team and safety test sets.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/security/threat-modeling.md - deciding which controls the system needs.
 
 ## References
 - OWASP Top 10 for LLM Applications: https://owasp.org/www-project-top-10-for-large-language-model-applications/

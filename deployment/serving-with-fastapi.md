@@ -107,6 +107,9 @@ For several workers/hosts use Redis-backed limiting or the gateway/load balancer
 - [[llm-observability]] - tracing the endpoint.
 - [[cost-and-latency]] - time-to-first-token and budgets.
 - [[structured-output]] - validated JSON responses.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/apis/rest-api-design.md - resource and error design for the endpoint.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/containers-and-docker.md - packaging the service.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/load-balancing.md - running several replicas behind one address.
 
 ## References
 - FastAPI: https://fastapi.tiangolo.com/

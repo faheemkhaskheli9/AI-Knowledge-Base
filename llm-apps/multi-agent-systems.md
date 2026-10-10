@@ -97,6 +97,8 @@ The Claude Agent SDK supports subagents and Claude Code supports subagent defini
 - [[agent-memory]] - shared state.
 - [[coding-agents]] - subagents in practice.
 - [[llm-evaluation]] - evaluate end-to-end outcomes.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/message-queues-and-streams.md - queues between long-running agents.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/distributed-systems/distributed-transactions-and-sagas.md - compensating multi-step work that fails halfway.
 
 ## References
 - Anthropic, How we built our multi-agent research system: https://www.anthropic.com/engineering/multi-agent-research-system

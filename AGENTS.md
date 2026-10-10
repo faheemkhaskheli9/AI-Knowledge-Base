@@ -68,3 +68,7 @@ This repo is one of three: `faheemkhaskheli9/Cyber-Security-Knowledge-Base`, `fa
 `faheemkhaskheli9/AI-Knowledge-Base`. If a task could use the others and they are not in the session, attach them
 with `add_repo` (read access is enough unless you need to push) and clone them next to this one. Each has a
 `webapp/` for manual viewing and editing (`python3 webapp/server.py --open`).
+For the general system-design side of an AI system (load balancing, caching, queues, rate limits,
+resilience, SLOs, observability) use `faheemkhaskheli9/Software-Engineering-KnowledgeBase`. Link its
+topics as plain "See also (SE KB): <GitHub URL>" lines, never `[[links]]` (the build checks those
+against this repo only).

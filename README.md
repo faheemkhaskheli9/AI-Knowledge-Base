@@ -18,6 +18,20 @@ opens with YAML frontmatter (`tags`, `use_cases`, `status`, `last_verified`,
 `sources`) followed by the same sections: Summary, Key concepts, When to use,
 Setup & code, Trade-offs, Gotchas, Related, References.
 
+## Which knowledge base answers what
+
+- **This repo (AI KB):** which model, library or AI technique to use and how
+  to set it up: LLM APIs, RAG, agents, fine-tuning, CV, speech, local
+  inference, model serving and cost.
+- **Software Engineering KB**
+  (https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase):
+  the general system around the model: architecture, APIs, databases,
+  caching, queues, load balancing, rate limiting, resilience, SLOs,
+  observability, deployment, security and testing.
+
+Deployment and LLM-app topics here end their `## Related` section with
+"See also (SE KB)" links to the matching SE KB topic.
+
 ## Contributing
 
 Copy [_template.md](_template.md) to start a topic, then run

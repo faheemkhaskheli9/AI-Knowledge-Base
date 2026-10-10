@@ -95,6 +95,8 @@ print(next(b.text for b in r.content if b.type == "text"))
 - [[structured-output]] - strict schemas.
 - [[prompt-injection]] - tool outputs as attack surface.
 - [[text-to-sql]] - a common tool.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/distributed-systems/idempotency-and-exactly-once.md - idempotency keys for tools with side effects.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/resilience-patterns.md - timeouts and retries around tool backends.
 
 ## References
 - https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview
