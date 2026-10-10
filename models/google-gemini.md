@@ -34,7 +34,7 @@ Current IDs as of 2026-10 (source: models + pricing pages):
 
 | Model | ID | Status | $/1M in / out |
 |---|---|---|---|
-| Gemini 3.8 Flash | `gemini-3.8-flash` | stable | 0.75 / 3.75 (to 2026-12-31) |
+| Gemini 3.8 Flash | `gemini-3.8-flash` | stable | 0.75 / 3.75 (to 2026-12-31) <!-- valid-until: 2026-12-31 --> |
 | Gemini 3.5 Flash-Lite | (listed; ID not verified) | - | 0.30 / 2.50 |
 | Gemini 3.1 Pro | `gemini-3.1-pro-preview` | preview | 2.00 / 12.00 (<=200k ctx) |
 | Nano Banana 2 (image) | `gemini-3.1-flash-image` | - | see pricing |

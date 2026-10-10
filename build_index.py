@@ -15,6 +15,9 @@ VOLATILE = ("models", "setup", "deployment")
 # A hard-coded API model ID (claude-sonnet-5-5, gpt-5.1, gemini-3.8-flash) rots anywhere.
 MODEL_ID = re.compile(r"\b(?:claude|gpt|gemini|grok|mistral|o[1-9])-[a-z0-9.-]*\d")
 STALE_DAYS = 90
+# A fact with an end date (an introductory price) carries <!-- valid-until: YYYY-MM-DD -->.
+VALID_UNTIL = re.compile(r"<!--\s*valid-until:\s*(\d{4}-\d{2}-\d{2})\s*-->")
+EXPIRY_DAYS = 14
 # INDEX.md section order: the entry point first, then the categories in AGENTS.md order.
 ORDER = ("scenarios", "concepts", "models", "llm-apps", "ml", "cv", "speech", "setup", "deployment")
 SKIP = {"README.md", "AGENTS.md", "CLAUDE.md", "INDEX.md", "ROADMAP.md", "_template.md"}
@@ -56,7 +59,7 @@ def stale(meta, rel, today, text=""):
 
 def build(today=None):
     today = today or date.today()
-    rows, bad, out_links, old, groups = [], [], {}, [], {}
+    rows, bad, out_links, old, groups, expiring = [], [], {}, [], {}, []
     for path in sorted(ROOT.rglob("*.md")):
         rel = path.relative_to(ROOT).as_posix()
         if path.name in SKIP or rel.startswith("."):
@@ -69,6 +72,14 @@ def build(today=None):
             continue
         if stale(meta, rel, today, text):
             old.append(f"{rel} ({meta.get('last_verified', 'no date')})")
+        for n, line in enumerate(text.splitlines(), 1):
+            for until in VALID_UNTIL.findall(line):
+                try:
+                    lapses = date.fromisoformat(until) <= today + timedelta(days=EXPIRY_DAYS)
+                except ValueError:
+                    lapses = True  # a malformed date is reported, not trusted
+                if lapses:
+                    expiring.append(f"{rel}:{n} ({until})")
         uses = meta.get("use_cases", [])
         row = (
             f"| [{meta['title']}]({rel}) | {', '.join(meta.get('tags', []))} "
@@ -98,11 +109,11 @@ def build(today=None):
     unreached = sorted(rel for stem, (rel, _) in out_links.items()
                        if "/" in rel and not rel.startswith("scenarios/")
                        and "from-scratch" not in stem and stem not in from_scenarios)
-    return rows, bad, broken, orphans, old, unreached
+    return rows, bad, broken, orphans, old, unreached, expiring
 
 
 if __name__ == "__main__":
-    rows, bad, broken, orphans, old, unreached = build()
+    rows, bad, broken, orphans, old, unreached, expiring = build()
     print(f"indexed {len(rows)} topics")
     if orphans:
         print(f"warning: {len(orphans)} topic(s) no other topic links to: {orphans}")
@@ -110,6 +121,8 @@ if __name__ == "__main__":
         print(f"warning: {len(unreached)} overview topic(s) no scenarios/ file links to: {unreached}")
     if old:
         print(f"warning: {len(old)} topic(s) in {'/'.join(VOLATILE)} or naming a model ID not verified in {STALE_DAYS} days, re-check their sources: {old}")
+    if expiring:
+        print(f"warning: {len(expiring)} valid-until fact(s) lapse within {EXPIRY_DAYS} days or already have: {expiring}")
     if bad or broken:
         raise SystemExit(f"missing/invalid frontmatter: {bad}\nbroken [[links]]: {broken}")
     # --strict (CI): orphan and unreached warnings fail too; stale ones never do.
