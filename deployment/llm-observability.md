@@ -87,6 +87,9 @@ def log_call(model, in_tok, out_tok, latency_s, ok, request_id=None):
 - [[serving-with-fastapi]] - instrumenting the API layer.
 - [[mlops-lifecycle]] - monitoring in the wider lifecycle.
 - [[guardrails-and-safety]] - logging guardrail triggers.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/observability-logs-metrics-traces.md - logs, metrics and traces in general.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/slis-slos-error-budgets.md - setting latency and quality targets.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/incident-response-and-postmortems.md - what to do when a model regresses in production.
 
 ## References
 - Langfuse get started: https://langfuse.com/docs/observability/get-started

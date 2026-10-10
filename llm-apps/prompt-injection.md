@@ -90,6 +90,8 @@ for a in ATTACKS:
 - [[rag-basics]] - retrieved text is untrusted.
 - [[ai-security-privacy-compliance]] - data protection.
 - [[tool-calling]] - argument validation.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/security/threat-modeling.md - mapping trust boundaries.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/security/owasp-top-10.md - classic injection and access-control failures.
 
 ## References
 - OWASP Top 10 for LLM Applications: https://owasp.org/www-project-top-10-for-large-language-model-applications/

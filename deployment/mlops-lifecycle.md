@@ -87,6 +87,9 @@ jobs:
 - [[python-env-uv]] - reproducible environments.
 - [[inference-servers-vllm]], [[serving-with-fastapi]] - serving layers.
 - [[data-labeling-and-synthetic-data]] - building eval/training sets.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/ci-cd-pipelines.md - build and test pipelines.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/deployment-strategies.md - canary, blue-green and shadow rollouts for a new model.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/infrastructure-as-code.md - reproducible infrastructure.
 
 ## References
 - MLflow: https://mlflow.org/docs/latest/

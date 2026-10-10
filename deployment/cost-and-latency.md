@@ -82,6 +82,9 @@ Levers, roughly in order of effort:
 - [[gpu-cloud-options]] - renting GPUs for self-hosting.
 - [[model-selection]], [[small-language-models]] - cheaper models.
 - [[quantization]] - cheaper self-hosting.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/caching-strategies.md - response and semantic caching patterns.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/back-of-envelope-estimation.md - estimating load, tokens and cost up front.
+- See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/capacity-planning-and-autoscaling.md - capacity for self-hosted serving.
 
 ## References
 - Check your provider's pricing and model pages (volatile).
