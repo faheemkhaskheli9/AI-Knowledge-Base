@@ -30,5 +30,6 @@ ml 105 vs models 13, setup 7, deployment 9).
    overview topics it relies on; check every overview topic is reachable from
    at least one scenario. Done: `build_index.py` warns on overview topics no
    `scenarios/` file links; the 98 it found are routed from `scenario-chooser.md`.
-7. [ ] **Browsable index.** Group `INDEX.md` by category with a count per
-   section; one 320-row table is hard to scan.
+7. [x] **Browsable index.** Group `INDEX.md` by category with a count per
+   section; one 320-row table is hard to scan. Done: one section per category,
+   scenarios first, with a linked contents line.
