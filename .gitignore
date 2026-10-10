@@ -1,1 +1,11 @@
 __pycache__/
+*.py[cod]
+.venv/
+venv/
+# Editor and agent tool folders
+.vscode/
+.idea/
+.playwright-mcp/
+# Databases a local Django run could create (the webapp itself uses none)
+*.sqlite3
+db.sqlite3-journal
