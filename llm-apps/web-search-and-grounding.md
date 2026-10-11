@@ -117,7 +117,7 @@ This is a hygiene layer, not a defense: a regex will miss paraphrased attacks. T
 - **Context ceilings**: OpenAI Responses web search is limited to a 128k search context; `search_context_size` is a hint, not a guarantee of source count.
 - **Availability varies by platform**: Anthropic says web search is not available on Amazon Bedrock and web fetch is not available on Bedrock or Google Cloud; features differ across hosts. Check the page for your deployment.
 - **No JS rendering**: Anthropic web fetch does not support pages rendered dynamically with JavaScript; use a browser tool ([[computer-use-agents]]) for those.
-- **Model and tool lifecycles**: OpenAI's deep-research page lists `o3-deep-research` and `o4-mini-deep-research` with a 2026-07-23 shutdown notice and a named replacement; hosted tool versions rotate too. Pin by reading the live page, not this file.
+- **Model and tool lifecycles**: OpenAI shut down `o3-deep-research` and `o4-mini-deep-research` on 2026-07-23 and names `gpt-5.6-sol` as the substitute (deprecations page); hosted tool versions rotate too. Pin by reading the live page, not this file.
 - **Background mode and retention**: OpenAI's deep research background mode retains response data for roughly 10 minutes for polling and is incompatible with Zero Data Retention.
 - **Deep-research cost and runtime** are open-ended without a call cap; always set one and log every query and URL.
 
@@ -136,6 +136,7 @@ This is a hygiene layer, not a defense: a regex will miss paraphrased attacks. T
 - Anthropic, Web fetch tool: https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool
 - OpenAI, Web search: https://developers.openai.com/api/docs/guides/tools-web-search
 - OpenAI, Deep research: https://developers.openai.com/api/docs/guides/deep-research
+- OpenAI, Deprecations: https://developers.openai.com/api/docs/deprecations
 - Google, Grounding with Google Search: https://ai.google.dev/gemini-api/docs/google-search
 - Google, Gemini API pricing: https://ai.google.dev/gemini-api/docs/pricing
 - Tavily, Search endpoint: https://docs.tavily.com/documentation/api-reference/endpoint/search

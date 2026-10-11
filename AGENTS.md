@@ -56,6 +56,11 @@ Topics whose code needs torch, API keys or downloads stay `draft` until run in a
 A fact with a known end date (an introductory price, a deprecation date) gets
 `<!-- valid-until: YYYY-MM-DD -->` on its line; `build_index.py` warns once that date is
 14 days away or has passed, whatever the file's `last_verified` says.
+Whenever a provider publishes a retirement or shutdown date for a model ID this base names,
+add the marker, with the date from the provider's deprecation page, on every line that names
+that ID (tables, prose and code comments), and say what replaces it. A "not sooner than" date
+is not a retirement date; leave it unmarked. Once the date passes, rewrite the line as history
+or drop the ID instead of leaving the marker to warn forever.
 
 Planned improvements live in `ROADMAP.md`.
 
