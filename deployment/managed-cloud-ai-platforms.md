@@ -143,6 +143,7 @@ Expected output:
 
 ## Related
 - [[model-selection]] - choosing the model before choosing where to host it.
+- [[hosted-fine-tuning-apis]] - which models each platform can tune (SFT, preference, RFT) and how it is billed.
 - [[ai-security-privacy-compliance]] - DPAs, retention and residency questions to answer first.
 - [[llm-gateways-and-routing]] - one client interface over several providers, fallbacks and cost routing.
 - [[cost-and-latency]] - regional versus global pricing and latency trade-offs.

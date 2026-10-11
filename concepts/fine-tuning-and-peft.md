@@ -72,7 +72,7 @@ Merge for deployment: load the base in 16-bit, `PeftModel.from_pretrained(...)`,
 - Full FT vs LoRA: LoRA matches full FT on most narrow tasks at a fraction of the memory; full FT can win for big distribution shifts or continued pretraining.
 - LoRA vs QLoRA: QLoRA saves memory (about 4x on weights) but is slower and slightly lossy; use LoRA if the 16-bit base fits.
 - Rank r: 8-64 typical; raise only if underfitting.
-- Hosted fine-tuning APIs (no GPUs, less control, vendor lock-in) vs self-hosted (control, privacy, ops cost).
+- Hosted fine-tuning APIs (no GPUs, less control, vendor lock-in) vs self-hosted (control, privacy, ops cost). Which providers offer SFT, DPO and reinforcement fine-tuning, on which models and at what price: [[hosted-fine-tuning-apis]].
 
 ## Gotchas
 - Wrong or missing chat template makes a fine-tune behave worse than the base model.
@@ -91,6 +91,7 @@ Merge for deployment: load the base in 16-bit, `PeftModel.from_pretrained(...)`,
 - [[small-language-models]] - common targets of fine-tuning.
 - [[data-labeling-and-synthetic-data]] - producing training data.
 - [[huggingface-transformers]] - environment setup.
+- [[hosted-fine-tuning-apis]] - provider-hosted SFT, DPO and RFT instead of your own GPUs.
 
 ## References
 - PEFT docs: https://huggingface.co/docs/peft
