@@ -84,6 +84,7 @@ Engineering checklist:
 - [[llm-observability]] - logging with retention.
 - [[api-sdk-setup]] - key handling.
 - [[gpu-cloud-options]] - where data is processed.
+- [[managed-cloud-ai-platforms]] - data residency and private networking on Bedrock, Vertex AI and Azure AI Foundry.
 - [[healthcare]], [[finance]], [[legal]] - sector scenarios.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/security/threat-modeling.md - threat-modelling the whole system.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/security/secrets-management.md - API keys and credentials.

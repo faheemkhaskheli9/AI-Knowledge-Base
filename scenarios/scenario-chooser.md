@@ -47,6 +47,9 @@ KB files to read in full next.
 | Answer questions over my database | Text-to-SQL with a read-only role and schema context | [[text-to-sql]], [[data-analytics]] |
 | Automate a multi-step workflow / act on systems | Tool-calling agent, human approval for side effects | [[agents]], [[tool-calling]], [[model-context-protocol]], [[agent-frameworks]], [[guardrails-and-safety]] |
 | Write or fix code | Coding agent with tests as the feedback loop | [[coding-agents]], [[software-engineering]] |
+| Answer with current facts from the web, cite sources, run deep research | Hosted web search tool or your own search API, fetched pages treated as untrusted data | [[web-search-and-grounding]], [[prompt-injection]], [[rag-basics]] |
+| Test whether an agent completes tasks reliably | Replayable sandbox tasks, outcome check plus trajectory and budget scoring | [[agent-evaluation]], [[llm-evaluation]] |
+| Judge a vendor's benchmark claim or a leaderboard rank | Read what the benchmark measures, check saturation and contamination, then run your own eval set | [[reading-ai-benchmarks]], [[model-selection]] |
 | Understand images or screenshots | Vision-language model; classic CV if the label set is fixed and volume is high | [[vision-language-models]], [[multimodal-models]], [[image-classification]], [[object-detection]], [[segmentation]] |
 | Read text from images / scans | OCR engine or VLM; compare on your documents | [[ocr]], [[document-parsing]] |
 | Analyse video or camera streams | Detection + tracking models, edge inference | [[video-analytics]], [[object-detection]], [[edge-on-device]], [[manufacturing-iot]] |
@@ -96,7 +99,9 @@ KB files to read in full next.
   leaves your boundary (check the provider's retention and DPA terms). Local:
   data control, fixed cost at scale, offline use, more ops work. See
   [[model-selection]], [[ollama]], [[llama-cpp-gguf]], [[inference-servers-vllm]],
-  [[gpu-cloud-options]], [[ai-security-privacy-compliance]].
+  [[gpu-cloud-options]], [[ai-security-privacy-compliance]]. Same hosted models
+  inside your cloud account (residency, private networking, existing billing):
+  [[managed-cloud-ai-platforms]].
 - **Which model family.** [[anthropic-claude]], [[openai-gpt]], [[google-gemini]]
   (hosted); [[meta-llama]], [[mistral]], [[qwen]], [[deepseek]] (open weights,
   check [[model-licenses]]). Hard multi-step problems: [[reasoning-models]].
