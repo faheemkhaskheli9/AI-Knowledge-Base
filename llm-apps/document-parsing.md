@@ -88,6 +88,7 @@ print(r.content[0].text)
 - [[structured-output]] - field extraction after parsing.
 - [[document-processing]] - end-to-end scenarios.
 - [[advanced-rag]] - contextual chunks.
+- [[late-interaction-retrieval]] - ColPali/ColQwen retrieve page images with no parsing step.
 
 ## References
 - Docling: https://github.com/docling-project/docling

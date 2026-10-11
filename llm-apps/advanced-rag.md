@@ -100,6 +100,7 @@ Many vector DBs do hybrid natively (Qdrant sparse+dense with fusion, Weaviate, E
 - [[rag-basics]] - baseline pipeline.
 - [[vector-databases]] - native hybrid support.
 - [[rerankers]] - model choices.
+- [[late-interaction-retrieval]] - ColBERT/ColPali multi-vector MaxSim, between dense retrieval and reranking.
 - [[prompt-caching-and-cost]] - makes contextual retrieval affordable.
 - [[agents]] - agentic/iterative retrieval.
 - [[semantic-chunking-from-scratch]] - semantic chunking by embedding-distance breakpoints, built by hand.

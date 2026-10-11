@@ -46,6 +46,8 @@ deterministic validation, and human review for low-confidence items.
    classifier on first pages. Read: [[nlp-classic-tasks]], [[embeddings]].
 4. **Contract/report Q&A.** Approach: layout-aware chunking, hybrid retrieval,
    citations to page. Read: [[rag-basics]], [[advanced-rag]], [[legal]].
+   For chart- and table-heavy PDFs, retrieve page images with ColPali-style
+   late interaction instead of OCR-then-chunk: [[late-interaction-retrieval]].
 5. **Long document summarisation.** Approach: direct if it fits the window,
    else map-reduce. Read: [[long-context]], [[prompt-caching-and-cost]].
 6. **Table and financial statement extraction.** Approach: layout parser for
@@ -116,6 +118,7 @@ Check [[structured-output]] for provider-enforced schemas that replace the
 - [[data-labeling-and-synthetic-data]] - building the labelled set.
 - [[llm-evaluation]] - field-level scoring.
 - [[mlops-lifecycle]] - drift when vendors change templates.
+- [[late-interaction-retrieval]] - ColPali page-image retrieval for visually rich PDFs.
 
 ## References
 - Anthropic PDF support: https://docs.anthropic.com/en/docs/build-with-claude/pdf-support
