@@ -95,6 +95,8 @@ Frameworks: Promptfoo, Inspect, DeepEval, Ragas, OpenAI Evals, LangSmith/Braintr
 ## Related
 - [[rag-basics]] - retrieval and faithfulness metrics.
 - [[agents]] - trajectory evaluation.
+- [[agent-evaluation]] - evaluating multi-step agents: outcome, trajectory, budgets, benchmarks.
+- [[reading-ai-benchmarks]] - interpreting public benchmark and leaderboard numbers.
 - [[guardrails-and-safety]] - safety test sets.
 - [[prompt-engineering]] - what evals iterate.
 - [[llm-observability]] - production monitoring.
