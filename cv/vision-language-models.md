@@ -80,6 +80,7 @@ Local: Hugging Face `transformers` image-text-to-text pipeline with an open VLM 
 - [[document-parsing]] - PDF/document pipelines.
 - [[embedding-models]] - CLIP-style embeddings.
 - [[structured-output]] - JSON extraction.
+- [[vision-language-action-models]] - VLMs extended to output robot actions.
 
 ## References
 - https://docs.anthropic.com/en/docs/build-with-claude/vision

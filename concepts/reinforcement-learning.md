@@ -113,6 +113,7 @@ model.save("ppo_cartpole")
 - [[reasoning-models]] - RL with verifiable rewards for reasoning.
 - [[recommender-systems]] - bandits for exploration in recommendations.
 - [[computer-use-agents]] - LLM agents, a different meaning of "agent".
+- [[vision-language-action-models]] - imitation-learned robot policies built on VLMs; sim-to-real.
 - [[dqn-from-scratch-numpy]] - DQN built in NumPy: replay buffer, target network, double DQN on CartPole.
 - [[mcts-from-scratch]] - Monte Carlo tree search (UCT) built by hand on tic-tac-toe.
 
