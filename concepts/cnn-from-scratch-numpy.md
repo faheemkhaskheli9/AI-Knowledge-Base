@@ -7,7 +7,7 @@ use_cases:
   - "train a complete small convolutional network in pure NumPy, end to end"
   - "see how conv, ReLU, pooling and a dense softmax layer chain together in backprop"
   - "verify hand-written CNN layers against PyTorch autograd"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.max_pool2d.html

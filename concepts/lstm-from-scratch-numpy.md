@@ -6,7 +6,7 @@ use_cases:
   - "implement an LSTM cell forward and backward pass from scratch"
   - "check a hand-written LSTM against torch.nn.LSTM"
   - "understand why the cell state lets gradients reach far-back time steps"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://docs.pytorch.org/docs/stable/generated/torch.nn.LSTM.html

@@ -7,7 +7,7 @@ use_cases:
   - "detect anomalies by how badly a model reconstructs a sample"
   - "compress high-dimensional data into a small learned code for search or clustering"
   - "understand how foundation models are pretrained without human labels"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://www.deeplearningbook.org/contents/autoencoders.html

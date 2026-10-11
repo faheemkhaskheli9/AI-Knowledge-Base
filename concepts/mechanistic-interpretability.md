@@ -8,7 +8,7 @@ use_cases:
   - "extract human-readable features from a model's activations with a sparse autoencoder"
   - "steer a model's output by adding a direction to its activations"
   - "read and modify intermediate activations of a PyTorch or transformer model"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1610.01644

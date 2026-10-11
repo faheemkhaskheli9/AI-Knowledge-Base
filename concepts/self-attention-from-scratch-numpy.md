@@ -7,7 +7,7 @@ use_cases:
   - "understand the shapes inside a transformer attention layer and how heads are split and merged"
   - "see why attention scores are divided by sqrt(d) and how a causal mask works"
   - "check a hand-written attention layer against torch.nn.MultiheadAttention"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1706.03762

@@ -7,7 +7,7 @@ use_cases:
   - "grade disease severity, damage level or risk tier (low/medium/high)"
   - "classify where predicting 'severe' for 'mild' is worse than predicting 'moderate'"
   - "estimate age group, education level or credit grade"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://www.statsmodels.org/stable/examples/notebooks/generated/ordinal_regression.html

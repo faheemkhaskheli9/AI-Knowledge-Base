@@ -8,7 +8,7 @@ use_cases:
   - "understand what GQA / MQA / sliding window mean on a model card"
   - "make attention fit in GPU memory for long sequences during training"
   - "add causal, padding or local masks without breaking the fast path"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention.html

@@ -7,7 +7,7 @@ use_cases:
   - "split a hidden dimension into attention heads and put them back"
   - "write a batched matrix product or pairwise distance without Python loops"
   - "find a silent broadcasting bug that makes the loss look fine but trains wrong"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://pytorch.org/docs/stable/notes/broadcasting.html

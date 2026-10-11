@@ -8,7 +8,7 @@ use_cases:
   - "fine-tune a pretrained vision or text model on a small labelled set"
   - "debug a model that does not learn (loss stuck or NaN)"
   - "export a trained model for serving"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://pytorch.org/tutorials/beginner/basics/intro.html

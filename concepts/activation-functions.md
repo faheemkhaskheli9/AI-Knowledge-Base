@@ -7,7 +7,7 @@ use_cases:
   - "fix dead ReLU units or vanishing gradients in a deep network"
   - "pick the right output activation for regression, binary, multi-label or multi-class"
   - "understand why LLM feed-forward blocks use SwiGLU instead of ReLU"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://pytorch.org/docs/stable/nn.html#non-linear-activations-weighted-sum-nonlinearity

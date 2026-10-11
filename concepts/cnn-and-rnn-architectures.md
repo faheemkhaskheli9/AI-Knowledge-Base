@@ -7,7 +7,7 @@ use_cases:
   - "choose between a CNN, LSTM/GRU or transformer for sensor, audio or text sequences"
   - "build a small CNN for a custom image or spectrogram classification task"
   - "classify or forecast from time-series sensor windows with a 1D CNN or LSTM"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://d2l.ai/chapter_convolutional-neural-networks/index.html

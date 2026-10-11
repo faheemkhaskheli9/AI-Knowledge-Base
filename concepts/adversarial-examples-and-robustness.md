@@ -8,7 +8,7 @@ use_cases:
   - "assess robustness to natural corruptions (blur, noise, weather) before deployment"
   - "threat-model a deployed ML system: evasion, poisoning, model extraction"
   - "understand why accuracy on a clean test set does not mean a model is safe"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1312.6199

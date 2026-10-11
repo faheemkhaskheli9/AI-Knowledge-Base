@@ -6,7 +6,7 @@ use_cases:
   - "implement batch norm forward and backward from scratch and check it against PyTorch"
   - "understand why model.eval() changes the output of a network"
   - "explain inverted dropout and why nothing is scaled at test time"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1502.03167

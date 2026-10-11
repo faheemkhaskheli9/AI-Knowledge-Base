@@ -8,7 +8,7 @@ use_cases:
   - "understand why a model degrades past its training context length"
   - "extend the context window of a RoPE model by scaling positions"
   - "encode 2-D image patch or time-series positions in a transformer"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1706.03762

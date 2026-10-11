@@ -8,7 +8,7 @@ use_cases:
   - "verify hand-written gradients with a numerical gradient check"
   - "debug None gradients, in-place errors or graph memory leaks in PyTorch"
   - "accumulate gradients over several micro-batches"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://pytorch.org/docs/stable/notes/autograd.html
