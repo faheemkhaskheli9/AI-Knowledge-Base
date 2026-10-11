@@ -7,7 +7,7 @@ use_cases:
   - "understand layer norm, multi-head attention, the MLP and residual connections together"
   - "check that a causal mask really stops information flowing from the future"
   - "count the parameters of a transformer layer"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://docs.pytorch.org/docs/stable/generated/torch.nn.TransformerEncoderLayer.html

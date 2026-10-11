@@ -8,7 +8,7 @@ use_cases:
   - "the model trains but validation accuracy is far below what it should be"
   - "choose a weight initialization and learning rate for a new architecture"
   - "set up sanity checks before an expensive training run"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://karpathy.github.io/2019/04/25/recipe/

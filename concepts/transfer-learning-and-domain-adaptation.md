@@ -7,7 +7,7 @@ use_cases:
   - "a model trained on one factory, hospital or region performs badly on another"
   - "adapt a model to a new domain where labels are scarce or missing"
   - "keep updating a model on new data without it forgetting old classes"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://docs.pytorch.org/tutorials/beginner/transfer_learning_tutorial.html

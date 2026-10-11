@@ -7,7 +7,7 @@ use_cases:
   - "choose the output layer and loss for classification, multi-label or regression"
   - "explain backpropagation and gradient descent to a team new to deep learning"
   - "build a small MLP from scratch to check that shapes, loss and gradients behave"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://www.deeplearningbook.org/

@@ -8,7 +8,7 @@ use_cases:
   - "limit how much a trained model can reveal about any single person"
   - "release aggregate statistics with a formal privacy guarantee"
   - "decide whether federated training is worth the engineering cost"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://arxiv.org/abs/1602.05629

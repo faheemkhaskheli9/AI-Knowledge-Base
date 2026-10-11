@@ -7,7 +7,7 @@ use_cases:
   - "train with a larger effective batch than fits in GPU memory"
   - "adjust the learning rate after changing the batch size or the number of GPUs"
   - "understand why small batches sometimes generalise better"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1706.02677

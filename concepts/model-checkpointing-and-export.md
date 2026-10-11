@@ -7,7 +7,7 @@ use_cases:
   - "save a trained model so another person or service can load it safely"
   - "export a PyTorch model to run without Python or on another runtime"
   - "keep the best and the last checkpoint during training"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://pytorch.org/tutorials/beginner/saving_loading_models.html

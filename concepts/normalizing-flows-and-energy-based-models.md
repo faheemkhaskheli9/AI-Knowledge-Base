@@ -8,7 +8,7 @@ use_cases:
   - "sample from a learned distribution and also compute its likelihood"
   - "understand flow matching, the training method behind recent image and audio generators"
   - "learn an unnormalized score or energy over inputs"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1605.08803

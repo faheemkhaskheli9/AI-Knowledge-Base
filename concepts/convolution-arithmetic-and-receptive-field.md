@@ -8,7 +8,7 @@ use_cases:
   - "cut parameters and compute with depthwise-separable convolutions for edge devices"
   - "upsample feature maps in a segmentation decoder"
   - "make a CNN accept images of any size with global average pooling"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1603.07285

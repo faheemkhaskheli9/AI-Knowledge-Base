@@ -8,7 +8,7 @@ use_cases:
   - "exclude biases and normalization weights from weight decay"
   - "switch a CNN from Adam to SGD with momentum for better final accuracy"
   - "reduce optimizer memory when fine-tuning a large model"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://pytorch.org/docs/stable/optim.html
@@ -93,6 +93,7 @@ opt = torch.optim.AdamW([
 print(len(decay), len(no_decay))   # 2 4
 ```
 Different LRs for a pretrained backbone and a new head (fine-tuning):
+<!-- skip-check: fragment, backbone and head come from your own model -->
 ```python
 opt = torch.optim.AdamW([
     {"params": backbone.parameters(), "lr": 1e-5},

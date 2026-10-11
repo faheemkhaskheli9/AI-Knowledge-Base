@@ -7,7 +7,7 @@ use_cases:
   - "fix a loss that suddenly jumps to NaN or inf during training"
   - "add gradient clipping to an RNN, LSTM or transformer training loop"
   - "choose initialization and activations so a deep MLP trains at all"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://proceedings.mlr.press/v9/glorot10a.html

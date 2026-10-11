@@ -19,6 +19,16 @@ jobs:
       # Topics needing torch, API keys or downloads are skipped, not failed.
       - run: python3 -m pip install numpy scipy scikit-learn pandas statsmodels matplotlib
       - run: python3 check_code.py --jobs 4
+  torch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - run: python3 -m pip install numpy scipy scikit-learn pandas statsmodels matplotlib
+      # CPU-only wheel: far smaller than the default CUDA build. Topics needing a GPU carry skip-check.
+      - run: python3 -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+      # Only the topics that import torch; the code job already runs the rest.
+      - run: python3 check_code.py --jobs 4 $(grep -rlE '^\s*(import|from) torch' --include=*.md concepts models llm-apps ml cv speech setup deployment scenarios)
   webapp:
     runs-on: ubuntu-latest
     timeout-minutes: 10

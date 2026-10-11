@@ -7,7 +7,7 @@ use_cases:
   - "understand what Mamba or a hybrid Mamba-transformer model is when choosing an LLM"
   - "pick a sequence architecture with constant memory per generated token"
   - "decide between a transformer, an LSTM and an SSM for a time-series or signal task"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://arxiv.org/abs/2111.00396

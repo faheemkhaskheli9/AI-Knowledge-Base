@@ -8,7 +8,7 @@ use_cases:
   - "build a small custom OCR or keyword-spotting model for a fixed domain"
   - "understand teacher forcing, exposure bias and beam search before using a transformer"
   - "convert one structured sequence into another (code normalisation, address parsing, g2p)"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1409.3215

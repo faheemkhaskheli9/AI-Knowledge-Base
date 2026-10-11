@@ -8,7 +8,7 @@ use_cases:
   - "choose between a dense and a MoE model for a latency-sensitive product"
   - "explain active vs total parameters to a procurement or finance team"
   - "fine-tune or quantize an MoE model without breaking routing"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://arxiv.org/abs/1701.06538

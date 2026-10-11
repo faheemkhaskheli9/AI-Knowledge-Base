@@ -8,7 +8,7 @@ use_cases:
   - "reduce overfitting when validation loss rises while training loss falls"
   - "set up warmup and cosine learning-rate decay for fine-tuning"
   - "choose batch norm vs layer norm and where dropout belongs"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://pytorch.org/docs/stable/optim.html

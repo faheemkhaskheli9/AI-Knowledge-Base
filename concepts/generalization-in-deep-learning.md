@@ -8,7 +8,7 @@ use_cases:
   - "explain a validation curve that gets worse then better again as model size or training time grows"
   - "judge whether a model has memorised its training data or learned the task"
   - "decide how long to keep training after training loss reaches zero"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1611.03530

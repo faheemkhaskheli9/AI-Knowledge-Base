@@ -8,7 +8,7 @@ use_cases:
   - "predict an interval or a percentile instead of the mean (quantile regression)"
   - "train a detector or classifier on heavily imbalanced classes with focal or weighted loss"
   - "match a model's output layer to the loss so training is numerically stable"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://pytorch.org/docs/stable/nn.html#loss-functions

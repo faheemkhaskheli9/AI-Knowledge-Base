@@ -8,7 +8,7 @@ use_cases:
   - "understand why every transformer block is x + f(x)"
   - "add a shortcut when input and output shapes differ"
   - "regularise a very deep network with stochastic depth"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1512.03385

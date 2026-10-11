@@ -7,7 +7,7 @@ use_cases:
   - "debug activations or gradients that shrink to zero or blow up with depth"
   - "initialize residual branches so a very deep network trains from step one"
   - "check what PyTorch layers use as their default init"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://pytorch.org/docs/stable/nn.init.html

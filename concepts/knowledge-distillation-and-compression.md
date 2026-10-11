@@ -7,7 +7,7 @@ use_cases:
   - "train a small task model using a large LLM as the labeller/teacher"
   - "cut inference cost of a fine-tuned transformer without losing much accuracy"
   - "choose between distillation, pruning and quantization for a latency budget"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://arxiv.org/abs/1503.02531

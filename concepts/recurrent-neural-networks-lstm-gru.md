@@ -8,7 +8,7 @@ use_cases:
   - "process a long or endless stream step by step with constant memory"
   - "fix exploding or vanishing gradients in a recurrent model"
   - "decide between a GRU, a 1D CNN and a transformer for a sequence task"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://pytorch.org/docs/stable/generated/torch.nn.LSTM.html

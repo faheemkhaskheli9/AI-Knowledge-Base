@@ -6,7 +6,7 @@ use_cases:
   - "generate realistic synthetic images or tabular rows to augment a small dataset"
   - "do fast single-step image-to-image translation or super-resolution"
   - "understand GANs and when diffusion models have replaced them"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://arxiv.org/abs/1406.2661

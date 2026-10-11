@@ -8,7 +8,7 @@ use_cases:
   - "train a vision model with batch size 1-4 per GPU"
   - "decide pre-norm vs post-norm placement in a transformer"
   - "fold BatchNorm into convolution weights for faster inference"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://pytorch.org/docs/stable/nn.html#normalization-layers

@@ -47,6 +47,7 @@ or pip with an explicit index (take the exact tag/command from the PyTorch selec
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
 ```
 3. Check:
+<!-- skip-check: needs an NVIDIA GPU; CI runners are CPU-only -->
 ```python
 import torch
 print(torch.__version__, torch.version.cuda, torch.cuda.is_available())

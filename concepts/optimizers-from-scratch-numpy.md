@@ -7,7 +7,7 @@ use_cases:
   - "understand Adam's bias correction and how AdamW's decoupled weight decay differs"
   - "verify a hand-written optimizer step for step against torch.optim"
   - "compare how optimizers handle an ill-conditioned valley like the Rosenbrock function"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://docs.pytorch.org/docs/stable/optim.html

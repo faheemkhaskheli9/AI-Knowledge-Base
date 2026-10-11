@@ -6,7 +6,7 @@ use_cases:
   - "build a tiny autograd engine from scratch to understand how loss.backward() works"
   - "explain the computation graph, topological sort and gradient accumulation in an interview"
   - "train a small neural network with no libraries except the Python standard library"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://github.com/karpathy/micrograd

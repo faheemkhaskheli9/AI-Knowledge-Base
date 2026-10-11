@@ -7,7 +7,7 @@ use_cases:
   - "estimate an unknown physical parameter (damping, diffusivity, friction) from measurements"
   - "build a fast surrogate for a slow simulator (CFD, FEM, heat transfer)"
   - "extrapolate beyond the measured range where a plain neural net would guess"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://www.sciencedirect.com/science/article/pii/S0021999118307125

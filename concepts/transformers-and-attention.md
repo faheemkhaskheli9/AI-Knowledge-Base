@@ -8,7 +8,7 @@ use_cases:
   - "pick an encoder, decoder or encoder-decoder architecture for a classification, chat or translation product"
   - "reduce latency of a chatbot serving long conversations (KV cache, GQA)"
   - "decide between a BERT-style encoder and an LLM for document tagging in a legal or insurance workflow"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://arxiv.org/abs/1706.03762
