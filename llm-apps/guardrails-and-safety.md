@@ -86,6 +86,7 @@ Approval gate for risky tools: return a pending action to a human UI and only ex
 
 ## Related
 - [[prompt-injection]] - the main attack on LLM apps.
+- [[sandboxed-code-execution]] - isolating model-written code with resource and network limits.
 - [[agents]] - action controls and approvals.
 - [[tool-calling]] - validate and authorize arguments.
 - [[hallucination-and-grounding]] - factuality controls.

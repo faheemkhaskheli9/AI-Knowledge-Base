@@ -85,6 +85,7 @@ for a in ATTACKS:
 
 ## Related
 - [[guardrails-and-safety]] - broader control layers.
+- [[sandboxed-code-execution]] - containing injected code: isolation, no secrets, deny-by-default egress.
 - [[agents]] - action boundaries.
 - [[model-context-protocol]] - tool poisoning risks.
 - [[rag-basics]] - retrieved text is untrusted.
