@@ -45,7 +45,8 @@ queries, not from the model.
    [[rag-basics]], [[structured-output]], [[tool-calling]].
 2. **Analyst agent that writes and runs code.** Approach: sandboxed Python
    with pandas/DuckDB, iterate on errors, return charts and the code. Read:
-   [[agents]], [[coding-agents]], [[agent-frameworks]].
+   [[agents]], [[coding-agents]], [[agent-frameworks]],
+   [[sandboxed-code-execution]].
 3. **Automated report narration.** Approach: compute stats in code, LLM
    writes the commentary from those numbers only. Read:
    [[hallucination-and-grounding]], [[prompt-engineering]].

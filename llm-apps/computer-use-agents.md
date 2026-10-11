@@ -106,6 +106,7 @@ Before relying on the input shape of any action (`coordinate`, `text`, scroll an
 
 ## Related
 - [[agents]] - the general loop this specializes.
+- [[sandboxed-code-execution]] - building the disposable VM or container the actions run in.
 - [[tool-calling]] - the request/response mechanics underneath.
 - [[prompt-injection]] - screen content is an injection channel.
 - [[guardrails-and-safety]] - approvals, step caps, audit logs.
