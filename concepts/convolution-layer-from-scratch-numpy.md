@@ -7,7 +7,7 @@ use_cases:
   - "understand how frameworks turn convolution into one matrix multiply (im2col)"
   - "derive the gradients of conv2d with respect to input, weights and bias"
   - "verify a hand-written layer against torch.nn.functional.conv2d autograd"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.conv2d.html

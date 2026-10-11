@@ -7,7 +7,7 @@ use_cases:
   - "check that a medical or defect classifier uses the lesion, not a ruler or watermark"
   - "attribute a neural network's prediction to input pixels, tokens or features"
   - "add a heatmap explanation to a vision model's output in a review tool"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1610.02391

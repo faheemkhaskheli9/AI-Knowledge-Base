@@ -7,7 +7,7 @@ use_cases:
   - "export a PyTorch model to ONNX and speed it up with ONNX Runtime"
   - "deploy a detector on an NVIDIA Jetson or similar edge box"
   - "run a small LLM on a laptop or phone offline"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://onnxruntime.ai/docs/

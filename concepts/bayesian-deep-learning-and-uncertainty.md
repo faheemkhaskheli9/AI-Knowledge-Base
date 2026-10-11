@@ -8,7 +8,7 @@ use_cases:
   - "calibrate an overconfident deep classifier so 0.9 means right 90% of the time"
   - "pick which unlabelled samples to label next based on model uncertainty"
   - "predict a value with error bars from a neural network regressor"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1506.02142

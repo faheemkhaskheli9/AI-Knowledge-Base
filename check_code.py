@@ -74,7 +74,7 @@ def check(path):
     with tempfile.TemporaryDirectory() as tmp:
         script = Path(tmp) / "topic.py"
         script.write_text(code, encoding="utf-8")
-        env = {**os.environ, "MPLBACKEND": "Agg", "PYTHONHASHSEED": "0", "PYTHONWARNINGS": "ignore",
+        env = {**os.environ, "MPLBACKEND": "Agg", "PYTHONHASHSEED": "0", "PYTHONWARNINGS": "ignore", "PYTHONIOENCODING": "utf-8",
                "OMP_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", "MKL_NUM_THREADS": "1"}
         try:
             r = subprocess.run([sys.executable, str(script)], cwd=tmp, env=env, capture_output=True,

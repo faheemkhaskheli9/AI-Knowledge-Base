@@ -8,7 +8,7 @@ use_cases:
   - "decay the learning rate when validation loss stops improving"
   - "train without fixing the total number of steps in advance"
   - "fix a schedule that decays far too fast because it is stepped per batch instead of per epoch"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate

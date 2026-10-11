@@ -8,7 +8,7 @@ use_cases:
   - "verify whether two items (signatures, documents, users) are the same"
   - "search for visually or semantically similar items by embedding distance"
   - "classify with 1-5 labelled examples per class"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://arxiv.org/abs/1503.03832

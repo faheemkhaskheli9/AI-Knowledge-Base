@@ -7,7 +7,7 @@ use_cases:
   - "predict properties of molecules or materials from their atom-bond graph"
   - "recommend items or friends by predicting missing links in a user-item graph"
   - "classify nodes in a network (accounts, papers, devices) using their neighbours"
-status: draft
+status: stable
 last_verified: 2026-10-03
 sources:
   - https://pytorch-geometric.readthedocs.io/

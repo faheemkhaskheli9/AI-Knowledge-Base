@@ -8,7 +8,7 @@ use_cases:
   - "use a larger effective batch size than fits in memory"
   - "choose between bf16 and fp16 mixed precision"
   - "find out whether training is GPU-bound or data-loading-bound"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://pytorch.org/docs/stable/amp.html

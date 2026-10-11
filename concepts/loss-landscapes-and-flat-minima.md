@@ -7,7 +7,7 @@ use_cases:
   - "measure the sharpness of a trained model (top Hessian eigenvalue)"
   - "plot a 1-D or 2-D slice of a network's loss surface"
   - "decide whether sharpness-aware minimisation (SAM) is worth trying"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1712.09913

@@ -6,7 +6,7 @@ use_cases:
   - "train a detector or classifier where 99% of examples are easy background"
   - "understand what alpha and gamma in focal loss actually do before tuning them"
   - "decide between focal loss, class weights and resampling for an imbalanced dataset"
-status: draft
+status: stable
 last_verified: 2026-10-06
 sources:
   - https://arxiv.org/abs/1708.02002

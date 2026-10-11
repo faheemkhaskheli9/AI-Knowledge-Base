@@ -8,7 +8,7 @@ use_cases:
   - "augment images and their bounding boxes or masks consistently for detection/segmentation"
   - "make a speech or audio model robust to noise and recording conditions"
   - "squeeze extra accuracy at inference with test-time augmentation"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://pytorch.org/vision/stable/transforms.html

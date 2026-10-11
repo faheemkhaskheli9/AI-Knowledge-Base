@@ -7,7 +7,7 @@ use_cases:
   - "decide whether to make a network wider or deeper"
   - "show why stacking linear layers without activations adds no power"
   - "size a small MLP for a regression or classification problem"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://www.deeplearningbook.org/contents/mlp.html

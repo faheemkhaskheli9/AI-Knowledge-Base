@@ -7,7 +7,7 @@ use_cases:
   - "check a hand-written GRU against torch.nn.GRU"
   - "understand how the update gate lets gradients skip many time steps"
   - "explain GRU vs LSTM in an interview"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://docs.pytorch.org/docs/stable/generated/torch.nn.GRU.html

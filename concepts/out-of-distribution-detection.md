@@ -8,7 +8,7 @@ use_cases:
   - "detect when production inputs drift away from the training distribution"
   - "reject garbage inputs (wrong camera, blank image, other language) before they reach the model"
   - "add a confidence gate to an automated decision pipeline"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/1610.02136

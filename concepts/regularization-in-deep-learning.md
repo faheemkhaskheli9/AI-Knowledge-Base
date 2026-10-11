@@ -8,7 +8,7 @@ use_cases:
   - "add early stopping and keep the best checkpoint"
   - "choose dropout rate and weight decay for an MLP, CNN or transformer"
   - "understand why a model behaves differently in train() and eval() mode"
-status: draft
+status: stable
 last_verified: 2026-10-04
 sources:
   - https://jmlr.org/papers/v15/srivastava14a.html
