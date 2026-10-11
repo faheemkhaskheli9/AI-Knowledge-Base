@@ -89,6 +89,8 @@ are usually cheaper.
 - [[cost-and-latency]] - optimisation.
 - [[scenario-chooser]] - problem to approach mapping.
 - [[prompt-caching-and-cost]] - lowering API spend.
+- [[reading-ai-benchmarks]] - how to read the vendor and leaderboard numbers behind a choice.
+- [[managed-cloud-ai-platforms]] - the same models through Bedrock, Vertex AI or Azure AI Foundry.
 
 ## References
 - https://platform.claude.com/docs/en/about-claude/models/choosing-a-model
