@@ -89,6 +89,7 @@ Add an MCP server to Claude Code: `claude mcp add docs -- python server.py` ([[m
 
 ## Related
 - [[agents]] - the underlying loop.
+- [[sandboxed-code-execution]] - containers, gVisor, microVMs and egress rules for the agent's runtime.
 - [[model-context-protocol]] - extend agents with tools and docs.
 - [[agent-frameworks]] - Claude Agent SDK for custom harnesses.
 - [[multi-agent-systems]] - subagent patterns.

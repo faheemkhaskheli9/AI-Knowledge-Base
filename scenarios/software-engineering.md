@@ -31,7 +31,7 @@ work, and tight permissions, with a human reviewing what merges.
   [[long-context]]).
 - Small, reviewable diffs; one task per branch; no unreviewed merges.
 - Agents run commands: sandboxing, least privilege and secret hygiene matter
-  ([[guardrails-and-safety]]).
+  ([[guardrails-and-safety]], [[sandboxed-code-execution]]).
 - Licence and provenance: generated code may resemble licensed code; check
   your organisation's policy and tool terms ([[model-licenses]]).
 
