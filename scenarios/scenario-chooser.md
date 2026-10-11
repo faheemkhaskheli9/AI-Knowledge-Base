@@ -95,6 +95,8 @@ KB files to read in full next.
   [[rag-basics]]. Consistent format or tone, narrow task, latency/cost at high
   volume -> [[fine-tuning-and-peft]] (after prompting and [[structured-output]]
   fail). Often combined: RAG for facts, small fine-tune for behaviour.
+  No GPUs, or a checkable-answer task for reinforcement fine-tuning ->
+  a provider-hosted tune: [[hosted-fine-tuning-apis]].
 - **API vs local model.** API: best quality, no GPU ops, per-token cost, data
   leaves your boundary (check the provider's retention and DPA terms). Local:
   data control, fixed cost at scale, offline use, more ops work. See
