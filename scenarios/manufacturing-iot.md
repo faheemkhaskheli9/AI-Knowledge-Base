@@ -65,6 +65,10 @@ manuals, work-order text, operator assistants.
    [[voice-agents]].
 10. **Supply chain and inventory.** Read: [[ecommerce-retail]],
     [[time-series-forecasting]].
+11. **Flexible robotic manipulation (kitting, bin picking with many SKUs).**
+    Approach: fine-tune an open VLA on teleoperated demonstrations, inside
+    the cell's safety-rated stops and limits; scripted motion stays the
+    default for fixed tasks. Read: [[vision-language-action-models]].
 
 ## Setup & code
 Reference architecture (flagship: camera-based inspection):
@@ -109,6 +113,7 @@ product.
 - [[experiment-tracking]] - tracking training runs and datasets.
 - [[inference-servers-vllm]] - serving LLM parts when on premises.
 - [[llm-observability]] - monitoring the language components.
+- [[vision-language-action-models]] - learned robot policies and their safety limits.
 
 ## References
 - scikit-learn outlier detection: https://scikit-learn.org/stable/modules/outlier_detection.html
