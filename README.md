@@ -37,7 +37,18 @@ Deployment and LLM-app topics here end their `## Related` section with
 Copy [_template.md](_template.md) to start a topic, then run
 `python build_index.py` to regenerate the index. Facts that change over time,
 such as model names, prices and context sizes, must cite a source and carry a
-`last_verified` date.
+`last_verified` date. The generated index includes that date in its **Verified**
+column; `stable` is not a guarantee that facts are still current.
+
+```bash
+python build_index.py --stale 30          # warn on volatile topics older than 30 days
+python build_index.py --strict --stale 90 # also fail on orphan/unreached topics
+python -m unittest test_build_index_freshness
+```
+
+Staleness warnings cover `models/`, `setup/`, `deployment/`, and topics naming
+API model IDs. The default threshold is 90 days; missing or malformed dates
+also warn. These warnings do not fail the build, including with `--strict`.
 
 ## Web app (view and edit)
 

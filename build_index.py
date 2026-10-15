@@ -2,10 +2,11 @@
 
 Run after adding or editing a topic:  python build_index.py
 CI runs  python build_index.py --strict  so orphan/unreached warnings fail too.
+Use --stale DAYS to change the 90-day freshness warning threshold.
 Stdlib only; parses the simple frontmatter shape used in _template.md.
 """
+import argparse
 import re
-import sys
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -47,17 +48,17 @@ def frontmatter(text):
     return meta
 
 
-def stale(meta, rel, today, text=""):
+def stale(meta, rel, today, text="", stale_days=STALE_DAYS):
     """True for a volatile topic (volatile folder, or names a model ID) whose last_verified is missing, malformed or too old."""
     if rel.split("/")[0] not in VOLATILE and not MODEL_ID.search(text):
         return False
     try:
-        return date.fromisoformat(meta.get("last_verified", "")) < today - timedelta(days=STALE_DAYS)
+        return (today - date.fromisoformat(meta.get("last_verified", ""))).days > stale_days
     except ValueError:
         return True
 
 
-def build(today=None):
+def build(today=None, stale_days=STALE_DAYS):
     today = today or date.today()
     rows, bad, out_links, old, groups, expiring = [], [], {}, [], {}, []
     for path in sorted(ROOT.rglob("*.md")):
@@ -70,7 +71,7 @@ def build(today=None):
         if not meta or "title" not in meta:
             bad.append(rel)
             continue
-        if stale(meta, rel, today, text):
+        if stale(meta, rel, today, text, stale_days):
             old.append(f"{rel} ({meta.get('last_verified', 'no date')})")
         for n, line in enumerate(text.splitlines(), 1):
             for until in VALID_UNTIL.findall(line):
@@ -83,7 +84,7 @@ def build(today=None):
         uses = meta.get("use_cases", [])
         row = (
             f"| [{meta['title']}]({rel}) | {', '.join(meta.get('tags', []))} "
-            f"| {'; '.join(uses[:3])} | {meta.get('status', '?')} |"
+            f"| {'; '.join(uses[:3])} | {meta.get('status', '?')} | {meta.get('last_verified', '?')} |"
         )
         rows.append(row)
         groups.setdefault(meta.get("category", rel.split("/")[0]), []).append(row)
@@ -98,7 +99,7 @@ def build(today=None):
     ]
     for c in cats:
         out += ["", f"## {c}", "", f"{len(groups[c])} topics.", "",
-                "| Topic | Tags | Use when | Status |", "|---|---|---|---|", *groups[c]]
+                "| Topic | Tags | Use when | Status | Verified |", "|---|---|---|---|---|", *groups[c]]
     out.append("")
     (ROOT / "INDEX.md").write_text("\n".join(out), encoding="utf-8", newline="\n")
     broken = [f"{rel} -> [[{l}]]" for rel, ls in out_links.values() for l in ls if l not in out_links]
@@ -112,19 +113,39 @@ def build(today=None):
     return rows, bad, broken, orphans, old, unreached, expiring
 
 
-if __name__ == "__main__":
-    rows, bad, broken, orphans, old, unreached, expiring = build()
+def nonnegative_days(value):
+    try:
+        days = int(value)
+    except ValueError:
+        raise argparse.ArgumentTypeError("must be a non-negative integer")
+    if days < 0:
+        raise argparse.ArgumentTypeError("must be a non-negative integer")
+    return days
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--strict", action="store_true",
+                        help="fail on orphan or unreached topics")
+    parser.add_argument("--stale", type=nonnegative_days, default=STALE_DAYS,
+                        metavar="DAYS", help="warn on volatile topics older than DAYS (default: 90)")
+    args = parser.parse_args(argv)
+    rows, bad, broken, orphans, old, unreached, expiring = build(stale_days=args.stale)
     print(f"indexed {len(rows)} topics")
     if orphans:
         print(f"warning: {len(orphans)} topic(s) no other topic links to: {orphans}")
     if unreached:
         print(f"warning: {len(unreached)} overview topic(s) no scenarios/ file links to: {unreached}")
     if old:
-        print(f"warning: {len(old)} topic(s) in {'/'.join(VOLATILE)} or naming a model ID not verified in {STALE_DAYS} days, re-check their sources: {old}")
+        print(f"warning: {len(old)} topic(s) in {'/'.join(VOLATILE)} or naming a model ID not verified in {args.stale} days, re-check their sources: {old}")
     if expiring:
         print(f"warning: {len(expiring)} valid-until fact(s) lapse within {EXPIRY_DAYS} days or already have: {expiring}")
     if bad or broken:
         raise SystemExit(f"missing/invalid frontmatter: {bad}\nbroken [[links]]: {broken}")
     # --strict (CI): orphan and unreached warnings fail too; stale ones never do.
-    if "--strict" in sys.argv[1:] and (orphans or unreached):
+    if args.strict and (orphans or unreached):
         raise SystemExit("--strict: fix the orphan/unreached topics above")
+
+
+if __name__ == "__main__":
+    main()
