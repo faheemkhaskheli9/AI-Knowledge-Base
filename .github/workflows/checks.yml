@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - run: python3 -m unittest test_build_index_freshness
+      - run: python3 -m unittest test_build_index_freshness test_llms_txt
       # Fails on missing frontmatter, a broken [[link]], an orphan or an unreached overview topic.
       - run: python3 build_index.py --strict
-      # Fails if INDEX.md was not regenerated and committed.
-      - run: git diff --exit-code INDEX.md
+      # Fails if generated directories were not regenerated and committed.
+      - run: git diff --exit-code INDEX.md llms.txt
   code:
     runs-on: ubuntu-latest
     timeout-minutes: 45
