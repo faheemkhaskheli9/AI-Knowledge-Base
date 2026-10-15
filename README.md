@@ -8,6 +8,7 @@ can look things up before they build.
 - **Start here:** [INDEX.md](INDEX.md) lists every topic with its tags and use cases.
 - **By problem:** [scenarios/](scenarios/) maps an industry or task to the
   recommended approach.
+- **Agent entry point:** [llms.txt](llms.txt) provides a generated topic directory.
 - **For agents:** [AGENTS.md](AGENTS.md) explains how to consult the base and how to extend it.
 
 ## Layout
@@ -35,7 +36,7 @@ Deployment and LLM-app topics here end their `## Related` section with
 ## Contributing
 
 Copy [_template.md](_template.md) to start a topic, then run
-`python build_index.py` to regenerate the index. Facts that change over time,
+`python build_index.py` to regenerate the index and `llms.txt`. Facts that change over time,
 such as model names, prices and context sizes, must cite a source and carry a
 `last_verified` date. The generated index includes that date in its **Verified**
 column; `stable` is not a guarantee that facts are still current.

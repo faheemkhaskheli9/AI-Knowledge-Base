@@ -27,8 +27,8 @@ holds the detail and any leftover acceptance criteria.
    Issue #11 (still open: the most-used API-calling topics are not yet stable).
 4. [x] **Staleness report.** `build_index.py` lists `models/`, `setup/` and
    `deployment/` files whose `last_verified` is older than 90 days, the ones
-   whose facts (model IDs, prices, versions) rot. Issue #4 (still open for a
-   `Verified` column and a `--stale N` flag).
+   whose facts (model IDs, prices, versions) rot. Issue #4 closed: the index now
+   includes a `Verified` column and `--stale N` configures the threshold.
 5. [ ] **Fill thin categories.** Add applied topics before more from-scratch
    ones: `models/` (embedding and reranker models, open-weight vision LLMs),
    `setup/` (vLLM/llama.cpp server on Windows, Docker GPU), `deployment/`
@@ -49,4 +49,5 @@ holds the detail and any leftover acceptance criteria.
 10. [ ] **Verify flagged facts.** Replace or remove the "not verified" flags
     and the Claude sampling-parameter note. Issues #5, #8.
 11. [ ] **Agent entry points.** `llms.txt`, a glossary and learning paths.
-    Issues #13, #96, #97.
+    `llms.txt` is generated with the index (issue #13); glossary and learning
+    paths remain in #96 and #97.

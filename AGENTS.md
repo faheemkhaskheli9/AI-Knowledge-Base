@@ -5,7 +5,7 @@ setup/code, deployment, and the real-world scenarios each one fits.
 
 ## Consulting it
 
-1. Read `INDEX.md`. Match your task against the **Tags** and **Use when** columns.
+1. Use `llms.txt` for a compact topic directory, or read `INDEX.md`. Match your task against the **Tags** and **Use when** columns.
 2. Read the **full** matched file(s), not just the index row. Follow `[[links]]`
    in the `## Related` section when they apply.
 3. For "which approach/model for X?" start in `scenarios/`, which maps
@@ -29,7 +29,7 @@ Quick search without reading the index: `grep -ril "<keyword>" --include=*.md .`
    its overview topic), or agents following links never reach it. A new
    overview (not from-scratch) topic also needs a link from a `scenarios/` file,
    usually a row in `scenarios/scenario-chooser.md`.
-5. Run `python build_index.py` (stdlib only). It regenerates `INDEX.md`, fails
+5. Run `python build_index.py` (stdlib only). It regenerates `INDEX.md` and `llms.txt`, fails
    on missing frontmatter or a broken `[[link]]`, and warns on orphan topics
    and on overview topics no scenario links to. CI runs it with `--strict`,
    which turns those two warnings into failures (stale warnings stay warnings).
