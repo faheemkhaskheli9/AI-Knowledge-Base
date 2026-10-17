@@ -95,6 +95,13 @@ use_cases:
                 self.assertIn(f"{broken_file.name} -> [[no-such-topic]]", str(error.exception.code))
                 broken_file.write_text(text, encoding="utf-8")
 
+    def test_entry_point_valid_until_is_checked(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(build_index, "ROOT", Path(tmp)):
+            (Path(tmp) / "glossary.md").write_text(
+                "# Glossary\n\n- **Promo** - price ends soon. <!-- valid-until: 2000-01-01 -->\n", encoding="utf-8")
+            expiring = build_index.build(date(2026, 1, 1))[-1]
+            self.assertEqual(expiring, ["glossary.md:3 (2000-01-01)"])
+
     def test_frontmatter_keeps_hash_inside_values(self):
         meta = build_index.frontmatter("---\ntitle: C# and F# bindings\nstatus: draft  # comment\n"
                                        "last_verified: 2026-10-17 # re-checked\n---\n")

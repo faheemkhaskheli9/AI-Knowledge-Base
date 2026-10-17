@@ -86,14 +86,7 @@ def build(today=None, stale_days=STALE_DAYS):
             continue
         if stale(meta, rel, today, text, stale_days):
             old.append(f"{rel} ({meta.get('last_verified', 'no date')})")
-        for n, line in enumerate(text.splitlines(), 1):
-            for until in VALID_UNTIL.findall(line):
-                try:
-                    lapses = date.fromisoformat(until) <= today + timedelta(days=EXPIRY_DAYS)
-                except ValueError:
-                    lapses = True  # a malformed date is reported, not trusted
-                if lapses:
-                    expiring.append(f"{rel}:{n} ({until})")
+        expiring += lapsing(rel, text, today)
         uses = meta.get("use_cases", [])
         row = (
             f"| [{cell(meta['title'])}]({rel}) | {cell(', '.join(meta.get('tags', [])))} "
@@ -120,6 +113,9 @@ def build(today=None, stale_days=STALE_DAYS):
     (ROOT / "llms.txt").write_text(llms_txt(cats, llms), encoding="utf-8", newline="\n")
     broken = [f"{rel} -> [[{l}]]" for rel, ls in out_links.values() for l in ls if l not in out_links]
     broken += entry_point_broken(out_links)
+    for name in ENTRY_POINTS:  # skipped above, but their facts can expire too
+        if (ROOT / name).exists():
+            expiring += lapsing(name, (ROOT / name).read_text(encoding="utf-8"), today)
     broken += dupes
     linked = {l for stem, (_, ls) in out_links.items() for l in ls if l != stem}
     orphans = sorted(rel for stem, (rel, _) in out_links.items() if stem not in linked)
@@ -129,6 +125,20 @@ def build(today=None, stale_days=STALE_DAYS):
                        if "/" in rel and not rel.startswith("scenarios/")
                        and "from-scratch" not in stem and stem not in from_scenarios)
     return rows, bad, broken, orphans, old, unreached, expiring
+
+
+def lapsing(rel, text, today):
+    """'file:line (date)' for each valid-until marker within EXPIRY_DAYS of today or past it."""
+    out = []
+    for n, line in enumerate(text.splitlines(), 1):
+        for until in VALID_UNTIL.findall(line):
+            try:
+                lapses = date.fromisoformat(until) <= today + timedelta(days=EXPIRY_DAYS)
+            except ValueError:
+                lapses = True  # a malformed date is reported, not trusted
+            if lapses:
+                out.append(f"{rel}:{n} ({until})")
+    return out
 
 
 def entry_point_broken(topics):
