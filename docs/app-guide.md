@@ -45,6 +45,7 @@ Contents
   - [Tag filter](#tag-filter)
   - [Links between topics](#links-between-topics)
   - [Sources and backlinks](#sources-and-backlinks)
+  - [Glossary, learning paths, INDEX.md and llms.txt](#glossary-learning-paths-indexmd-and-llmstxt-1)
   - [What the site does not show](#what-the-site-does-not-show)
   - [Tips, troubleshooting and limits](#tips-troubleshooting-and-limits-1)
 
@@ -131,7 +132,10 @@ Links:
   inside the app when the file exists.
 - `http(s)://` and `mailto:` links open in a new tab.
 - Links to an in-page anchor only (`[A](#a)`) are shown as plain text.
-- Images are not displayed.
+- Images (`![alt](screenshots/x.png)`) are shown when they are PNG, JPEG,
+  GIF or WebP files inside the repo; the path is resolved against the open
+  file's folder. Remote images (`https://...`) are shown as a link instead,
+  because the page only loads images from the app itself. SVG is not shown.
 
 **How to use it.** Click any link to move between topics. Follow a topic's
 `## Related` list, which is how the KB is meant to be navigated.
@@ -171,8 +175,10 @@ listed before that file's line hits. Each hit shows `path:line` and the trimmed 
 in bold. At most 200 hits are returned.
 
 **How to use it.** Type at least 2 characters in **Search all files…** and
-press **Enter**. Click a hit to open that file (it opens at the top, not at
-the line; use the browser's find, Ctrl+F, to jump to it).
+press **Enter**. Click a hit to open that file at that line: the view scrolls
+to the block (heading, paragraph, list item, table row, code block) holding
+the line and flashes it, and **Edit** puts the cursor on the line. A
+`(filename)` hit opens the file at the top.
 
 **When.** Find every topic that mentions a model, library or term; check where
 a term is defined (`glossary.md` hits show up too); find stale mentions before
@@ -358,6 +364,10 @@ your own browser tab:
 - **Paths stay inside the repo.** Absolute paths, `..`, hidden path parts,
   skipped folders, symlinks that resolve outside the repo and extensions not in
   the list are refused. Files over 2 MB cannot be opened or saved.
+- **Images are read-only.** Images are served by a separate read-only route
+  with the same path rules, only for PNG, JPEG, GIF and WebP files (checked by
+  extension and file content), up to 10 MB. They cannot be opened in the
+  editor or saved.
 - **Fixed commands only.** The action buttons run only the commands listed in
   `config.json`; the page cannot send a command of its own.
 - **Strict browser headers.** A Content-Security-Policy allows only the app's
@@ -404,7 +414,7 @@ Restart the server after changing the file.
 - **Review before committing.** Edits go straight to your working tree. Run
   `git diff` and the checks in AGENTS.md before you commit.
 - Limits: no delete, rename or move (use the shell or git); no git
-  integration; no image display; search results are not ranked; the Markdown
+  integration; no SVG or remote images; search results are not ranked; the Markdown
   renderer is simpler than GitHub's, so check unusual formatting on GitHub.
 
 ---
@@ -416,7 +426,8 @@ Restart the server after changing the file.
 A small Django project (`manage.py`, `webapp/settings.py`, `webapp/urls.py`,
 `webapp/views.py`, `webapp/templates/`) that shows the topics as a site:
 titles instead of file names, category and tag filters, rendered pages with
-working `[[links]]`, and a "Linked from" list. It cannot change any file.
+working `[[links]]`, and a "Linked from" list. It also shows the glossary, learning
+paths, INDEX.md and llms.txt. It cannot change any file.
 
 ### Start it
 
@@ -531,6 +542,8 @@ Note: clicking a category chip while a tag filter is on drops the tag filter.
 - A `[[name]]` that matches no topic is shown in red with a strikethrough.
 - Relative Markdown links to another topic (`[x](../concepts/embeddings.md#key-concepts)`)
   are rewritten to the site page, keeping the `#section`.
+- Links to `glossary.md`, `learning-paths.md`, `INDEX.md` and `llms.txt` go to
+  `/glossary/`, `/learning-paths/`, `/index/` and `/llms.txt`.
 - Text inside code blocks and inline code is left alone, so `[[1, 2]]` in a
   Python snippet stays a list.
 
@@ -555,14 +568,27 @@ that point at it. Sources tell you where to re-check a fact.
 
 **Why.** Neither GitHub nor the edit app can show "what links here".
 
+### Glossary, learning paths, INDEX.md and llms.txt
+
+![The glossary page: header links to the entry points, terms with links to their topics](screenshots/django-glossary.png)
+
+**What it does.** The header links to four read-only pages besides the topics:
+**Glossary** (`/glossary/`, glossary.md), **Learning paths** (`/learning-paths/`,
+learning-paths.md), **INDEX.md** (`/index/`) and **llms.txt** (`/llms.txt`, served
+as plain text). The three Markdown files are rendered like topics: their `[[links]]`
+and relative links (INDEX.md's `scenarios/agriculture.md` rows) open the topic pages.
+A topic's Markdown link to one of these files (`[terms](../glossary.md#a)`) opens
+the matching page, keeping the `#section`.
+
+**When.** Looking up a term and jumping to the topic that explains it, or following
+a reading path step by step.
+
 ### What the site does not show
 
-The site lists only `.md` files inside category folders. Repo-root files are
-skipped, so **glossary.md**, **learning-paths.md**, **INDEX.md**,
-**llms.txt**, README.md, AGENTS.md and `_template.md` have no page here, and a
-topic's Markdown link to one of them leads to a "Page not found". Read those
-in the [edit app](#glossary-learning-paths-indexmd-and-llmstxt) or on GitHub.
-The topic list itself replaces INDEX.md on the site.
+The site serves topics plus only those four files, from a fixed list. Other
+repo-root files (README.md, AGENTS.md, ROADMAP.md, `_template.md`) have no page,
+and a link to one of them leads to a "Page not found". Read those in the
+[edit app](#glossary-learning-paths-indexmd-and-llmstxt) or on GitHub.
 
 ### Tips, troubleshooting and limits
 

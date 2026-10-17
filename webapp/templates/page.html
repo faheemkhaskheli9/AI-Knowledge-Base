@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} · AI Knowledge Base{% endblock %}
+{% block content %}
+<p class="muted">Read-only view of <code>{{ name }}</code></p>
+<article>{{ body|safe }}</article>
+{% endblock %}
