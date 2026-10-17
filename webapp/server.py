@@ -17,6 +17,10 @@ SKIP_DIRS = set(CFG["skip_dirs"])
 READONLY = tuple(CFG.get("readonly", []))
 ACTIONS = CFG.get("actions", {})
 MAX_BYTES = 2 * 1024 * 1024
+# Read-only image types shown inline by the Markdown view. No SVG: it can carry script.
+IMAGES = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".gif": "image/gif",
+          ".webp": "image/webp"}
+MAX_IMAGE_BYTES = 10 * 1024 * 1024
 TOKEN = secrets.token_urlsafe(24)
 LOCK = threading.Lock()
 STATIC = {"/": ("index.html", "text/html; charset=utf-8"),
@@ -28,17 +32,20 @@ def is_readonly(rel):
     return any(rel == p.rstrip("/") or rel.startswith(p if p.endswith("/") else p + "/") for p in READONLY)
 
 
-def resolve(rel, must_exist=True):
+def resolve(rel, must_exist=True, exts=EXTS):
     """Map a repo-relative POSIX path to an absolute one, or None if not allowed."""
     if not rel or "\x00" in rel or rel.startswith("/") or "\\" in rel:
         return None
     parts = rel.split("/")
     if any(p in ("", ".", "..") or p.startswith(".") or p in SKIP_DIRS for p in parts):
         return None
-    if not rel.lower().endswith(EXTS):
+    if not rel.lower().endswith(exts):
         return None
     full = os.path.realpath(os.path.join(ROOT, *parts))
-    if os.path.commonpath([ROOT, full]) != ROOT:
+    if os.path.commonpath([ROOT, full]) != ROOT or not full.lower().endswith(exts):
+        return None
+    # A symlink must not lead into a hidden or skipped folder either.
+    if any(p.startswith(".") or p in SKIP_DIRS for p in os.path.relpath(full, ROOT).split(os.sep)):
         return None
     if must_exist and not os.path.isfile(full):
         return None
@@ -66,6 +73,31 @@ def read_text(full):
     if len(data) > MAX_BYTES:
         raise ValueError("file too large to edit here")
     return data.decode("utf-8")
+
+
+def image_type(data):
+    """Content-Type from the file's magic bytes, or None if it is not an allowed image."""
+    if data.startswith(b"\x89PNG\r\n\x1a\n"):
+        return "image/png"
+    if data.startswith(b"\xff\xd8\xff"):
+        return "image/jpeg"
+    if data[:6] in (b"GIF87a", b"GIF89a"):
+        return "image/gif"
+    if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        return "image/webp"
+    return None
+
+
+def read_image(full):
+    """Bytes and Content-Type of an allowlisted image; ValueError if too large or not that type."""
+    with open(full, "rb") as f:
+        data = f.read(MAX_IMAGE_BYTES + 1)
+    if len(data) > MAX_IMAGE_BYTES:
+        raise ValueError("image too large")
+    ctype = image_type(data)
+    if ctype != IMAGES[os.path.splitext(full)[1].lower()]:
+        raise ValueError("not a valid image of its type")
+    return data, ctype
 
 
 def search(q, limit=200):
@@ -157,6 +189,17 @@ class Handler(BaseHTTPRequestHandler):
                                         "version": str(os.stat(full).st_mtime_ns)})
             except (ValueError, UnicodeDecodeError) as e:
                 return self._err(415, str(e))
+        if u.path == "/api/image":
+            # Read-only: images under the repo, same path rules as text files, allowlisted types only.
+            rel = (qs.get("path") or [""])[0]
+            full = resolve(rel, exts=tuple(IMAGES))
+            if not full:
+                return self._err(404, "not found")
+            try:
+                data, ctype = read_image(full)
+            except (ValueError, OSError) as e:
+                return self._err(415, str(e))
+            return self._send(200, data, ctype)
         self._err(404, "not found")
 
     def _write(self, full, content):
