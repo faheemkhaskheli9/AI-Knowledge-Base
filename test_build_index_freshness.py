@@ -67,6 +67,34 @@ use_cases:
         self.assertIn("- [Chooser](scenarios/chooser.md): start here", lines)
         self.assertIn("- [Example](models/example.md): pick a model", lines)
 
+    def test_entry_point_links_checked_but_not_indexed(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(build_index, "ROOT", Path(tmp)):
+            (Path(tmp) / "concepts").mkdir()
+            (Path(tmp) / "concepts" / "tokens.md").write_text(
+                "---\ntitle: Tokens\ncategory: concepts\nuse_cases:\n  - count tokens\n---\n# Tokens\n",
+                encoding="utf-8")
+            glossary, paths = Path(tmp) / "glossary.md", Path(tmp) / "learning-paths.md"
+            glossary.write_text("# Glossary\n\n- **Token** - a unit of text. [[tokens]]\n", encoding="utf-8")
+            paths.write_text("# Learning paths\n\n1. [[tokens]] - start here.\n", encoding="utf-8")
+            with contextlib.redirect_stdout(io.StringIO()) as output:
+                build_index.main([])
+            index = (Path(tmp) / "INDEX.md").read_text(encoding="utf-8")
+            llms = (Path(tmp) / "llms.txt").read_text(encoding="utf-8")
+            self.assertIn("1 topics", index)
+            self.assertNotIn("](glossary.md)", index)
+            self.assertNotIn("](learning-paths.md)", index)
+            self.assertIn("- [Glossary](glossary.md):", llms)
+            self.assertIn("- [Learning paths](learning-paths.md):", llms)
+            # Entry-point links do not rescue an orphan topic.
+            self.assertIn("concepts/tokens.md", output.getvalue())
+            for broken_file in (glossary, paths):
+                text = broken_file.read_text(encoding="utf-8")
+                broken_file.write_text(text + "- [[no-such-topic]]\n", encoding="utf-8")
+                with contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit) as error:
+                    build_index.main([])
+                self.assertIn(f"{broken_file.name} -> [[no-such-topic]]", str(error.exception.code))
+                broken_file.write_text(text, encoding="utf-8")
+
     def test_invalid_cli_thresholds(self):
         for value in ("-1", "abc", "1.5"):
             with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as error:

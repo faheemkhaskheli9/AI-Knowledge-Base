@@ -2,6 +2,7 @@
 
 Run after adding or editing a topic:  python build_index.py
 CI runs  python build_index.py --strict  so orphan/unreached warnings fail too.
+glossary.md and learning-paths.md are not topics, but a broken [[link]] in them fails the build.
 Use --stale DAYS to change the 90-day freshness warning threshold.
 Stdlib only; parses the simple frontmatter shape used in _template.md.
 """
@@ -21,7 +22,10 @@ VALID_UNTIL = re.compile(r"<!--\s*valid-until:\s*(\d{4}-\d{2}-\d{2})\s*-->")
 EXPIRY_DAYS = 14
 # INDEX.md section order: the entry point first, then the categories in AGENTS.md order.
 ORDER = ("scenarios", "concepts", "models", "llm-apps", "ml", "cv", "speech", "setup", "deployment")
-SKIP = {"README.md", "AGENTS.md", "CLAUDE.md", "INDEX.md", "ROADMAP.md", "_template.md"}
+# Entry points for agents: not topics (not in INDEX.md/llms.txt rows), but their [[links]] are checked.
+GLOSSARY, LEARNING_PATHS = "glossary.md", "learning-paths.md"
+ENTRY_POINTS = (GLOSSARY, LEARNING_PATHS)
+SKIP = {"README.md", "AGENTS.md", "CLAUDE.md", "INDEX.md", "ROADMAP.md", "_template.md", *ENTRY_POINTS}
 
 
 def links(text):
@@ -106,6 +110,7 @@ def build(today=None, stale_days=STALE_DAYS):
     (ROOT / "INDEX.md").write_text("\n".join(out), encoding="utf-8", newline="\n")
     (ROOT / "llms.txt").write_text(llms_txt(cats, llms), encoding="utf-8", newline="\n")
     broken = [f"{rel} -> [[{l}]]" for rel, ls in out_links.values() for l in ls if l not in out_links]
+    broken += entry_point_broken(out_links)
     linked = {l for stem, (_, ls) in out_links.items() for l in ls if l != stem}
     orphans = sorted(rel for stem, (rel, _) in out_links.items() if stem not in linked)
     # Overview = any non-scenario topic that is not a from-scratch walkthrough.
@@ -114,6 +119,16 @@ def build(today=None, stale_days=STALE_DAYS):
                        if "/" in rel and not rel.startswith("scenarios/")
                        and "from-scratch" not in stem and stem not in from_scenarios)
     return rows, bad, broken, orphans, old, unreached, expiring
+
+
+def entry_point_broken(topics):
+    """Broken [[links]] in glossary.md and learning-paths.md; they do not count as inbound links for orphans."""
+    broken = []
+    for name in ENTRY_POINTS:
+        path = ROOT / name
+        if path.exists():
+            broken += [f"{name} -> [[{l}]]" for l in links(path.read_text(encoding="utf-8")) if l not in topics]
+    return broken
 
 
 def llms_txt(cats, entries):
@@ -130,6 +145,12 @@ def llms_txt(cats, entries):
     ]
     for c in cats:
         out += ["", f"## {c}", "", *entries[c]]
+    optional = [f"- [{label}]({name}): {about}" for name, label, about in (
+        (GLOSSARY, "Glossary", "core terms, each linked to the topic that explains it"),
+        (LEARNING_PATHS, "Learning paths", "ordered reading lists by role (beginner, LLM, ML, CV, speech, agents, MLOps)"),
+    ) if (ROOT / name).exists()]
+    if optional:
+        out += ["", "## Optional", "", *optional]
     return "\n".join(out) + "\n"
 
 
