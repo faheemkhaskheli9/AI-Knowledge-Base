@@ -13,6 +13,7 @@
   body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, sans-serif; }
   header { border-bottom: 1px solid var(--line); padding: 12px 16px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
   header a.home { font-weight: 600; color: var(--fg); }
+  header nav.links { display: flex; gap: 12px; flex-wrap: wrap; font-size: 14px; }
   header form { flex: 1; min-width: 200px; }
   input[type=search] { width: 100%; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--fg); font: inherit; }
   main { max-width: 960px; margin: 0 auto; padding: 16px; }
@@ -33,6 +34,12 @@
 <body>
 <header>
   <a class="home" href="{% url 'index' %}">AI Knowledge Base</a>
+  <nav aria-label="Entry points" class="links">
+    <a href="{% url 'glossary' %}">Glossary</a>
+    <a href="{% url 'learning_paths' %}">Learning paths</a>
+    <a href="{% url 'index_md' %}">INDEX.md</a>
+    <a href="{% url 'llms_txt' %}">llms.txt</a>
+  </nav>
   <form action="{% url 'index' %}"><input type="search" name="q" value="{{ q }}" placeholder="Search topics" aria-label="Search topics"></form>
 </header>
 <main>{% block content %}{% endblock %}</main>

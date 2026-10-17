@@ -3,16 +3,21 @@ import re
 from collections import defaultdict
 
 import markdown
-from django.http import Http404
+from django.http import FileResponse, Http404
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils.html import escape
 
-from build_index import ROOT, SKIP, frontmatter
+from build_index import GLOSSARY, LEARNING_PATHS, ROOT, SKIP, frontmatter
 
 WIKILINK = re.compile(r"\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|([^\]]+))?\]\]")
 CODE = re.compile(r"(<pre>.*?</pre>|<code>.*?</code>)", re.S)
 MD_HREF = re.compile(r'href="(?:[^"]*/)?([\w-]+)\.md(#[^"]*)?"')
+LLMS_HREF = re.compile(r'href="(?:[^"]*/)?llms\.txt"')
+# The only repo-root files the site serves besides topics: file name -> URL name.
+# Fixed list, no file name ever comes from the request, so nothing else is reachable.
+PAGES = {GLOSSARY: "glossary", LEARNING_PATHS: "learning_paths", "INDEX.md": "index_md"}
+LLMS_TXT = "llms.txt"
 
 
 def load_topics():
@@ -71,15 +76,18 @@ def render_body(text, topics):
         return f'<a href="{reverse("topic", args=[stem])}">{escape(label or topics[stem]["title"])}</a>'
 
     def md_href(m):
-        stem = m.group(1)
+        stem, anchor = m.group(1), m.group(2) or ""
+        if f"{stem}.md" in PAGES:  # glossary.md, learning-paths.md, INDEX.md: never topics (SKIP)
+            return f'href="{reverse(PAGES[stem + ".md"])}{anchor}"'
         if stem not in topics:
             return m.group(0)
-        return f'href="{reverse("topic", args=[stem])}{m.group(2) or ""}"'
+        return f'href="{reverse("topic", args=[stem])}{anchor}"'
 
     # Leave code alone: `[[1, 2]]` in a snippet is a list, not a link.
     parts = CODE.split(html)
     for i in range(0, len(parts), 2):
         parts[i] = MD_HREF.sub(md_href, WIKILINK.sub(wikilink, parts[i]))
+        parts[i] = LLMS_HREF.sub(f'href="{reverse("llms_txt")}"', parts[i])
     return "".join(parts)
 
 
@@ -93,3 +101,16 @@ def topic(request, stem):
         key=lambda o: o["title"],
     )
     return render(request, "topic.html", {"t": t, "body": render_body(t["text"], topics), "backlinks": backlinks})
+
+
+def page(request, name):
+    """glossary.md, learning-paths.md or INDEX.md, rendered like a topic. `name` comes from urls.py."""
+    if name not in PAGES:
+        raise Http404(f"No page {name!r}")
+    text = (ROOT / name).read_text(encoding="utf-8").replace("\r\n", "\n")
+    title = next((l[2:].strip() for l in text.splitlines() if l.startswith("# ")), name)
+    return render(request, "page.html", {"name": name, "title": title, "body": render_body(text, load_topics())})
+
+
+def llms_txt(request):
+    return FileResponse(open(ROOT / LLMS_TXT, "rb"), content_type="text/plain; charset=utf-8")
