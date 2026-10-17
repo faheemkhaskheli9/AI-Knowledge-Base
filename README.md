@@ -51,7 +51,7 @@ column; `stable` is not a guarantee that facts are still current.
 ```bash
 python build_index.py --stale 30          # warn on volatile topics older than 30 days
 python build_index.py --strict --stale 90 # also fail on orphan/unreached topics
-python -m unittest test_build_index_freshness
+python -m unittest test_build_index_freshness test_check_tools  # tooling tests (stdlib only)
 ```
 
 Staleness warnings cover `models/`, `setup/`, `deployment/`, and topics naming

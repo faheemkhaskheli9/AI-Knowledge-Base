@@ -32,13 +32,25 @@ NEEDS_NETWORK = re.compile(
 NETWORK_MODULES = {"openai", "anthropic", "requests", "httpx", "mcp", "huggingface_hub", "datasets",
                    "transformers", "sentence_transformers", "trl", "peft", "diffusers", "langchain",
                    "llama_index", "chromadb", "faiss", "ollama", "vllm", "whisper", "openai_whisper",
-                   "gradio", "streamlit", "fastapi", "uvicorn", "cv2", "ultralytics", "timm"}
+                   "gradio", "streamlit", "fastapi", "uvicorn", "cv2", "ultralytics", "timm",
+                   # Client SDKs inside the shared `google` namespace package (google-genai etc.).
+                   "google.genai", "google.generativeai", "google.cloud"}
 LIMIT = re.compile(r"<!--\s*check-timeout:\s*(\d+)\s*-->")
 FENCE = re.compile(r"(<!--\s*skip-check:[^>]*-->\s*\n)?```(?:python|py)\n(.*?)```", re.S)
 
 
 def imported(code):
     """Top-level module names imported anywhere in code; None if it does not parse."""
+    names = imported_names(code)
+    return None if names is None else {m.split(".")[0] for m in names}
+
+
+def imported_names(code):
+    """Dotted names imported anywhere in code (`from a import b` gives a and a.b); None if it does not parse.
+
+    a.b may be an attribute rather than a module; namespace_missing() only resolves it under a
+    namespace package, which has no attributes besides its submodules.
+    """
     try:
         tree = ast.parse(code)
     except SyntaxError:
@@ -46,10 +58,41 @@ def imported(code):
     mods = set()
     for n in ast.walk(tree):
         if isinstance(n, ast.Import):
-            mods.update(a.name.split(".")[0] for a in n.names)
+            mods.update(a.name for a in n.names)
         elif isinstance(n, ast.ImportFrom) and n.module and not n.level:
-            mods.add(n.module.split(".")[0])
+            mods.add(n.module)
+            mods.update(f"{n.module}.{a.name}" for a in n.names if a.name != "*")
     return mods
+
+
+def needs_network(names):
+    """True if any imported name, or a package it sits in, is a network/API client."""
+    return any(".".join(m.split(".")[:i]) in NETWORK_MODULES for m in names for i in range(1, m.count(".") + 2))
+
+
+def namespace_missing(names):
+    """Submodules of an installed namespace package that are not installed.
+
+    `google` is a namespace package shared by protobuf, google-genai and others, so
+    find_spec("google") succeeds even when `from google import genai` would fail.
+    Only namespace packages are walked: importing one runs no code, while resolving
+    a name under a regular package would import (run) that package here.
+    """
+    missing = set()
+    for m in names:
+        parts = m.split(".")
+        for i in range(1, len(parts)):
+            try:
+                parent = importlib.util.find_spec(".".join(parts[:i]))
+                if parent is None or parent.origin is not None:  # missing (reported elsewhere) or a regular package
+                    break
+                if importlib.util.find_spec(".".join(parts[:i + 1])) is None:
+                    missing.add(".".join(parts[:i + 1]))
+                    break
+            except (ImportError, ValueError):
+                missing.add(".".join(parts[:i + 1]))
+                break
+    return sorted(missing)
 
 
 def blocks(text):
@@ -63,12 +106,14 @@ def check(path):
     limit = int(LIMIT.search(text).group(1)) if LIMIT.search(text) else TIMEOUT
     if not code.strip():
         return rel, "none", ""
-    mods = imported(code)
-    if mods is None:
+    names = imported_names(code)
+    if names is None:
         return rel, "fail", "does not parse (SyntaxError)"
-    if mods & NETWORK_MODULES or NEEDS_NETWORK.search(code):
+    if needs_network(names) or NEEDS_NETWORK.search(code):
         return rel, "skip", "needs network, credentials or a download"
+    mods = {m.split(".")[0] for m in names}
     missing = sorted(m for m in mods if m != "__future__" and importlib.util.find_spec(m) is None)
+    missing = missing or namespace_missing(names)
     if missing:
         return rel, "skip", "not installed: " + ", ".join(missing)
     with tempfile.TemporaryDirectory() as tmp:
@@ -101,6 +146,11 @@ def main():
     ap.add_argument("--promote", action="store_true")
     ap.add_argument("--jobs", type=int, default=4)
     a = ap.parse_args()
+    if a.jobs < 1:
+        ap.error("--jobs must be at least 1")
+    absent = [f for f in a.files if not (ROOT / f).is_file()]
+    if absent:
+        ap.error(f"no such file (paths are relative to {ROOT}): {', '.join(absent)}")
     if a.files:
         paths = [ROOT / f for f in a.files]
     else:

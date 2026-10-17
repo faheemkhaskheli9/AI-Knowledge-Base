@@ -34,10 +34,22 @@ def topics(files):
             if p.name not in SKIP and not p.relative_to(ROOT).as_posix().startswith(".")]
 
 
+def clean(url):
+    """Drop trailing punctuation picked up from prose; keep a `)` that closes one in the URL (Wikipedia, DOIs)."""
+    while url:
+        if url[-1] in ".,;\"'":
+            url = url[:-1]
+        elif url[-1] == ")" and url.count(")") > url.count("("):
+            url = url[:-1]
+        else:
+            return url
+    return url
+
+
 def urls_of(text):
     srcs = (frontmatter(text) or {}).get("sources", [])
     srcs = [srcs] if isinstance(srcs, str) else srcs
-    return [u.rstrip(".,;)\"'") for s in srcs for u in re.findall(r"https?://\S+", s)]
+    return [clean(u) for s in srcs for u in re.findall(r"https?://\S+", s)]
 
 
 def status(url):
@@ -55,6 +67,10 @@ def status(url):
 
 
 def main(files):
+    absent = [f for f in files if not (ROOT / f).is_file()]
+    if absent:
+        print(f"no such file (paths are relative to {ROOT}): {', '.join(absent)}", file=sys.stderr)
+        return 2
     by_file = {p.relative_to(ROOT).as_posix(): urls_of(p.read_text(encoding="utf-8")) for p in topics(files)}
     unique = sorted({u for urls in by_file.values() for u in urls})
     with ThreadPoolExecutor(16) as pool:
