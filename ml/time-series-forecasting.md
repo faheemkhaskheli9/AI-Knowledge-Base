@@ -78,6 +78,7 @@ Global ML route: build lag/rolling/calendar features and train LightGBM (see [[g
 
 ## Related
 - [[gradient-boosting-tabular]] - global lag-feature models.
+- [[time-series-foundation-models]] - zero-shot Chronos, TimesFM and Moirai, and how to backtest them against seasonal naive and ETS.
 - [[anomaly-detection]] - residual-based detection on forecasts.
 - [[experiment-tracking]] - record backtest results.
 - [[pytorch-basics]] - for deep forecasting models.

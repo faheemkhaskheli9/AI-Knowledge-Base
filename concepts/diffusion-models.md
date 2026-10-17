@@ -76,6 +76,7 @@ image.save("backpack.png")
 - [[marketing-content]] - typical commercial use.
 - [[gpu-cuda-setup]] - getting the GPU stack working.
 - [[ddpm-diffusion-from-scratch-numpy]] - DDPM built in NumPy: noise schedule, epsilon-prediction, ancestral sampling.
+- [[flow-matching-and-rectified-flow]] - the flow-matching / rectified-flow objective behind SD3, FLUX and Wan, with a NumPy demo and reflow.
 - [[diffusion-language-models]] - diffusion applied to text: masked diffusion LLMs vs autoregressive generation.
 
 ## References
