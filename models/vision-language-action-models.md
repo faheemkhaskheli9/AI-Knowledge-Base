@@ -160,9 +160,11 @@ lerobot-train --policy.path=lerobot/smolvla_base \
 ## Related
 - [[vision-language-models]] - the perception backbone a VLA starts from.
 - [[reinforcement-learning]] - RL fine-tuning of policies and the sim-to-real literature.
+- [[world-models]] - predicting action outcomes for planning and synthetic robot data.
 - [[multimodal-models]] - how image and text tokens share one model.
 - [[edge-on-device]] - running the policy next to the robot.
 - [[manufacturing-iot]] - industrial scenarios and safety context.
+- [[automotive-robotics]] - perception, simulation, edge and safety for vehicles and robots.
 
 ## References
 - Brohan et al., RT-2 (2023): https://arxiv.org/abs/2307.15818

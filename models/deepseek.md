@@ -77,6 +77,7 @@ print(r.choices[0].message.content)
 - [[mixture-of-experts]] - architecture.
 - [[reasoning-models]] - reasoning effort.
 - [[model-licenses]] - MIT vs community licenses.
+- [[chinese-open-weight-models]] - Kimi, GLM and MiniMax: sizes, licences, hosting.
 
 ## References
 - https://api-docs.deepseek.com/quick_start/pricing

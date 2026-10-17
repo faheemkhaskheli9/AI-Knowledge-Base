@@ -92,6 +92,7 @@ torch = [{ index = "pytorch-cu130", marker = "sys_platform == 'linux' or sys_pla
 - [[windows-wsl-setup]] - uv inside WSL2.
 - [[huggingface-transformers]] - what you typically install next.
 - [[mlops-lifecycle]] - reproducibility in the wider lifecycle.
+- [[jupyter-colab-and-kaggle]] - registering an env as a notebook kernel; hosted notebooks.
 
 ## References
 - uv install docs: https://docs.astral.sh/uv/getting-started/installation/

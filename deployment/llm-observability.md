@@ -83,6 +83,7 @@ def log_call(model, in_tok, out_tok, latency_s, ok, request_id=None):
 
 ## Related
 - [[llm-evaluation]] - turning traces into eval sets.
+- [[opentelemetry-genai-tracing]] - the OTel gen_ai.* span and attribute conventions in detail, manual agent/tool spans.
 - [[agents]] and [[multi-agent-systems]] - where traces matter most.
 - [[serving-with-fastapi]] - instrumenting the API layer.
 - [[mlops-lifecycle]] - monitoring in the wider lifecycle.

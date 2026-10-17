@@ -143,6 +143,7 @@ DeepSpeed via `accelerate config` then `accelerate launch train.py`; the
 - [[pretraining-and-scaling-laws]] - where large-scale parallelism is required.
 - [[gpu-cloud-options]] - renting multi-GPU machines.
 - [[gpu-cuda-setup]] - drivers and NCCL prerequisites.
+- [[pytorch-lightning-and-accelerate]] - libraries that switch DDP/FSDP/DeepSpeed by config.
 
 ## References
 - PyTorch DDP tutorial series: https://docs.pytorch.org/tutorials/beginner/ddp_series_theory.html

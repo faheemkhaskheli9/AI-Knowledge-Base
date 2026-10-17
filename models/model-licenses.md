@@ -8,8 +8,11 @@ use_cases:
   - "review licensing risk before fine-tuning and redistributing a model"
   - "decide if generated images from an open image model can be sold"
 status: draft
-last_verified: 2026-10-03
+last_verified: 2026-10-15
 sources:
+  - https://github.com/meta-llama/llama-models/blob/main/models/llama4/LICENSE
+  - https://stability.ai/license
+  - https://github.com/QwenLM/Qwen-Image-2.1/blob/main/LICENSE
   - https://huggingface.co/Qwen/Qwen3.8-27B
   - https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash
   - https://huggingface.co/google/gemma-4-31B-it
@@ -50,7 +53,9 @@ Verified examples (2026-10):
 | Mistral Premier models (OCR, Codestral, Embed) | API-only | Mistral docs |
 | FLUX.2 [klein] 4B | Apache 2.0 | card ([[image-generation-models]]) |
 | FLUX.2 [dev] | FLUX Non-Commercial License | card |
-| Llama (Meta) | Llama Community License (custom) | [[meta-llama]]; terms unverified |
+| Llama 4 (Meta) | Llama 4 Community License (custom) | license text: free use and modification, but ship the license, show "Built with Llama", start derived model names with "Llama", follow the Acceptable Use Policy; over 700M monthly active users needs a separate Meta license ([[meta-llama]]) |
+| Stable Diffusion 3.5 | Stability AI Community License | commercial use free under $1M annual revenue, Enterprise license above ([[image-generation-models]]) |
+| Qwen-Image-2.1 | Qwen Research License | non-commercial only; commercial use needs a separate licence (repo LICENSE) |
 | Phi-4 family | MIT (secondary source) | verify on cards |
 
 Licenses can differ between repos of one family; Qwen's org page does not state
@@ -93,6 +98,9 @@ Keep a MODEL_LICENSES.md in your repo with name, revision, license, link, date.
 - [[meta-llama]], [[qwen]], [[mistral]], [[deepseek]] - per-family notes.
 
 ## References
+- https://github.com/meta-llama/llama-models/blob/main/models/llama4/LICENSE
+- https://stability.ai/license
+- https://github.com/QwenLM/Qwen-Image-2.1/blob/main/LICENSE
 - https://huggingface.co/Qwen/Qwen3.8-27B
 - https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash
 - https://huggingface.co/black-forest-labs/FLUX.2-dev

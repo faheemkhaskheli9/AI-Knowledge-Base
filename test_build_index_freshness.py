@@ -50,6 +50,23 @@ use_cases:
             with contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit):
                 build_index.main(["--strict", "--stale", "30"])
 
+    def test_llms_txt(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(build_index, "ROOT", Path(tmp)):
+            for folder, title, use in (("models", "Example", "pick a model"), ("scenarios", "Chooser", "start here")):
+                (Path(tmp) / folder).mkdir()
+                (Path(tmp) / folder / f"{title.lower()}.md").write_text(
+                    f"---\ntitle: {title}\ncategory: {folder}\nuse_cases:\n  - {use}\n  - second use\n---\n# {title}\n",
+                    encoding="utf-8")
+            with contextlib.redirect_stdout(io.StringIO()):
+                build_index.main([])
+            lines = (Path(tmp) / "llms.txt").read_text(encoding="utf-8").splitlines()
+        self.assertTrue(lines[0].startswith("# "))
+        self.assertTrue(lines[2].startswith("> "))
+        # Same category order as INDEX.md (scenarios first), one link line per topic with its first use case.
+        self.assertLess(lines.index("## scenarios"), lines.index("## models"))
+        self.assertIn("- [Chooser](scenarios/chooser.md): start here", lines)
+        self.assertIn("- [Example](models/example.md): pick a model", lines)
+
     def test_invalid_cli_thresholds(self):
         for value in ("-1", "abc", "1.5"):
             with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as error:

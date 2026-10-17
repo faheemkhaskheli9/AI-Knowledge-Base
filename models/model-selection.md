@@ -88,9 +88,13 @@ are usually cheaper.
 - [[model-licenses]] - what you may do with open weights.
 - [[cost-and-latency]] - optimisation.
 - [[scenario-chooser]] - problem to approach mapping.
+- [[startup-mvp-with-ai]] - which model and stack fit each startup stage and budget.
 - [[prompt-caching-and-cost]] - lowering API spend.
 - [[reading-ai-benchmarks]] - how to read the vendor and leaderboard numbers behind a choice.
 - [[managed-cloud-ai-platforms]] - the same models through Bedrock, Vertex AI or Azure AI Foundry.
+- [[xai-grok]] - Grok API models, long context and pricing.
+- [[cohere-command]] - Command, Embed and Rerank for enterprise RAG.
+- [[open-weight-model-landscape]] - dated table of current open-weight releases by modality.
 
 ## References
 - https://platform.claude.com/docs/en/about-claude/models/choosing-a-model

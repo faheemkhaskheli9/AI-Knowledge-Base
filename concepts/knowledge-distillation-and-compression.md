@@ -138,6 +138,7 @@ that overrides `compute_loss` and runs the frozen teacher on each batch.
 - [[small-language-models]] - many are distilled from larger siblings.
 - [[edge-on-device]] - deployment target for compressed models.
 - [[data-labeling-and-synthetic-data]] - LLM-generated transfer sets.
+- [[synthetic-data-for-llm-training]] - distilling from stronger LLMs: generation, filtering, licence constraints.
 - [[neural-network-fundamentals]] - softmax, cross-entropy, training loop basics.
 
 ## References

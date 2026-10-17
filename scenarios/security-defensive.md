@@ -121,6 +121,8 @@ user = f"<alert>{alert_json}</alert>"   # no tools that change state here
 - [[llm-observability]] - logging for your own AI systems.
 - [[manufacturing-iot]] - OT telemetry anomalies.
 - [[hallucination-and-grounding]] - fabricated IOCs and CVE details.
+- [[cybersecurity-soc]] - SOC playbook: alert triage, incident log summarisation, phishing queue.
+- [[voice-cloning-and-ethics]] - voice deepfake fraud, synthetic speech detection and watermarking.
 
 ## References
 - OWASP Top 10 for LLM applications: https://owasp.org/www-project-top-10-for-large-language-model-applications/

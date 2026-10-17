@@ -9,7 +9,7 @@ use_cases:
   - "segment road scenes or aerial imagery into land-cover classes"
   - "track and segment an object across video frames"
 status: draft
-last_verified: 2026-10-03
+last_verified: 2026-10-15
 sources:
   - https://github.com/facebookresearch/sam2
   - https://docs.ultralytics.com/tasks/segment/
@@ -63,7 +63,7 @@ Trained instance segmentation with Ultralytics: `YOLO("<seg-weights>.pt")` using
 - Zero-shot SAM: no training, great mask quality, but class-agnostic and heavier than small detectors; needs a GPU for interactive speed (smaller SAM 2.1 variants trade accuracy for FPS).
 - Trained YOLO-seg/Mask R-CNN: fast, knows your classes, needs polygon labels.
 - U-Net/Mask2Former for dense semantic maps (medical, satellite): best with domain data; consider nnU-Net for medical volumes.
-- Licences: SAM 2 is released under a permissive licence per its repo; Ultralytics models are AGPL-3.0 (see [[object-detection]]); check before commercial use.
+- Licences: SAM 2 checkpoints, demo code and training code are Apache 2.0 per its README (demo fonts are SIL OFL 1.1); Ultralytics models are AGPL-3.0 (see [[object-detection]]); check before commercial use.
 
 ## Gotchas
 - SAM masks have no class; pair with a detector or classifier to know what they are.
@@ -76,11 +76,15 @@ Trained instance segmentation with Ultralytics: `YOLO("<seg-weights>.pt")` using
 
 ## Related
 - [[object-detection]] - boxes; detector + SAM pipeline.
+- [[segment-anything-sam2]] - SAM 2/SAM 3 in depth: video tracking, text prompts, auto-labelling.
 - [[vision-language-models]] - grounding models that produce boxes from text.
 - [[video-analytics]] - tracking segmented objects.
 - [[data-labeling-and-synthetic-data]] - SAM-assisted labelling.
 - [[pytorch-basics]] - training custom models.
 - [[slic-superpixels-from-scratch]] - SLIC superpixels built by hand as a pre-segmentation step.
+- [[depth-estimation]] - per-pixel depth from one image; combine with masks to measure objects.
+- [[medical-imaging]] - 3D CT/MRI segmentation with MONAI, nnU-Net and TotalSegmentator.
+- [[satellite-and-remote-sensing]] - land-cover segmentation and change detection on multispectral imagery.
 
 ## References
 - https://github.com/facebookresearch/sam2

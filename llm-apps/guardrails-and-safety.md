@@ -85,12 +85,14 @@ Approval gate for risky tools: return a pending action to a human UI and only ex
 - No logging means no incident response; log inputs, outputs, tool calls, and decisions (mind privacy).
 
 ## Related
+- [[red-teaming-llm-apps]] - attacking the app on purpose to test these controls.
 - [[prompt-injection]] - the main attack on LLM apps.
 - [[sandboxed-code-execution]] - isolating model-written code with resource and network limits.
 - [[agents]] - action controls and approvals.
 - [[tool-calling]] - validate and authorize arguments.
 - [[hallucination-and-grounding]] - factuality controls.
 - [[ai-security-privacy-compliance]] - data protection and compliance.
+- [[ai-watermarking-and-content-provenance]] - marking generated content (C2PA, SynthID) and the limits of AI detectors.
 - [[llm-evaluation]] - red-team and safety test sets.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/security/threat-modeling.md - deciding which controls the system needs.
 

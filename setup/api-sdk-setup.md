@@ -8,9 +8,10 @@ use_cases:
   - "add retries, timeouts and error handling around LLM calls"
   - "point the OpenAI SDK at a local or alternative OpenAI-compatible server"
 status: draft
-last_verified: 2026-10-03
+last_verified: 2026-10-15
 sources:
   - https://platform.claude.com/docs/en/cli-sdks-libraries/overview
+  - https://platform.claude.com/docs/en/about-claude/model-deprecations
   - https://github.com/openai/openai-python
   - https://ai.google.dev/gemini-api/docs/quickstart
 ---
@@ -87,6 +88,8 @@ Own retry wrapper for rate limits beyond SDK defaults: catch the SDK's rate-limi
 - Streaming and long outputs need larger timeouts; a 60 s default may cut long generations.
 - Retried non-idempotent calls (tools with side effects) can run twice; design for idempotency.
 - Count output limits explicitly (`max_tokens` is required by Anthropic's Messages API).
+- The Anthropic Python SDK v1.0+ removes `temperature`, `top_p` and `top_k`: passing one raises `TypeError` before any request is sent. Over raw HTTP or other SDKs, a non-default value on Claude 4.7 and later models (Opus 4.7 onward) returns a 400 error. Delete these arguments when upgrading the SDK or the model, and steer output through the prompt (source: Anthropic model deprecations page, "API parameter deprecations").
+- Deprecated model IDs keep working until their retirement date, then every request fails: `claude-sonnet-4-5-20250929` retires on the Claude API 2026-11-30, replaced by `claude-sonnet-5-5`. Keep the ID in config (as above) so a swap is a config change. <!-- valid-until: 2026-11-30 -->
 - Corporate proxies: set `HTTPS_PROXY` or pass a custom `httpx` client.
 
 ## Related
@@ -98,5 +101,6 @@ Own retry wrapper for rate limits beyond SDK defaults: catch the SDK's rate-limi
 
 ## References
 - Anthropic SDKs: https://platform.claude.com/docs/en/cli-sdks-libraries/overview
+- Anthropic model and parameter deprecations: https://platform.claude.com/docs/en/about-claude/model-deprecations
 - OpenAI Python: https://github.com/openai/openai-python
 - Gemini quickstart: https://ai.google.dev/gemini-api/docs/quickstart

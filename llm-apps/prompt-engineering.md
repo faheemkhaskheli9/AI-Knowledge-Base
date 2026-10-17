@@ -84,6 +84,8 @@ OpenAI equivalent: `client.chat.completions.create(model=..., messages=[{"role":
 - [[prompt-caching-and-cost]] - keep stable parts at the front to cache.
 - [[reasoning-models]] - when to rely on built-in thinking.
 - [[hallucination-and-grounding]] - grounding instructions.
+- [[context-engineering]] - managing the whole context window across an agent's turns.
+- [[dspy-and-prompt-optimization]] - optimize prompts and few-shot demos automatically against a metric.
 
 ## References
 - Anthropic prompt engineering overview: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview

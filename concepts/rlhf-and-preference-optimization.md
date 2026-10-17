@@ -85,6 +85,7 @@ Combine with LoRA via `peft_config=` to fit on one GPU.
 - [[reasoning-models]] - GRPO/RLVR is how many are trained.
 - [[guardrails-and-safety]] - alignment is one layer of safety.
 - [[llm-evaluation]] - needed to detect reward hacking.
+- [[reward-modeling-and-verifiers]] - outcome vs process reward models, programmatic verifiers, over-optimisation.
 - [[data-labeling-and-synthetic-data]] - building preference datasets.
 - [[grpo-from-scratch-numpy]] - GRPO built in NumPy: group-relative advantages, clipped ratio, k3 KL.
 

@@ -85,11 +85,14 @@ Track cost per request from `usage` and log it per feature/tenant ([[llm-observa
 
 ## Related
 - [[cost-and-latency]] - deployment-level levers.
+- [[semantic-caching]] - returning stored answers for similar prompts, a different layer from prefix caching.
+- [[llm-cost-calculator]] - worked examples of caching and batch savings.
 - [[agents]] - history growth in loops.
 - [[advanced-rag]] - contextual retrieval depends on caching.
 - [[llm-observability]] - per-request cost tracking.
 - [[model-selection]] - routing between models.
 - [[long-context]] - when to stuff vs retrieve.
+- [[batch-inference-and-batch-apis]] - batch API limits, formats and offline self-hosted jobs.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/caching-strategies.md - application-level caching beyond provider prompt caches.
 
 ## References

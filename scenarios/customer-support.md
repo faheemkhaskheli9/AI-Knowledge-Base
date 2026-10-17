@@ -125,6 +125,7 @@ def answer(question, chunks):
 - [[llm-evaluation]] - golden sets of real tickets.
 - [[agent-memory]] - customer context across sessions.
 - [[ecommerce-retail]] - order-centric support.
+- [[telecom]] - operator care automation, bill explanations, churn.
 
 ## References
 - Anthropic customer support guide: https://docs.anthropic.com/en/docs/about-claude/use-case-guides/customer-support-chat

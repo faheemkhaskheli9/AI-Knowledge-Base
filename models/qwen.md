@@ -76,6 +76,7 @@ Transformers route: `AutoProcessor` + `AutoModelForMultimodalLM` from
 - [[meta-llama]], [[deepseek]], [[mistral]] - other open-weight families.
 - [[inference-servers-vllm]] - serving.
 - [[model-selection]] - open vs closed.
+- [[chinese-open-weight-models]] - Kimi, GLM and MiniMax: sizes, licences, hosting.
 
 ## References
 - https://huggingface.co/Qwen

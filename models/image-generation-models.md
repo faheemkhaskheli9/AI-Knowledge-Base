@@ -8,13 +8,16 @@ use_cases:
   - "edit existing photos with masks via an API"
   - "fine-tune an image model with LoRA on a brand style"
 status: draft
-last_verified: 2026-10-03
+last_verified: 2026-10-15
 sources:
   - https://developers.openai.com/api/docs/guides/image-generation
   - https://huggingface.co/black-forest-labs
   - https://huggingface.co/black-forest-labs/FLUX.2-klein-4B
   - https://huggingface.co/black-forest-labs/FLUX.2-dev
   - https://huggingface.co/stabilityai
+  - https://huggingface.co/stabilityai/stable-diffusion-3.5-large
+  - https://stability.ai/license
+  - https://github.com/QwenLM/Qwen-Image-2.1/blob/main/LICENSE
   - https://ai.google.dev/gemini-api/docs/models
 ---
 
@@ -40,8 +43,8 @@ Current options as of 2026-10:
 | Nano Banana 2 (`gemini-3.1-flash-image`), Nano Banana 2 Lite (`gemini-3.1-flash-lite-image`) | Gemini API | |
 | FLUX.2 [klein] 4B / 9B | open | 4B is Apache 2.0, about 13GB VRAM |
 | FLUX.2 [dev] 32B | open, FLUX Non-Commercial License | commercial deployment needs separate terms |
-| Stable Diffusion 3.5 Large/Medium/Turbo | open (Stability) | license not verified; read the card |
-| Qwen-Image-2.1 | open | license not verified, see [[qwen]] |
+| Stable Diffusion 3.5 Large/Medium/Turbo | open (Stability) | Stability AI Community License: free for research, non-commercial use and commercial use under $1M annual revenue; above that an Enterprise license (Stability license page, model card) |
+| Qwen-Image-2.1 | open weights | Qwen Research License (2026-09-20): non-commercial (research or evaluation) only; commercial use needs a separate licence from Alibaba (repo LICENSE); see [[qwen]] |
 
 ## When to use / scenarios
 - Marketing/creative assets, ad variations ([[marketing-content]]).
@@ -85,10 +88,16 @@ pipe("A cat holding a sign that says hello world", height=1024, width=1024,
 
 ## Related
 - [[diffusion-models]] - how they work.
+- [[image-editing-and-controlnet]] - inpainting, ControlNet, IP-Adapter and instruction-based editing.
 - [[model-licenses]] - commercial caveats.
+- [[video-generation-models]] - text/image-to-video, often starting from a generated still.
 - [[multimodal-models]] - unified models that also output images.
+- [[3d-generation-models]] - turning generated images into meshes and splats.
+- [[comfyui]] - running open image/video models locally as node workflows.
 
 ## References
 - https://developers.openai.com/api/docs/guides/image-generation
 - https://huggingface.co/black-forest-labs/FLUX.2-klein-4B
 - https://huggingface.co/black-forest-labs/FLUX.2-dev
+- https://stability.ai/license
+- https://github.com/QwenLM/Qwen-Image-2.1/blob/main/LICENSE

@@ -9,9 +9,10 @@ use_cases:
   - "get diverse candidates for best-of-n or self-consistency voting"
   - "debug repetitive or looping output from an open model"
 status: draft
-last_verified: 2026-10-03
+last_verified: 2026-10-15
 sources:
   - https://huggingface.co/docs/transformers/generation_strategies
+  - https://platform.claude.com/docs/en/about-claude/model-deprecations
   - https://huggingface.co/blog/assisted-generation
   - https://arxiv.org/abs/1904.09751
   - https://arxiv.org/abs/2211.17192
@@ -62,7 +63,7 @@ print(tok.decode(out[0], skip_special_tokens=True))
 out = model.generate(**inputs, do_sample=False, assistant_model=assistant, max_new_tokens=60)
 print(tok.decode(out[0], skip_special_tokens=True))
 ```
-Hosted APIs expose `temperature`, `top_p`, `top_k` (provider dependent) and `max_tokens`; some newer models restrict or ignore sampling parameters, so check the provider's docs.
+Hosted APIs expose `temperature`, `top_p`, `top_k` (provider dependent) and `max_tokens`; some newer models restrict or ignore sampling parameters, so check the provider's docs. Example: Anthropic deprecated all three on Claude 4.7 and later models (Opus 4.7 onward); a non-default value returns a 400 error, and the Anthropic Python SDK v1.0+ removes the parameters, so passing one raises `TypeError` on any model. Steer those models through the prompt instead (source: https://platform.claude.com/docs/en/about-claude/model-deprecations, "API parameter deprecations").
 
 ## Choosing / trade-offs
 - Temperature 0 vs sampling: reproducibility and accuracy vs variety. Even temperature 0 is not guaranteed bit-identical across runs on hosted APIs or GPUs.
@@ -86,6 +87,7 @@ Hosted APIs expose `temperature`, `top_p`, `top_k` (provider dependent) and `max
 - [[hallucination-and-grounding]] - low temperature helps but does not fix hallucination.
 - [[cost-and-latency]] - decoding choices affect latency.
 - [[speculative-decoding-from-scratch-numpy]] - speculative decoding built in NumPy, exact to the target distribution.
+- [[multi-token-prediction]] - extra heads that draft several tokens per pass for self-speculative decoding.
 
 ## References
 - Transformers generation strategies: https://huggingface.co/docs/transformers/generation_strategies

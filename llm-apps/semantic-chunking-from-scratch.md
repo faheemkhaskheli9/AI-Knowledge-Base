@@ -135,6 +135,7 @@ How to read it:
 - The extra embedding calls at indexing time are easy to forget in cost estimates ([[prompt-caching-and-cost]]).
 
 ## Related
+- [[chunking-strategies]] - overview: semantic chunking compared with fixed, recursive, late chunking and contextual retrieval.
 - [[recursive-text-splitter-from-scratch]] - the structure-based splitter to try first.
 - [[rag-basics]] - where chunks go after splitting.
 - [[advanced-rag]] - contextual retrieval, late chunking and other fixes for chunks that lose context.

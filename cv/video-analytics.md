@@ -74,6 +74,7 @@ for r in model.track(source="traffic.mp4", stream=True, persist=True, classes=[2
 - [[vision-language-models]] - event explanation and video Q&A.
 - [[edge-on-device]] - on-camera deployment.
 - [[manufacturing-iot]] - industrial monitoring scenarios.
+- [[gaussian-splatting-and-nerf]] - reconstruct a 3D scene from walk-through video.
 
 ## References
 - https://docs.ultralytics.com/modes/track/

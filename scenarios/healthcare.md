@@ -122,6 +122,7 @@ prompt = ("Draft a SOAP note ONLY from the transcript. If something is not "
 - [[guardrails-and-safety]] - refusal and escalation rules.
 - [[voice-agents]] - patient phone workflows.
 - [[vision-language-models]] - report generation research (not for unsupervised use).
+- [[medical-imaging]] - X-ray, CT and MRI segmentation/classification, de-identification and regulatory notes.
 
 ## References
 - HHS HIPAA for professionals: https://www.hhs.gov/hipaa/for-professionals/index.html

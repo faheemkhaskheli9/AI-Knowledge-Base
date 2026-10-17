@@ -74,9 +74,12 @@ Validate after every conversion: compare outputs to the original on a test set (
 ## Related
 - [[quantization]] - shrinking models.
 - [[small-language-models]] - models for constrained hardware.
+- [[wake-word-detection]] - always-on keyword spotting on microcontrollers and Pi-class devices.
+- [[mlx-on-apple-silicon]] - running and fine-tuning models on Macs.
 - [[llama-cpp-gguf]] - LLMs on CPUs and phones.
 - [[object-detection]], [[image-classification]] - typical edge workloads.
 - [[gpu-cuda-setup]] - NVIDIA basics.
+- [[onnx-and-triton-inference-server]] - serving the same ONNX models server-side with dynamic batching.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/deployment-strategies.md - staged rollouts of new models to devices.
 
 ## References

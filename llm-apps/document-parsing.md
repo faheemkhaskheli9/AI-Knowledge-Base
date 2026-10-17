@@ -84,6 +84,7 @@ print(r.content[0].text)
 ## Related
 - [[rag-basics]] - consumer of parsed text and chunking.
 - [[ocr]] - scanned input.
+- [[document-layout-and-table-extraction]] - layout detection, reading order and table structure models.
 - [[vision-language-models]] - reading pages as images.
 - [[structured-output]] - field extraction after parsing.
 - [[document-processing]] - end-to-end scenarios.
