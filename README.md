@@ -8,6 +8,10 @@ can look things up before they build.
 - **Start here:** [INDEX.md](INDEX.md) lists every topic with its tags and use cases.
 - **By problem:** [scenarios/](scenarios/) maps an industry or task to the
   recommended approach.
+- **Terms:** [glossary.md](glossary.md) defines core terms (KV cache, LoRA, MCP, RAG, ...), each
+  linked to the topic that explains it.
+- **Learning:** [learning-paths.md](learning-paths.md) gives ordered reading paths by role
+  (beginner, LLM engineer, agent builder, ML engineer, CV, speech, MLOps).
 - **For agents:** [AGENTS.md](AGENTS.md) explains how to consult the base and how to extend it;
   [llms.txt](llms.txt) is a compact one-line-per-topic index ([llmstxt.org](https://llmstxt.org/) format),
   generated with INDEX.md.
@@ -37,7 +41,9 @@ Deployment and LLM-app topics here end their `## Related` section with
 ## Contributing
 
 Copy [_template.md](_template.md) to start a topic, then run
-`python build_index.py` to regenerate the index. Facts that change over time,
+`python build_index.py` to regenerate the index. It also fails on a broken
+`[[link]]` in `glossary.md` or `learning-paths.md`; add a glossary term for a
+new core concept. Facts that change over time,
 such as model names, prices and context sizes, must cite a source and carry a
 `last_verified` date. The generated index includes that date in its **Verified**
 column; `stable` is not a guarantee that facts are still current.

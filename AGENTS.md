@@ -10,7 +10,9 @@ setup/code, deployment, and the real-world scenarios each one fits.
 2. Read the **full** matched file(s), not just the index row. Follow `[[links]]`
    in the `## Related` section when they apply.
 3. For "which approach/model for X?" start in `scenarios/`, which maps
-   problems to topic files.
+   problems to topic files. `glossary.md` maps a term to the topic that explains
+   it; `learning-paths.md` lists ordered reading paths by role (beginner, LLM,
+   agents, ML, CV, speech, MLOps).
 4. Volatile facts (model names, versions, prices, context sizes) are only as
    fresh as the file's `last_verified` date. If it is older than ~3 months
    and the decision depends on it, check the linked official source first.
@@ -31,7 +33,8 @@ Quick search without reading the index: `grep -ril "<keyword>" --include=*.md .`
    overview (not from-scratch) topic also needs a link from a `scenarios/` file,
    usually a row in `scenarios/scenario-chooser.md`.
 5. Run `python build_index.py` (stdlib only). It regenerates `INDEX.md` and `llms.txt`, fails
-   on missing frontmatter or a broken `[[link]]`, and warns on orphan topics
+   on missing frontmatter or a broken `[[link]]` (in topics, `glossary.md` and `learning-paths.md`,
+   which are not topics themselves), and warns on orphan topics
    and on overview topics no scenario links to. CI runs it with `--strict`,
    which turns those two warnings into failures (stale warnings stay warnings).
 6. Run `python check_code.py <your file>`. It runs the file's python blocks (needs

@@ -59,6 +59,9 @@ holds the detail and any leftover acceptance criteria.
     sampling-parameter deprecation and the Sonnet 4.5 retirement (marked
     `valid-until: 2026-11-30`) documented in decoding-and-sampling,
     anthropic-claude and api-sdk-setup.
-11. [ ] **Agent entry points.** `llms.txt`, a glossary and learning paths.
+11. [x] **Agent entry points.** `llms.txt`, a glossary and learning paths.
     Issues #13, #96, #97. #13 done: `build_index.py` writes `llms.txt` from the
-    same rows as `INDEX.md` and CI diff-checks both.
+    same rows as `INDEX.md` and CI diff-checks both. #96 and #97 done 2026-10-17:
+    `glossary.md` (`- **Term** - definition. [[topic]]`, alphabetical) and
+    `learning-paths.md` (ordered paths by role); `build_index.py` fails on a
+    broken `[[link]]` in either and lists both under `## Optional` in `llms.txt`.
