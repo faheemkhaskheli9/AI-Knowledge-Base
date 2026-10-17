@@ -56,6 +56,7 @@ KB files to read in full next.
 | Transcribe or caption audio | Speech-to-text, diarization if multi-speaker | [[speech-to-text]], [[speaker-diarization]] |
 | Build a voice assistant / phone bot | STT + LLM + TTS pipeline or a realtime model | [[voice-agents]], [[text-to-speech]], [[speech-to-text]] |
 | Forecast a number over time (demand, load) | Time-series models, gradient boosting with lag features | [[time-series-forecasting]], [[gradient-boosting-tabular]] |
+| Forecast many series with short histories, no per-series fitting | Zero-shot time-series foundation model (Chronos, TimesFM, Moirai), backtested against seasonal naive and ETS; check the weight licence | [[time-series-foundation-models]], [[time-series-forecasting]], [[model-licenses]] |
 | Predict a label/value from a table (churn, credit, price) | Gradient boosting baseline; LLM only for text columns | [[gradient-boosting-tabular]], [[classic-ml-scikit-learn]], [[experiment-tracking]] |
 | Predict when something happens (churn date, failure, default) | Survival models that handle censored rows | [[survival-analysis]], [[gradient-boosting-tabular]] |
 | Measure whether an action caused an outcome / target an offer | A/B test first; causal ML or uplift models on the data | [[statistics-and-ab-testing]], [[causal-inference-and-uplift]], [[model-evaluation-and-metrics]] |
@@ -75,6 +76,7 @@ KB files to read in full next.
 | Keep a model current as data changes | Drift monitoring + scheduled retrain; online learning if labels arrive fast | [[online-learning-and-concept-drift]], [[mlops-lifecycle]] |
 | Detect anomalies / fraud / failures | Unsupervised or semi-supervised detectors plus rules | [[anomaly-detection]], [[finance]], [[manufacturing-iot]], [[security-defensive]] |
 | Generate or edit images | Diffusion model API or local; check licence and provenance | [[image-generation-models]], [[diffusion-models]], [[model-licenses]] |
+| Understand or train the objective behind current image/video generators, cut sampling steps | Flow matching with a straight (rectified) path; reflow or distillation for few-step sampling | [[flow-matching-and-rectified-flow]], [[diffusion-models]], [[ddpm-diffusion-from-scratch-numpy]] |
 | Label data / create training data | LLM-assisted labelling with human review | [[data-labeling-and-synthetic-data]] |
 | Train with few labels and many unlabelled examples | Pretrained embeddings, active learning to pick labels, label spreading / pseudo-labels | [[semi-supervised-and-active-learning]], [[data-labeling-and-synthetic-data]] |
 | Build a personal assistant with memory | Agent + memory store + calendar/mail tools | [[personal-assistants]], [[agent-memory]] |
