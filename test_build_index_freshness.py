@@ -64,8 +64,8 @@ use_cases:
         self.assertTrue(lines[2].startswith("> "))
         # Same category order as INDEX.md (scenarios first), one link line per topic with its first use case.
         self.assertLess(lines.index("## scenarios"), lines.index("## models"))
-        self.assertIn("- [Chooser](scenarios/chooser.md): start here", lines)
-        self.assertIn("- [Example](models/example.md): pick a model", lines)
+        self.assertIn("- [Chooser](scenarios/chooser.md): start here (status: ?; verified: ?)", lines)
+        self.assertIn("- [Example](models/example.md): pick a model (status: ?; verified: ?)", lines)
 
     def test_entry_point_links_checked_but_not_indexed(self):
         with tempfile.TemporaryDirectory() as tmp, patch.object(build_index, "ROOT", Path(tmp)):
