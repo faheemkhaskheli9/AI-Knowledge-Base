@@ -71,9 +71,12 @@ Hosted: use the provider SDK (for example the OpenAI speech endpoint) and reques
 
 ## Related
 - [[voice-agents]] - TTS in a real-time loop.
+- [[speech-translation]] - TTS as the last stage of dubbing and speech-to-speech cascades.
 - [[speech-to-text]] - verifying intelligibility, dubbing pipelines.
+- [[music-and-audio-generation-models]] - music and sound effects rather than speech.
 - [[edge-on-device]] - local TTS deployment.
 - [[guardrails-and-safety]] - misuse prevention for voice cloning.
+- [[voice-cloning-and-ethics]] - zero-shot cloning, consent, watermarking and synthetic speech detection.
 - [[education]] - narration and accessibility scenarios.
 
 ## References

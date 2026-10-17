@@ -104,6 +104,7 @@ For several workers/hosts use Redis-backed limiting or the gateway/load balancer
 ## Related
 - [[api-sdk-setup]] - clients, retries, timeouts.
 - [[inference-servers-vllm]] - backend to proxy to.
+- [[streaming-and-async-llm-apps]] - SSE/WebSocket streaming, async fan-out, timeouts and cancellation.
 - [[llm-observability]] - tracing the endpoint.
 - [[cost-and-latency]] - time-to-first-token and budgets.
 - [[structured-output]] - validated JSON responses.

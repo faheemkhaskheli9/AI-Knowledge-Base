@@ -85,7 +85,10 @@ Merge for deployment: load the base in 16-bit, `PeftModel.from_pretrained(...)`,
 
 ## Related
 - [[quantization]] - the 4-bit part of QLoRA.
+- [[unsloth-finetuning]] - fast LoRA/QLoRA on one GPU or Colab, with GGUF export.
+- [[mlx-on-apple-silicon]] - LoRA/QLoRA fine-tuning on a Mac with mlx-lm.
 - [[rlhf-and-preference-optimization]] - DPO and friends after SFT.
+- [[model-merging]] - combine several fine-tunes of one base (task arithmetic, TIES, DARE) without retraining.
 - [[pretraining-and-scaling-laws]] - when continued pretraining is the right tool.
 - [[rag-basics]] - the alternative for knowledge injection.
 - [[small-language-models]] - common targets of fine-tuning.

@@ -87,10 +87,12 @@ export OLLAMA_HOST=0.0.0.0:11434
 
 ## Related
 - [[llama-cpp-gguf]] - the underlying runtime and GGUF files.
+- [[unsloth-finetuning]] - fine-tune a model and export GGUF to load in Ollama.
 - [[small-language-models]] - models that suit local hardware.
 - [[inference-servers-vllm]] - when you outgrow it.
 - [[quantization]] - what the tags mean.
 - [[api-sdk-setup]] - OpenAI SDK usage.
+- [[lm-studio-and-jan]] - GUI desktop apps with the same OpenAI-style local server.
 
 ## References
 - API docs: https://github.com/ollama/ollama/blob/main/docs/api.md

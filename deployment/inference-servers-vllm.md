@@ -89,6 +89,10 @@ TGI: Hugging Face states it is in maintenance mode and recommends vLLM, SGLang, 
 - [[cost-and-latency]] - when self-hosting pays off.
 - [[llm-observability]] - metrics and tracing.
 - [[quantization]], [[long-context]] - memory levers.
+- [[sglang-and-tensorrt-llm]] - comparison with SGLang and TensorRT-LLM, and when to pick each.
+- [[kubernetes-for-llm-serving]] - KServe/KubeRay, GPU scheduling and queue-depth autoscaling.
+- [[batch-inference-and-batch-apis]] - offline vLLM jobs versus provider batch APIs.
+- [[vllm-local-setup]] - installing vLLM on Linux/WSL2/Docker and fixing common start-up errors.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/load-balancing.md - spreading requests across GPU replicas.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/capacity-planning-and-autoscaling.md - sizing and autoscaling the fleet.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/kubernetes-basics.md - running the server on a cluster.

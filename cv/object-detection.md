@@ -74,11 +74,13 @@ Model names change with releases; confirm the current family and weights in the 
 
 ## Related
 - [[segmentation]] - masks instead of boxes.
+- [[open-vocabulary-detection]] - text-prompted detectors (Grounding DINO, OWLv2, YOLO-World) and auto-labelling.
 - [[video-analytics]] - tracking, counting, zones.
 - [[image-classification]] - whole-image labels.
 - [[data-labeling-and-synthetic-data]] - labelling boxes.
 - [[edge-on-device]] - export and deployment.
 - [[manufacturing-iot]] - inspection scenarios.
+- [[satellite-and-remote-sensing]] - buildings, ships and vehicles in aerial and satellite imagery.
 - [[hog-descriptor-from-scratch]] - HOG features built by hand, the classic pre-CNN detector descriptor.
 
 ## References

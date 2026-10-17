@@ -8,7 +8,7 @@ use_cases:
   - "run Claude through AWS Bedrock or Google Vertex for a regulated bank or hospital"
   - "analyse 500-page contracts in one prompt for a legal-tech product"
 status: draft
-last_verified: 2026-10-03
+last_verified: 2026-10-15
 sources:
   - https://platform.claude.com/docs/en/about-claude/models/overview
   - https://platform.claude.com/docs/en/about-claude/pricing
@@ -44,6 +44,7 @@ Current IDs as of 2026-10 (source: models overview page):
 
 Haiku 4.5 retirement: not sooner than 2026-10-15 (check the deprecations page).
 Older Opus 4.x/5, Sonnet 4.6/5 and Fable 5 are listed as legacy but available.
+Sonnet 4.5 (`claude-sonnet-4-5-20250929`) was deprecated 2026-09-30 and retires on the Claude API 2026-11-30; requests fail after that, and the recommended replacement is `claude-sonnet-5-5` (deprecations page). <!-- valid-until: 2026-11-30 -->
 
 ## When to use / scenarios
 - Agentic coding, multi-step tool use, computer-use style workflows.
@@ -82,6 +83,13 @@ print(msg.content[0].text)
 
 ## Gotchas
 - Pricing, IDs and retirement dates change; re-check the overview page.
+- Sampling parameters are deprecated on Claude 4.7 and later models (Opus 4.7
+  onward, including every 5.x model in the table): a non-default `temperature`,
+  `top_p` or `top_k` returns a 400 error. The API still accepts them on older
+  models such as Haiku 4.5, but the Python SDK v1.0+ removes the three
+  parameters, so passing one raises `TypeError` whatever the model. Omit them
+  and steer output through the prompt (deprecations page, "API parameter
+  deprecations").
 - The newer tokenizer yields ~555k words per 1M tokens (fewer than older models).
 - Bedrock/Vertex IDs and retirement dates differ from the first-party API.
 - Max output above 128K needs the Batches API plus a beta header (per docs).

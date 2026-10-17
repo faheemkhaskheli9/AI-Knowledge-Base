@@ -88,6 +88,7 @@ t = res.choices[0].message.parsed
 ## Related
 - [[tool-calling]] - strict tool args use the same machinery.
 - [[prompt-engineering]] - field descriptions and examples.
+- [[streaming-and-async-llm-apps]] - rendering partial JSON while it streams.
 - [[llm-evaluation]] - measure field-level accuracy against labeled data.
 - [[document-parsing]] - upstream step that turns PDFs into text for extraction.
 - [[text-to-sql]] - structured output for query generation.

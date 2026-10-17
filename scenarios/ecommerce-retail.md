@@ -109,6 +109,7 @@ def similar(item_vecs, i, k=10):
 - [[ai-security-privacy-compliance]] - customer data handling.
 - [[mlops-lifecycle]] - retraining and monitoring recommenders.
 - [[cost-and-latency]] - serving embeddings at scale.
+- [[logistics-and-supply-chain]] - demand forecasting, routing and shipment documents.
 
 ## References
 - scikit-learn docs: https://scikit-learn.org/stable/

@@ -104,6 +104,8 @@ The Claude Agent SDK can also host in-process MCP servers via `create_sdk_mcp_se
 - [[prompt-injection]] - MCP-specific attack paths.
 - [[guardrails-and-safety]] - approvals and least privilege.
 - [[design-tools-for-claude]] - Figma MCP and plugin options for giving Claude design context.
+- [[a2a-protocol]] - agent-to-agent delegation (Agent Cards, tasks); MCP connects agents to tools.
+- [[agent-skills]] - SKILL.md know-how loaded on demand; complements MCP connectivity.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/security/oauth2-and-oidc.md - OAuth for remote MCP servers.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/security/authorization-models.md - least-privilege access for tools.
 

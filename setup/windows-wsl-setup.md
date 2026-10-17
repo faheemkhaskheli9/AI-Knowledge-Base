@@ -81,6 +81,7 @@ Docker: Docker Desktop with the WSL2 backend (or Docker Engine inside WSL) plus 
 - [[python-env-uv]] - environments inside WSL.
 - [[inference-servers-vllm]] - Linux-only serving stack.
 - [[ollama]] - runs natively on Windows too.
+- [[vllm-local-setup]] - vLLM inside WSL2, step by step.
 
 ## References
 - Install WSL: https://learn.microsoft.com/en-us/windows/wsl/install

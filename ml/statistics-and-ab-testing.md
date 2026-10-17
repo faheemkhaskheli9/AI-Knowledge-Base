@@ -121,6 +121,7 @@ revenue data a true 3% lift gives Welch p = 0.050 and a bootstrap CI of
 - [[bayesian-and-gaussian-processes]] - Bayesian reasoning about uncertainty.
 - [[recommender-systems]] - offline metrics need online confirmation.
 - [[llm-evaluation]] - CIs on prompt/model comparisons.
+- [[ab-testing-and-canary-for-models]] - running these tests on live model/prompt rollouts, with shadow and canary.
 - [[ecommerce-retail]], [[marketing-content]] - main users of A/B tests.
 
 ## References

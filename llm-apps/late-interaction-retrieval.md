@@ -160,6 +160,7 @@ MaxSim only to rerank the dense candidates. Qdrant caps a multivector at
   `model.similarity` in Sentence Transformers v6.
 
 ## Related
+- [[multimodal-rag]] - end-to-end RAG over page images, tables and charts, comparing ColPali with parsing and single-vector page embeddings.
 - [[advanced-rag]] - where late interaction fits among hybrid search and reranking.
 - [[rerankers]] - the cross-encoder alternative it is usually compared against.
 - [[embedding-models]] - single-vector dense retrieval.

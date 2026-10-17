@@ -115,6 +115,7 @@ findings = [f for f in llm_findings if verified(f, doc_text)]
 - [[finance]] - regulatory and compliance overlap.
 - [[llm-observability]] - audit trails.
 - [[model-licenses]] - terms when embedding models in a product.
+- [[government-public-sector]] - legislation search and casework in public bodies.
 
 ## References
 - ABA Formal Opinion 512 announcement: https://www.americanbar.org/news/abanews/aba-news-archives/2024/07/aba-issues-first-ethics-guidance-ai-tools/

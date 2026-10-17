@@ -81,6 +81,7 @@ Decision shortcut:
 - [[cost-and-latency]] - break-even versus hosted APIs.
 - [[fine-tuning-and-peft]] - training workloads.
 - [[mlops-lifecycle]] - reproducible deployments.
+- [[kubernetes-for-llm-serving]] - GPU node pools, scheduling and autoscaling on Kubernetes.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/capacity-planning-and-autoscaling.md - how many GPUs and when to scale.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/kubernetes-basics.md - scheduling GPU workloads on a cluster.
 
@@ -88,4 +89,4 @@ Decision shortcut:
 - AWS EC2 instance types: https://aws.amazon.com/ec2/instance-types/
 - Google Cloud GPUs: https://cloud.google.com/compute/docs/gpus
 - Azure VM sizes: https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview
-- Specialist and serverless providers: see each vendor's own documentation (not verified here).
+- Specialist and serverless providers: not covered by the sources above; take GPU types, limits and prices from each vendor's own documentation.

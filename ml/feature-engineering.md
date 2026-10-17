@@ -106,6 +106,7 @@ print(cross_val_score(model, df, y, cv=5, scoring="roc_auc").mean())
 
 ## Related
 - [[ml-fundamentals]] - leakage and splits explained.
+- [[feature-stores]] - serving the same features offline and online with point-in-time joins.
 - [[classic-ml-scikit-learn]] - pipelines and models that consume these features.
 - [[gradient-boosting-tabular]] - native categorical and missing-value handling.
 - [[model-evaluation-and-metrics]] - measure whether a feature actually helps.

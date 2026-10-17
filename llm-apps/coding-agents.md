@@ -95,6 +95,9 @@ Add an MCP server to Claude Code: `claude mcp add docs -- python server.py` ([[m
 - [[multi-agent-systems]] - subagent patterns.
 - [[software-engineering]] - scenario guidance.
 - [[prompt-injection]] - security for repo-reading agents.
+- [[agent-skills]] - SKILL.md procedures vs CLAUDE.md/AGENTS.md vs MCP.
+- [[context-engineering]] - compaction, tool-result trimming and sub-agents in long sessions.
+- [[code-models]] - code-specialised models, FIM completion and which coding benchmarks to trust.
 
 ## References
 - Claude Code docs: https://code.claude.com/docs/en/overview

@@ -84,6 +84,7 @@ Treat output as a proposal: sample, review, measure agreement with humans, then 
 - [[object-detection]] - box labelling and formats.
 - [[segmentation]] - SAM-assisted mask labelling.
 - [[llm-evaluation]] - golden sets for LLM apps.
+- [[synthetic-data-for-llm-training]] - self-instruct, distillation, filtering and licence limits for LLM training data.
 - [[anomaly-detection]] - validation sets for rare events.
 
 ## References

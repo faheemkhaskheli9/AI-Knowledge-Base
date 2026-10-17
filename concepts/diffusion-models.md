@@ -70,11 +70,13 @@ image.save("backpack.png")
 
 ## Related
 - [[image-generation-models]] - which model families to pick.
+- [[image-editing-and-controlnet]] - inpainting, ControlNet and IP-Adapter conditioning in practice.
 - [[multimodal-models]] - understanding (not generating) images.
 - [[fine-tuning-and-peft]] - LoRA concept shared with LLMs.
 - [[marketing-content]] - typical commercial use.
 - [[gpu-cuda-setup]] - getting the GPU stack working.
 - [[ddpm-diffusion-from-scratch-numpy]] - DDPM built in NumPy: noise schedule, epsilon-prediction, ancestral sampling.
+- [[diffusion-language-models]] - diffusion applied to text: masked diffusion LLMs vs autoregressive generation.
 
 ## References
 - Ho et al., DDPM: https://arxiv.org/abs/2006.11239

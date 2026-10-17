@@ -73,6 +73,8 @@ Hosted alternative: OpenAI audio transcription endpoint (see its speech-to-text 
 
 ## Related
 - [[speaker-diarization]] - who spoke when.
+- [[speech-translation]] - translating speech into other languages (cascade vs direct).
+- [[music-information-retrieval]] - music audio tasks (tempo, key, stems, tagging) that ASR does not cover.
 - [[voice-agents]] - real-time pipelines.
 - [[text-to-speech]] - the reverse direction.
 - [[huggingface-transformers]] - Whisper via transformers.

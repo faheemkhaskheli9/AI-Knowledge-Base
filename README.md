@@ -8,7 +8,9 @@ can look things up before they build.
 - **Start here:** [INDEX.md](INDEX.md) lists every topic with its tags and use cases.
 - **By problem:** [scenarios/](scenarios/) maps an industry or task to the
   recommended approach.
-- **For agents:** [AGENTS.md](AGENTS.md) explains how to consult the base and how to extend it.
+- **For agents:** [AGENTS.md](AGENTS.md) explains how to consult the base and how to extend it;
+  [llms.txt](llms.txt) is a compact one-line-per-topic index ([llmstxt.org](https://llmstxt.org/) format),
+  generated with INDEX.md.
 
 ## Layout
 

@@ -77,11 +77,15 @@ Levers, roughly in order of effort:
 
 ## Related
 - [[prompt-caching-and-cost]] - provider caching mechanics.
+- [[semantic-caching]] - embedding-keyed response cache: hit rate vs wrong answers, invalidation.
+- [[llm-cost-calculator]] - runnable token math: per-request cost, caching, batch, self-host break-even.
 - [[llm-gateways-and-routing]] - model routing, fallbacks and multi-provider gateways.
 - [[llm-observability]] - tracking tokens and latency.
 - [[gpu-cloud-options]] - renting GPUs for self-hosting.
 - [[model-selection]], [[small-language-models]] - cheaper models.
 - [[quantization]] - cheaper self-hosting.
+- [[batch-inference-and-batch-apis]] - discounted async processing for non-urgent jobs.
+- [[low-budget-ai]] - cheapest viable stack, free tiers and local models.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/caching-strategies.md - response and semantic caching patterns.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/back-of-envelope-estimation.md - estimating load, tokens and cost up front.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/capacity-planning-and-autoscaling.md - capacity for self-hosted serving.

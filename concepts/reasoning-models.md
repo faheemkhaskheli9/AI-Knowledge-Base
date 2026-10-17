@@ -80,6 +80,7 @@ Open models: reasoning-tuned checkpoints (for example DeepSeek-R1 distills, Qwen
 - [[anthropic-claude]] - model line-up and API details.
 - [[agents]] - where reasoning helps most.
 - [[cost-and-latency]] - budgeting thinking tokens.
+- [[test-time-compute-scaling]] - best-of-n, self-consistency, verifiers, search and when extra inference compute pays off.
 - [[decoding-and-sampling]] - best-of-n and self-consistency.
 - [[self-consistency-voting-from-scratch]] - self-consistency: majority voting over sampled reasoning paths, built by hand.
 

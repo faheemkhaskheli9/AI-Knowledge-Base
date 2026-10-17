@@ -64,11 +64,13 @@ Manual install: `uv add pipecat-ai` plus service extras (`uv add "pipecat-ai[...
 
 ## Related
 - [[speech-to-text]] - the listening stage.
+- [[wake-word-detection]] - on-device activation before audio is streamed.
 - [[text-to-speech]] - the speaking stage.
 - [[tool-calling]] - actions during a call.
 - [[agents]] - agent logic behind the voice.
 - [[customer-support]] - flagship scenario.
 - [[llm-observability]] - tracing latency and transcripts.
+- [[speech-to-speech-realtime-models]] - native and full-duplex audio models vs cascades, latency trade-offs.
 
 ## References
 - https://developers.openai.com/api/docs/guides/realtime
