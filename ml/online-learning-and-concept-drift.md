@@ -116,6 +116,7 @@ scikit-learn equivalent for out-of-core batches:
 
 ## Related
 - [[mlops-lifecycle]] - monitoring and retraining in production.
+- [[streaming-ml-pipelines]] - Kafka/stream processing for real-time features and inference.
 - [[llm-observability]] - drift and quality monitoring for LLM apps.
 - [[anomaly-detection]] - detecting unusual points rather than shifts.
 - [[time-series-forecasting]] - forecasting series that also drift.

@@ -118,6 +118,7 @@ print(average_precision_score(valid.is_fraud, m.predict_proba(valid[feats])[:, 1
 - [[hallucination-and-grounding]] - numbers must be traceable.
 - [[llm-observability]] - audit trail of model decisions.
 - [[data-analytics]] - dashboards and ad hoc analysis.
+- [[insurance]] - claims fraud, underwriting and pricing explainability.
 
 ## References
 - Federal Reserve SR 11-7 model risk guidance: https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm

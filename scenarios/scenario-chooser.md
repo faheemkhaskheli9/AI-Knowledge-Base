@@ -8,7 +8,7 @@ use_cases:
   - "decide between a hosted API and a local open-weights model"
   - "map a task type (extraction, classification, forecasting, vision, speech) to the right files"
 status: stable
-last_verified: 2026-10-03
+last_verified: 2026-10-17
 sources:
   - https://docs.anthropic.com/en/docs/build-with-claude/overview
   - https://platform.openai.com/docs/guides/optimizing-llm-accuracy
@@ -89,6 +89,35 @@ KB files to read in full next.
 | Optimise something you cannot differentiate (simulator, config) | Evolutionary or other black-box optimiser | [[black-box-and-evolutionary-optimization]], [[hyperparameter-tuning]] |
 | Build a fast surrogate for a physical simulation | Physics-informed network or neural operator | [[physics-informed-neural-networks]] |
 | Learn from relations in a graph (fraud rings, molecules, links) | Graph neural network | [[graph-neural-networks]] |
+| Label AI-generated images, audio or video, or check whether media is AI-made | C2PA manifests plus invisible watermarks; detectors only as a weak signal | [[ai-watermarking-and-content-provenance]], [[image-generation-models]] |
+| Pick between a fixed pipeline and an agent | Workflow (chain, router, parallel) unless the path is genuinely dynamic | [[workflows-vs-agents]], [[agents]] |
+| Keep a long agent run on track as its context fills | Compaction, notes files, sub-agents, just-in-time retrieval | [[context-engineering]], [[long-running-agents]], [[agent-memory]] |
+| Make an agent survive crashes and wait for approvals | Durable execution with checkpoints, budgets and human approval steps | [[long-running-agents]], [[agents]] |
+| Package a team procedure an agent loads on demand | Agent skill (SKILL.md) with progressive disclosure | [[agent-skills]], [[coding-agents]], [[model-context-protocol]] |
+| Let agents from different vendors or frameworks hand tasks to each other | A2A protocol between agents; MCP for agent-to-tool | [[a2a-protocol]], [[multi-agent-systems]], [[model-context-protocol]] |
+| Stream answers to a UI or run many LLM calls concurrently | SSE streaming and async clients with bounded concurrency | [[streaming-and-async-llm-apps]], [[serving-with-fastapi]] |
+| Pick a chunk size and strategy for a RAG index | Recursive chunks as baseline; semantic, late or contextual chunking when evals show gains | [[chunking-strategies]], [[rag-basics]], [[recursive-text-splitter-from-scratch]] |
+| Answer corpus-wide questions ("main themes across all reports") | GraphRAG / knowledge-graph retrieval | [[graphrag-and-knowledge-graphs]], [[advanced-rag]] |
+| Answer over charts, tables and page images | Multimodal RAG on page images or parsed tables | [[multimodal-rag]], [[document-layout-and-table-extraction]], [[vision-language-models]] |
+| Extract tables and layout from PDFs | Layout model plus table-structure model; VLM fallback | [[document-layout-and-table-extraction]], [[document-parsing]], [[ocr]] |
+| Gate prompt and model changes on evals in CI | LLM-as-judge calibrated against human labels, eval-driven development | [[llm-as-judge-and-eval-driven-development]], [[llm-evaluation]] |
+| Tune prompts of a multi-step pipeline automatically | DSPy-style prompt optimization against a metric | [[dspy-and-prompt-optimization]], [[prompt-engineering]] |
+| Search a photo library by text or find near-duplicate images | CLIP-style embeddings in a vector index | [[image-retrieval-clip-search]], [[vector-databases]], [[embeddings]] |
+| Detect objects named in plain text, no training data | Open-vocabulary detector (Grounding DINO, OWLv2, YOLO-World) | [[open-vocabulary-detection]], [[object-detection]] |
+| Get a pixel mask from a click or a box, in images or video | Segment Anything (SAM 2 / SAM 3) | [[segment-anything-sam2]], [[segmentation]] |
+| Estimate depth from one image | Monocular depth model | [[depth-estimation]], [[edge-on-device]] |
+| Reconstruct a 3D scene from photos or video | 3D Gaussian Splatting or NeRF | [[gaussian-splatting-and-nerf]], [[3d-generation-models]] |
+| Edit, inpaint or pose-control generated images | Inpainting and ControlNet on a diffusion model | [[image-editing-and-controlnet]], [[comfyui]], [[diffusion-models]] |
+| Generate 3D assets, music, sound or video | Text/image-to-3D, music and video generation models; check licences | [[3d-generation-models]], [[music-and-audio-generation-models]], [[video-generation-models]], [[model-licenses]] |
+| Simulate environments or generate training video for robots and driving | World models | [[world-models]], [[vision-language-action-models]] |
+| Analyse music (tempo, beats, key, tags) | MIR features and pretrained audio models | [[music-information-retrieval]], [[audio-classification-and-sound-events]] |
+| Translate speech into subtitles or another spoken language | Speech translation model or STT + MT cascade | [[speech-translation]], [[speech-to-text]] |
+| Wake a device on a spoken keyword | Small on-device keyword-spotting model | [[wake-word-detection]], [[edge-on-device]] |
+| Choose a native speech-to-speech model vs an STT-LLM-TTS cascade | Compare latency, control and cost on your calls | [[speech-to-speech-realtime-models]], [[voice-agents]] |
+| Get a strong tabular baseline on a small dataset with no tuning | Tabular foundation model (TabPFN, TabICL), then compare to boosting | [[tabular-foundation-models]], [[gradient-boosting-tabular]] |
+| Speed up a slow pandas feature pipeline | Polars or DuckDB | [[polars-and-duckdb-for-ml]], [[feature-engineering]] |
+| Score events in real time with fresh features | Streaming pipeline plus an online feature store | [[streaming-ml-pipelines]], [[feature-stores]], [[anomaly-detection]] |
+| Serve the same features in training and in production | Feature store with point-in-time joins | [[feature-stores]], [[data-leakage-and-validation-splits]] |
 
 ### 2. Cross-cutting decisions
 - **Prompt vs RAG vs fine-tune.** Missing or changing facts, need citations ->
@@ -116,6 +145,21 @@ KB files to read in full next.
 - **Cost and latency.** [[cost-and-latency]], [[prompt-caching-and-cost]],
   [[quantization]], [[small-language-models]]. Several providers or models
   behind one endpoint, with fallbacks: [[llm-gateways-and-routing]].
+- **Which serving stack.** [[inference-servers-vllm]] by default; compare
+  [[sglang-and-tensorrt-llm]] for throughput, [[onnx-and-triton-inference-server]]
+  for non-LLM models, [[kubernetes-for-llm-serving]] on a cluster. Local
+  install: [[vllm-local-setup]], [[docker-for-ml]].
+- **Shipping a model or prompt change.** Version it in a registry
+  ([[model-registry-and-versioning]]), roll out with shadow or canary traffic
+  ([[ab-testing-and-canary-for-models]]), trace it with
+  [[opentelemetry-genai-tracing]].
+- **Which open-weight model.** Start at [[open-weight-model-landscape]], then
+  [[google-gemma]], [[microsoft-phi]], [[chinese-open-weight-models]],
+  [[code-models]] (IDE completion). Other hosted APIs: [[xai-grok]],
+  [[cohere-command]] (enterprise RAG, embed, rerank).
+- **Running models on your own machine.** Desktop apps [[lm-studio-and-jan]];
+  Macs [[mlx-on-apple-silicon]]; images and video [[comfyui]]; free GPUs
+  [[jupyter-colab-and-kaggle]].
 - **Trust.** Hallucination risk -> [[hallucination-and-grounding]]; untrusted
   input -> [[prompt-injection]], [[guardrails-and-safety]].
 
@@ -123,7 +167,11 @@ KB files to read in full next.
 [[customer-support]], [[document-processing]], [[healthcare]], [[finance]],
 [[ecommerce-retail]], [[education]], [[legal]], [[manufacturing-iot]],
 [[software-engineering]], [[security-defensive]], [[marketing-content]],
-[[data-analytics]], [[personal-assistants]].
+[[data-analytics]], [[personal-assistants]], [[hr-and-recruiting]],
+[[insurance]], [[real-estate]], [[telecom]], [[agriculture]],
+[[automotive-robotics]], [[logistics-and-supply-chain]],
+[[government-public-sector]], [[media-and-gaming]], [[cybersecurity-soc]].
+By constraint: [[low-budget-ai]], [[startup-mvp-with-ai]].
 
 ### 4. Building and training your own model
 | Stage | Read |
@@ -142,6 +190,11 @@ KB files to read in full next.
 | Harden a model against attacks | [[adversarial-examples-and-robustness]] |
 | Train a generative model | [[generative-adversarial-networks]], [[normalizing-flows-and-energy-based-models]] |
 | Understand how LLMs work inside | [[transformers-and-attention]], [[attention-variants-and-efficient-attention]], [[positional-encodings]], [[tokenization]], [[decoding-and-sampling]], [[mixture-of-experts]], [[pretraining-and-scaling-laws]], [[rlhf-and-preference-optimization]] |
+| Fine-tune an open model cheaply | [[unsloth-finetuning]], [[pytorch-lightning-and-accelerate]], [[fine-tuning-and-peft]] |
+| Make training data, rewards and verifiers | [[synthetic-data-for-llm-training]], [[reward-modeling-and-verifiers]], [[rl-with-verifiable-rewards]] |
+| Combine fine-tunes or spend more compute at inference | [[model-merging]], [[test-time-compute-scaling]], [[reasoning-models]] |
+| Newer LLM architectures and training objectives | [[multi-token-prediction]], [[diffusion-language-models]] |
+| Look inside a trained model's features | [[sparse-autoencoders-for-interpretability]], [[mechanistic-interpretability]] |
 
 ## Setup & code
 Environment first: [[python-env-uv]], [[api-sdk-setup]], and for local

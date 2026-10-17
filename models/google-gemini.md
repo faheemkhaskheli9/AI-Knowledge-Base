@@ -8,9 +8,10 @@ use_cases:
   - "add video generation to a media-production tool"
   - "embed text, images and audio into one vector space for search"
 status: draft
-last_verified: 2026-10-03
+last_verified: 2026-10-15
 sources:
   - https://ai.google.dev/gemini-api/docs/models
+  - https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite
   - https://ai.google.dev/gemini-api/docs/pricing
   - https://ai.google.dev/gemini-api/docs/deprecations
 ---
@@ -36,7 +37,7 @@ Current IDs as of 2026-10 (source: models + pricing pages):
 | Model | ID | Status | $/1M in / out |
 |---|---|---|---|
 | Gemini 3.8 Flash | `gemini-3.8-flash` | stable | 0.75 / 3.75 (to 2026-12-31) <!-- valid-until: 2026-12-31 --> |
-| Gemini 3.5 Flash-Lite | (listed; ID not verified) | - | 0.30 / 2.50 |
+| Gemini 3.5 Flash-Lite | `gemini-3.5-flash-lite` | stable (GA); 1,048,576 in / 65,536 out tokens (model page) | 0.30 / 2.50 |
 | Gemini 3.1 Pro | `gemini-3.1-pro-preview` | preview | 2.00 / 12.00 (<=200k ctx) |
 | Nano Banana 2 (image) | `gemini-3.1-flash-image` | - | see pricing |
 | Gemini Embedding 2 | (see docs) | - | text 0.20 |
@@ -85,7 +86,9 @@ print(r.text)
 - [[multimodal-models]] - how multimodal models work.
 - [[embedding-models]] - Gemini Embedding options.
 - [[image-generation-models]] - Nano Banana and others.
+- [[google-gemma]] - the open-weight sibling family.
 
 ## References
 - https://ai.google.dev/gemini-api/docs/models
+- https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite
 - https://ai.google.dev/gemini-api/docs/pricing

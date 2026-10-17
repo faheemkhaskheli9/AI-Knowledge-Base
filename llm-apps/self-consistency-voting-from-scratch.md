@@ -165,6 +165,7 @@ How to read it:
 - [[decoding-strategies-from-scratch-numpy]] - temperature and top-p sampling, the source of path diversity.
 - [[decoding-and-sampling]] - generation parameters and best-of-n with a verifier.
 - [[reasoning-models]] - models that spend test-time compute internally instead of through external voting.
+- [[test-time-compute-scaling]] - how voting compares with verifiers, search and thinking budgets.
 - [[hallucination-and-grounding]] - using sample agreement to detect unreliable answers.
 - [[platt-and-isotonic-calibration-from-scratch]] - turn vote share into a calibrated probability.
 - [[llm-evaluation]] - measuring whether the extra samples pay for themselves.

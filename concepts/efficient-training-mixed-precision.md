@@ -129,6 +129,7 @@ Measure, do not guess: compare samples/s and `torch.cuda.max_memory_allocated()`
 - [[deep-learning-training]] - LR, batch size and schedule choices that interact with accumulation.
 - [[debugging-neural-network-training]] - NaNs and overflow that fp16 can introduce.
 - [[distributed-training]] - the next step when one GPU is not enough.
+- [[pytorch-lightning-and-accelerate]] - AMP and accumulation as one-line Trainer/Accelerator options.
 - [[fine-tuning-and-peft]] - LoRA/QLoRA to cut weight and optimizer memory.
 - [[quantization]] - low-precision weights for inference, a different goal from AMP training.
 

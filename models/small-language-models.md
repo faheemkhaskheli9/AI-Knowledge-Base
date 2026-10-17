@@ -8,11 +8,12 @@ use_cases:
   - "fine-tune a small model for one narrow classification task cheaply"
   - "pick a permissively licensed small model for an embedded product"
 status: draft
-last_verified: 2026-10-03
+last_verified: 2026-10-15
 sources:
   - https://huggingface.co/google/gemma-4-31B-it
   - https://huggingface.co/google
   - https://huggingface.co/HuggingFaceTB
+  - https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct
   - https://docs.mistral.ai/getting-started/models/models_overview/
   - https://en.wikipedia.org/wiki/Phi_(language_model)
 ---
@@ -34,7 +35,7 @@ near-zero marginal cost, and become strong after task-specific fine-tuning.
   reasoning-vision 15B (Mar 2026), all MIT per secondary sources; verify on the
   model cards, as I could not load the Microsoft HF org page.
 - Hugging Face SmolLM3-3B (6 languages, long context, function calling) and
-  SmolLM2 135M/360M/1.7B; license not verified, check the card.
+  SmolLM2 135M/360M/1.7B (Apache 2.0 per the SmolLM2 model cards).
 - Qwen also ships small sizes ([[qwen]]); Llama 3.2 1B/3B ([[meta-llama]]).
 
 ## When to use / scenarios
@@ -79,8 +80,11 @@ library ([[ollama]]). For Transformers, `google/gemma-4-31B-it` loads with
 - [[ollama]] - easiest local runner.
 - [[edge-on-device]] - deployment concerns.
 - [[quantization]] - fitting models into memory.
+- [[microsoft-phi]] - Phi-4 family, MIT licence and Foundry Local.
+- [[google-gemma]] - Gemma 4 sizes, variants and licence terms.
 
 ## References
 - https://huggingface.co/google/gemma-4-31B-it
 - https://huggingface.co/HuggingFaceTB
+- https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct
 - https://docs.mistral.ai/getting-started/models/models_overview/

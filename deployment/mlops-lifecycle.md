@@ -82,8 +82,11 @@ jobs:
 
 ## Related
 - [[experiment-tracking]] - runs and metrics.
+- [[model-registry-and-versioning]] - registering models and prompts, aliases, promotion and rollback.
 - [[llm-evaluation]] - gates and metrics.
 - [[llm-observability]] - production traces.
+- [[ab-testing-and-canary-for-models]] - shadow, canary and A/B rollout of a new model or prompt.
+- [[feature-stores]] - versioned features shared by training and serving.
 - [[python-env-uv]] - reproducible environments.
 - [[inference-servers-vllm]], [[serving-with-fastapi]] - serving layers.
 - [[data-labeling-and-synthetic-data]] - building eval/training sets.

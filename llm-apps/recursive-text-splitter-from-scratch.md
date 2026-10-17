@@ -151,6 +151,7 @@ How to read it:
 - Changing the chunker changes every chunk ID and embedding. Version the chunking config with the index so you know what produced it.
 
 ## Related
+- [[chunking-strategies]] - overview: when to use recursive vs semantic, late or contextual chunking, and how to evaluate.
 - [[rag-basics]] - where chunking sits in the retrieval pipeline.
 - [[advanced-rag]] - parent-child retrieval, contextual chunk headers, semantic chunking and re-ranking.
 - [[document-parsing]] - getting clean text and structure out of PDFs before splitting.

@@ -75,6 +75,7 @@ Check the `implicit` docs for the current `fit`/`recommend` signature, which has
 ## Related
 - [[embedding-models]] - item/user text embeddings for content-based retrieval.
 - [[vector-databases]] - ANN serving of item vectors.
+- [[music-information-retrieval]] - audio embeddings and tags as content features for music recommendation.
 - [[gradient-boosting-tabular]] - ranking stage.
 - [[ecommerce-retail]] - scenario context.
 - [[experiment-tracking]] - compare offline runs.

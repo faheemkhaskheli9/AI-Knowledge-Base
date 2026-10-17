@@ -83,6 +83,7 @@ These are estimates; measure with `torch.cuda.max_memory_allocated()`.
 - [[inference-servers-vllm]] - serving with KV-cache management.
 - [[gpu-cloud-options]] - renting GPUs instead.
 - [[windows-wsl-setup]] - GPU in WSL2.
+- [[docker-for-ml]] - GPU containers with the NVIDIA Container Toolkit.
 
 ## References
 - PyTorch install selector: https://pytorch.org/get-started/locally/

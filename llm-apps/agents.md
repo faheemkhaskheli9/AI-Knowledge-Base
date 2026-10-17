@@ -86,8 +86,10 @@ Note: `spent` sums per-call input tokens, which re-counts the growing history ea
 - Reasoning-model "thinking" blocks must be passed back unmodified when continuing tool turns on some APIs; use the SDK's content objects as in the sample.
 
 ## Related
+- [[workflows-vs-agents]] - when a fixed chain or router beats an autonomous loop on cost, reliability and debuggability.
 - [[tool-calling]] - the primitive under the loop.
 - [[multi-agent-systems]] - when one agent is not enough.
+- [[long-running-agents]] - checkpoint/resume, durable execution, approvals and budgets for long runs.
 - [[agent-frameworks]] - libraries that implement the loop.
 - [[agent-memory]] - state across turns/sessions.
 - [[guardrails-and-safety]] - limits and approvals.

@@ -70,6 +70,7 @@ Alternatives: Tesseract (`apt install tesseract-ocr` / Windows installer, then `
 
 ## Related
 - [[document-parsing]] - layout, tables and full PDF pipelines.
+- [[document-layout-and-table-extraction]] - layout detection, reading order and table structure recognition.
 - [[vision-language-models]] - LLM-based reading and extraction.
 - [[structured-output]] - schema-constrained extraction after OCR.
 - [[document-processing]] - end-to-end scenarios.

@@ -13,8 +13,10 @@ holds the detail and any leftover acceptance criteria.
 
 1. [x] **Link integrity in the build.** `build_index.py` fails on a broken
    `[[link]]` (code blocks ignored) and warns on orphan topics. Wire the 30
-   orphans into their parent topic's `## Related`. Issue #3 (still open for a
-   weekly lychee check of `sources:` URLs).
+   orphans into their parent topic's `## Related`. Issue #3: done; CI also
+   fails when `INDEX.md`/`llms.txt` are stale, and `.github/workflows/links.yml`
+   runs `check_links.py` weekly (and on demand) over every `sources:` URL,
+   failing on dead links and warning on 403/429.
 2. [x] **Run the code.** A `check_code.py` that extracts the python block(s)
    of each from-scratch topic and runs them, so the "minimal and runnable"
    rule in AGENTS.md is tested rather than assumed. Start with NumPy-only files.
@@ -25,6 +27,10 @@ holds the detail and any leftover acceptance criteria.
 3. [x] **Status promotion.** Move a topic `draft -> stable` once its code runs
    (task 2) and its sources resolve. Today the column carries no signal.
    Issue #11 (still open: the most-used API-calling topics are not yet stable).
+   Checked 2026-10-15: `scenario-chooser` is stable; `model-selection`,
+   `rag-basics`, `agents` and `tool-calling` stay draft because `check_code.py`
+   skips their code (needs API keys or network), so it has not run clean. They
+   need a run in an environment with keys before promotion.
 4. [x] **Staleness report.** `build_index.py` lists `models/`, `setup/` and
    `deployment/` files whose `last_verified` is older than 90 days, the ones
    whose facts (model IDs, prices, versions) rot. Issue #4 (still open for a
@@ -46,7 +52,13 @@ holds the detail and any leftover acceptance criteria.
 8. [x] **Cross-link the Software Engineering KB** from deployment and LLM-app
    topics. Issue #104 (closed).
 9. [x] **CI for the Django webapp.** Issue #105 (closed).
-10. [ ] **Verify flagged facts.** Replace or remove the "not verified" flags
-    and the Claude sampling-parameter note. Issues #5, #8.
+10. [x] **Verify flagged facts.** Replace or remove the "not verified" flags
+    and the Claude sampling-parameter note. Issues #5, #8. Done 2026-10-15:
+    flags replaced with cited facts (Gemini 3.5 Flash-Lite ID; SD 3.5, Qwen-Image-2.1,
+    SmolLM2, Llama 4, InsightFace and SAM 2 licences) or removed; Claude 4.7+
+    sampling-parameter deprecation and the Sonnet 4.5 retirement (marked
+    `valid-until: 2026-11-30`) documented in decoding-and-sampling,
+    anthropic-claude and api-sdk-setup.
 11. [ ] **Agent entry points.** `llms.txt`, a glossary and learning paths.
-    Issues #13, #96, #97.
+    Issues #13, #96, #97. #13 done: `build_index.py` writes `llms.txt` from the
+    same rows as `INDEX.md` and CI diff-checks both.

@@ -79,6 +79,8 @@ Local: Hugging Face `transformers` image-text-to-text pipeline with an open VLM 
 - [[ocr]] - dedicated text extraction.
 - [[document-parsing]] - PDF/document pipelines.
 - [[embedding-models]] - CLIP-style embeddings.
+- [[image-retrieval-clip-search]] - text-to-image and image-to-image search with CLIP embeddings.
+- [[open-vocabulary-detection]] - text-prompted boxes when a full VLM call is not needed.
 - [[structured-output]] - JSON extraction.
 - [[vision-language-action-models]] - VLMs extended to output robot actions.
 

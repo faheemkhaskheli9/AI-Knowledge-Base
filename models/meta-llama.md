@@ -8,10 +8,11 @@ use_cases:
   - "check whether Llama's license allows our commercial product"
   - "run an open multimodal model behind our firewall for a hospital"
 status: draft
-last_verified: 2026-10-03
+last_verified: 2026-10-15
 sources:
   - https://huggingface.co/meta-llama
   - https://dev.meta.ai/llama/docs/model-cards-and-prompt-formats/
+  - https://github.com/meta-llama/llama-models/blob/main/models/llama4/LICENSE
 ---
 
 # Meta Llama models
@@ -32,9 +33,14 @@ releases stay open.
 - Companion safety models: Llama Guard, Prompt Guard.
 - Access is gated: accept the license on the HF repo page, then `huggingface-cli
   login`.
-- License is custom: it carries conditions (attribution/naming, acceptable-use
-  policy, a very-large-company clause). I could not load the license text in
-  this session, so read it before shipping; see [[model-licenses]].
+- License is custom. The Llama 4 Community License grants free use,
+  modification and redistribution, but: include the license and a "Built with
+  Llama" notice when you distribute; start the name of any model trained or
+  fine-tuned on Llama (or its outputs) with "Llama" if you distribute it;
+  follow the Acceptable Use Policy; and if your products had over 700M monthly
+  active users on the release date, you need a separate license from Meta
+  (Llama 4 LICENSE in meta-llama/llama-models). Older generations have their
+  own license versions; see [[model-licenses]].
 
 ## When to use / scenarios
 - On-prem or VPC deployments where data cannot go to an API (healthcare,
@@ -81,3 +87,4 @@ For serving use vLLM ([[inference-servers-vllm]]) or Ollama ([[ollama]]).
 ## References
 - https://huggingface.co/meta-llama
 - https://dev.meta.ai/llama/docs/model-cards-and-prompt-formats/
+- https://github.com/meta-llama/llama-models/blob/main/models/llama4/LICENSE

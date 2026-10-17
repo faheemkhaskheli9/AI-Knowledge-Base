@@ -9,7 +9,7 @@ use_cases:
   - "detect falls or unsafe posture from camera footage"
   - "assess legal risk before building face recognition"
 status: draft
-last_verified: 2026-10-03
+last_verified: 2026-10-15
 sources:
   - https://github.com/deepinsight/insightface
   - https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker
@@ -62,7 +62,7 @@ for f in faces:
 Pose with Ultralytics: load a pose-variant weight from the docs (e.g. a `-pose.pt` model), `results = model("img.jpg")`, then `results[0].keypoints.xy`. MediaPipe Pose Landmarker (`pip install mediapipe`) runs well on CPU and mobile.
 
 ## Choosing / trade-offs
-- Licences: InsightFace code is permissive but its pretrained models are restricted to non-commercial use per its README; check before shipping. Commercial face APIs exist but move the same legal duties to you as controller.
+- Licences: InsightFace code is MIT (commercial use allowed), but its training data and the pretrained models (including those the Python library downloads, such as `buffalo_l`) are for non-commercial research only per its README; commercial use of the recognition models needs a licence from InsightFace (contact in the README). Commercial face APIs exist but move the same legal duties to you as controller.
 - MediaPipe: light, mobile/web friendly, single-person focus; Ultralytics pose: multi-person, real time; AGPL caveat ([[object-detection]]).
 - On-device processing avoids transmitting biometrics ([[edge-on-device]]).
 - Accuracy on masks, low light, angles and children is much worse; test in your conditions.

@@ -10,8 +10,8 @@ jobs:
       - run: python3 -m unittest test_build_index_freshness
       # Fails on missing frontmatter, a broken [[link]], an orphan or an unreached overview topic.
       - run: python3 build_index.py --strict
-      # Fails if INDEX.md was not regenerated and committed.
-      - run: git diff --exit-code INDEX.md
+      # Fails if INDEX.md or llms.txt was not regenerated and committed.
+      - run: git diff --exit-code INDEX.md llms.txt
   code:
     runs-on: ubuntu-latest
     timeout-minutes: 45

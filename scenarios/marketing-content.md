@@ -114,6 +114,7 @@ r = c.messages.create(
 - [[customer-support]] - shared tone and knowledge assets.
 - [[personal-assistants]] - scheduling and posting automation.
 - [[llm-observability]] - cost and quality tracking across campaigns.
+- [[media-and-gaming]] - asset generation, moderation and recommendation in media and games.
 
 ## References
 - FTC advertising and marketing guidance: https://www.ftc.gov/business-guidance/advertising-marketing

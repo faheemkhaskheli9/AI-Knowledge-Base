@@ -92,6 +92,7 @@ Extract facts after the session with a structured-output call ([[structured-outp
 - [[multi-agent-systems]] - shared state between agents.
 - [[long-context]] - alternative to retrieval for small histories.
 - [[prompt-caching-and-cost]] - cache the stable memory prefix.
+- [[context-engineering]] - compaction, tool-result clearing and notes for the working-memory tier.
 
 ## References
 - Anthropic memory tool: https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool

@@ -114,6 +114,9 @@ product.
 - [[inference-servers-vllm]] - serving LLM parts when on premises.
 - [[llm-observability]] - monitoring the language components.
 - [[vision-language-action-models]] - learned robot policies and their safety limits.
+- [[agriculture]] - field sensors, drones and edge vision on farms.
+- [[automotive-robotics]] - vehicles and robots: perception, sim-to-real, functional safety.
+- [[audio-classification-and-sound-events]] - acoustic monitoring: abnormal machine sounds and safety events.
 
 ## References
 - scikit-learn outlier detection: https://scikit-learn.org/stable/modules/outlier_detection.html

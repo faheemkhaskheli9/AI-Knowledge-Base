@@ -76,6 +76,8 @@ Python bindings: `pip install llama-cpp-python` (compiles llama.cpp; GPU builds 
 
 ## Related
 - [[ollama]] - friendlier wrapper.
+- [[mlx-on-apple-silicon]] - Apple's native alternative on Macs.
+- [[unsloth-finetuning]] - fine-tune and export your own GGUF.
 - [[quantization]] - theory behind the formats.
 - [[gpu-cuda-setup]] - VRAM sizing.
 - [[huggingface-transformers]] - source of models to convert.

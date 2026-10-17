@@ -42,8 +42,9 @@ Current options as of 2026-10:
 | Qwen3-Embedding-8B | open, Apache 2.0 | 32K context, up to 4096 dims, 100+ languages, MTEB multilingual 70.58 at #1 on 2025-06-05 (stale) |
 | Mistral Embed, Codestral Embed | API (Premier) | see [[mistral]] |
 
-I could not fetch the live MTEB ranking; check it before deciding. Cohere
-embed and others exist but were not verified here.
+I could not fetch the live MTEB ranking; check it before deciding. Other
+providers (Cohere Embed, for one) also sell embedding APIs; this table does
+not cover them, so take their limits and prices from the vendor's own docs.
 
 ## When to use / scenarios
 - RAG over PDFs/wikis ([[rag-basics]], [[advanced-rag]]).
@@ -86,6 +87,7 @@ print(len(v.data[0].embedding))
 ## Related
 - [[embeddings]] - the concept.
 - [[vector-databases]] - where vectors live.
+- [[image-retrieval-clip-search]] - CLIP/SigLIP image search and near-duplicate detection.
 - [[rerankers]] - second-stage ranking.
 - [[model-licenses]] - open model licenses.
 

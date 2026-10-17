@@ -120,6 +120,7 @@ The ONNX model was exported with batch 8 and run with batch 3, which works becau
 - [[distributed-training]] - sharded checkpoints for FSDP/multi-GPU.
 - [[edge-on-device]] - running exported ONNX models on phones and edge devices.
 - [[serving-with-fastapi]] - loading a saved model in an API.
+- [[onnx-and-triton-inference-server]] - serving exported ONNX models on GPU with Triton.
 - [[quantization]] - shrinking the exported artifact.
 - [[experiment-tracking]] - storing checkpoints as versioned artifacts.
 

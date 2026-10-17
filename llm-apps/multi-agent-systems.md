@@ -97,6 +97,8 @@ The Claude Agent SDK supports subagents and Claude Code supports subagent defini
 - [[agent-memory]] - shared state.
 - [[coding-agents]] - subagents in practice.
 - [[llm-evaluation]] - evaluate end-to-end outcomes.
+- [[a2a-protocol]] - open protocol for agents on different services or vendors to delegate tasks.
+- [[context-engineering]] - sub-agent isolation to keep the lead agent's context small.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/message-queues-and-streams.md - queues between long-running agents.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/distributed-systems/distributed-transactions-and-sagas.md - compensating multi-step work that fails halfway.
 
