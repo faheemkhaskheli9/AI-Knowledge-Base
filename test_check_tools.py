@@ -38,6 +38,20 @@ class CheckCodeTests(unittest.TestCase):
             check_code.namespace_missing({"pkg.sub.name"})
         self.assertEqual([c.args[0] for c in find_spec.call_args_list], ["pkg"])
 
+    def test_file_arguments_resolve_from_cwd_or_repo_root(self):
+        import os
+        from pathlib import Path
+        target = (check_code.ROOT / "glossary.md").resolve()
+        old = os.getcwd()
+        try:
+            os.chdir(check_code.ROOT / "concepts")
+            for mod in (check_code, check_links):
+                self.assertEqual(mod.locate("../glossary.md"), target)  # relative to the current folder
+                self.assertEqual(mod.locate("glossary.md"), target)     # relative to the repo root
+                self.assertIsNone(mod.locate(str(Path(os.devnull))))    # outside the repo
+        finally:
+            os.chdir(old)
+
     def test_skip_check_marker(self):
         text = ("```python\nprint(1)\n```\n<!-- skip-check: fragment -->\n```python\nundefined()\n```\n")
         self.assertEqual(check_code.blocks(text), ["print(1)\n"])

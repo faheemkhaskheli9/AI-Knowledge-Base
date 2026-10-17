@@ -14,6 +14,7 @@ import sys
 import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
 
 from build_index import ROOT, SKIP, frontmatter
 
@@ -27,9 +28,19 @@ HEADERS = {  # some sites answer 406 without browser-like Accept headers
 ANNOTATE = os.environ.get("GITHUB_ACTIONS") == "true"  # ::warning:: / ::error:: lines in the run summary
 
 
+def locate(f):
+    """A file argument as a path inside the repo: relative to the current folder, else to the repo root."""
+    root = ROOT.resolve()
+    for p in (Path(f), ROOT / f):
+        p = p.resolve()
+        if p.is_file() and p.is_relative_to(root):
+            return p
+    return None
+
+
 def topics(files):
     if files:
-        return [ROOT / f for f in files]
+        return [locate(f) for f in files]
     return [p for p in sorted(ROOT.rglob("*.md"))
             if p.name not in SKIP and not p.relative_to(ROOT).as_posix().startswith(".")]
 
@@ -67,9 +78,9 @@ def status(url):
 
 
 def main(files):
-    absent = [f for f in files if not (ROOT / f).is_file()]
+    absent = [f for f in files if not locate(f)]
     if absent:
-        print(f"no such file (paths are relative to {ROOT}): {', '.join(absent)}", file=sys.stderr)
+        print(f"no such file inside {ROOT}: {', '.join(absent)}", file=sys.stderr)
         return 2
     by_file = {p.relative_to(ROOT).as_posix(): urls_of(p.read_text(encoding="utf-8")) for p in topics(files)}
     unique = sorted({u for urls in by_file.values() for u in urls})

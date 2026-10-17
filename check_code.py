@@ -39,6 +39,16 @@ LIMIT = re.compile(r"<!--\s*check-timeout:\s*(\d+)\s*-->")
 FENCE = re.compile(r"(<!--\s*skip-check:[^>]*-->\s*\n)?```(?:python|py)\n(.*?)```", re.S)
 
 
+def locate(f):
+    """A file argument as a path inside the repo: relative to the current folder, else to the repo root."""
+    root = ROOT.resolve()
+    for p in (Path(f), ROOT / f):
+        p = p.resolve()
+        if p.is_file() and p.is_relative_to(root):
+            return p
+    return None
+
+
 def imported(code):
     """Top-level module names imported anywhere in code; None if it does not parse."""
     names = imported_names(code)
@@ -148,11 +158,11 @@ def main():
     a = ap.parse_args()
     if a.jobs < 1:
         ap.error("--jobs must be at least 1")
-    absent = [f for f in a.files if not (ROOT / f).is_file()]
+    absent = [f for f in a.files if not locate(f)]
     if absent:
-        ap.error(f"no such file (paths are relative to {ROOT}): {', '.join(absent)}")
+        ap.error(f"no such file inside {ROOT}: {', '.join(absent)}")
     if a.files:
-        paths = [ROOT / f for f in a.files]
+        paths = [locate(f) for f in a.files]
     else:
         paths = [p for p in sorted(ROOT.rglob("*.md")) if p.name not in SKIP and not p.relative_to(ROOT).as_posix().startswith(".")]
     with ThreadPoolExecutor(a.jobs) as ex:
