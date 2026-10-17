@@ -80,6 +80,7 @@ GGUF route (llama.cpp): download a prebuilt `*-Q4_K_M.gguf` or convert with the 
 - [[inference-servers-vllm]] - GPU serving formats.
 - [[edge-on-device]] - on-device constraints.
 - [[small-language-models]] - alternative to quantizing a big one.
+- [[int8-quantization-from-scratch-numpy]] - absmax, zero-point and per-channel INT8 in NumPy, and why outliers hurt.
 
 ## References
 - Transformers quantization overview: https://huggingface.co/docs/transformers/main/en/quantization/overview

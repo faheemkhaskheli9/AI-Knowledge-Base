@@ -141,6 +141,7 @@ Since PyTorch 2.5, SDPA also accepts `enable_gqa=True` with fewer K/V heads than
 - [[state-space-models]] - linear-time alternatives to attention.
 - [[quantization]] - shrinking weights and KV cache further.
 - [[flash-attention-online-softmax-from-scratch-numpy]] - FlashAttention tiling and online softmax built in NumPy.
+- [[alibi-attention-bias-from-scratch-numpy]] - ALiBi's per-head linear biases and length extrapolation in NumPy.
 
 ## References
 - PyTorch `scaled_dot_product_attention`: https://pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention.html

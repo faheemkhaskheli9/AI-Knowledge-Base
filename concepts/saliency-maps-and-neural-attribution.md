@@ -118,6 +118,7 @@ For production use, **Captum** (`pip install captum`) implements these methods a
 - [[mechanistic-interpretability]] - explaining what circuits inside a network compute, instead of per-input heatmaps.
 - [[adversarial-examples-and-robustness]] - uses the same input gradients to fool the model instead of explaining it.
 - [[cnn-and-rnn-architectures]] - the conv layers and feature maps Grad-CAM reads.
+- [[integrated-gradients-from-scratch-numpy]] - integrated gradients implemented and checked in NumPy.
 
 ## References
 - Selvaraju et al., "Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization" (2017): https://arxiv.org/abs/1610.02391

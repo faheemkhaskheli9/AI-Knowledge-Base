@@ -76,6 +76,7 @@ XGBoost equivalent: `xgboost.XGBClassifier(n_estimators=2000, learning_rate=0.03
 - [[experiment-tracking]] - log tuning runs.
 - [[anomaly-detection]] - supervised boosting beats unsupervised when labelled fraud exists.
 - [[recommender-systems]] - boosting is common as a ranking stage.
+- [[adaboost-from-scratch]] - AdaBoost with decision stumps, the boosting algorithm before gradient boosting.
 
 ## References
 - https://xgboost.readthedocs.io/en/stable/python/python_intro.html

@@ -123,6 +123,7 @@ opt = torch.optim.AdamW([
 - [[backpropagation-and-autograd]] - where the gradients come from.
 - [[debugging-neural-network-training]] - LR finder and symptoms of a wrong LR.
 - [[math-for-machine-learning]] - gradient descent and the optimization basics.
+- [[muon-optimizer-from-scratch-numpy]] - Muon's Newton-Schulz orthogonalised momentum and which parameters get it.
 
 ## References
 - PyTorch `torch.optim`: https://pytorch.org/docs/stable/optim.html

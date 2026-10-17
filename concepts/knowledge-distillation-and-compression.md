@@ -140,6 +140,7 @@ that overrides `compute_loss` and runs the frozen teacher on each batch.
 - [[data-labeling-and-synthetic-data]] - LLM-generated transfer sets.
 - [[synthetic-data-for-llm-training]] - distilling from stronger LLMs: generation, filtering, licence constraints.
 - [[neural-network-fundamentals]] - softmax, cross-entropy, training loop basics.
+- [[knowledge-distillation-from-scratch-numpy]] - soft targets, temperature and T² scaling in NumPy.
 
 ## References
 - Hinton, Vinyals, Dean, Distilling the Knowledge in a Neural Network: https://arxiv.org/abs/1503.02531

@@ -155,6 +155,7 @@ switching; for Kalman, tune `Q`/`R` from data (or by maximum likelihood with
 - [[bayesian-and-gaussian-processes]] - the same Bayesian updating idea.
 - [[video-analytics]] - Kalman-based multi-object tracking.
 - [[manufacturing-iot]], [[finance]] - sensor and regime scenarios.
+- [[particle-filter-from-scratch]] - a bootstrap particle filter for non-linear, non-Gaussian state estimation, compared with an EKF.
 
 ## References
 - Rabiner, A Tutorial on Hidden Markov Models: https://www.cs.ubc.ca/~murphyk/Bayes/rabiner.pdf

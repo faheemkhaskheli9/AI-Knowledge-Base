@@ -85,6 +85,8 @@ Silhouette peaks at k=4 for four blobs; on the moons, HDBSCAN recovers the two s
 - [[anomaly-detection]] - when the interesting points are the ones outside every cluster.
 - [[ml-fundamentals]] - where unsupervised learning fits among problem types.
 - [[feature-engineering]] - scaling and encoding that decide what "similar" means.
+- [[mean-shift-clustering-from-scratch]] - density-mode clustering where the bandwidth, not k, sets the cluster count.
+- [[spectral-clustering-from-scratch]] - kNN graph, normalised Laplacian and the eigengap for non-convex clusters.
 
 ## References
 - scikit-learn clustering guide (includes the method comparison chart): https://scikit-learn.org/stable/modules/clustering.html

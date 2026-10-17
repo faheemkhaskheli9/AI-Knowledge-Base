@@ -100,6 +100,7 @@ For images, start from the PyTorch DCGAN tutorial (linked below) or a maintained
 - [[deep-learning-training]] - optimisers and normalisation used to stabilise training.
 - [[data-labeling-and-synthetic-data]] - synthetic data, including CTGAN for tables.
 - [[image-generation-models]] - practical image generation tools today.
+- [[gan-from-scratch-numpy]] - generator, discriminator and the minimax vs non-saturating loss in NumPy.
 
 ## References
 - Goodfellow et al., Generative Adversarial Nets: https://arxiv.org/abs/1406.2661

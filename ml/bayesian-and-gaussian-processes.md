@@ -117,6 +117,7 @@ and likelihood in a `with pm.Model():` block, call `pm.sample()`, and check
 - [[model-evaluation-and-metrics]] - calibration and interval coverage.
 - [[time-series-forecasting]] - probabilistic forecasts.
 - [[causal-inference-and-uplift]] - Bayesian models are common for effect estimates.
+- [[metropolis-hastings-mcmc-from-scratch]] - sampling a posterior with random-walk MCMC, with burn-in, ESS and R-hat checks.
 
 ## References
 - scikit-learn Gaussian processes: https://scikit-learn.org/stable/modules/gaussian_process.html

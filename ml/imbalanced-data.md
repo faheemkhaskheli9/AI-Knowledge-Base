@@ -96,6 +96,8 @@ Output on this run: the plain model has PR-AUC 0.29 but catches only 8% of posit
 - [[gradient-boosting-tabular]] - `scale_pos_weight` and the usual strong model for these tasks.
 - [[ml-fundamentals]] - splits, baselines and leakage.
 - [[finance]] - fraud and credit scenarios.
+- [[smote-from-scratch]] - SMOTE vs random oversampling, class weights and threshold tuning.
+- [[focal-loss-from-scratch-numpy]] - focal loss with alpha/gamma and its hand-derived gradient.
 
 ## References
 - scikit-learn decision-threshold tuning: https://scikit-learn.org/stable/modules/classification_threshold.html

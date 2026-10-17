@@ -79,6 +79,8 @@ Hosted alternative: OpenAI audio transcription endpoint (see its speech-to-text 
 - [[text-to-speech]] - the reverse direction.
 - [[huggingface-transformers]] - Whisper via transformers.
 - [[customer-support]] - call analytics scenario.
+- [[word-error-rate-from-scratch]] - computing WER/CER with Levenshtein alignment and text normalisation.
+- [[spectral-subtraction-denoising-from-scratch]] - classic noise reduction, and why its artefacts can raise WER on modern ASR (measure before adding it).
 
 ## References
 - https://github.com/SYSTRAN/faster-whisper

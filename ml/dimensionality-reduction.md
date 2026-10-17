@@ -95,6 +95,8 @@ Here 40 of 64 components keep 95% of the variance, and a model on 20 components 
 - [[feature-engineering]] - selecting and creating features before reducing them.
 - [[linear-models]] - Lasso as an interpretable alternative (feature selection).
 - [[vector-databases]] - storage and latency gains from smaller vectors.
+- [[tsne-from-scratch]] - perplexity calibration, the Student-t kernel and the KL gradient behind t-SNE.
+- [[lda-from-scratch]] - linear discriminant analysis as a supervised projection and classifier.
 
 ## References
 - scikit-learn decomposition (PCA, TruncatedSVD): https://scikit-learn.org/stable/modules/decomposition.html

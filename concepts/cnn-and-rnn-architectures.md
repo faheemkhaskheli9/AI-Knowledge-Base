@@ -99,6 +99,7 @@ Train either with the loop in [[deep-learning-training]] or [[pytorch-basics]]. 
 - [[transformers-and-attention]] - the architecture that superseded RNNs for language.
 - [[image-classification]] - fine-tuning pretrained CNNs in practice.
 - [[time-series-forecasting]] - when classic or boosted models beat sequence nets.
+- [[cnn-from-scratch-numpy]] - a small conv net with max-pooling, trained end to end in NumPy.
 
 ## References
 - *Dive into Deep Learning*, CNN chapter: https://d2l.ai/chapter_convolutional-neural-networks/index.html
