@@ -32,3 +32,7 @@ a{color:var(--acc)}.muted{color:var(--mut)}
 .fm{font-size:.85em;color:var(--mut)}.fm pre{margin:.3rem 0}
 .hit{display:block;padding:.3rem 0;border-bottom:1px solid var(--bd);color:inherit;text-decoration:none}.hit b{color:var(--acc)}
 @media(max-width:700px){#side{position:absolute;top:50px;bottom:0;z-index:2;width:80%}#view{padding:1rem}}
+[hidden]{display:none !important}
+#view img{max-width:100%;height:auto;border:1px solid var(--bd);border-radius:6px}
+#view .flash{animation:kbflash 2.5s ease-out}
+@keyframes kbflash{0%,40%{background:rgba(255,200,0,.45);box-shadow:0 0 0 4px rgba(255,200,0,.45)}100%{background:transparent;box-shadow:0 0 0 4px transparent}}
