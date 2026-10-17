@@ -62,7 +62,7 @@ Open models as of 2026-10-15 (sources: each repo / model card):
 | TripoSR (Tripo AI + Stability) | image -> mesh | MIT |
 
 Hosted text/image-to-3D APIs and apps also exist (for example Meshy and Tripo);
-I did not verify their current models, formats or prices.
+Their current models, formats and prices are not covered here; read the vendor's docs.
 
 ## When to use / scenarios
 - Game studios: background props, greybox placeholders, game-jam assets;

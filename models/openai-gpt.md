@@ -40,8 +40,8 @@ Current IDs as of 2026-10 (source: developers.openai.com models page):
 | Image | `gpt-image-2.5-sunburst`, `gpt-image-2.5-flare` | - | see pricing page |
 | Embeddings | `text-embedding-3-small` / `-large` | 8,192 input | see pricing page |
 
-The models page did not show a dedicated open-weight section; I could not
-verify current OpenAI open-weight model names.
+The models page did not show a dedicated open-weight section, so current
+OpenAI open-weight model names are not listed here.
 
 ## When to use / scenarios
 - General assistants, structured-output extraction, tool-using agents.

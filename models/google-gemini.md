@@ -44,7 +44,8 @@ Current IDs as of 2026-10 (source: models + pricing pages):
 | Veo 3.1 / Veo 3.1 Lite | `veo-3.1-generate-preview`, `veo-3.1-fast-generate-preview`, `veo-3.1-lite-generate-preview` | preview; shut down 2026-10-22, replacement `gemini-omni-1.1-flash` (deprecations page) <!-- valid-until: 2026-10-22 --> | see pricing |
 
 The docs state prices rise on 2027-01-01 and that earlier Flash versions are
-deprecated. I did not verify context-window sizes.
+deprecated. Context-window sizes other than Flash-Lite's are not listed
+here; read each model's page.
 
 ## When to use / scenarios
 - Video/audio/PDF understanding in one API call.

@@ -33,7 +33,7 @@ near-zero marginal cost, and become strong after task-specific fine-tuning.
 - Mistral Ministral 3 (3B, 8B, 14B; text + vision; Apache 2.0).
 - Microsoft Phi-4 family: mini 3.8B (128K ctx), multimodal 5.6B, reasoning 14B,
   reasoning-vision 15B (Mar 2026), all MIT per secondary sources; verify on the
-  model cards, as I could not load the Microsoft HF org page.
+  model cards (the Microsoft HF org page was not checked).
 - Hugging Face SmolLM3-3B (6 languages, long context, function calling) and
   SmolLM2 135M/360M/1.7B (Apache 2.0 per the SmolLM2 model cards).
 - Qwen also ships small sizes ([[qwen]]); Llama 3.2 1B/3B ([[meta-llama]]).

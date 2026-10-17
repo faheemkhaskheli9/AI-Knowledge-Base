@@ -25,7 +25,7 @@ embeddings and moderation.
 - Open-weight (Apache 2.0): Mistral Large 3, Mistral Small 4, Ministral 3
   (3B/8B/14B), Voxtral Mini Transcribe Realtime, Shieldstral 1.0.
 - Mistral Medium 3.5 is listed under a "Modified MIT" license; read its terms
-  before commercial use (I could not retrieve the model card).
+  before commercial use (the model card was not checked here).
 - Premier (API-only): OCR 4.1/OCR 3, Voxtral Mini Transcribe 2, Codestral,
   Mistral Embed, Codestral Embed, Mistral Moderation 2.
 - The catalogue page also lists third-party Z.ai GLM 5.3 (`zai-glm-5-3`, open,

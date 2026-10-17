@@ -50,8 +50,8 @@ Licence details that change decisions:
   use needs written authorisation and a "Built with MiniMax M2.7" credit;
   includes a prohibited-use list (e.g. military use).
 - **GLM-5.3**: reports say large companies (over US$10B revenue) hosting it
-  need a Z.ai security review first; GLM-5.3-Flash stayed MIT. I could not
-  load the Hugging Face card in this session.
+  need a Z.ai security review first; GLM-5.3-Flash stayed MIT. This is not
+  confirmed from the Hugging Face card; read it before deploying.
 
 Other shared traits:
 - Thinking/effort controls: Kimi K3 thinking is always on with
@@ -60,8 +60,8 @@ Other shared traits:
   `thinking` enabled/adaptive/disabled.
 - Native low precision: Kimi K3 is trained with MXFP4 weights (quantization-
   aware); GLM ships FP8 and BF16 repos.
-- Others exist (Baidu, Tencent, StepFun, Xiaomi and more); I did not verify
-  their current releases here.
+- Others exist (Baidu, Tencent, StepFun, Xiaomi and more); their current
+  releases are not covered here.
 
 ## When to use / scenarios
 - Self-hosted agentic coding or tool-using assistants where API data egress is

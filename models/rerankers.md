@@ -37,8 +37,8 @@ Current options as of 2026-10:
 | `rerank-v3.5`, `rerank-english-v3.0`, `rerank-multilingual-v3.0` | Cohere API | 4096-token per-document limit |
 | Qwen3-Reranker (up to 8B) | open, Apache 2.0 | 32k context, 100+ languages, instruction-aware |
 
-Voyage also sells rerankers and others (BGE etc.) exist; I did not verify their
-current IDs.
+Voyage also sells rerankers and others (BGE etc.) exist; their current IDs are
+not listed here, so read the vendor's docs.
 
 ## When to use / scenarios
 - RAG where top-k retrieval is noisy ([[advanced-rag]]).

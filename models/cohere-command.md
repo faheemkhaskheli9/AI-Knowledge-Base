@@ -61,8 +61,8 @@ docs host was unreachable from my environment):
 | Rerank 3.5 | `rerank-v3.5` | 4,096 tokens | |
 
 `command-r-plus-04-2024` was deprecated on 2025-09-15. An Embed 5 Fast tier
-exists per Cohere's blog, but I could not confirm its API ID. Prices were not
-in the sources I could read; see cohere.com/pricing.
+exists per Cohere's blog, but its API ID is not confirmed here. Prices are not
+in the cited sources; see cohere.com/pricing.
 
 ## When to use / scenarios
 - Enterprise search and knowledge assistants that must show which document

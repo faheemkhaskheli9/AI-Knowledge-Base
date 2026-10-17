@@ -34,7 +34,7 @@ is guidance, not legal advice.
   Apache adds an explicit patent grant; both require notices.
 - Custom community licenses (Llama-style): free for most users but add
   conditions such as attribution/naming, an acceptable-use policy and thresholds
-  for very large companies. I could not load the Llama text, so read it directly.
+  for very large companies. The Llama text was not checked here, so read it directly.
 - Non-commercial licenses (FLUX.2 [dev]): research/personal; commercial
   deployment needs a separate agreement.
 - API terms are separate: closed models (Claude, GPT, Gemini) are governed by

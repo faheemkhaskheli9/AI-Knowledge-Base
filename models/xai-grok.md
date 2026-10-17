@@ -46,8 +46,8 @@ gRPC SDK (`xai-sdk`). The lineup has reasoning text models with long context
   [[managed-cloud-ai-platforms]].
 
 Current IDs as of 2026-10-15 (sources: docs.x.ai models, pricing and per-model
-pages; I could only read them through search snippets, so re-check before
-committing to a price):
+pages, read through search snippets rather than the full pages, so re-check
+before committing to a price):
 
 | Model | API ID | Context | $/MTok in / cached / out (prompt <200K) |
 |---|---|---|---|
