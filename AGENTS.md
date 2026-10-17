@@ -34,7 +34,8 @@ Quick search without reading the index: `grep -ril "<keyword>" --include=*.md .`
    usually a row in `scenarios/scenario-chooser.md`.
 5. Run `python build_index.py` (stdlib only). It regenerates `INDEX.md` and `llms.txt`, fails
    on missing frontmatter or a broken `[[link]]` (in topics, `glossary.md` and `learning-paths.md`,
-   which are not topics themselves), and warns on orphan topics
+   which are not topics themselves) or on two topic files with the same filename (a `[[link]]`
+   names a file by its name alone), and warns on orphan topics
    and on overview topics no scenario links to. CI runs it with `--strict`,
    which turns those two warnings into failures (stale warnings stay warnings).
 6. Run `python check_code.py <your file>`. It runs the file's python blocks (needs

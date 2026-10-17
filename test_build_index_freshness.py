@@ -95,6 +95,39 @@ use_cases:
                 self.assertIn(f"{broken_file.name} -> [[no-such-topic]]", str(error.exception.code))
                 broken_file.write_text(text, encoding="utf-8")
 
+    def test_frontmatter_keeps_hash_inside_values(self):
+        meta = build_index.frontmatter("---\ntitle: C# and F# bindings\nstatus: draft  # comment\n"
+                                       "last_verified: 2026-10-17 # re-checked\n---\n")
+        self.assertEqual(meta["title"], "C# and F# bindings")
+        self.assertEqual(meta["status"], "draft")
+        self.assertEqual(meta["last_verified"], "2026-10-17")
+
+    def test_pipe_in_cells_is_escaped(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(build_index, "ROOT", Path(tmp)):
+            (Path(tmp) / "concepts").mkdir()
+            (Path(tmp) / "concepts" / "pipes.md").write_text(
+                '---\ntitle: A | B\ncategory: concepts\nuse_cases:\n  - "compare x | y"\n---\n# P\n',
+                encoding="utf-8")
+            with contextlib.redirect_stdout(io.StringIO()):
+                build_index.main([])
+            index = (Path(tmp) / "INDEX.md").read_text(encoding="utf-8")
+        row = next(l for l in index.splitlines() if "pipes.md" in l)
+        self.assertIn("[A \\| B](concepts/pipes.md)", row)
+        self.assertIn("compare x \\| y", row)
+        self.assertEqual(row.replace("\\|", "").count("|"), 6)  # five columns
+
+    def test_duplicate_topic_names_fail(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(build_index, "ROOT", Path(tmp)):
+            for folder in ("concepts", "llm-apps"):
+                (Path(tmp) / folder).mkdir()
+                (Path(tmp) / folder / "agents.md").write_text(
+                    f"---\ntitle: Agents {folder}\ncategory: {folder}\nuse_cases:\n  - x\n---\n# A\n",
+                    encoding="utf-8")
+            with contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit) as error:
+                build_index.main([])
+            self.assertIn("concepts/agents.md and llm-apps/agents.md share the name [[agents]]",
+                          str(error.exception.code))
+
     def test_invalid_cli_thresholds(self):
         for value in ("-1", "abc", "1.5"):
             with contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit) as error:

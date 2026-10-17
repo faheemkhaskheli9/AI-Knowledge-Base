@@ -45,12 +45,18 @@ def frontmatter(text):
             meta.setdefault(key, []).append(line[4:].strip().strip('"'))
         elif ":" in line and not line.startswith(" "):
             key, _, val = line.partition(":")
-            key, val = key.strip(), val.split("#")[0].strip()
+            # A YAML comment starts at " #"; a "#" inside a value (C#, a URL fragment) is kept.
+            key, val = key.strip(), re.split(r"(?:^|\s)#", val, maxsplit=1)[0].strip()
             if val.startswith("["):
                 meta[key] = [v.strip() for v in val.strip("[]").split(",") if v.strip()]
             elif val:
                 meta[key] = val.strip('"')
     return meta
+
+
+def cell(text):
+    """A Markdown table cell: a bare | would end the cell and shift every column after it."""
+    return text.replace("|", "\\|")
 
 
 def stale(meta, rel, today, text="", stale_days=STALE_DAYS):
@@ -65,12 +71,14 @@ def stale(meta, rel, today, text="", stale_days=STALE_DAYS):
 
 def build(today=None, stale_days=STALE_DAYS):
     today = today or date.today()
-    rows, bad, out_links, old, groups, expiring, llms = [], [], {}, [], {}, [], {}
+    rows, bad, out_links, old, groups, expiring, llms, dupes = [], [], {}, [], {}, [], {}, []
     for path in sorted(ROOT.rglob("*.md")):
         rel = path.relative_to(ROOT).as_posix()
         if path.name in SKIP or rel.startswith("."):
             continue
         text = path.read_text(encoding="utf-8")
+        if path.stem in out_links:  # [[stem]] could mean either file; the first one would win silently
+            dupes.append(f"{out_links[path.stem][0]} and {rel} share the name [[{path.stem}]]")
         out_links[path.stem] = (rel, links(text))
         meta = frontmatter(text)
         if not meta or "title" not in meta:
@@ -88,8 +96,8 @@ def build(today=None, stale_days=STALE_DAYS):
                     expiring.append(f"{rel}:{n} ({until})")
         uses = meta.get("use_cases", [])
         row = (
-            f"| [{meta['title']}]({rel}) | {', '.join(meta.get('tags', []))} "
-            f"| {'; '.join(uses[:3])} | {meta.get('status', '?')} | {meta.get('last_verified', '?')} |"
+            f"| [{cell(meta['title'])}]({rel}) | {cell(', '.join(meta.get('tags', [])))} "
+            f"| {cell('; '.join(uses[:3]))} | {meta.get('status', '?')} | {meta.get('last_verified', '?')} |"
         )
         rows.append(row)
         cat = meta.get("category", rel.split("/")[0])
@@ -112,6 +120,7 @@ def build(today=None, stale_days=STALE_DAYS):
     (ROOT / "llms.txt").write_text(llms_txt(cats, llms), encoding="utf-8", newline="\n")
     broken = [f"{rel} -> [[{l}]]" for rel, ls in out_links.values() for l in ls if l not in out_links]
     broken += entry_point_broken(out_links)
+    broken += dupes
     linked = {l for stem, (_, ls) in out_links.items() for l in ls if l != stem}
     orphans = sorted(rel for stem, (rel, _) in out_links.items() if stem not in linked)
     # Overview = any non-scenario topic that is not a from-scratch walkthrough.
