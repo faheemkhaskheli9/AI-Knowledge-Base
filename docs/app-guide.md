@@ -19,25 +19,28 @@ for browsing the base or showing it to someone.
 Contents
 
 - [Part 1: the edit web app](#part-1-the-edit-web-app)
-  - [Start it](#start-it)
-  - [Layout](#layout)
+  - [Start the app](#start-the-app)
   - [File tree and filter](#file-tree-and-filter)
-  - [Rendered Markdown and wiki-links](#rendered-markdown-and-wiki-links)
-  - [Frontmatter toggle](#frontmatter-toggle)
+  - [Reading a file](#reading-a-file)
+  - [Backlinks](#backlinks)
   - [Full-text search](#full-text-search)
-  - [Edit mode](#edit-mode)
-  - [Save (button or Ctrl+S)](#save-button-or-ctrls)
-  - [+ New file](#-new-file)
-  - [Rebuild INDEX.md](#rebuild-indexmd)
-  - [Conflict detection](#conflict-detection)
-  - [Sidebar toggle](#sidebar-toggle)
+  - [Editing with live preview](#editing-with-live-preview)
+  - [Saving](#saving)
+  - [Conflicts](#conflicts)
+  - [Creating a file](#creating-a-file)
+  - [Deleting a file](#deleting-a-file)
+  - [Reviewing changes](#reviewing-changes)
+  - [Header actions](#header-actions)
   - [Glossary, learning paths, INDEX.md and llms.txt](#glossary-learning-paths-indexmd-and-llmstxt)
-  - [Dark mode](#dark-mode)
+  - [Sidebar and small screens](#sidebar-and-small-screens)
+  - [Theme](#theme)
+  - [Keyboard shortcuts](#keyboard-shortcuts)
   - [Safety model](#safety-model)
-  - [Settings (webapp/config.json)](#settings-webappconfigjson)
+  - [Configuration](#configuration)
+  - [Refreshing these screenshots](#refreshing-these-screenshots)
   - [Tips, troubleshooting and limits](#tips-troubleshooting-and-limits)
 - [Part 2: the read-only Django site](#part-2-the-read-only-django-site)
-  - [Start it](#start-it-1)
+  - [Start it](#start-it)
   - [Topic list](#topic-list)
   - [Search](#search)
   - [Category filter](#category-filter)
@@ -53,369 +56,300 @@ Contents
 
 ## Part 1: the edit web app
 
-![The edit web app showing llm-apps/rag-basics.md](screenshots/webapp.png)
+![The edit web app showing llm-apps/rag-basics.md with its outline](screenshots/webapp-file.png)
 
-A single-file Python server (`webapp/server.py`) plus a plain HTML/JS page
-(`webapp/index.html`, `app.js`, `app.css`). It lists the repo's text files,
-renders Markdown, searches every file, and saves your edits straight back to
-disk.
+A single-file Python server (`webapp/server.py`) plus a plain HTML/JS page (`webapp/index.html`, `app.js`,
+`app.css`). It lists the repo's text files, renders Markdown, searches every file, and saves your edits
+straight back to disk. The same app ships with the sibling knowledge bases.
 
-### Start it
+### Start the app
+
+Requirements: Python 3. The server uses only the standard library, so there is nothing to install.
 
 ```bash
-python3 webapp/server.py            # prints: AI KB -> http://localhost:8773/
+python3 webapp/server.py            # serves http://localhost:8773/
 python3 webapp/server.py --open     # same, and opens your browser
 python3 webapp/server.py --port 9000
 ```
 
-- Requirements: Python 3 only. No `pip install`.
-- Default port 8773 comes from `webapp/config.json`; `--port` overrides it.
-- It listens on `127.0.0.1` only. Open `http://localhost:8773/` or
-  `http://127.0.0.1:8773/`; other host names are refused (see
-  [Safety model](#safety-model)).
-- Stop it with Ctrl+C.
+The terminal prints `AI KB -> http://localhost:8773/  (Ctrl+C to stop)`. The default port comes from
+`webapp/config.json`. Stop the server with Ctrl+C.
 
-### Layout
+![Start page with recently opened files and the uncommitted-changes summary](screenshots/webapp-home.png)
 
-![Header: sidebar toggle, title, search box, Rebuild INDEX.md and + New](screenshots/webapp-header.png)
-
-- **Header**, left to right: sidebar toggle (☰), the title, the search box,
-  one button per configured action (**Rebuild INDEX.md**), and **+ New**.
-- **Sidebar**: a filter box and the file tree.
-- **Main pane**: a bar with the open file's path, a status message and the
-  **Edit/View** and **Save** buttons; below it the rendered file or the editor.
-
-The open file is part of the URL (`http://localhost:8773/#/llm-apps/rag-basics.md`),
-so you can bookmark a topic, and the browser's Back button returns to the
-previous file.
+**Start page.** Shows how many files the app lists, the files you opened most recently in this browser
+(up to 8, kept in the browser's local storage) and, inside a git checkout, how many files differ from the
+last commit with a link to [review them](#reviewing-changes). Click the title at the top left to come back
+to it.
 
 ### File tree and filter
 
-![Filter box narrowing the tree to files whose path contains "rag"](screenshots/webapp-filter.png)
+![The filter box narrowing the tree to matching paths](screenshots/webapp-filter.png)
 
-**What it does.** The tree shows every file under the repo with one of these
-extensions: `.md .txt .csv .json .yml .yaml .toml .py .sh`. Folders start
-collapsed; repo-root files (README, INDEX.md, glossary.md, ...) are listed
-after the folders. The open file is highlighted and its folders expand.
-Hidden files and folders (names starting with `.`), `node_modules`,
-`__pycache__`, `venv`, `.venv` and symlinks are left out.
+**What it does.** The left sidebar lists every viewable file as a folder tree. Folders start collapsed; the
+folders of the file you open expand automatically and that file is highlighted.
 
-**How to use it.** Click a folder to expand it, click a file to open it. Type
-in **Filter files…** to keep only files whose path contains the text (case
-does not matter); all matching folders expand. Clear the box to get the full
-tree back.
+**How to use it.**
+1. Click a folder to expand it, then click a file to open it.
+2. Type in **Filter files...** to keep only files whose path contains the text (case-insensitive, here
+   `rag`). All matching folders open. Clear the box to see the full tree again.
+3. Click **⟳** to reload the tree after you add, rename or delete files outside the app.
 
-**When.** Jump to a topic whose name you roughly know, or see every file in
-one category. Filtering on a folder name such as `scenarios/` lists that
-category.
+**Which files appear.** Files ending in `.md`, `.txt`, `.csv`, `.json`, `.yml`, `.yaml`, `.toml`, `.py`, `.sh`. Hidden files and folders (names starting with `.`),
+symlinks and the folders `node_modules`, `__pycache__`, `venv`, `.venv` are left out.
 
-**Why.** 400+ topics in nine folders are too many to scroll; the filter is
-instant and needs no server round trip.
+### Reading a file
 
-### Rendered Markdown and wiki-links
+![A rendered topic with the outline on the right](screenshots/webapp-file.png)
 
-![The Related section of rag-basics with [[wiki-links]] rendered as links](screenshots/webapp-wiki-links.png)
+**What it does.** The selected file is shown on the right; the bar above it shows its path.
 
-**What it does.** `.md` files are rendered by a small built-in renderer:
-headings, paragraphs, bold/italic/strikethrough, inline code, fenced code
-blocks, block quotes, horizontal rules, nested bullet and numbered lists,
-task boxes (`- [ ]` shows ☐, `- [x]` shows ☑) and tables. `.csv` files are
-shown as a table; every other file type is shown as plain text.
+- `.md` files are rendered: headings, paragraphs, bold/italic/strikethrough, inline code, fenced code
+  blocks, block quotes, horizontal rules, nested lists, task lists (shown as ☐/☑) and tables.
+- `.csv` files are shown as a table; everything else as plain text.
+- The address bar changes to `#/<path>` (for example `http://localhost:8773/#/llm-apps/rag-basics.md`), so you can
+  bookmark a file and use the browser's Back and Forward buttons.
 
-Links:
+**Outline.** A Markdown file with three or more headings gets an **On this page** list on the right (on
+windows wider than 1100 px). Click an entry to jump to that section; the section flashes yellow.
 
-- `[[topic]]` and `[[topic|label]]` become links. The name is matched against
-  the full path first (`[[llm-apps/rag-basics]]`), then against file names, so
-  `[[rag-basics]]` finds `llm-apps/rag-basics.md`. A name that matches no file
-  is shown greyed out, with a "missing" tooltip.
-- Relative Markdown links (`[x](../concepts/embeddings.md)`) open the target
-  inside the app when the file exists.
-- `http(s)://` and `mailto:` links open in a new tab.
-- Links to an in-page anchor only (`[A](#a)`) are shown as plain text.
-- Images (`![alt](screenshots/x.png)`) are shown when they are PNG, JPEG,
-  GIF or WebP files inside the repo; the path is resolved against the open
-  file's folder. Remote images (`https://...`) are shown as a link instead,
-  because the page only loads images from the app itself. SVG is not shown.
+![After clicking an outline entry the view jumps to the section and flashes it](screenshots/webapp-outline.png)
 
-**How to use it.** Click any link to move between topics. Follow a topic's
-`## Related` list, which is how the KB is meant to be navigated.
+**Links.**
+- Relative links such as `[x](../folder/topic.md)` open the target in the app. Links to a heading,
+  `[x](topic.md#defenses)` or `[x](#defenses)`, jump to it: every heading gets a GitHub-style id (lower
+  case, punctuation dropped, spaces as hyphens).
+- `[[wiki-links]]` resolve by full path without `.md` first, then by file name alone. `[[name|text]]` shows
+  `text`, and `[[name#heading]]` jumps to a heading. A wiki-link with no matching file is grey (hover text
+  "missing"), so broken links are easy to spot.
+- External links (`http`, `https`, `mailto`) open in a new tab.
+- Images (`![alt](screenshots/x.png)`) are shown for PNG, JPEG, GIF and WebP files inside the repo. Remote
+  images become links, because the page loads images only from the app itself. SVG is not shown.
 
-**When.** Reading a topic and its neighbours, for example walking from
-`scenarios/scenario-chooser.md` to the topics it recommends.
+**Frontmatter.** A `---` block at the top of a Markdown file is hidden behind a collapsed **frontmatter**
+line. Click it to see the raw YAML.
 
-**Why.** GitHub and most editors show `[[wiki-links]]` as literal brackets.
-Here they work, so the link graph the KB is built on is clickable.
+![The frontmatter block expanded](screenshots/webapp-frontmatter.png)
 
-### Frontmatter toggle
+### Backlinks
 
-![The frontmatter block expanded above the topic title](screenshots/webapp-frontmatter.png)
+![The Linked from list at the end of a topic](screenshots/webapp-backlinks.png)
 
-**What it does.** The YAML frontmatter at the top of a topic (`title`,
-`category`, `tags`, `use_cases`, `status`, `last_verified`, `sources`) is
-folded into a **▸ frontmatter** line so the page starts with the content.
-
-**How to use it.** Click **frontmatter** to show the raw YAML; click again to
-hide it. It is folded again each time you open a file.
-
-**When.** Check a topic's `status`, its `last_verified` date (how fresh its
-volatile facts are) or its source URLs.
-
-**Why.** The metadata matters for judging a topic but is noise when reading
-it.
+**What it does.** Below every Markdown file the app lists the other files that link to it, by
+`[[wiki-link]]` or relative link. Each entry opens that file at the line holding the link. "No other file
+links here" marks an orphan that readers following links can never reach: link it from a related topic.
 
 ### Full-text search
 
-![Search results for "kv cache": file:line plus the matching line, match in bold](screenshots/webapp-search.png)
-
-**What it does.** Searches every file in the tree (all the extensions above,
-not just topics) for the text you typed, case-insensitively. The whole query
-is matched as one substring: `kv cache` finds "KV cache" but not "cache for
-KV". When a file's path contains the query, an extra `(filename)` hit is
-listed before that file's line hits. Each hit shows `path:line` and the trimmed line, with the match
-in bold. At most 200 hits are returned.
-
-**How to use it.** Type at least 2 characters in **Search all files…** and
-press **Enter**. Click a hit to open that file at that line: the view scrolls
-to the block (heading, paragraph, list item, table row, code block) holding
-the line and flashes it, and **Edit** puts the cursor on the line. A
-`(filename)` hit opens the file at the top.
-
-**When.** Find every topic that mentions a model, library or term; check where
-a term is defined (`glossary.md` hits show up too); find stale mentions before
-a rename.
-
-**Why.** One box over the whole base, including INDEX.md, llms.txt and the
-build scripts, without leaving the page or opening a terminal.
-
-### Edit mode
-
-![Editor with an unsaved change to the status line; the bar shows "Unsaved changes"](screenshots/webapp-edit.png)
-
-**What it does.** **Edit** swaps the rendered view for a plain-text editor
-holding the raw file, frontmatter included. Typing marks the file as changed
-and the bar shows **Unsaved changes**. **View** switches back; the rendered
-view updates after you save.
+![Search results with file, line number and the match highlighted](screenshots/webapp-search.png)
 
 **How to use it.**
-1. Open a file and click **Edit**.
-2. Change the text.
-3. Save with **Save** or Ctrl+S (see below).
-4. Click **View** to check the rendered result.
+1. Click the search box (or press **/** anywhere outside a text field) and type at least 2 characters.
+2. Press **Enter**. The address bar changes to `#search=<text>`, so Back returns to the results.
+3. Each result shows `path:line` and the matching line with the match highlighted; a file whose name
+   matches is listed as `(filename)`. Click a result to open the file at that line: the view scrolls to the
+   block holding it and flashes it, and **Edit** puts the cursor on that line.
 
-If you click another file, a link, or Back with unsaved changes, the app asks
-"Discard unsaved changes?". Cancel keeps you on the file. Closing or reloading
-the tab triggers the browser's own "leave site?" warning.
+**Details.** Matching is a case-insensitive plain substring, not a regular expression. At most 200 results
+are returned; files over 2 MB or not valid UTF-8 are skipped.
 
-**When.** Small fixes: a wrong number, a broken link, bumping `last_verified`,
-adding a Related line. For large rewrites your usual editor may be more
-comfortable; the app shows the result either way.
+### Editing with live preview
 
-**Why.** Fixing a topic right where you noticed the problem, with the rendered
-result one click away.
-
-### Save (button or Ctrl+S)
-
-![After Ctrl+S: the bar shows "Saved" with the time, and the view is re-rendered](screenshots/webapp-saved.png)
-
-**What it does.** Writes the editor text to the file on disk. Line endings are
-converted to LF, the file is written to a temp file and renamed over the
-original (so a crash cannot leave half a file), and the original file
-permissions are kept. The bar shows **Saved** plus the time.
-
-**How to use it.** Click **Save** (visible in edit mode) or press Ctrl+S
-(Cmd+S on macOS). The shortcut replaces the browser's "save page" dialog
-while the app is open.
-
-**Why.** Quick save without leaving the keyboard; LF endings match the repo
-rule in AGENTS.md.
-
-After saving, review and commit with git as usual. If you changed a topic's
-frontmatter, run [Rebuild INDEX.md](#rebuild-indexmd).
-
-### + New file
-
-![A file just created with + New, open in the editor with a starter heading](screenshots/webapp-new-file.png)
-
-**What it does.** Creates a new file at a path you choose, adds it to the tree
-and opens it in edit mode. A `.md` file starts with a `# name` heading;
-other types start empty. Missing parent folders are created.
+![Edit mode with the live preview beside the editor and the Unsaved changes status](screenshots/webapp-edit-preview.png)
 
 **How to use it.**
-1. Click **+ New**.
-2. Type a repo-relative path, for example `llm-apps/my-topic.md`, and press OK.
-3. Write the content and save.
+1. Open a file and click **Edit**. The rendered view is replaced by a plain-text editor, and **Save**
+   and **Preview** appear. The button now reads **View**.
+2. Click **Preview** (Markdown and CSV files) to show the rendered result beside the editor. It updates as
+   you type; click again to hide it. The setting lasts until you reload the page.
+3. Click **View** to see the rendered text, saved or not. Unsaved edits stay; the status still reads
+   **Unsaved changes**.
 
-It refuses a path that already exists ("already exists"), an extension
-outside the list above, absolute paths, `..`, and any path part starting
-with `.`.
+On a window 700 px wide or less the preview is hidden; use **View** instead.
 
-**When.** Starting a new topic. For a real topic, open `_template.md`, copy
-its text into the new file, and fill in every section (see AGENTS.md, "Adding
-or editing a topic"); the app does not copy the template for you.
+### Saving
 
-**Why.** Create, write and preview a topic without leaving the browser.
+![After saving, the status shows the time of the save](screenshots/webapp-edit-saved.png)
 
-### Rebuild INDEX.md
+Save with **Ctrl+S** (**Cmd+S** on macOS) or the **Save** button. The status shows **Saved** and the time.
+If you try to leave the file with unsaved changes, the app asks "Discard unsaved changes?"; closing or
+reloading the tab triggers the browser's leave-page warning.
 
-The **Rebuild INDEX.md** button in the header (see [Layout](#layout)) runs
-`python3 build_index.py` in the repo root, with the same Python that runs the
-server. When it finishes, a browser alert shows the exit code and the last
-4,000 characters of its output, for example:
+**What happens on disk.** Line endings become LF, the text is written as UTF-8, and the file is replaced in
+one step (temporary file, then rename), keeping its permissions. Nothing is committed: review your edits on
+the [Changes](#reviewing-changes) page or with `git diff`, then commit with git.
 
-```
-Rebuild INDEX.md (exit 0)
+### Conflicts
 
-indexed 413 topics
-warning: 5 valid-until fact(s) lapse within 14 days ...
-```
+![A save refused because the file changed on disk, with the two ways out](screenshots/webapp-conflict.png)
 
-**When.** After you add a topic or change any frontmatter (`title`, `tags`,
-`use_cases`, `status`, `last_verified`). `INDEX.md` and `llms.txt` are
-generated; never edit them by hand.
+**What it does.** The app remembers each file's modification time when it opens it. If the file changed on
+disk before you save (another editor, `git pull`, a second browser tab), the save is refused, nothing is
+written, and the bar shows **file changed on disk since you opened it** with two buttons:
 
-**Why.** It catches what the build checks: a non-zero exit code means missing
-frontmatter or a broken `[[link]]`, and the output names the file. It also
-prints the orphan and staleness warnings.
+- **Load disk version** drops your edits and opens the file as it is on disk now.
+- **Overwrite** saves your text over the newer file (after a confirmation). Use it only when you know the
+  other change can go; otherwise copy your text out first, load the disk version and re-apply your edit.
 
-Note: the button runs the plain build. CI runs `python build_index.py
---strict`, which also fails on orphan topics and overview topics no scenario
-links to, so run that in a terminal before you push. The build has a
-120-second limit.
+### Creating a file
 
-### Conflict detection
+![A new file created with + New, opened in the editor](screenshots/webapp-new-file.png)
 
-![Save refused: "file changed on disk since you opened it"](screenshots/webapp-conflict.png)
+1. Click **+ New** in the header.
+2. Enter a repo-relative path, for example `folder/new-topic.md`.
+3. The file is created (missing folders too), appears in the tree and opens in the editor.
 
-**What it does.** When you open a file the app remembers its modification
-time. On save it checks again; if the file changed on disk in the meantime
-(you edited it in another editor, ran `git pull`/`git checkout`, or saved it
-from a second browser tab), the save is refused and the bar shows **file
-changed on disk since you opened it** in red. Nothing is written.
+A new `.md` file starts as a copy of `_template.md`, with `YYYY-MM-DD` set to today and, where the template
+has a `category: <...>` line, the category set to the first folder of the path. Fill in every section, then
+run the repo's checks. Other file types start empty.
 
-**How to resolve it.**
-1. Copy your edited text (Ctrl+A, Ctrl+C in the editor).
-2. Reload the page and confirm the browser's "leave site?" warning; the same
-   file opens again, now showing the version on disk.
-3. Merge your change into it and save.
+**Rules.** The path must end in one of the listed extensions and may not contain hidden (`.`) parts, `..`
+or skipped folders. An existing file is never overwritten ("already exists").
 
-**Why.** Without it, a save from a stale tab would silently overwrite someone
-else's (or your own) newer change.
+### Deleting a file
 
-### Sidebar toggle
+Open the file and click **Delete** in the bar, then confirm. The file is removed from disk and the app goes
+back to the start page. A file that was committed can be restored with `git restore <path>`; a file that was
+never committed cannot be recovered. Read-only files have no **Delete** button, and a file that changed on
+disk since you opened it is not deleted.
 
-![The sidebar hidden with the ☰ button, giving the topic the full width](screenshots/webapp-sidebar-hidden.png)
+### Reviewing changes
 
-Click **☰** to hide or show the sidebar. Use it for wide tables such as the
-ones in `scenarios/scenario-chooser.md` and `INDEX.md`, or on a small screen.
-On screens narrower than 700 px the sidebar opens as an overlay on top of the
-page instead of beside it.
+![The Changes page listing files that differ from the last commit](screenshots/webapp-changes.png)
+
+**What it does.** Inside a git checkout the header has a **Changes** button. It lists every file that
+differs from the last commit (`git status`), marked modified, added, deleted, renamed or untracked.
+
+![The diff of one file against the last commit](screenshots/webapp-diff.png)
+
+Click a file to see its diff against the last commit: added lines in green, removed lines in red. **Open
+file** jumps to the file, **All changes** goes back. Use it before you commit to check what you edited in the
+app. Only the file types the tree shows are linked; diffs over 256 KB are cut. The page is read-only: stage
+and commit with git.
+
+### Header actions
+
+![The output of a header action](screenshots/webapp-action.png)
+
+- **Rebuild INDEX.md** runs `python3 build_index.py`.
+
+Click a button to run its command in the repo root (2-minute limit). A window shows the exit code and the
+last 4000 characters of output; close it with **Close** or Esc. The tree reloads afterwards, and the open file
+reloads if it has no unsaved edits, so regenerated files show their new content.
+
+**Rebuild INDEX.md** runs `python3 build_index.py` with the same Python that runs the server. Use it after you add a topic or change any frontmatter (`title`, `tags`, `use_cases`, `status`, `last_verified`): `INDEX.md` and `llms.txt` are generated, never edited by hand. A non-zero exit means missing frontmatter or a broken `[[link]]`, and the output names the file; it also prints orphan, staleness and `valid-until` warnings. CI runs `python build_index.py --strict`, which also fails on orphan topics and overview topics no scenario links to, so run that in a terminal before you push.
 
 ### Glossary, learning paths, INDEX.md and llms.txt
 
-These four repo-root files are entry points, not topics. In the edit app they
-appear at the bottom of the tree (after the folders) and are found by search.
+These four repo-root files are entry points, not topics. In the tree they sit below the folders, and search
+finds them like any other file.
 
 ![glossary.md rendered: each term links to the topic that explains it](screenshots/webapp-glossary.png)
 
-**glossary.md** renders as letter sections of `**Term** - definition. [[topic]]`
-lines; each `[[topic]]` is a working link. The A-Z letter bar at the top is
-plain text in the app (in-page anchors are not linked), so scroll or use
-Ctrl+F to find a term.
+**glossary.md** renders as letter sections of `**Term** - definition. [[topic]]` lines; each `[[topic]]` opens
+the topic. The outline on the right lists the letters, so click one to jump there.
 
 ![learning-paths.md rendered: numbered reading lists by role](screenshots/webapp-learning-paths.png)
 
-**learning-paths.md** renders as numbered reading lists by role (beginner, LLM
-engineer, agent builder, ...). Click each step in order.
+**learning-paths.md** renders as numbered reading lists by role (beginner, LLM engineer, agent builder, ...).
+Click each step in order.
 
 ![INDEX.md rendered as one table per category, with working topic links](screenshots/webapp-index.png)
 
-**INDEX.md** renders as one table per category (Topic, Tags, Use when,
-Status, Verified); the topic links open the file in the app. Hide the sidebar
-to give the table more room. **llms.txt** is shown as plain text.
+**INDEX.md** renders as one table per category (Topic, Tags, Use when, Status, Verified); the topic links
+open the file, and the category links at the top jump to their table. Hide the sidebar to give the table
+more room. **llms.txt** is shown as plain text.
 
-Both glossary.md and learning-paths.md are checked by `build_index.py`: a
-broken `[[link]]` in them fails the build. You can edit them in the app like
-any other file. Do not edit INDEX.md or llms.txt: change the topic and press
-[Rebuild INDEX.md](#rebuild-indexmd).
+`build_index.py` checks glossary.md and learning-paths.md: a broken `[[link]]` in them fails the build. Edit
+them in the app like any other file. Do not edit INDEX.md or llms.txt: change the topic and press
+**Rebuild INDEX.md**.
 
-### Dark mode
+### Sidebar and small screens
+
+![The reading view with the sidebar hidden](screenshots/webapp-sidebar-hidden.png)
+
+Click **☰** to hide or show the sidebar and give wide tables the full width.
+
+On a window 700 px wide or less the sidebar opens over the page: the app starts with it closed, and it
+closes again when you pick a file. The header wraps and the search box takes its own row.
+
+<img src="screenshots/webapp-narrow.png" alt="A topic on a phone-sized window" width="260"> <img src="screenshots/webapp-narrow-menu.png" alt="The sidebar open over the page on a phone-sized window" width="260">
+
+### Theme
 
 ![The app in dark mode](screenshots/webapp-dark.png)
 
-The app follows your operating system's light/dark setting
-(`prefers-color-scheme`). There is no separate switch.
+The **Theme** button cycles through **auto** (follow the operating system or browser setting), **light** and
+**dark**. The choice is kept in this browser.
+
+### Keyboard shortcuts
+
+| Key | Does |
+|---|---|
+| **/** | Focus the search box (outside text fields) |
+| **Enter** in the search box | Search |
+| **Ctrl+S** / **Cmd+S** | Save |
+| **Esc** | Close the action output window |
 
 ### Safety model
 
-The app can write to your repo, so it is locked down to your own machine and
-your own browser tab:
+The app can write to your repository, so it is locked down to your own machine:
 
-- **Local only.** It binds to `127.0.0.1`, so other machines cannot reach it.
-- **Host check.** Every request must carry a `Host` of `localhost`,
-  `127.0.0.1` or `::1`, otherwise it gets "403 forbidden host". This blocks
-  DNS-rebinding attacks, where a web page you visit points its own domain name
-  at 127.0.0.1.
-- **Origin check.** A request with an `Origin` header must come from the same
-  host and port, so another site open in your browser cannot post to the app.
-- **Write token.** Saving, creating files and running actions need a random
-  token that is generated each time the server starts and handed only to the
-  app's own page. Restarting the server invalidates it; the next save shows
-  "bad token (reload the page)", and reloading fixes it.
-- **Paths stay inside the repo.** Absolute paths, `..`, hidden path parts,
-  skipped folders, symlinks that resolve outside the repo and extensions not in
-  the list are refused. Files over 2 MB cannot be opened or saved.
-- **Images are read-only.** Images are served by a separate read-only route
-  with the same path rules, only for PNG, JPEG, GIF and WebP files (checked by
-  extension and file content), up to 10 MB. They cannot be opened in the
-  editor or saved.
-- **Fixed commands only.** The action buttons run only the commands listed in
-  `config.json`; the page cannot send a command of its own.
-- **Strict browser headers.** A Content-Security-Policy allows only the app's
-  own script and styles, and responses are not cached.
-- **No lost writes.** Atomic save plus [conflict detection](#conflict-detection).
+- **Local only.** The server listens on `127.0.0.1`; other machines cannot reach it.
+- **Host and Origin checks.** Requests whose `Host` is not `localhost`, `127.0.0.1` or `::1` are refused with
+  "forbidden host" (this blocks DNS-rebinding attacks from web pages); so is a request whose `Origin` does
+  not match the host.
+- **Write token.** Every start generates a random token. The page fetches it on load and sends it with each
+  save, create, delete and action; without it, writes are refused with "bad token (reload the page)".
+- **Path limits.** Only files with the listed extensions, inside the repo, outside hidden and skipped
+  folders, can be read, written or deleted. Paths with `..`, absolute paths and backslashes are rejected.
+  Files over 2 MB cannot be opened or saved here.
+- **Read-only routes.** Images (PNG, JPEG, GIF, WebP up to 10 MB, checked by extension and content),
+  backlinks, the change list and diffs only read. Git runs with fixed arguments, never a shell.
+- **Browser hardening.** Responses carry a strict Content-Security-Policy (only the app's own script and
+  stylesheet), `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer` and `Cache-Control:
+  no-store`. Markdown is rendered with raw HTML escaped, so a file cannot inject script into the page.
+- **Conflict checks** stop a save or delete from overwriting a newer file.
 
-It has no login. Anyone who can use your computer's browser while it runs can
-edit the files, as they could with your editor.
+### Configuration
 
-### Settings (webapp/config.json)
+`webapp/config.json`:
 
-```json
-{"title": "AI KB", "port": 8773,
- "extensions": [".md", ".txt", ".csv", ".json", ".yml", ".yaml", ".toml", ".py", ".sh"],
- "skip_dirs": ["node_modules", "__pycache__", "venv", ".venv"],
- "readonly": [],
- "actions": {"Rebuild INDEX.md": ["python3", "build_index.py"]}}
+| Key | Meaning |
+|---|---|
+| `title`, `port` | Page title and default port |
+| `extensions`, `skip_dirs` | Which files the tree lists and which folders it skips |
+| `readonly` | Paths shown with 🔒 that cannot be saved, deleted or created under, e.g. `["generated/", "INDEX.md"]` |
+| `template` | File a new `.md` file starts from (here `_template.md`) |
+| `actions` | Header buttons: `{"Name": ["command", "arg"]}`, run in the repo root |
+| `screenshots` | Settings for `webapp/screenshots.mjs` (below) |
+
+Restart the server after changing it.
+
+### Refreshing these screenshots
+
+The screenshots in this guide come from the real app. To regenerate them after a change, commit your work
+first (the Changes shots list every uncommitted file), then:
+
+```bash
+npm install -g playwright && npx playwright install chromium   # once
+node webapp/screenshots.mjs                                     # writes docs/screenshots/webapp-*.png
+SHOTS_OUT=/tmp/shots node webapp/screenshots.mjs                # trial run elsewhere
 ```
 
-- `title`: shown in the header and the browser tab.
-- `port`: default port.
-- `extensions`: which files are listed, searched and editable.
-- `skip_dirs`: folders left out of the tree and search.
-- `readonly`: paths or folder prefixes (for example `"INDEX.md"` or
-  `"models/"`) that can be viewed but not saved or created. Such files show a
-  🔒 in the tree and "(read-only)" next to the path. Empty in this repo.
-- `actions`: one header button per entry; the value is the command, run in
-  the repo root. Adding `"Rebuild (strict)": ["python3", "build_index.py",
-  "--strict"]` would add a button for the CI-equivalent build.
-
-Restart the server after changing the file.
+It starts the server on a free port, opens `llm-apps/rag-basics.md` and the other pages named under `screenshots` in
+`config.json`, creates and deletes a scratch file `scratch-note.md`, and runs the first header action.
 
 ### Tips, troubleshooting and limits
 
-- **"403 forbidden host"**: open the app as `localhost` or `127.0.0.1`, not
-  via your machine's LAN name or a tunnel.
-- **"bad token (reload the page)"**: the server was restarted; reload the tab.
-- **"Address already in use"**: another program uses 8773; start with
-  `--port 8774`.
-- **A new file does not show in the tree**: files created outside the app
-  appear after a page reload.
-- **Search finds nothing**: the query needs at least 2 characters and is
-  matched as one phrase; try a single word.
-- **Review before committing.** Edits go straight to your working tree. Run
-  `git diff` and the checks in AGENTS.md before you commit.
-- Limits: no delete, rename or move (use the shell or git); no git
-  integration; no SVG or remote images; search results are not ranked; the Markdown
-  renderer is simpler than GitHub's, so check unusual formatting on GitHub.
+- **"bad token (reload the page)"**: the server was restarted since the page loaded. Reload the page.
+- **"forbidden host"**: open the app as `http://localhost:8773/` or `http://127.0.0.1:8773/`.
+- **Address already in use**: another program uses the port. Start with `--port <other>`.
+- **A file is missing from the tree**: check its extension and folder (see
+  [File tree and filter](#file-tree-and-filter)), then click **⟳**.
+- **No Changes button**: the folder is not a git checkout, or `git` is not installed.
+- **No rename.** Rename with git (`git mv`) or your file manager, then click **⟳**.
+- Backlinks and search read every file on each request; on a very large repo they take a moment.
 
 ---
 

@@ -60,14 +60,16 @@ also warn. These warnings do not fail the build, including with `--strict`.
 
 ## Web app (view and edit)
 
-A local, stdlib-only app to browse, search and edit these files in the browser, with rendered
-Markdown and working `[[wiki-links]]`. Edits write straight to the files here; review and commit with git.
+A local, stdlib-only app to browse, search and edit these files in the browser: rendered Markdown with
+working `[[wiki-links]]` and heading links, an outline, backlinks, a live preview while editing, new topics
+from `_template.md`, and a Changes page with per-file diffs. Edits write straight to the files here; review
+and commit with git.
 
 ```bash
 python3 webapp/server.py --open     # http://localhost:8773 , stdlib only, no install
 ```
 
-![The AI KB web app showing the topic on RAG basics](docs/screenshots/webapp.png)
+![The AI KB web app showing the topic on RAG basics](docs/screenshots/webapp-file.png)
 
 Full guide with screenshots: [docs/app-guide.md](docs/app-guide.md)
 
