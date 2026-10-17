@@ -1,4 +1,4 @@
-"""Write-path and image-route tests for webapp/server.py, run against a temp copy of the repo.
+"""Write-path, delete, backlink, git and image-route tests for webapp/server.py, run against a temp copy of the repo.
 
 Stdlib unittest; `python3 manage.py test webapp` picks it up, so does
 `python3 -m unittest webapp.test_server`. Never touches the real topic files.
@@ -142,6 +142,73 @@ class ServerWriteTests(ServerCase):
         # Restore so test order does not matter.
         self.put({"path": "concepts/a.md", "content": "old\n", "version": self.version()})
 
+
+
+class ServerDeleteTests(ServerCase):
+    def new(self, rel, content="x\n"):
+        return self.request("POST", "/api/new", {"path": rel, "content": content}, {"X-KB-Token": self.token})
+
+    def delete(self, body, **headers):
+        return self.request("DELETE", "/api/file", body, {"X-KB-Token": self.token, **headers})
+
+    def test_delete_removes_file(self):
+        self.assertEqual(self.new("concepts/gone.md")[0], 200)
+        v = self.request("GET", "/api/file?path=concepts/gone.md")[1]["version"]
+        status, _ = self.delete({"path": "concepts/gone.md", "version": v})
+        self.assertEqual(status, 200)
+        self.assertFalse(os.path.exists(os.path.join(self.tmp, "concepts", "gone.md")))
+
+    def test_delete_needs_token_and_current_version(self):
+        self.new("concepts/keep.md")
+        v = self.request("GET", "/api/file?path=concepts/keep.md")[1]["version"]
+        self.assertEqual(self.request("DELETE", "/api/file", {"path": "concepts/keep.md", "version": v})[0], 403)
+        self.assertEqual(self.delete({"path": "concepts/keep.md", "version": "1"})[0], 409)
+        self.assertEqual(self.delete({"path": "../x.md", "version": v})[0], 404)
+        self.assertTrue(os.path.exists(os.path.join(self.tmp, "concepts", "keep.md")))
+
+
+class ServerLinkAndGitTests(ServerCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        for rel, text in (("concepts/b.md", "See [[a]] and [[concepts/a|A]].\n"),
+                          ("docs/c.md", "Read [a](../concepts/a.md#part).\nNo link here.\n"),
+                          ("docs/d.md", "Only [[b]].\n")):
+            cls.request("POST", "/api/new", {"path": rel, "content": text}, {"X-KB-Token": cls.token})
+
+    def test_backlinks_find_wiki_and_relative_links(self):
+        status, hits = self.request("GET", "/api/backlinks?path=concepts/a.md")
+        self.assertEqual(status, 200)
+        self.assertEqual(sorted((h["path"], h["line"]) for h in hits), [("concepts/b.md", 1), ("docs/c.md", 1)])
+        self.assertEqual(self.request("GET", "/api/backlinks?path=../a.md")[0], 404)
+
+    def test_changes_and_diff(self):
+        git = shutil.which("git")
+        if not git:
+            self.skipTest("git not installed")
+        status, _ = self.request("GET", "/api/changes")
+        self.assertEqual(status, 404)  # the temp copy is not a git repository yet
+        run = lambda *a: subprocess.run([git, "-C", self.tmp, *a], check=True, capture_output=True)
+        run("init", "-q")
+        run("-c", "user.name=t", "-c", "user.email=t@t", "add", "concepts/a.md")
+        run("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", "init")
+        with open(self.topic, "a", encoding="utf-8") as f:
+            f.write("added line\n")
+        try:
+            status, items = self.request("GET", "/api/changes")
+            self.assertEqual(status, 200)
+            by_path = {i["path"]: i["status"] for i in items}
+            self.assertEqual(by_path["concepts/a.md"], "modified")
+            self.assertEqual(by_path["docs/c.md"], "untracked")
+            d = self.request("GET", "/api/diff?path=concepts/a.md")[1]["diff"]
+            self.assertIn("+added line", d)
+            self.assertIn("+Read [a]", self.request("GET", "/api/diff?path=docs/c.md")[1]["diff"])
+            self.assertEqual(self.request("GET", "/api/diff?path=../x.md")[0], 404)
+            self.assertEqual(self.request("GET", "/api/diff?path=.git/config")[0], 404)
+        finally:
+            with open(self.topic, "w", encoding="utf-8", newline="\n") as f:
+                f.write("old\n")
+            shutil.rmtree(os.path.join(self.tmp, ".git"), ignore_errors=True)
 
 
 class ServerImageTests(ServerCase):

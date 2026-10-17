@@ -5,7 +5,7 @@ Run:  python3 webapp/server.py [--port N] [--open]
 Stdlib only. Binds to 127.0.0.1; writes need a per-run token. Edits go straight
 to the files in this repo (review and commit them with git as usual).
 """
-import argparse, json, os, re, secrets, subprocess, sys, tempfile, threading, webbrowser
+import argparse, json, os, re, secrets, shutil, subprocess, sys, tempfile, threading, webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse, parse_qs
 
@@ -21,6 +21,8 @@ MAX_BYTES = 2 * 1024 * 1024
 IMAGES = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".gif": "image/gif",
           ".webp": "image/webp"}
 MAX_IMAGE_BYTES = 10 * 1024 * 1024
+MAX_DIFF_BYTES = 256 * 1024
+GIT = shutil.which("git")
 TOKEN = secrets.token_urlsafe(24)
 LOCK = threading.Lock()
 STATIC = {"/": ("index.html", "text/html; charset=utf-8"),
@@ -119,6 +121,107 @@ def search(q, limit=200):
     return hits
 
 
+WIKI = re.compile(r"\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|[^\]]*)?\]\]")
+MDLINK = re.compile(r"\]\(([^)\s#]+)(?:#[^)\s]*)?(?:\s+\"[^)]*\")?\)")
+
+
+def wiki_target(name, paths):
+    """Same rule as the browser: full path without .md first, then file name alone."""
+    n = name.strip().lower()
+    n = n[:-3] if n.endswith(".md") else n
+    key = lambda p: p.lower()[:-3] if p.lower().endswith(".md") else p.lower()
+    for p in paths:
+        if key(p) == n:
+            return p
+    for p in paths:
+        if key(p).rsplit("/", 1)[-1] == n:
+            return p
+    return None
+
+
+def link_target(base, href):
+    """Repo-relative path a relative Markdown link in file `base` points at."""
+    if re.match(r"^[a-z][a-z0-9+.-]*:", href, re.I) or href.startswith("//"):
+        return None
+    folder = base.rsplit("/", 1)[0] if "/" in base else ""
+    parts = (href[1:] if href.startswith("/") else folder + "/" + href).split("/")
+    out = []
+    for p in parts:
+        if p == "..":
+            if out:
+                out.pop()
+        elif p and p != ".":
+            out.append(p)
+    return "/".join(out)
+
+
+def backlinks(rel, limit=200):
+    """Markdown files that link to `rel` by [[wiki-link]] or relative link, one hit per line."""
+    from urllib.parse import unquote
+    paths = [f["path"] for f in walk()]
+    hits = []
+    for p in paths:
+        if p == rel or not p.lower().endswith(".md"):
+            continue
+        try:
+            text = read_text(resolve(p))
+        except (ValueError, UnicodeDecodeError, OSError):
+            continue
+        for n, line in enumerate(text.splitlines(), 1):
+            if any(wiki_target(m, paths) == rel for m in WIKI.findall(line)) or \
+               any(link_target(p, unquote(h)) == rel for h in MDLINK.findall(line)):
+                hits.append({"path": p, "line": n, "text": line.strip()[:200]})
+                if len(hits) >= limit:
+                    return hits
+    return hits
+
+
+def git(*args, timeout=10):
+    """Run a read-only git command in the repo; stdout, or None if git is missing or fails."""
+    if not GIT:
+        return None
+    try:
+        r = subprocess.run([GIT, "-C", ROOT, *args], capture_output=True, timeout=timeout)
+    except (OSError, subprocess.SubprocessError):
+        return None
+    return r.stdout if r.returncode in (0, 1) else None
+
+
+def changes():
+    """Working-tree changes from `git status`: [{path, status, viewable}], or None outside git."""
+    out = git("status", "--porcelain=v1", "-z", "--untracked-files=all")
+    if out is None:
+        return None
+    items, recs, i = [], out.decode("utf-8", "replace").split("\0"), 0
+    while i < len(recs):
+        r = recs[i]
+        i += 1
+        if len(r) < 4:
+            continue
+        code, path = r[:2], r[3:]
+        if "R" in code or "C" in code:
+            i += 1  # the next record is the old name
+        st = "untracked" if code == "??" else "deleted" if "D" in code else "added" if "A" in code \
+            else "renamed" if "R" in code else "modified"
+        items.append({"path": path, "status": st, "viewable": bool(resolve(path, must_exist=False))})
+    return sorted(items, key=lambda x: x["path"])
+
+
+def diff(rel):
+    """Unified diff of one viewable file against HEAD (untracked files diff against nothing)."""
+    if not resolve(rel, must_exist=False):
+        return None
+    tracked = git("ls-files", "--error-unmatch", "--", rel)
+    if tracked:
+        out = git("diff", "--no-color", "--no-ext-diff", "HEAD", "--", rel)
+    else:
+        out = git("diff", "--no-color", "--no-ext-diff", "--no-index", "--", os.devnull, rel)
+    if out is None:
+        return None
+    text = out[:MAX_DIFF_BYTES].decode("utf-8", "replace")
+    return text + ("\n... (diff cut at %d KB)\n" % (MAX_DIFF_BYTES // 1024) if len(out) > MAX_DIFF_BYTES else "")
+
+
 class Handler(BaseHTTPRequestHandler):
     server_version = "KBWeb"
     sys_version = ""
@@ -173,7 +276,8 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(204, b"", "image/x-icon")
         qs = parse_qs(u.query)
         if u.path == "/api/config":
-            return self._send(200, {"title": CFG["title"], "token": TOKEN, "actions": list(ACTIONS)})
+            return self._send(200, {"title": CFG["title"], "token": TOKEN, "actions": list(ACTIONS),
+                                    "template": CFG.get("template", ""), "git": bool(GIT and git("rev-parse") is not None)})
         if u.path == "/api/tree":
             return self._send(200, walk())
         if u.path == "/api/search":
@@ -189,6 +293,17 @@ class Handler(BaseHTTPRequestHandler):
                                         "version": str(os.stat(full).st_mtime_ns)})
             except (ValueError, UnicodeDecodeError) as e:
                 return self._err(415, str(e))
+        if u.path == "/api/backlinks":
+            rel = (qs.get("path") or [""])[0]
+            if not resolve(rel):
+                return self._err(404, "not found")
+            return self._send(200, backlinks(rel))
+        if u.path == "/api/changes":
+            c = changes()
+            return self._send(200, c) if c is not None else self._err(404, "not a git repository")
+        if u.path == "/api/diff":
+            d = diff((qs.get("path") or [""])[0])
+            return self._send(200, {"diff": d}) if d is not None else self._err(404, "not found")
         if u.path == "/api/image":
             # Read-only: images under the repo, same path rules as text files, allowlisted types only.
             rel = (qs.get("path") or [""])[0]
@@ -224,6 +339,9 @@ class Handler(BaseHTTPRequestHandler):
     def do_PUT(self):
         self._mutate("PUT")
 
+    def do_DELETE(self):
+        self._mutate("DELETE")
+
     def _mutate(self, method):
         if not self._host_ok():
             return self._err(403, "forbidden host")
@@ -247,6 +365,16 @@ class Handler(BaseHTTPRequestHandler):
                         return self._err(409, "file changed on disk since you opened it")
                     self._write(full, body.get("content", ""))
                     return self._send(200, {"version": str(os.stat(full).st_mtime_ns)})
+                if method == "DELETE" and path == "/api/file":
+                    full = resolve(rel)
+                    if not full:
+                        return self._err(404, "not found")
+                    if is_readonly(rel):
+                        return self._err(403, "read-only file")
+                    if str(os.stat(full).st_mtime_ns) != str(body.get("version")):
+                        return self._err(409, "file changed on disk since you opened it")
+                    os.remove(full)
+                    return self._send(200, {"path": rel})
                 if method == "POST" and path == "/api/new":
                     full = resolve(rel, must_exist=False)
                     if not full:
