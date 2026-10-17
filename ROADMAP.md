@@ -33,14 +33,22 @@ holds the detail and any leftover acceptance criteria.
    need a run in an environment with keys before promotion.
 4. [x] **Staleness report.** `build_index.py` lists `models/`, `setup/` and
    `deployment/` files whose `last_verified` is older than 90 days, the ones
-   whose facts (model IDs, prices, versions) rot. Issue #4 (still open for a
-   `Verified` column and a `--stale N` flag).
+   whose facts (model IDs, prices, versions) rot. Issue #4 (closed): the
+   `Verified` column in `INDEX.md` and the `--stale N` flag are done too
+   (tested in `test_build_index_freshness.py`).
 5. [ ] **Fill thin categories.** Add applied topics before more from-scratch
    ones: `models/` (embedding and reranker models, open-weight vision LLMs),
    `setup/` (vLLM/llama.cpp server on Windows, Docker GPU), `deployment/`
    (LLM gateways and rate limits, batch inference, caching). Tracker #98,
    one `topic:*` issue per topic, plus #6, #7 and #10 (A2A, context
-   engineering, agent skills).
+   engineering, agent skills). Checked 2026-10-17: #98, #6, #7 and #10 are
+   closed and every listed topic exists (`embedding-models`, `rerankers`,
+   `windows-wsl-setup`, `docker-for-ml`, `llm-gateways-and-routing`,
+   `batch-inference-and-batch-apis`, `semantic-caching`, `a2a-protocol`,
+   `context-engineering`, `agent-skills`) except a `models/` topic on
+   open-weight vision LLMs; `cv/vision-language-models.md` covers VLMs but
+   names open families only in passing. Counts now: models 26, setup 15,
+   deployment 23 (concepts 123, ml 110).
 6. [x] **Scenario links.** Each `scenarios/` file links the from-scratch and
    overview topics it relies on; check every overview topic is reachable from
    at least one scenario. Done: `build_index.py` warns on overview topics no
