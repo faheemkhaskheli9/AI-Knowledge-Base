@@ -60,39 +60,25 @@ also warn. These warnings do not fail the build, including with `--strict`.
 
 ## Web app (view and edit)
 
+A local, stdlib-only app to browse, search and edit these files in the browser, with rendered
+Markdown and working `[[wiki-links]]`. Edits write straight to the files here; review and commit with git.
+
 ```bash
 python3 webapp/server.py --open     # http://localhost:8773 , stdlib only, no install
 ```
 
 ![The AI KB web app showing the topic on RAG basics](docs/screenshots/webapp.png)
 
-**Where to use it**
-- Choosing an approach or model: open `scenarios/scenario-chooser.md`, follow the `[[links]]`,
-  and search across all topics without leaving the page.
-- Adding or fixing a topic: edit it in place, press **Rebuild INDEX.md**, then review the
-  diff and commit with git.
-- On your own machine only. It is a local tool for the person who maintains the KB, not a
-  site to host.
-
-**Why use it instead of GitHub or an editor**
-- Rendered Markdown with working `[[wiki-links]]`, which GitHub does not resolve.
-- One search box over every file, with no install: it is a single stdlib Python script.
-- Safe edits: writes stay inside the repo and refuse to overwrite a file changed on disk.
-
-Browse the file tree, read rendered Markdown (links and `[[wiki-links]]` work), full-text search, edit raw
-text (Ctrl+S saves) and create new files. Edits write straight to the files here; review and commit with git.
-The **Rebuild INDEX.md** button runs `build_index.py` after you add or edit topics.
-It listens on 127.0.0.1 only, rejects foreign Host/Origin headers, needs a per-run token for writes, only touches
-text files inside the repo, and refuses to overwrite a file that changed on disk since you opened it.
+Full guide with screenshots: [docs/app-guide.md](docs/app-guide.md)
 
 ## Read-only Django site
 
 A read-only Django site over the same Markdown files, with search, category
 and tag filters, `[[links]]` and backlinks. It has no database, so edits to the
-files show up on refresh.
+files show up on refresh. See [docs/app-guide.md](docs/app-guide.md#part-2-the-read-only-django-site).
 
 ```bash
 pip install -r requirements.txt
-python manage.py runserver      # http://127.0.0.1:8000
+python manage.py runserver      # http://127.0.0.1:8000 ; or: runserver 127.0.0.1:8001
 python manage.py test webapp
 ```
