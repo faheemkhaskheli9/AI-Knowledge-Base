@@ -93,13 +93,16 @@ symptom, steps to reproduce, the cause with `file:line` when known, and a sugges
 | Repo | Holds | `webapp/` |
 |---|---|---|
 | `faheemkhaskheli9/AI-Knowledge-Base` (this one) | AI models, concepts, setup, deployment, scenarios | yes |
-| `faheemkhaskheli9/Software-Engineering-KnowledgeBase` | system design: load balancing, caching, queues, rate limits, resilience, SLOs, observability, security, testing | no |
+| `faheemkhaskheli9/Software-Engineering-KnowledgeBase` | system design: load balancing, caching, queues, rate limits, resilience, SLOs, observability, security, testing | yes |
 | `faheemkhaskheli9/Personal-Knowledge-Base` (private) | the owner's profile, CVs and per-project notes | yes |
+| `faheemkhaskheli9/Brain` | neuroscience for brain-like AI: anatomy, function, learning, simulations, Brain World game | yes |
 | `faheemkhaskheli9/Cyber-Security-Knowledge-Base` | security topics | yes |
 
 If a task could use another one and it is not in the session, attach it with `add_repo` (read access
 is enough unless you need to push) and clone it next to this one. Where there is a `webapp/`, it is
 for manual viewing and editing (`python3 webapp/server.py --open`).
+The web app's shared files are identical in every base; to change them, or to update and check all the
+bases together, use the `update-knowledge-bases` skill (`.claude/skills/update-knowledge-bases/SKILL.md`).
 An AI system's general system-design side belongs to the SE KB. Link its topics as plain
 "See also (SE KB): <GitHub URL>" lines, never `[[links]]` (the build checks those against this
 repo only).
