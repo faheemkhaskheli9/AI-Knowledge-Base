@@ -68,6 +68,12 @@ or drop the ID instead of leaving the marker to warn forever.
 
 Planned improvements live in `ROADMAP.md`.
 
+## Bugs
+
+When you find a bug (in code, tooling, CI or a wrong fact) that you do not fix in the same change,
+open a GitHub issue for it right away, labelled `bug`. First search open issues for a duplicate. Give the
+symptom, steps to reproduce, the cause with `file:line` when known, and a suggested fix.
+
 ## Categories
 
 | Folder | Holds |
