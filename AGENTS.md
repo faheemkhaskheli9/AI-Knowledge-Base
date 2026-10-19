@@ -88,6 +88,10 @@ symptom, steps to reproduce, the cause with `file:line` when known, and a sugges
 | `deployment/` | Serving, scaling, cost/latency, MLOps, monitoring |
 | `scenarios/` | Industry/problem -> recommended approach, linking the files above |
 
+## Cross-repository ChatGPT routing
+
+For ChatGPT (as well as other assistants), the [shared KB router](CHATGPT-KB-ROUTER.md) lists the AI, software engineering, cybersecurity, medical and private personal repositories, retrieval entry points and access limits. Only load the relevant full topics in the current session; this file does not create automatic synchronization.
+
 ## Sibling knowledge bases
 | Repo | Holds | `webapp/` |
 |---|---|---|
@@ -95,6 +99,7 @@ symptom, steps to reproduce, the cause with `file:line` when known, and a sugges
 | `faheemkhaskheli9/Software-Engineering-KnowledgeBase` | system design: load balancing, caching, queues, rate limits, resilience, SLOs, observability, security, testing | no |
 | `faheemkhaskheli9/Personal-Knowledge-Base` (private) | the owner's profile, CVs and per-project notes | yes |
 | `faheemkhaskheli9/Cyber-Security-Knowledge-Base` | security topics | yes |
+| `faheemkhaskheli9/Medical-Knowledge-Base` | clinical reference, medication safety and healthcare AI | no |
 
 If a task could use another one and it is not in the session, attach it with `add_repo` (read access
 is enough unless you need to push) and clone it next to this one. Where there is a `webapp/`, it is
