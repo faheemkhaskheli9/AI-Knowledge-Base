@@ -93,6 +93,7 @@ Merge for deployment: load the base in 16-bit, `PeftModel.from_pretrained(...)`,
 - [[rag-basics]] - the alternative for knowledge injection.
 - [[small-language-models]] - common targets of fine-tuning.
 - [[data-labeling-and-synthetic-data]] - producing training data.
+- [[post-training-datasets-and-chat-templates]] - dataset formats, chat templates, assistant-only loss and dedup.
 - [[huggingface-transformers]] - environment setup.
 - [[hosted-fine-tuning-apis]] - provider-hosted SFT, DPO and RFT instead of your own GPUs.
 

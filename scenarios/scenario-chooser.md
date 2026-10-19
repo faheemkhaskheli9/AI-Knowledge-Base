@@ -77,6 +77,8 @@ KB files to read in full next.
 | Detect anomalies / fraud / failures | Unsupervised or semi-supervised detectors plus rules | [[anomaly-detection]], [[finance]], [[manufacturing-iot]], [[security-defensive]] |
 | Generate or edit images | Diffusion model API or local; check licence and provenance | [[image-generation-models]], [[diffusion-models]], [[model-licenses]] |
 | Understand or train the objective behind current image/video generators, cut sampling steps | Flow matching with a straight (rectified) path; reflow or distillation for few-step sampling | [[flow-matching-and-rectified-flow]], [[diffusion-models]], [[ddpm-diffusion-from-scratch-numpy]] |
+| Prepare an SFT or preference dataset for fine-tuning an LLM | Messages format, the model's chat template, assistant-only loss, MinHash dedup, decontaminate against evals | [[post-training-datasets-and-chat-templates]], [[synthetic-data-for-llm-training]], [[fine-tuning-and-peft]] |
+| Find or edit a behaviour direction (refusal, style) in an open-weight model | Difference-of-means direction; ablate or add it at inference, or orthogonalize the weights | [[refusal-direction-and-abliteration]], [[mechanistic-interpretability]] |
 | Label data / create training data | LLM-assisted labelling with human review | [[data-labeling-and-synthetic-data]] |
 | Train with few labels and many unlabelled examples | Pretrained embeddings, active learning to pick labels, label spreading / pseudo-labels | [[semi-supervised-and-active-learning]], [[data-labeling-and-synthetic-data]] |
 | Build a personal assistant with memory | Agent + memory store + calendar/mail tools | [[personal-assistants]], [[agent-memory]] |

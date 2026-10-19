@@ -9,7 +9,8 @@ Not a topic file: `build_index.py` leaves it out of INDEX.md but fails on a brok
 
 Paths: [Beginner](#beginner) | [LLM engineer](#llm-engineer) | [Agent builder](#agent-builder) |
 [ML engineer](#ml-engineer) | [Computer vision](#computer-vision) | [Speech and audio](#speech-and-audio) |
-[MLOps and deployment](#mlops-and-deployment) | [Internals from scratch](#internals-from-scratch)
+[MLOps and deployment](#mlops-and-deployment) | [LLM scientist](#llm-scientist) |
+[Internals from scratch](#internals-from-scratch)
 
 ## Beginner
 
@@ -175,6 +176,32 @@ From a reproducible environment to serving, scaling, monitoring and compliance.
 20. [[ai-security-privacy-compliance]] - data handling, PII and access control basics.
 21. [[ai-regulation-checklist]] - EU AI Act obligations and the ISO/IEC 42001 management standard.
 22. [[mlops-lifecycle]] - tie it together into a repeatable lifecycle.
+
+## LLM scientist
+
+Training and adapting LLMs yourself: data, SFT, preference tuning, evaluation, compression and
+model editing. Follows the "LLM Scientist" track of https://github.com/mlabonne/llm-course.
+
+1. [[transformers-and-attention]] - the decoder-only architecture being trained.
+2. [[tokenization]] - vocabularies, special tokens and why they matter for chat formats.
+3. [[decoding-and-sampling]] - greedy, beam, temperature and top-p: how outputs are produced.
+4. [[pretraining-and-scaling-laws]] - data, compute and model size at pretraining scale.
+5. [[distributed-training]] - DDP, FSDP and DeepSpeed ZeRO across GPUs.
+6. [[efficient-training-mixed-precision]] - bf16, gradient checkpointing and memory savings.
+7. [[synthetic-data-for-llm-training]] - generate and enhance instruction and preference data.
+8. [[post-training-datasets-and-chat-templates]] - formats, chat templates, loss masks, dedup, decontamination.
+9. [[fine-tuning-and-peft]] - SFT with full fine-tuning, LoRA and QLoRA.
+10. [[unsloth-finetuning]] - fast single-GPU SFT and GRPO, export to GGUF.
+11. [[rlhf-and-preference-optimization]] - reward models, PPO, DPO and their trade-offs.
+12. [[reward-modeling-and-verifiers]] - scoring outputs for RL and rejection sampling.
+13. [[rl-with-verifiable-rewards]] - GRPO-style RL for reasoning models.
+14. [[reading-ai-benchmarks]] - what benchmark scores measure and how contamination skews them.
+15. [[llm-evaluation]] - golden sets, LLM-as-judge and regression evals.
+16. [[quantization]] - GGUF, GPTQ, AWQ and bitsandbytes for cheaper inference.
+17. [[model-merging]] - SLERP, TIES and DARE without further training.
+18. [[mechanistic-interpretability]] - probes, patching and features inside the model.
+19. [[refusal-direction-and-abliteration]] - find and edit a behaviour direction in the weights.
+20. [[test-time-compute-scaling]] - spend more inference compute for better reasoning.
 
 ## Internals from scratch
 
