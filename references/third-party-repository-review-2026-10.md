@@ -4,6 +4,18 @@ Updated: 2026-10-19
 
 This is a **research backlog**, not an adoption decision. No dependency is installed or integrated by this catalog. Each upstream URL is a reference to review later. Validate repository maintenance, license/asset restrictions, security, Python/Godot/version compatibility, resource costs, and whether a capability is already implemented before starting any integration. Benchmark against the current baseline; reject redundant tools.
 
+## Project review issues
+
+- [Brain: deferred candidate review](https://github.com/faheemkhaskheli9/Brain/issues/124)
+- [Simulations: deferred candidate review](https://github.com/faheemkhaskheli9/Simulations/issues/11)
+- [Local-AI-Ops: deferred candidate review](https://github.com/faheemkhaskheli9/Local-AI-Ops/issues/20)
+- [SoftwareHouse-OS: deferred candidate review](https://github.com/faheemkhaskheli9/SoftwareHouse-OS/issues/12)
+- [llm-evaluation-platform: deferred candidate review](https://github.com/faheemkhaskheli9/llm-evaluation-platform/issues/6)
+- [video-analytics-suite: deferred candidate review](https://github.com/faheemkhaskheli9/video-analytics-suite/issues/7)
+- [medical-imaging-suite: deferred candidate review](https://github.com/faheemkhaskheli9/medical-imaging-suite/issues/12)
+- [llm-security-lab: deferred candidate review](https://github.com/faheemkhaskheli9/llm-security-lab/issues/11)
+- [multi-llm-router: deferred candidate review](https://github.com/faheemkhaskheli9/multi-llm-router/issues/16)
+
 | Upstream repository | Description | Potential uses | Target project(s) |
 |---|---|---|---|
 | [neurogym/neurogym](https://github.com/neurogym/neurogym) | Neuroscience task environments for memory, perception and decisions. | Train/evaluate working-memory, sequential decision and cognitive task performance. | [`Brain`](https://github.com/faheemkhaskheli9/Brain) |
