@@ -6,6 +6,7 @@ so that people and AI coding agents (Claude Code, Codex, Cursor, Copilot)
 can look things up before they build.
 
 - **Start here:** [INDEX.md](INDEX.md) lists every topic with its tags and use cases.
+- **External repository candidates:** [33 third-party projects for deferred review](references/third-party-repository-review-2026-10.md), with project-specific GitHub issues and evaluation criteria.
 - **By problem:** [scenarios/](scenarios/) maps an industry or task to the
   recommended approach.
 - **Terms:** [glossary.md](glossary.md) defines core terms (KV cache, LoRA, MCP, RAG, ...), each
