@@ -167,6 +167,7 @@ candidates = generate_batch(pool)
 - [[data-labeling-and-synthetic-data]] - labelling workflows and synthetic data for classic ML and eval sets.
 - [[knowledge-distillation-and-compression]] - distillation objectives and student models.
 - [[fine-tuning-and-peft]] - training on the generated data.
+- [[post-training-datasets-and-chat-templates]] - formatting, chat templates, MinHash dedup and decontamination of the result.
 - [[rlhf-and-preference-optimization]] - preference data and AI feedback.
 - [[rl-with-verifiable-rewards]] - training on verifier-checked outputs instead of fixed synthetic targets.
 - [[model-licenses]] - which model outputs you may train on.

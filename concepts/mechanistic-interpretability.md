@@ -133,6 +133,7 @@ For transformers, use a library that names every hook point instead of hand-writ
 - [[autoencoders-and-self-supervised-learning]] - the autoencoder idea behind SAEs.
 - [[adversarial-examples-and-robustness]] - shortcut features found by probing.
 - [[guardrails-and-safety]] - activation monitoring and steering as safety tools.
+- [[refusal-direction-and-abliteration]] - difference-of-means directions, ablation and weight orthogonalization.
 - [[hallucination-and-grounding]] - probes for truthfulness directions.
 
 ## References
