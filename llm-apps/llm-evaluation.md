@@ -93,6 +93,7 @@ Frameworks: Promptfoo, Inspect, DeepEval, Ragas, OpenAI Evals, LangSmith/Braintr
 - Metrics without user context (e.g. fluency) rarely track business outcomes; tie to task success.
 
 ## Related
+- [[rag-evaluation]] - RAG-specific metrics: recall@k, nDCG, context precision, faithfulness.
 - [[llm-as-judge-and-eval-driven-development]] - judge design and bias, pairwise vs rubric, judge calibration, CI regression gates.
 - [[rag-basics]] - retrieval and faithfulness metrics.
 - [[agents]] - trajectory evaluation.

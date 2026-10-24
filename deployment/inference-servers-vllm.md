@@ -84,6 +84,8 @@ TGI: Hugging Face states it is in maintenance mode and recommends vLLM, SGLang, 
 - Throughput figures from blogs depend on prompt/output length mix; benchmark your own traffic.
 
 ## Related
+- [[tool-calling-with-self-hosted-models]] - `--tool-call-parser`, chat templates and strict tool calls.
+- [[speculative-decoding-in-serving]] - `--speculative-config` with EAGLE, MTP, draft models and n-gram.
 - [[gpu-cuda-setup]] - VRAM sizing and drivers.
 - [[serving-with-fastapi]] - application layer in front of the server.
 - [[cost-and-latency]] - when self-hosting pays off.

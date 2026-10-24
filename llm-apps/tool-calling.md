@@ -90,6 +90,7 @@ print(next(b.text for b in r.content if b.type == "text"))
 - Always cap iterations and log every call ([[guardrails-and-safety]]).
 
 ## Related
+- [[tool-calling-with-self-hosted-models]] - tool calls from vLLM, Ollama and llama.cpp (parsers, templates).
 - [[agents]] - the loop built on tool calling.
 - [[model-context-protocol]] - standard way to expose tools.
 - [[structured-output]] - strict schemas.

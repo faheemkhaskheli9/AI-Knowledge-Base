@@ -89,6 +89,7 @@ def answer(q: str, k=4, max_dist=0.8):
 - Evaluate on real user questions, including unanswerable ones.
 
 ## Related
+- [[rag-evaluation]] - retrieval metrics, faithfulness and Ragas for this pipeline.
 - [[chunking-strategies]] - fixed, recursive, semantic and late chunking, contextual retrieval, and how to evaluate them.
 - [[multimodal-rag]] - retrieval when answers live in tables, charts and page images.
 - [[advanced-rag]] - hybrid search, reranking, GraphRAG, contextual retrieval.
