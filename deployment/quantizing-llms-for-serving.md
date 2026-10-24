@@ -181,6 +181,7 @@ GPTQ and AWQ go beyond this round-to-nearest baseline by using calibration activ
 - [[gpu-cloud-options]] - what GPU generation you rent decides which schemes are fast.
 - [[multi-lora-adapter-serving]] - adapters on a quantized base model.
 - [[llama-cpp-gguf]] - the CPU and desktop alternative.
+- [[lm-evaluation-harness-and-lighteval]] - lm-eval backends, settings and pitfalls for before/after comparisons.
 
 ## References
 - vLLM FP8 W8A8 (llm-compressor recipe, hardware support, `add_bos_token` note): https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/fp8/

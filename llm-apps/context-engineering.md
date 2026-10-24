@@ -152,6 +152,7 @@ Compaction has its own beta header and request shape (on-demand vs at-a-threshol
 - [[a2a-protocol]] - delegating to a remote agent returns only its condensed result.
 - [[dspy-and-prompt-optimization]] - optimizing the instruction and demo part of the context automatically.
 - [[tool-calling]] - concise tool outputs are the cheapest context saving.
+- [[prompt-compression]] - token-level and sentence-level pruning of long context and tool outputs.
 
 ## References
 - Anthropic, Effective context engineering for AI agents (2025-09-29): https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents

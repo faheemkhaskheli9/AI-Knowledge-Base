@@ -94,6 +94,7 @@ Track cost per request from `usage` and log it per feature/tenant ([[llm-observa
 - [[model-selection]] - routing between models.
 - [[long-context]] - when to stuff vs retrieve.
 - [[batch-inference-and-batch-apis]] - batch API limits, formats and offline self-hosted jobs.
+- [[prompt-compression]] - shrinking the varying context that caching cannot help (LLMLingua, extractive pruning).
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/caching-strategies.md - application-level caching beyond provider prompt caches.
 
 ## References

@@ -82,6 +82,7 @@ library ([[ollama]]). For Transformers, `google/gemma-4-31B-it` loads with
 - [[quantization]] - fitting models into memory.
 - [[microsoft-phi]] - Phi-4 family, MIT licence and Foundry Local.
 - [[google-gemma]] - Gemma 4 sizes, variants and licence terms.
+- [[in-browser-llm-inference]] - running small models inside the browser.
 
 ## References
 - https://huggingface.co/google/gemma-4-31B-it
