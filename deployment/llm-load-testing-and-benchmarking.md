@@ -171,6 +171,7 @@ Generic HTTP load tools also work: Locust (Python user classes) and k6 (JavaScri
 - [[kubernetes-for-llm-serving]] - set autoscaling targets from the measured knee.
 - [[llm-observability]] - the same metrics on production traffic.
 - [[speculative-decoding-from-scratch-numpy]] - a decode-speed lever to verify with a benchmark.
+- [[inference-server-and-gpu-metrics]] - server-side queue, KV-cache and GPU metrics to read during a load test.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/testing/performance-and-load-testing.md - load testing practice in general.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/capacity-planning-and-autoscaling.md - turning per-replica capacity into fleet size.
 

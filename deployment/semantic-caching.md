@@ -176,6 +176,7 @@ Tune the threshold on a labelled set of real query pairs from logs ([[llm-observ
 - [[distance-metrics-and-similarity]] - cosine similarity vs distance.
 - [[llm-observability]], [[opentelemetry-genai-tracing]] - measuring hit rate and false hits.
 - [[ab-testing-and-canary-for-models]] - rolling out a cache or a new threshold safely.
+- [[permission-aware-rag-and-multi-tenancy]] - why cache keys need tenant and permission scope.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/caching-strategies.md - TTLs, invalidation and cache-aside in general.
 
 ## References

@@ -97,6 +97,7 @@ hits = q.query_points("docs", query=[0.1]*384, limit=5,
 - [[embeddings]] - concept background.
 - [[hnsw-from-scratch]] - the HNSW index most vector DBs use, built by hand.
 - [[embedding-model-migration-and-reindexing]] - changing the embedder on a live index: dual writes, backfill, alias cut-over.
+- [[permission-aware-rag-and-multi-tenancy]] - tenant layouts (collection, namespace, payload filter, RLS) and ACL pre-filtering.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/search-systems.md - search architecture in general.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/distributed-systems/partitioning-and-sharding.md - scaling an index past one node.
 

@@ -213,6 +213,7 @@ print("cold start during outage ->", cold.get("triage")["version"])
 - [[dspy-and-prompt-optimization]] - generating prompt versions automatically.
 - [[context-engineering]] - what goes into the prompt around the template.
 - [[model-registry-and-versioning]] - the same versioning ideas for model weights.
+- [[testing-llm-applications]] - prompt snapshot tests that catch unreviewed template edits.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/feature-flags.md - labels as runtime flags, rollout and kill switches.
 
 ## References

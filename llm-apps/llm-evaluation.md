@@ -105,6 +105,7 @@ Frameworks: Promptfoo, Inspect, DeepEval, Ragas, OpenAI Evals, LangSmith/Braintr
 - [[hallucination-and-grounding]] - groundedness checks.
 - [[user-feedback-and-human-review]] - turning production feedback and reviewed failures into eval cases.
 - [[lm-evaluation-harness-and-lighteval]] - running standard benchmarks on your own checkpoints and servers.
+- [[testing-llm-applications]] - offline unit tests with fake clients and recorded responses, the layer below evals.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/testing/testing-strategy-and-pyramid.md - where evals sit next to unit and integration tests.
 
 ## References

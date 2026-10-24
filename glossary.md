@@ -74,6 +74,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Calibration** - how well predicted probabilities match observed frequencies; a calibrated 0.8 is right about 80% of the time. [[probability-calibration]]
 - **Canary rollout** - send a small share of traffic to a new model or prompt and widen it only while its metrics stay healthy. [[ab-testing-and-canary-for-models]]
 - **Canny edge detector** - edge detection by smoothing, gradient computation, non-maximum suppression and hysteresis thresholding. [[canny-edge-detector-from-scratch]]
+- **Cassette (VCR testing)** - a file of recorded HTTP request/response pairs that vcrpy or pytest-recording replays so tests of LLM API code run offline. [[testing-llm-applications]]
 - **Catastrophic forgetting** - a network losing earlier skills when trained further on new data or tasks. [[continual-learning]]
 - **Categorical encoding** - turning categories into numbers: one-hot, ordinal, target, hashing or learned embeddings. [[categorical-encoding]]
 - **Causal inference** - estimating the effect of an intervention rather than a correlation, using experiments or assumptions about confounders. [[causal-inference-and-uplift]]
@@ -121,6 +122,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Data leakage** - information that would not be available at prediction time reaching training or validation, which inflates measured performance. [[data-leakage-and-validation-splits]]
 - **DataLoader** - the PyTorch component that batches, shuffles and loads samples in parallel worker processes. [[data-loading-pipelines]]
 - **DBSCAN** - density-based clustering that grows clusters from core points with enough neighbours and labels sparse points as noise. [[clustering]]
+- **DCGM exporter** - NVIDIA's Prometheus exporter for GPU metrics (memory, utilization, profiling counters, temperature, XID errors), served on port 9400. [[inference-server-and-gpu-metrics]]
 - **DDP (distributed data parallel)** - each GPU holds a full model copy, processes part of the batch and averages gradients with the others. [[distributed-training]]
 - **DDPM** - denoising diffusion probabilistic model: learns to predict the noise added at each step of a fixed noising process. [[ddpm-diffusion-from-scratch-numpy]]
 - **Debugging training** - systematic checks (overfit one batch, inspect loss and gradients, data sanity) when a network will not learn. [[debugging-neural-network-training]]
@@ -178,6 +180,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **F1 score** - the harmonic mean of precision and recall. [[model-evaluation-and-metrics]]
 - **Face recognition** - identifying or verifying a person by comparing an embedding of their face against stored embeddings. [[face-and-pose]]
 - **Faithfulness (RAG)** - share of an answer's claims supported by the retrieved context; measures hallucination independently of whether the answer is correct. [[rag-evaluation]]
+- **Fake LLM client** - a test double implementing your model-call interface with scripted replies and recorded requests, used to unit-test the code around an LLM. [[testing-llm-applications]]
 - **FastAPI** - a Python web framework commonly used to wrap a model or LLM call in an async HTTP API. [[serving-with-fastapi]]
 - **FastICA** - independent component analysis that separates mixed signals by maximizing the non-Gaussianity of the recovered sources. [[fastica-from-scratch]]
 - **Feature engineering** - building informative input features from raw data, guided by domain knowledge. [[feature-engineering]]
@@ -363,6 +366,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Model routing** - sending each request to the cheapest or best-suited model, by rules or a classifier. [[llm-gateways-and-routing]]
 - **Model selection** - choosing which model to use for a task by quality, cost, latency, privacy and licence. [[model-selection]]
 - **Multi-agent system** - several LLM agents with separate roles or contexts that coordinate on a task. [[multi-agent-systems]]
+- **Multi-tenancy (RAG)** - serving several customers from one retrieval system with isolation by database, collection, namespace or an enforced tenant filter. [[permission-aware-rag-and-multi-tenancy]]
 - **Multiclass strategy** - how a classifier handles more than two classes: native softmax, one-vs-rest or one-vs-one. [[multiclass-classification-strategies]]
 - **Multi-head attention** - running several attention operations in parallel on different learned projections and concatenating the results. [[self-attention-from-scratch-numpy]]
 - **Multi-label classification** - each example can have several labels at once, predicted with independent per-label outputs. [[multi-label-and-multi-task-learning]]
@@ -413,6 +417,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **PCA (principal component analysis)** - projecting data onto the orthogonal directions of greatest variance. [[dimensionality-reduction]]
 - **PEFT** - parameter-efficient fine-tuning: training a small set of added or selected parameters (LoRA, adapters) instead of the whole model. [[fine-tuning-and-peft]]
 - **Perceptron** - a single linear threshold unit; it can only separate linearly separable classes. [[perceptron-and-linear-separability]]
+- **Permission-aware retrieval** - vector or hybrid search that filters chunks by the requesting user's tenant and document ACLs before they reach the prompt. [[permission-aware-rag-and-multi-tenancy]]
 - **Perplexity** - the exponential of a language model's average per-token cross-entropy; lower means better next-token prediction. [[information-theory-for-ml]]
 - **Phase vocoder** - an STFT-based method that changes audio duration or pitch independently by adjusting phases. [[phase-vocoder-time-stretch-from-scratch]]
 - **Phi** - Microsoft's family of small language models. [[microsoft-phi]]
@@ -425,7 +430,9 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Pose estimation** - locating body keypoints (joints) of people in images or video. [[face-and-pose]]
 - **Positional encoding** - how a transformer gets token order: sinusoidal, learned, RoPE or ALiBi. [[positional-encodings]]
 - **PPO** - proximal policy optimization: policy-gradient RL with a clipped objective that keeps each update close to the previous policy. [[ppo-from-scratch]]
+- **Pre-filtering (vector search)** - applying a metadata filter inside the ANN search so top-k are the best matching allowed items, unlike post-filtering the global top-k. [[permission-aware-rag-and-multi-tenancy]]
 - **Precision and recall** - precision is the share of predicted positives that are correct; recall is the share of actual positives found. [[model-evaluation-and-metrics]]
+- **Preemption (vLLM)** - evicting a running sequence when KV-cache blocks run out and recomputing it later; a sustained rate means the cache is too small for the load. [[inference-server-and-gpu-metrics]]
 - **Prefill and decode** - the two phases of LLM inference: processing the whole prompt in parallel, then generating one token at a time. [[kv-cache-from-scratch-numpy]]
 - **Pretraining** - the initial large-scale self-supervised training of a model, such as next-token prediction over web text. [[pretraining-and-scaling-laws]]
 - **Product quantization** - compressing vectors by splitting them into sub-vectors and replacing each with the id of its nearest codebook centroid. [[product-quantization-from-scratch]]
@@ -477,6 +484,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **ROCm** - AMD's open GPU compute stack (driver, runtime, math libraries) that PyTorch, vLLM, llama.cpp and Ollama use on AMD GPUs. [[amd-rocm-setup]]
 - **RoPE (rotary position embedding)** - encodes position by rotating query and key vectors by position-dependent angles, so attention depends on relative distance. [[rope-rotary-embeddings-from-scratch-numpy]]
 - **ROUGE** - a summarization metric based on n-gram or longest-common-subsequence overlap with reference summaries, recall-oriented. [[bleu-and-rouge-from-scratch]]
+- **Row-level security (RLS)** - a Postgres feature that adds a policy predicate, such as a tenant check, to every query on a table. [[permission-aware-rag-and-multi-tenancy]]
 
 ## S
 
@@ -604,6 +612,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 
 - **Xavier (Glorot) initialization** - weight initialization scaled by fan-in and fan-out to keep activation variance stable for tanh/sigmoid layers. [[weight-initialization]]
 - **XGBoost / LightGBM / CatBoost** - widely used gradient-boosted tree libraries for tabular data. [[gradient-boosting-tabular]]
+- **XID error** - an NVIDIA driver error event reported with a numeric code; some codes indicate a GPU fault that needs the node drained. [[inference-server-and-gpu-metrics]]
 - **XPU (PyTorch)** - PyTorch's device name for Intel GPUs: code moves tensors with `.to("xpu")` where it would use `"cuda"`. [[intel-gpu-and-openvino-setup]]
 
 ## Y

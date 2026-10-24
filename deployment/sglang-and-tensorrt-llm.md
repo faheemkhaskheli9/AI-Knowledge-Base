@@ -140,6 +140,7 @@ In this workload the shared system prompt and re-sent history make up most of th
 - [[speculative-decoding-from-scratch-numpy]] - a latency feature all three ship.
 - [[quantization]] - FP8/FP4/INT4 formats these servers load.
 - [[gpu-cloud-options]] - where to get the GPUs.
+- [[inference-server-and-gpu-metrics]] - SGLang `--enable-metrics` gauges and histograms in Prometheus.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/load-balancing.md - routing across replicas (prefix-aware routing extends this).
 
 ## References

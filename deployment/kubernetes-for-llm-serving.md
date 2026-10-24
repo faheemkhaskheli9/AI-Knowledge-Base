@@ -144,6 +144,7 @@ With a 120 s cold start the queue grows for two minutes before help arrives. Kee
 - [[mlops-lifecycle]] - rollout and model versioning.
 - [[model-weight-loading-and-cold-starts]] - shared model caches, streaming loaders and startup probes.
 - [[ray-serve-bentoml-and-litserve]] - Ray Serve (on KubeRay), BentoML and LitServe compared.
+- [[inference-server-and-gpu-metrics]] - the server and DCGM GPU metrics behind autoscaling and alerts.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/kubernetes-basics.md - Kubernetes objects and probes.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/capacity-planning-and-autoscaling.md - autoscaling theory and headroom.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/deployment-strategies.md - canary and blue-green rollouts of a new model.
