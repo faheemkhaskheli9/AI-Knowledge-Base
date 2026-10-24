@@ -98,6 +98,7 @@ Merge for deployment: load the base in 16-bit, `PeftModel.from_pretrained(...)`,
 - [[hosted-fine-tuning-apis]] - provider-hosted SFT, DPO and RFT instead of your own GPUs.
 - [[multi-lora-adapter-serving]] - serving many adapters on one base model in production.
 - [[embedding-fine-tuning]] - fine-tuning embedding models for retrieval instead of the generator.
+- [[lm-evaluation-harness-and-lighteval]] - checking a fine-tuned model did not lose general ability.
 
 ## References
 - PEFT docs: https://huggingface.co/docs/peft

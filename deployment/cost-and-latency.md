@@ -87,6 +87,7 @@ Levers, roughly in order of effort:
 - [[quantization]] - cheaper self-hosting.
 - [[batch-inference-and-batch-apis]] - discounted async processing for non-urgent jobs.
 - [[low-budget-ai]] - cheapest viable stack, free tiers and local models.
+- [[prompt-compression]] - fewer input tokens per call by pruning retrieved context.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/caching-strategies.md - response and semantic caching patterns.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/back-of-envelope-estimation.md - estimating load, tokens and cost up front.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/capacity-planning-and-autoscaling.md - capacity for self-hosted serving.

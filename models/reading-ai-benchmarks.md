@@ -148,6 +148,7 @@ Pull toward your own eval as stakes rise or as the task gets unusual.
 - [[llm-evaluation]] - how to build and run your own eval set.
 - [[elo-and-bradley-terry-leaderboard-from-scratch]] - how pairwise votes become a ranking.
 - [[agent-evaluation]] - SWE-bench, tau-bench and other agent benchmarks in depth.
+- [[lm-evaluation-harness-and-lighteval]] - reproducing benchmark numbers on your own hardware.
 
 ## References
 - MMLU: https://arxiv.org/abs/2009.03300 ; MMLU-Pro: https://arxiv.org/abs/2406.01574
