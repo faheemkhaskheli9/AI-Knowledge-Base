@@ -90,6 +90,7 @@ print(len(v.data[0].embedding))
 - [[image-retrieval-clip-search]] - CLIP/SigLIP image search and near-duplicate detection.
 - [[rerankers]] - second-stage ranking.
 - [[embedding-and-reranker-serving]] - self-hosting embedders and rerankers (TEI, vLLM), batching and caching.
+- [[embedding-fine-tuning]] - adapting an open embedder to your domain with in-batch negatives and hard negatives.
 - [[model-licenses]] - open model licenses.
 
 ## References

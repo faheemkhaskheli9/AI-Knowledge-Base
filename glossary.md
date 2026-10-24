@@ -177,6 +177,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Flow matching** - training a generator to predict the velocity that moves noise toward data along a simple (often straight) path, then sampling by integrating an ODE; rectified flow straightens the paths for few-step sampling. [[flow-matching-and-rectified-flow]]
 - **Focal loss** - a cross-entropy variant that down-weights easy examples so training focuses on hard, often rare, ones. [[focal-loss-from-scratch-numpy]]
 - **Foundation model** - a large model pretrained on broad data and adapted to many downstream tasks by prompting or fine-tuning. [[pretraining-and-scaling-laws]]
+- **FP8** - 8-bit floating-point formats (E4M3, E5M2) used for weights, activations or the KV cache on GPUs with FP8 tensor cores, roughly halving memory against BF16. [[quantizing-llms-for-serving]]
 - **FSDP (fully sharded data parallel)** - data parallelism that shards parameters, gradients and optimizer state across GPUs to fit larger models. [[distributed-training]]
 - **FT-Transformer** - a transformer for tables that embeds each feature as a token; one of the deep-learning alternatives to gradient boosting on tabular data. [[deep-learning-for-tabular-data]]
 
@@ -221,6 +222,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 ## H
 
 - **Hallucination** - a fluent model output that is false or unsupported by its input or sources. [[hallucination-and-grounding]]
+- **Hard negative** - a non-relevant item that a retriever ranks highly; adding these to contrastive training teaches finer distinctions than random negatives. [[embedding-fine-tuning]]
 - **Harris corner detector** - finds corners where image intensity changes strongly in two directions, using the structure tensor. [[harris-corner-detector-from-scratch]]
 - **He (Kaiming) initialization** - weight initialization scaled for ReLU layers so activation variance stays stable with depth. [[weight-initialization]]
 - **Hidden Markov model (HMM)** - a sequence model with hidden discrete states that emit observations and switch by transition probabilities. [[hidden-markov-models-and-kalman-filters]]
@@ -312,6 +314,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **mAP (mean average precision)** - the standard object-detection metric: average precision per class across recall levels, averaged over classes. [[nms-iou-and-map-from-scratch]]
 - **Map-reduce summarization** - summarizing chunks of a long document independently, then summarizing the summaries, recursively if they still do not fit. [[long-document-summarization]]
 - **Matrix factorization** - representing a user-item matrix as the product of low-rank user and item factor matrices; a classic recommender method. [[matrix-factorization-from-scratch]]
+- **Matryoshka embeddings** - embeddings trained so that their leading dimensions also work as a smaller embedding, allowing truncation for a cheaper index. [[embedding-fine-tuning]]
 - **Maximum likelihood estimation** - choosing parameters that make the observed data most probable. [[maximum-likelihood-and-map-estimation]]
 - **MCMC** - Markov chain Monte Carlo: sampling from a distribution by running a Markov chain whose stationary distribution is that target. [[metropolis-hastings-mcmc-from-scratch]]
 - **MCP (Model Context Protocol)** - an open protocol through which apps expose tools, resources and prompts to LLM clients via servers. [[model-context-protocol]]
@@ -338,8 +341,10 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Multiclass strategy** - how a classifier handles more than two classes: native softmax, one-vs-rest or one-vs-one. [[multiclass-classification-strategies]]
 - **Multi-head attention** - running several attention operations in parallel on different learned projections and concatenating the results. [[self-attention-from-scratch-numpy]]
 - **Multi-label classification** - each example can have several labels at once, predicted with independent per-label outputs. [[multi-label-and-multi-task-learning]]
+- **Multi-LoRA serving** - serving many LoRA adapters on one shared copy of a base model, batching requests for different adapters together. [[multi-lora-adapter-serving]]
 - **Multimodal model** - a model that takes or produces more than one modality, such as text, images and audio. [[multimodal-models]]
 - **Multimodal RAG** - retrieval over page images, tables and charts as well as text, often embedding page screenshots directly. [[multimodal-rag]]
+- **Multiple negatives ranking loss (MNRL)** - a contrastive loss for retrieval training where each query's positive is scored against the other positives in the batch as negatives. [[embedding-fine-tuning]]
 - **Multi-token prediction** - training a model to predict several future tokens at once, for a richer signal and faster speculative decoding. [[multi-token-prediction]]
 - **Muon** - an optimizer that orthogonalizes momentum updates for matrix parameters with Newton-Schulz iterations. [[muon-optimizer-from-scratch-numpy]]
 - **Music generation** - models that generate music or sound effects from text or audio prompts. [[music-and-audio-generation-models]]
@@ -538,6 +543,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 
 ## W
 
+- **W4A16 (weight-only quantization)** - 4-bit weights dequantized to 16-bit for the matmul, with activations kept in 16-bit; saves memory mostly in memory-bound decoding. [[quantizing-llms-for-serving]]
 - **Wake word** - a short keyword (such as a device name) detected on-device to start listening. [[wake-word-detection]]
 - **Watermarking (AI content)** - embedding a hidden, detectable signal in generated text, images or audio to mark it as AI-made. [[ai-watermarking-and-content-provenance]]
 - **Weight decay** - shrinking weights toward zero at each step (an L2-style penalty) to regularize. [[regularization-in-deep-learning]]

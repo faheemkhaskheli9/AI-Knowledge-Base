@@ -78,6 +78,7 @@ GGUF route (llama.cpp): download a prebuilt `*-Q4_K_M.gguf` or convert with the 
 - [[llama-cpp-gguf]] - practical GGUF workflow.
 - [[ollama]] - one-command local serving of quantized models.
 - [[inference-servers-vllm]] - GPU serving formats.
+- [[quantizing-llms-for-serving]] - producing and validating FP8/INT8/W4A16 checkpoints for vLLM.
 - [[edge-on-device]] - on-device constraints.
 - [[small-language-models]] - alternative to quantizing a big one.
 

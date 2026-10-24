@@ -96,6 +96,8 @@ Merge for deployment: load the base in 16-bit, `PeftModel.from_pretrained(...)`,
 - [[post-training-datasets-and-chat-templates]] - dataset formats, chat templates, assistant-only loss and dedup.
 - [[huggingface-transformers]] - environment setup.
 - [[hosted-fine-tuning-apis]] - provider-hosted SFT, DPO and RFT instead of your own GPUs.
+- [[multi-lora-adapter-serving]] - serving many adapters on one base model in production.
+- [[embedding-fine-tuning]] - fine-tuning embedding models for retrieval instead of the generator.
 
 ## References
 - PEFT docs: https://huggingface.co/docs/peft
