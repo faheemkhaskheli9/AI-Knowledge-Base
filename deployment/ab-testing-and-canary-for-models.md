@@ -143,6 +143,7 @@ Argo Rollouts generalises this for any Deployment: a `canary` strategy with `ste
 - [[inference-servers-vllm]], [[serving-with-fastapi]] - the serving layer being rolled out.
 - [[online-learning-and-concept-drift]] - why a model that won last quarter may lose now.
 - [[semantic-caching]], [[feature-stores]] - versioned caches and features that both arms must respect.
+- [[user-feedback-and-human-review]] - feedback signals, response bias and intervals for comparing variants.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/deployment-strategies.md - blue-green, canary and shadow in general.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/feature-flags.md - flags for application-level splits and kill switches.
 

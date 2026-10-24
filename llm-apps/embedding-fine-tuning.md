@@ -178,6 +178,7 @@ assert evaluate(W, q_ev, y_ev)["recall@1"] > base["recall@1"]
 - [[data-labeling-and-synthetic-data]] - generating and checking query-passage pairs.
 - [[metric-learning-and-few-shot]] - the same idea for non-text embeddings.
 - [[late-interaction-retrieval]] - multi-vector retrieval as another fix for missed matches.
+- [[embedding-model-migration-and-reindexing]] - re-embedding the corpus and cutting over to the tuned model.
 
 ## References
 - Sentence Transformers training overview (trainer, datasets, evaluators): https://sbert.net/docs/sentence_transformer/training_overview.html
