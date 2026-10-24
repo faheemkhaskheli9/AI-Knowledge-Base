@@ -54,7 +54,7 @@ Options as of 2026-10 (verify licence and status on the linked page before use):
 | Wan 2.2 (T2V-A14B, I2V-A14B, TI2V-5B, Animate-14B) | open weights (Alibaba) | reported as Apache 2.0; TI2V-5B targets 720p at 24 fps on a single consumer GPU such as an RTX 4090 (model card). Later Wan versions (2.5, 2.6) were API-only; open status of newer ones is unclear |
 | HunyuanVideo 1.5 (Tencent) | open weights | about 8.3B parameters; Tencent Hunyuan Community License, which excludes the EU, UK and South Korea - read it before commercial use |
 | LTX-2 family (Lightricks) | open weights | joint audio+video DiT; LTX-2 Community License (free commercial use with conditions; check revenue terms); distilled and fp8/fp4 checkpoints |
-| Veo 3.1 / Fast / Lite (`veo-3.1-generate-preview`, `veo-3.1-fast-generate-preview`, `veo-3.1-lite-generate-preview`) | Gemini API, preview | shutdown 2026-10-22, replacement `gemini-omni-1.1-flash` (Gemini deprecations page) <!-- valid-until: 2026-10-22 --> |
+| Veo 3.1 / Fast / Lite (`veo-3.1-generate-preview`, `veo-3.1-fast-generate-preview`, `veo-3.1-lite-generate-preview`) | Gemini API (retired) | shut down on 2026-10-22; use `gemini-omni-1.1-flash` (Gemini deprecations page) |
 | Gemini Omni 1.1 Flash (`gemini-omni-1.1-flash`) | Gemini API | Google's current video generation line; see [[google-gemini]] and the video docs for call shape |
 | Sora 2 / Sora 2 Pro (OpenAI) | retired | OpenAI's deprecations page lists the Videos API and Sora models removed on 2026-09-24 with no replacement listed; do not start new work on it |
 

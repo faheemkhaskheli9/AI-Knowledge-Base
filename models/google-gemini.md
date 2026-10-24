@@ -41,7 +41,7 @@ Current IDs as of 2026-10 (source: models + pricing pages):
 | Gemini 3.1 Pro | `gemini-3.1-pro-preview` | preview | 2.00 / 12.00 (<=200k ctx) |
 | Nano Banana 2 (image) | `gemini-3.1-flash-image` | - | see pricing |
 | Gemini Embedding 2 | (see docs) | - | text 0.20 |
-| Veo 3.1 / Veo 3.1 Lite | `veo-3.1-generate-preview`, `veo-3.1-fast-generate-preview`, `veo-3.1-lite-generate-preview` | preview; shut down 2026-10-22, replacement `gemini-omni-1.1-flash` (deprecations page) <!-- valid-until: 2026-10-22 --> | see pricing |
+| Veo 3.1 / Veo 3.1 Lite | `veo-3.1-generate-preview`, `veo-3.1-fast-generate-preview`, `veo-3.1-lite-generate-preview` | shut down on 2026-10-22; use `gemini-omni-1.1-flash` (deprecations page) | - |
 
 The docs state prices rise on 2027-01-01 and that earlier Flash versions are
 deprecated. I did not verify context-window sizes.
