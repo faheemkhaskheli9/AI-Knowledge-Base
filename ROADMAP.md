@@ -41,8 +41,8 @@ holds the detail and any leftover acceptance criteria.
    (LLM gateways and rate limits, batch inference, caching). Tracker #98,
    one `topic:*` issue per topic, plus #6, #7 and #10 (A2A, context
    engineering, agent skills).
-   Done: tracker #98 and #6, #7, #10 closed (models 26, setup 15,
-   deployment 31 topics as of 2026-10-24).
+   Done: tracker #98 and #6, #7, #10 closed (models 27, setup 18,
+   deployment 33 topics as of 2026-10-24).
 6. [x] **Scenario links.** Each `scenarios/` file links the from-scratch and
    overview topics it relies on; check every overview topic is reachable from
    at least one scenario. Done: `build_index.py` warns on overview topics no

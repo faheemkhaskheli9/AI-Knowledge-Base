@@ -127,6 +127,8 @@ Common errors and fixes (wording varies by version; confirm with the troubleshoo
 - [[lm-studio-and-jan]] - simpler desktop route for single users.
 - [[ollama]] - CPU/Apple-friendly local server.
 - [[serving-with-fastapi]] - the app layer in front of vLLM.
+- [[open-webui]] - a chat UI for users in front of the vLLM server.
+- [[model-weight-loading-and-cold-starts]] - faster start-up: offline cache, streamed weights, sleep mode.
 
 ## References
 - vLLM quickstart: https://docs.vllm.ai/en/latest/getting_started/quickstart/

@@ -85,6 +85,7 @@ These are estimates; measure with `torch.cuda.max_memory_allocated()`.
 - [[gpu-cloud-options]] - renting GPUs instead.
 - [[windows-wsl-setup]] - GPU in WSL2.
 - [[docker-for-ml]] - GPU containers with the NVIDIA Container Toolkit.
+- [[intel-gpu-and-openvino-setup]] - Intel GPUs and NPUs.
 
 ## References
 - PyTorch install selector: https://pytorch.org/get-started/locally/

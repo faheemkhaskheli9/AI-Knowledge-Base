@@ -155,6 +155,7 @@ for t in ["gfx942", "gfx1100", "gfx1031", "gfx906"]:
 - [[python-env-uv]] - uv, Python versions and extra index handling.
 - [[gpu-cloud-options]] - renting AMD Instinct instead of buying.
 - [[disaggregated-prefill-and-kv-cache-offloading]] - vLLM KV connectors, including the ROCm-only MoRIIOConnector.
+- [[intel-gpu-and-openvino-setup]] - the Intel GPU/NPU equivalent.
 
 ## References
 - ROCm installation on Linux (AMD): https://rocm.docs.amd.com/projects/install-on-linux/en/latest/

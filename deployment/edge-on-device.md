@@ -80,6 +80,7 @@ Validate after every conversion: compare outputs to the original on a test set (
 - [[object-detection]], [[image-classification]] - typical edge workloads.
 - [[gpu-cuda-setup]] - NVIDIA basics.
 - [[onnx-and-triton-inference-server]] - serving the same ONNX models server-side with dynamic batching.
+- [[intel-gpu-and-openvino-setup]] - OpenVINO on Intel laptop GPUs and NPUs.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/deployment-strategies.md - staged rollouts of new models to devices.
 
 ## References
