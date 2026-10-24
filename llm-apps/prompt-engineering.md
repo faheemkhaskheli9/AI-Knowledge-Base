@@ -87,6 +87,7 @@ OpenAI equivalent: `client.chat.completions.create(model=..., messages=[{"role":
 - [[context-engineering]] - managing the whole context window across an agent's turns.
 - [[long-document-summarization]] - summarizing documents longer than one prompt.
 - [[dspy-and-prompt-optimization]] - optimize prompts and few-shot demos automatically against a metric.
+- [[prompt-management-and-versioning]] - versions, labels and eval-gated rollout of prompts in production.
 
 ## References
 - Anthropic prompt engineering overview: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview

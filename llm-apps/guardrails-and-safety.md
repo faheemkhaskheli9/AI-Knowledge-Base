@@ -92,6 +92,7 @@ Approval gate for risky tools: return a pending action to a human UI and only ex
 - [[tool-calling]] - validate and authorize arguments.
 - [[hallucination-and-grounding]] - factuality controls.
 - [[ai-security-privacy-compliance]] - data protection and compliance.
+- [[pii-redaction-and-pseudonymization]] - the PII input and output check in detail (Presidio, placeholders, recall).
 - [[ai-watermarking-and-content-provenance]] - marking generated content (C2PA, SynthID) and the limits of AI detectors.
 - [[llm-evaluation]] - red-team and safety test sets.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/security/threat-modeling.md - deciding which controls the system needs.
