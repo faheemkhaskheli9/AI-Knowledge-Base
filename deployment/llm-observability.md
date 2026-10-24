@@ -91,6 +91,7 @@ def log_call(model, in_tok, out_tok, latency_s, ok, request_id=None):
 - [[prompt-management-and-versioning]] - logging the prompt version on every trace.
 - [[pii-redaction-and-pseudonymization]] - redacting PII before prompts reach logs and traces.
 - [[user-feedback-and-human-review]] - attaching user feedback to traces and routing them to human review.
+- [[inference-server-and-gpu-metrics]] - Prometheus metrics from vLLM/SGLang and DCGM for the serving layer under the traces.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/observability-logs-metrics-traces.md - logs, metrics and traces in general.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/slis-slos-error-budgets.md - setting latency and quality targets.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/incident-response-and-postmortems.md - what to do when a model regresses in production.

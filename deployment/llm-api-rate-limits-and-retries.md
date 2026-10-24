@@ -208,6 +208,7 @@ print("total attempts without jitter:", simulate(jitter=False), "| with full jit
 - [[cost-and-latency]] - when limits are really a capacity or budget problem.
 - [[llm-observability]] - logging status codes, rate-limit headers and request IDs.
 - [[llm-load-testing-and-benchmarking]] - finding a self-hosted server's real limits.
+- [[testing-llm-applications]] - scripting 429s, 5xx and timeouts in a fake client to test retry and fallback code.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/resilience-patterns.md - retries, backoff, circuit breakers and retry budgets in general.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/rate-limiting.md - token bucket and other rate-limiting algorithms on the server side.
 

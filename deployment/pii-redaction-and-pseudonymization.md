@@ -200,6 +200,7 @@ print(f"recall {tp / (tp + fn):.2f}, precision {tp / (tp + fp):.2f}, missed {mis
 - [[ai-regulation-checklist]] - legal obligations that decide how much redaction is required.
 - [[agent-memory]] - personal data stored in long-term memory needs the same treatment.
 - [[nlp-classic-tasks]] - training and evaluating NER models for custom entity types.
+- [[permission-aware-rag-and-multi-tenancy]] - access control on retrieved documents, the complement to redaction.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/security/privacy-and-pii-handling.md - PII classification, retention and deletion in general systems.
 
 ## References

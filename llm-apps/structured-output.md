@@ -93,6 +93,7 @@ t = res.choices[0].message.parsed
 - [[document-parsing]] - upstream step that turns PDFs into text for extraction.
 - [[text-to-sql]] - structured output for query generation.
 - [[grammar-constrained-decoding-from-scratch]] - how constrained decoding guarantees valid output: DFA token masks built by hand.
+- [[testing-llm-applications]] - unit-testing parsing, repair retries and schema contracts with a fake LLM.
 
 ## References
 - https://platform.claude.com/docs/en/build-with-claude/structured-outputs

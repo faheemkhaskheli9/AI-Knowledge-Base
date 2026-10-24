@@ -98,6 +98,7 @@ def answer(q: str, k=4, max_dist=0.8):
 - [[document-parsing]] - upstream text quality.
 - [[llm-evaluation]] - measuring retrieval and faithfulness.
 - [[agent-memory]] - RAG as long-term memory.
+- [[permission-aware-rag-and-multi-tenancy]] - filtering retrieval by tenant and document ACLs so users only see chunks they may read.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/search-systems.md - keyword search and ranking infrastructure.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/data/batch-and-stream-processing.md - keeping the index in sync with source data.
 
