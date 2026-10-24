@@ -157,6 +157,7 @@ Without batching the GPU (about 240 single requests/s here) cannot keep up with 
 - [[batch-inference-and-batch-apis]] - offline scoring instead of online serving.
 - [[quantization]] - fp16/INT8 for faster inference.
 - [[image-classification]], [[object-detection]], [[embedding-models]] - typical models served this way.
+- [[ray-serve-bentoml-and-litserve]] - Python-first serving frameworks as an alternative or a pre/post-processing layer.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/load-balancing.md - spreading requests over Triton replicas.
 
 ## References

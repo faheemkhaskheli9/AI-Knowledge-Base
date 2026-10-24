@@ -92,6 +92,7 @@ print(len(v.data[0].embedding))
 - [[embedding-and-reranker-serving]] - self-hosting embedders and rerankers (TEI, vLLM), batching and caching.
 - [[embedding-fine-tuning]] - adapting an open embedder to your domain with in-batch negatives and hard negatives.
 - [[model-licenses]] - open model licenses.
+- [[embedding-model-migration-and-reindexing]] - moving an existing index to the model you chose.
 
 ## References
 - https://developers.openai.com/api/docs/guides/embeddings

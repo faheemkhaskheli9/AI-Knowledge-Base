@@ -152,6 +152,8 @@ print("top-10 overlap float32 vs int8:", len(set(top_f) & set(top_q)) / 10)
 - [[batch-inference-and-batch-apis]] - running corpus backfills as offline jobs.
 - [[llm-load-testing-and-benchmarking]] - measuring latency and throughput of the service.
 - [[docker-for-ml]] - GPU containers and model-cache volumes.
+- [[ray-serve-bentoml-and-litserve]] - general model-serving frameworks with server-side batching for encoders.
+- [[embedding-model-migration-and-reindexing]] - the zero-downtime procedure for a full re-embed.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/caching-strategies.md - cache keys, invalidation and hit rates.
 
 ## References

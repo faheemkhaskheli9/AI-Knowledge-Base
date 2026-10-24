@@ -255,6 +255,7 @@ LangSmith / Braintrust / Langfuse datasets with experiment comparison.
 - [[prompt-engineering]] - what the loop iterates on.
 - [[llm-observability]] - sampling production traffic into the golden set.
 - [[workflows-vs-agents]] - per-step evals are easier for fixed workflows.
+- [[user-feedback-and-human-review]] - collecting the human labels a judge is calibrated against.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/testing/snapshot-and-golden-testing.md - golden-file testing, the deterministic cousin of golden eval sets.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/ci-cd-pipelines.md - where the eval gate sits in the pipeline.
 
