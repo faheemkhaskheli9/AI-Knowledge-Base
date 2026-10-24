@@ -85,6 +85,7 @@ OpenAI equivalent: `client.chat.completions.create(model=..., messages=[{"role":
 - [[reasoning-models]] - when to rely on built-in thinking.
 - [[hallucination-and-grounding]] - grounding instructions.
 - [[context-engineering]] - managing the whole context window across an agent's turns.
+- [[long-document-summarization]] - summarizing documents longer than one prompt.
 - [[dspy-and-prompt-optimization]] - optimize prompts and few-shot demos automatically against a metric.
 
 ## References

@@ -41,9 +41,11 @@ KB files to read in full next.
 | I want to ... | Recommended approach | Read |
 |---|---|---|
 | Generate or rewrite text (emails, copy, summaries) | Prompted LLM, few-shot examples, evals on a rubric | [[prompt-engineering]], [[model-selection]], [[marketing-content]] |
+| Summarize a document longer than the context window, or thousands of tickets into a digest | One long-context call if it fits; map-reduce with section citations otherwise, checked for unsupported claims | [[long-document-summarization]], [[long-context]], [[chunking-strategies]] |
 | Extract fields from text or documents | LLM with schema-constrained output; OCR/parsing first if scanned | [[structured-output]], [[document-parsing]], [[ocr]], [[document-processing]] |
 | Classify text (intent, sentiment, routing, spam) | Few-shot LLM to start; embeddings + logistic regression or a small fine-tuned model at volume | [[nlp-classic-tasks]], [[embeddings]], [[classic-ml-scikit-learn]], [[small-language-models]] |
 | Answer questions over my documents | RAG: parse, chunk, embed, retrieve, rerank, cite | [[rag-basics]], [[advanced-rag]], [[vector-databases]], [[embedding-models]], [[rerankers]] |
+| Self-host embeddings and a reranker for private or high-volume search | TEI or vLLM pooling server, token-budget batching, vector cache keyed by model revision | [[embedding-and-reranker-serving]], [[embedding-models]], [[rerankers]] |
 | Answer questions over my database | Text-to-SQL with a read-only role and schema context | [[text-to-sql]], [[data-analytics]] |
 | Automate a multi-step workflow / act on systems | Tool-calling agent, human approval for side effects | [[agents]], [[tool-calling]], [[model-context-protocol]], [[agent-frameworks]], [[guardrails-and-safety]] |
 | Write or fix code | Coding agent with tests as the feedback loop | [[coding-agents]], [[software-engineering]] |
@@ -100,6 +102,7 @@ KB files to read in full next.
 | Package a team procedure an agent loads on demand | Agent skill (SKILL.md) with progressive disclosure | [[agent-skills]], [[coding-agents]], [[model-context-protocol]] |
 | Let agents from different vendors or frameworks hand tasks to each other | A2A protocol between agents; MCP for agent-to-tool | [[a2a-protocol]], [[multi-agent-systems]], [[model-context-protocol]] |
 | Stream answers to a UI or run many LLM calls concurrently | SSE streaming and async clients with bounded concurrency | [[streaming-and-async-llm-apps]], [[serving-with-fastapi]] |
+| Find how much traffic a model server handles within a latency SLO | Open-loop rate sweep measuring TTFT, TPOT and goodput on your prompt lengths | [[llm-load-testing-and-benchmarking]], [[inference-servers-vllm]], [[cost-and-latency]] |
 | Pick a chunk size and strategy for a RAG index | Recursive chunks as baseline; semantic, late or contextual chunking when evals show gains | [[chunking-strategies]], [[rag-basics]], [[recursive-text-splitter-from-scratch]] |
 | Answer corpus-wide questions ("main themes across all reports") | GraphRAG / knowledge-graph retrieval | [[graphrag-and-knowledge-graphs]], [[advanced-rag]] |
 | Answer over charts, tables and page images | Multimodal RAG on page images or parsed tables | [[multimodal-rag]], [[document-layout-and-table-extraction]], [[vision-language-models]] |
@@ -152,7 +155,8 @@ KB files to read in full next.
 - **Which serving stack.** [[inference-servers-vllm]] by default; compare
   [[sglang-and-tensorrt-llm]] for throughput, [[onnx-and-triton-inference-server]]
   for non-LLM models, [[kubernetes-for-llm-serving]] on a cluster. Local
-  install: [[vllm-local-setup]], [[docker-for-ml]].
+  install: [[vllm-local-setup]], [[docker-for-ml]]. Size replicas and compare
+  stacks with a load test: [[llm-load-testing-and-benchmarking]].
 - **Shipping a model or prompt change.** Version it in a registry
   ([[model-registry-and-versioning]]), roll out with shadow or canary traffic
   ([[ab-testing-and-canary-for-models]]), trace it with

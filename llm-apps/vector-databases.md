@@ -92,6 +92,7 @@ hits = q.query_points("docs", query=[0.1]*384, limit=5,
 - [[rag-basics]] - consumer of the store.
 - [[advanced-rag]] - hybrid and reranking.
 - [[embedding-models]] - dimensions and metrics.
+- [[embedding-and-reranker-serving]] - the service that produces the vectors.
 - [[agent-memory]] - semantic memory tier.
 - [[embeddings]] - concept background.
 - [[hnsw-from-scratch]] - the HNSW index most vector DBs use, built by hand.

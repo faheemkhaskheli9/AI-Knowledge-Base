@@ -81,6 +81,7 @@ Levers, roughly in order of effort:
 - [[llm-cost-calculator]] - runnable token math: per-request cost, caching, batch, self-host break-even.
 - [[llm-gateways-and-routing]] - model routing, fallbacks and multi-provider gateways.
 - [[llm-observability]] - tracking tokens and latency.
+- [[llm-load-testing-and-benchmarking]] - measuring latency percentiles and goodput under load before launch.
 - [[gpu-cloud-options]] - renting GPUs for self-hosting.
 - [[model-selection]], [[small-language-models]] - cheaper models.
 - [[quantization]] - cheaper self-hosting.
