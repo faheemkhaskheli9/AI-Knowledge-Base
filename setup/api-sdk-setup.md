@@ -98,6 +98,7 @@ Own retry wrapper for rate limits beyond SDK defaults: catch the SDK's rate-limi
 - [[cost-and-latency]] - controlling spend.
 - [[ai-security-privacy-compliance]] - secrets and data handling.
 - [[llm-observability]] - logging calls.
+- [[llm-api-rate-limits-and-retries]] - which errors to retry, backoff with jitter and client-side throttling beyond the SDK defaults.
 
 ## References
 - Anthropic SDKs: https://platform.claude.com/docs/en/cli-sdks-libraries/overview

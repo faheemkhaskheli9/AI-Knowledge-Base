@@ -82,6 +82,7 @@ Engineering checklist:
 - [[prompt-injection]] - attack class for LLM apps.
 - [[ai-regulation-checklist]] - EU AI Act tiers and dates (as amended in 2026), ISO/IEC 42001, compliance checklist.
 - [[guardrails-and-safety]] - runtime controls.
+- [[pii-redaction-and-pseudonymization]] - detecting PII, typed placeholders and restoring values in the answer.
 - [[ai-watermarking-and-content-provenance]] - machine-readable marking of AI output (C2PA, watermarks) for transparency duties.
 - [[llm-observability]] - logging with retention.
 - [[api-sdk-setup]] - key handling.

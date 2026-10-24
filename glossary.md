@@ -156,6 +156,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Experiment tracking** - logging each training run's parameters, metrics, code version and artifacts so runs can be compared and reproduced. [[experiment-tracking]]
 - **Exploding gradients** - gradients growing very large through many layers or time steps, causing unstable training; fixed with clipping and normalization. [[vanishing-and-exploding-gradients]]
 - **Exploratory data analysis (EDA)** - inspecting distributions, missing values and relationships in the data before modelling. [[exploratory-data-analysis]]
+- **Exponential backoff with jitter** - waiting a randomized, exponentially growing and capped delay between retries so clients that failed together do not retry together. [[llm-api-rate-limits-and-retries]]
 
 ## F
 
@@ -389,7 +390,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Phase vocoder** - an STFT-based method that changes audio duration or pitch independently by adjusting phases. [[phase-vocoder-time-stretch-from-scratch]]
 - **Phi** - Microsoft's family of small language models. [[microsoft-phi]]
 - **Physics-informed neural network (PINN)** - a network trained with a loss that also penalizes violations of known differential equations. [[physics-informed-neural-networks]]
-- **PII redaction** - detecting and masking personal data before it reaches a model, logs or storage. [[ai-security-privacy-compliance]]
+- **PII redaction** - detecting and masking personal data before it reaches a model, logs or storage. [[pii-redaction-and-pseudonymization]]
 - **Pitch detection** - estimating the fundamental frequency (f0) of a voiced or musical signal over time. [[yin-pitch-detection-from-scratch]]
 - **Platt scaling** - calibrating classifier scores by fitting a logistic regression on a held-out set. [[probability-calibration]]
 - **Polars** - a fast DataFrame library with a lazy query engine, used for feature preparation. [[polars-and-duckdb-for-ml]]
@@ -405,6 +406,8 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Prompt engineering** - designing instructions, examples and structure in a prompt to get reliable model behaviour. [[prompt-engineering]]
 - **Prompt injection** - untrusted text in a model's input (web pages, documents, tool results) containing instructions that hijack its behaviour. [[prompt-injection]]
 - **Prompt optimization** - automatically searching over prompt wording and examples to maximize a metric. [[dspy-and-prompt-optimization]]
+- **Prompt registry** - a service that stores immutable prompt versions and movable labels (such as `production`) that apps fetch at run time. [[prompt-management-and-versioning]]
+- **Pseudonymization** - replacing identifiers with tokens that can be mapped back using separately kept data; the result is still personal data under GDPR. [[pii-redaction-and-pseudonymization]]
 - **PyTorch** - a Python deep-learning framework with tensors, autograd and eager execution. [[pytorch-basics]]
 - **PyTorch Lightning** - a wrapper that organizes PyTorch training code and handles devices, precision and logging. [[pytorch-lightning-and-accelerate]]
 
@@ -420,6 +423,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 
 - **RAG (retrieval-augmented generation)** - retrieve relevant documents for a query and put them in the prompt so the model answers from them. [[rag-basics]]
 - **Random forest** - an ensemble of decision trees trained on bootstrap samples with random feature subsets, averaged. [[decision-trees-and-random-forests]]
+- **Rate limit (LLM API)** - a provider cap on requests or tokens per minute per organization and model; exceeding it returns HTTP 429. [[llm-api-rate-limits-and-retries]]
 - **RANSAC** - robust model fitting that repeatedly fits to random minimal subsets and keeps the model with the most inliers. [[ransac-homography-from-scratch]]
 - **Reasoning model** - an LLM trained to produce a long internal chain of reasoning before answering, trading more tokens for accuracy. [[reasoning-models]]
 - **Receptive field** - the region of the input that can influence one unit's output in a convolutional network. [[convolution-arithmetic-and-receptive-field]]
@@ -432,6 +436,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Reranker** - a model, usually a cross-encoder, that rescores a shortlist of retrieved documents against the query for better ordering. [[rerankers]]
 - **Residual analysis** - examining prediction errors of a regression model for patterns that reveal missing structure. [[regression-metrics-and-residual-analysis]]
 - **Residual connection** - adding a layer's input to its output, so very deep networks train well. [[residual-and-skip-connections]]
+- **Retry-After** - an HTTP response header giving how long a client should wait before retrying, sent with 429 and some 5xx responses. [[llm-api-rate-limits-and-retries]]
 - **Reward model** - a model trained, usually on human preferences, to score outputs; used as the signal in RLHF. [[reward-modeling-and-verifiers]]
 - **Ridge and lasso** - linear regression with an L2 penalty (ridge, shrinks weights) or L1 penalty (lasso, sets some to zero). [[linear-models]]
 - **RLHF** - reinforcement learning from human feedback: fine-tune a model against a reward model trained on human preference comparisons. [[rlhf-and-preference-optimization]]
@@ -505,6 +510,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Time-series forecasting** - predicting future values of a series from its past and related variables. [[time-series-forecasting]]
 - **Time-series foundation model** - a model pretrained on many series that forecasts a new series zero-shot from its history, without per-series training. [[time-series-foundation-models]]
 - **Token** - the unit of text a model reads and writes, typically a word piece; context limits and API prices are counted in tokens. [[tokenization]]
+- **Token bucket** - a rate-limiting algorithm where capacity refills continuously up to a maximum and each request spends from it. [[llm-api-rate-limits-and-retries]]
 - **Token cost** - LLM spend computed as input and output tokens times per-token prices, minus cache and batch discounts. [[llm-cost-calculator]]
 - **Tool calling** - a model emitting a structured request to call a function the application defines, then using the result. [[tool-calling]]
 - **Topic modeling** - discovering themes in a collection of documents without labels. [[topic-modeling]]

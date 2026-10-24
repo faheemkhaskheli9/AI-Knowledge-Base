@@ -10,7 +10,7 @@ use_cases:
 status: draft
 last_verified: 2026-10-24
 sources:
-  - https://docs.vllm.ai/en/latest/features/lora.html
+  - https://docs.vllm.ai/en/latest/features/lora/
   - https://arxiv.org/abs/2311.03285
   - https://arxiv.org/abs/2310.18547
   - https://github.com/predibase/lorax
@@ -178,7 +178,7 @@ for gpu_slots, cpu_slots in [(4, 32), (16, 32), (16, 256), (64, 256)]:
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/caching-strategies.md - LRU eviction and hit rates behind adapter slot sizing.
 
 ## References
-- vLLM LoRA adapters (serving flags, `LoRARequest`, runtime loading): https://docs.vllm.ai/en/latest/features/lora.html
+- vLLM LoRA adapters (serving flags, `LoRARequest`, runtime loading): https://docs.vllm.ai/en/latest/features/lora/
 - Sheng et al., S-LoRA: Serving Thousands of Concurrent LoRA Adapters (2023): https://arxiv.org/abs/2311.03285
 - Chen et al., Punica: Multi-Tenant LoRA Serving (2023): https://arxiv.org/abs/2310.18547
 - LoRAX (multi-LoRA inference server): https://github.com/predibase/lorax

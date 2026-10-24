@@ -10,10 +10,11 @@ use_cases:
 status: draft
 last_verified: 2026-10-24
 sources:
-  - https://docs.vllm.ai/en/latest/features/quantization/fp8.html
-  - https://docs.vllm.ai/en/latest/features/quantization/int4.html
-  - https://docs.vllm.ai/en/latest/features/quantization/int8.html
-  - https://docs.vllm.ai/en/latest/features/quantization/quantized_kvcache.html
+  - https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/fp8/
+  - https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/int4/
+  - https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/int8_w8a8/
+  - https://docs.vllm.ai/en/latest/features/quantization/quantized_kvcache/
+  - https://docs.vllm.ai/en/latest/features/quantization/online/
   - https://github.com/vllm-project/llm-compressor
   - https://github.com/EleutherAI/lm-evaluation-harness
   - https://arxiv.org/abs/2209.05433
@@ -24,7 +25,7 @@ sources:
 # Quantizing LLMs for GPU serving (FP8, W4A16, INT8 with llm-compressor and vLLM)
 
 ## Summary
-Serving cost is set by GPU memory: the weights plus the KV cache for every concurrent request. Quantizing weights (and optionally activations and the KV cache) to 8 or 4 bits frees memory for more concurrent tokens or lets a bigger model fit, and on GPUs with low-precision tensor cores it also speeds up the matmuls. The practical path for vLLM is: try on-the-fly FP8 (`--quantization fp8`) for a quick check, produce a calibrated checkpoint with llm-compressor (FP8 dynamic, W4A16 with GPTQ, or INT8 W8A8) saved in the compressed-tensors format vLLM loads directly, then compare it with the 16-bit model on your own eval set and under load before rollout. This topic is the serving workflow; [[quantization]] covers the methods themselves.
+Serving cost is set by GPU memory: the weights plus the KV cache for every concurrent request. Quantizing weights (and optionally activations and the KV cache) to 8 or 4 bits frees memory for more concurrent tokens or lets a bigger model fit, and on GPUs with low-precision tensor cores it also speeds up the matmuls. The practical path for vLLM is: try on-the-fly FP8 (`--quantization fp8_per_tensor`) for a quick check, produce a calibrated checkpoint with llm-compressor (FP8 dynamic, W4A16 with GPTQ, or INT8 W8A8) saved in the compressed-tensors format vLLM loads directly, then compare it with the 16-bit model on your own eval set and under load before rollout. This topic is the serving workflow; [[quantization]] covers the methods themselves.
 
 ## Key concepts
 - **Scheme names**: `WxAy` means x-bit weights, y-bit activations. W8A8 (FP8 or INT8) quantizes both, so the matmul itself runs in 8 bits; W4A16 stores 4-bit weights and dequantizes them to 16-bit for the matmul.
@@ -45,9 +46,9 @@ Serving cost is set by GPU memory: the weights plus the KV cache for every concu
 - Often not needed for hosted APIs: you pay per token and the provider chooses precision ([[cost-and-latency]]).
 
 ## Setup & code
-Quick check with no new checkpoint: vLLM quantizes BF16/FP16 weights to FP8 at load time; add an FP8 KV cache:
+Quick check with no new checkpoint: vLLM quantizes BF16/FP16 weights to FP8 at load time ("online quantization"); add an FP8 KV cache. Current docs name the scheme `fp8_per_tensor` (also `fp8_per_block`); releases from before these shorthands use `fp8`, which current releases still accept:
 ```bash
-vllm serve <hf-model-id> --quantization fp8 --kv-cache-dtype fp8
+vllm serve <hf-model-id> --quantization fp8_per_tensor --kv-cache-dtype fp8
 ```
 Calibrated checkpoints with llm-compressor (`pip install llmcompressor`). FP8 dynamic needs no calibration data:
 <!-- skip-check: downloads model weights and needs a GPU -->
@@ -57,7 +58,7 @@ from llmcompressor import oneshot                  # older releases: from llmcom
 from llmcompressor.modifiers.quantization import QuantizationModifier
 
 MODEL_ID = "<hf-model-id>"
-model = AutoModelForCausalLM.from_pretrained(MODEL_ID, torch_dtype="auto")
+model = AutoModelForCausalLM.from_pretrained(MODEL_ID, dtype="auto")   # older transformers: torch_dtype=
 tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
 
 recipe = QuantizationModifier(targets="Linear", scheme="FP8_DYNAMIC", ignore=["lm_head"])
@@ -76,7 +77,7 @@ from llmcompressor import oneshot
 from llmcompressor.modifiers.quantization import GPTQModifier
 
 MODEL_ID, N, MAX_LEN = "<hf-model-id>", 512, 2048
-model = AutoModelForCausalLM.from_pretrained(MODEL_ID, torch_dtype="auto")
+model = AutoModelForCausalLM.from_pretrained(MODEL_ID, dtype="auto")   # older transformers: torch_dtype=
 tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
 
 ds = load_dataset("<chat-dataset-like-your-traffic>", split="train").shuffle(seed=0).select(range(N))
@@ -90,11 +91,11 @@ oneshot(model=model, dataset=ds, recipe=recipe, max_seq_length=MAX_LEN, num_cali
 model.save_pretrained(MODEL_ID.split("/")[-1] + "-W4A16", save_compressed=True)
 tokenizer.save_pretrained(MODEL_ID.split("/")[-1] + "-W4A16")
 ```
-Serve the result and compare with the original on the same benchmark (lm-evaluation-harness has a vLLM backend), then on your own eval set:
+Serve the result and compare with the original on the same benchmark (lm-evaluation-harness has a vLLM backend), then on your own eval set. The vLLM docs note that quantized models can be sensitive to a missing BOS token and `lm_eval` does not add one by default, hence `add_bos_token=True`:
 ```bash
 vllm serve ./<model>-W4A16
-lm_eval --model vllm --model_args pretrained=./<model>-W4A16 --tasks gsm8k --batch_size auto
-lm_eval --model vllm --model_args pretrained=<hf-model-id> --tasks gsm8k --batch_size auto
+lm_eval --model vllm --model_args pretrained=./<model>-W4A16,add_bos_token=True --tasks gsm8k --num_fewshot 5 --batch_size auto
+lm_eval --model vllm --model_args pretrained=<hf-model-id>,add_bos_token=True --tasks gsm8k --num_fewshot 5 --batch_size auto
 ```
 Runnable with NumPy only: (1) a memory plan of weights against KV-cache room for an 8B-class model at different precisions on 24 GB and 80 GB GPUs; (2) int4 output error on a weight matrix with outlier input channels, per-tensor vs per-channel vs group-wise scales.
 ```python
@@ -150,7 +151,7 @@ GPTQ and AWQ go beyond this round-to-nearest baseline by using calibration activ
 | Scheme | Pick when | Watch out for |
 |---|---|---|
 | FP8 W8A8 (dynamic) | Ada/Hopper or newer GPUs; want the smallest quality risk and a speedup at high concurrency | on older GPUs only the memory saving remains |
-| INT8 W8A8 (SmoothQuant + GPTQ) | GPUs with INT8 but no FP8 tensor cores (Ampere, Turing) | needs calibration data; more quality risk than FP8 |
+| INT8 W8A8 (SmoothQuant + GPTQ) | GPUs with INT8 but no FP8 tensor cores (Ampere, Turing) | needs calibration data; more quality risk than FP8; vLLM does not support INT8 on Blackwell (compute capability 10.0+) |
 | W4A16 (GPTQ, AWQ) | memory-bound: single-GPU fits, low-batch latency, large models | largest quality risk; less benefit at high batch sizes |
 | BF16, no quantization | the model fits with enough KV room and quality is critical | highest GPU cost |
 | GGUF (llama.cpp) | CPU, Apple silicon, desktop apps | different stack; see [[llama-cpp-gguf]] |
@@ -164,7 +165,7 @@ GPTQ and AWQ go beyond this round-to-nearest baseline by using calibration activ
 - Benchmarks averaged over many tasks hide regressions on the one task you care about; always run your own eval set, at the sampling settings you serve with.
 - Quantize after merging LoRA adapters; an adapter trained on the 16-bit base and applied to a quantized base drifts. For multi-LoRA serving on a quantized base, test the adapters on that exact base ([[multi-lora-adapter-serving]]).
 - Calibration samples without the chat template, or truncated far shorter than production prompts, give scales tuned to the wrong distribution.
-- `--quantization fp8` at load time quantizes per tensor without calibration; a calibrated checkpoint can be more accurate and loads faster.
+- `--quantization fp8_per_tensor` at load time quantizes per tensor without calibration; a calibrated checkpoint can be more accurate and loads faster.
 - Kernel support differs by GPU, scheme and vLLM release; a checkpoint that loads on H100 may fall back to slow kernels or fail on another GPU. Check startup logs for the kernel chosen.
 - Throughput is not just memory: measure TTFT, TPOT and goodput under your load before and after ([[llm-load-testing-and-benchmarking]]).
 - Record precision, scheme and calibration set in the model registry; "the same model" at two precisions behaves differently ([[model-registry-and-versioning]]).
@@ -182,10 +183,11 @@ GPTQ and AWQ go beyond this round-to-nearest baseline by using calibration activ
 - [[llama-cpp-gguf]] - the CPU and desktop alternative.
 
 ## References
-- vLLM FP8 W8A8 (online FP8, llm-compressor recipe, hardware support): https://docs.vllm.ai/en/latest/features/quantization/fp8.html
-- vLLM INT4 W4A16 (GPTQ with llm-compressor, calibration data): https://docs.vllm.ai/en/latest/features/quantization/int4.html
-- vLLM INT8 W8A8 (SmoothQuant + GPTQ, supported GPUs): https://docs.vllm.ai/en/latest/features/quantization/int8.html
-- vLLM quantized KV cache: https://docs.vllm.ai/en/latest/features/quantization/quantized_kvcache.html
+- vLLM FP8 W8A8 (llm-compressor recipe, hardware support, `add_bos_token` note): https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/fp8/
+- vLLM INT4 W4A16 (GPTQ with llm-compressor, calibration data): https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/int4/
+- vLLM INT8 W8A8 (SmoothQuant + GPTQ, supported GPUs): https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/int8_w8a8/
+- vLLM online quantization (`fp8_per_tensor`, `fp8_per_block` and other load-time schemes): https://docs.vllm.ai/en/latest/features/quantization/online/
+- vLLM quantized KV cache: https://docs.vllm.ai/en/latest/features/quantization/quantized_kvcache/
 - llm-compressor: https://github.com/vllm-project/llm-compressor
 - lm-evaluation-harness: https://github.com/EleutherAI/lm-evaluation-harness
 - Micikevicius et al., FP8 Formats for Deep Learning (2022): https://arxiv.org/abs/2209.05433
