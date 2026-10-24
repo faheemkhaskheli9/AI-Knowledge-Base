@@ -89,6 +89,7 @@ print(len(v.data[0].embedding))
 - [[vector-databases]] - where vectors live.
 - [[image-retrieval-clip-search]] - CLIP/SigLIP image search and near-duplicate detection.
 - [[rerankers]] - second-stage ranking.
+- [[embedding-and-reranker-serving]] - self-hosting embedders and rerankers (TEI, vLLM), batching and caching.
 - [[model-licenses]] - open model licenses.
 
 ## References

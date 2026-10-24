@@ -65,6 +65,7 @@ Open-model RoPE scaling lives in the model config (for example a `rope_scaling` 
 ## Related
 - [[transformers-and-attention]] - why long context is expensive.
 - [[rag-basics]] - the main alternative.
+- [[long-document-summarization]] - single-call vs map-reduce summaries of documents near or past the window.
 - [[prompt-caching-and-cost]] - lowering repeated-prefix cost.
 - [[agent-memory]] - managing context in long-running agents.
 - [[quantization]] - KV-cache and weight quantization for long windows.
