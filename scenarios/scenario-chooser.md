@@ -117,6 +117,9 @@ KB files to read in full next.
 | Find out whether wrong RAG answers come from retrieval or generation | Golden questions with relevant-passage labels; recall@k, MRR and nDCG for retrieval, claim-level faithfulness and correctness for answers | [[rag-evaluation]], [[llm-evaluation]], [[rag-basics]], [[advanced-rag]] |
 | Get OpenAI-style tool calls from a self-hosted open model | vLLM `--enable-auto-tool-choice` with the family's `--tool-call-parser` and a tool-aware chat template (llama-server `--jinja`, Ollama `tools`), then a tool-use eval | [[tool-calling-with-self-hosted-models]], [[tool-calling]], [[inference-servers-vllm]], [[ollama]] |
 | Cut inter-token latency of a self-hosted LLM without changing outputs | Speculative decoding: MTP or EAGLE head first, n-gram for copy-heavy outputs; check acceptance length at production load | [[speculative-decoding-in-serving]], [[speculative-decoding-from-scratch-numpy]], [[llm-load-testing-and-benchmarking]] |
+| Stop long prompts from spiking inter-token latency, or keep long chat/agent KV cache past GPU memory | Chunked prefill and prefix caching first; then KV offloading to CPU/disk (vLLM OffloadingConnector, LMCache) and, for strict TTFT/ITL SLOs on fast interconnects, prefill/decode disaggregation (NixlConnector, llm-d, Dynamo); it does not raise throughput | [[disaggregated-prefill-and-kv-cache-offloading]], [[inference-servers-vllm]], [[llm-load-testing-and-benchmarking]] |
+| Flag unsafe prompts and replies, or jailbreak attempts, with a classifier model | Content classifier (Llama Guard, ShieldGemma, moderation API) on input and output, attack detector (Prompt Guard) on untrusted text, or a policy-following judge (Granite Guardian, gpt-oss-safeguard) for your own rules; thresholds set on your labelled traffic | [[safety-classifier-models]], [[guardrails-and-safety]], [[prompt-injection]] |
+| Run PyTorch, vLLM, llama.cpp or Ollama on an AMD GPU | ROCm with the tool's ROCm build (vLLM ROCm wheels or image, llama.cpp `GGML_HIP`); check the GPU's gfx target; override or Vulkan for unlisted cards | [[amd-rocm-setup]], [[gpu-cuda-setup]], [[vllm-local-setup]] |
 | Tune prompts of a multi-step pipeline automatically | DSPy-style prompt optimization against a metric | [[dspy-and-prompt-optimization]], [[prompt-engineering]] |
 | Search a photo library by text or find near-duplicate images | CLIP-style embeddings in a vector index | [[image-retrieval-clip-search]], [[vector-databases]], [[embeddings]] |
 | Detect objects named in plain text, no training data | Open-vocabulary detector (Grounding DINO, OWLv2, YOLO-World) | [[open-vocabulary-detection]], [[object-detection]] |
@@ -215,7 +218,7 @@ By constraint: [[low-budget-ai]], [[startup-mvp-with-ai]].
 
 ## Setup & code
 Environment first: [[python-env-uv]], [[api-sdk-setup]], and for local
-inference [[gpu-cuda-setup]], [[huggingface-transformers]],
+inference [[gpu-cuda-setup]] (AMD: [[amd-rocm-setup]]), [[huggingface-transformers]],
 [[windows-wsl-setup]]. A minimal routing helper an agent could use:
 
 ```python

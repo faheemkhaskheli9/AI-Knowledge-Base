@@ -117,6 +117,7 @@ Common errors and fixes (wording varies by version; confirm with the troubleshoo
 - Running several vLLM processes on one GPU needs each `--gpu-memory-utilization` to add up below 1.0.
 
 ## Related
+- [[amd-rocm-setup]] - installing vLLM on AMD GPUs (ROCm wheels, Python 3.12, ROCm Docker image).
 - [[inference-servers-vllm]] - what vLLM is, production flags and alternatives; read it before scaling out.
 - [[docker-for-ml]] - GPU containers and model cache volumes.
 - [[windows-wsl-setup]] - WSL2 and the GPU on Windows.

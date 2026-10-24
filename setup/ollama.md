@@ -86,6 +86,7 @@ export OLLAMA_HOST=0.0.0.0:11434
 - Tool calling and structured output depend on the specific model's support.
 
 ## Related
+- [[amd-rocm-setup]] - running Ollama on AMD GPUs with ROCm, overrides or Vulkan.
 - [[tool-calling-with-self-hosted-models]] - Ollama tool calling vs vLLM and llama.cpp, argument shapes.
 - [[llama-cpp-gguf]] - the underlying runtime and GGUF files.
 - [[unsloth-finetuning]] - fine-tune a model and export GGUF to load in Ollama.

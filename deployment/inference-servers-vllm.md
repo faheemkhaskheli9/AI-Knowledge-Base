@@ -84,6 +84,7 @@ TGI: Hugging Face states it is in maintenance mode and recommends vLLM, SGLang, 
 - Throughput figures from blogs depend on prompt/output length mix; benchmark your own traffic.
 
 ## Related
+- [[disaggregated-prefill-and-kv-cache-offloading]] - prefill/decode disaggregation and KV offloading connectors (NIXL, LMCache, OffloadingConnector).
 - [[tool-calling-with-self-hosted-models]] - `--tool-call-parser`, chat templates and strict tool calls.
 - [[speculative-decoding-in-serving]] - `--speculative-config` with EAGLE, MTP, draft models and n-gram.
 - [[gpu-cuda-setup]] - VRAM sizing and drivers.

@@ -85,6 +85,7 @@ Approval gate for risky tools: return a pending action to a human UI and only ex
 - No logging means no incident response; log inputs, outputs, tool calls, and decisions (mind privacy).
 
 ## Related
+- [[safety-classifier-models]] - choosing the moderation and jailbreak classifier models (Llama Guard, Prompt Guard, Granite Guardian, moderation APIs).
 - [[red-teaming-llm-apps]] - attacking the app on purpose to test these controls.
 - [[prompt-injection]] - the main attack on LLM apps.
 - [[sandboxed-code-execution]] - isolating model-written code with resource and network limits.

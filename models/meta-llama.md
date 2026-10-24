@@ -79,6 +79,7 @@ For serving use vLLM ([[inference-servers-vllm]]) or Ollama ([[ollama]]).
 - Chat templates differ between Llama versions; use `apply_chat_template`.
 
 ## Related
+- [[safety-classifier-models]] - Llama Guard and Prompt Guard compared with other safety classifiers.
 - [[model-licenses]] - license comparison.
 - [[model-selection]] - open vs closed.
 - [[huggingface-transformers]] - loading models.

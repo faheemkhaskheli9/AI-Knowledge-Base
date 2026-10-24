@@ -137,6 +137,7 @@ deployment.
   official Ollama library or Google's own releases.
 
 ## Related
+- [[safety-classifier-models]] - ShieldGemma compared with other safety classifiers and moderation APIs.
 - [[small-language-models]] - Gemma among other small models.
 - [[microsoft-phi]] - the other main MIT/Apache small-model family.
 - [[google-gemini]] - the hosted sibling family.

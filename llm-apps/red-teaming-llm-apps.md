@@ -230,6 +230,7 @@ From findings to regression evals:
   running large automated campaigns against a hosted model.
 
 ## Related
+- [[safety-classifier-models]] - the classifier layer whose misses red-teaming should measure.
 - [[prompt-injection]] - the main attack class and architectural defences.
 - [[guardrails-and-safety]] - input/output filters and action controls under test.
 - [[llm-as-judge-and-eval-driven-development]] - running findings as CI regression gates.

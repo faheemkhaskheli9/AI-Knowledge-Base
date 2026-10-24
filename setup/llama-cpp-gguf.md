@@ -75,6 +75,7 @@ Python bindings: `pip install llama-cpp-python` (compiles llama.cpp; GPU builds 
 - Always match the build backend (CUDA/Metal/Vulkan) to hardware; a CPU-only build ignores `-ngl`.
 
 ## Related
+- [[amd-rocm-setup]] - building llama.cpp with HIP for AMD GPUs and the gfx override.
 - [[ollama]] - friendlier wrapper.
 - [[mlx-on-apple-silicon]] - Apple's native alternative on Macs.
 - [[unsloth-finetuning]] - fine-tune and export your own GGUF.
