@@ -97,6 +97,7 @@ Many vector DBs do hybrid natively (Qdrant sparse+dense with fusion, Weaviate, E
 - Re-index when you change the contextualization prompt; store prompt version.
 
 ## Related
+- [[rag-evaluation]] - measuring whether each technique actually raised recall or faithfulness.
 - [[rag-basics]] - baseline pipeline.
 - [[vector-databases]] - native hybrid support.
 - [[rerankers]] - model choices.

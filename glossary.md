@@ -18,6 +18,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **A/B test** - randomly split users between two variants and compare a pre-chosen metric with a significance test before declaring a winner. [[statistics-and-ab-testing]]
 - **Abliteration** - removing a behaviour (usually refusal) from an open-weight model by orthogonalizing the weights that write to the residual stream against that behaviour's direction. [[refusal-direction-and-abliteration]]
 - **Accelerate (Hugging Face)** - a library that runs the same PyTorch training loop on CPU, one GPU or many with minimal code changes. [[pytorch-lightning-and-accelerate]]
+- **Acceptance length (speculative decoding)** - mean tokens a serving engine emits per target-model verification pass, including the bonus token; 1.0 means every draft was rejected. [[speculative-decoding-in-serving]]
 - **Activation function** - the non-linearity applied after a layer's linear map (ReLU, GELU, SiLU, sigmoid); without it stacked layers collapse into one linear map. [[activation-functions]]
 - **Active learning** - the model picks the unlabeled examples it is least sure about for humans to label next, to get more accuracy per label. [[semi-supervised-and-active-learning]]
 - **Actor-critic** - an RL method where a policy (actor) is updated using a learned value function (critic) as a baseline to cut gradient variance. [[actor-critic-from-scratch]]
@@ -92,6 +93,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Conformal prediction** - a wrapper that turns any model's outputs into prediction sets or intervals with a guaranteed coverage rate, assuming exchangeable data. [[conformal-prediction-and-uncertainty]]
 - **Confusion matrix** - a table of predicted versus true classes from which precision, recall and related metrics are computed. [[model-evaluation-and-metrics]]
 - **Context engineering** - deciding what goes into a model's context window at each step: instructions, retrieved data, tool results, history and their order. [[context-engineering]]
+- **Context precision (RAG)** - a retrieval metric that rewards relevant chunks ranked above irrelevant ones: mean precision@i over the ranks holding relevant chunks. [[rag-evaluation]]
 - **Context window** - the maximum number of tokens (prompt plus output) a model can attend to in one call. [[long-context]]
 - **Contextual retrieval** - prepending a short, generated description of a chunk's place in its document before embedding and indexing it. [[advanced-rag]]
 - **Contrastive learning** - learning representations by pulling embeddings of matching pairs together and pushing non-matching pairs apart. [[contrastive-learning-infonce-from-scratch-numpy]]
@@ -139,6 +141,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 
 ## E
 
+- **EAGLE (speculative decoding)** - a small draft head that predicts the target model's next features from its hidden states, used as the proposer in speculative decoding. [[speculative-decoding-in-serving]]
 - **Early stopping** - halting training when validation performance stops improving, to avoid overfitting. [[regularization-in-deep-learning]]
 - **Edge inference** - running a model on the device (phone, browser, embedded board) instead of a server, for latency, privacy or cost. [[edge-on-device]]
 - **Einsum** - Einstein-summation notation for tensor contractions, writing products and sums by index letters. [[tensor-shapes-broadcasting-and-einsum]]
@@ -162,6 +165,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 
 - **F1 score** - the harmonic mean of precision and recall. [[model-evaluation-and-metrics]]
 - **Face recognition** - identifying or verifying a person by comparing an embedding of their face against stored embeddings. [[face-and-pose]]
+- **Faithfulness (RAG)** - share of an answer's claims supported by the retrieved context; measures hallucination independently of whether the answer is correct. [[rag-evaluation]]
 - **FastAPI** - a Python web framework commonly used to wrap a model or LLM call in an async HTTP API. [[serving-with-fastapi]]
 - **FastICA** - independent component analysis that separates mixed signals by maximizing the non-Gaussianity of the recovered sources. [[fastica-from-scratch]]
 - **Feature engineering** - building informative input features from raw data, guided by domain knowledge. [[feature-engineering]]
@@ -355,6 +359,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 
 - **Naive Bayes** - a probabilistic classifier that assumes features are independent given the class. [[svm-knn-naive-bayes]]
 - **Named entity recognition (NER)** - tagging spans of text as people, organizations, places and other entity types. [[nlp-classic-tasks]]
+- **nDCG (normalized discounted cumulative gain)** - a ranking metric that sums graded relevance discounted by log rank and divides by the ideal ranking's score. [[rag-evaluation]]
 - **NeRF** - neural radiance field: a network mapping 3D position and view direction to colour and density, rendered by ray marching. [[gaussian-splatting-and-nerf]]
 - **Nested cross-validation** - an outer CV loop for evaluation around an inner loop for tuning, so tuning does not bias the estimate. [[model-selection-and-comparison]]
 - **Neural architecture search** - automatically searching over network designs for the best accuracy under a budget. [[neural-architecture-search]]
@@ -405,6 +410,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Prompt caching** - reusing the processed state of an unchanged prompt prefix across calls, reducing cost and latency. [[prompt-caching-and-cost]]
 - **Prompt engineering** - designing instructions, examples and structure in a prompt to get reliable model behaviour. [[prompt-engineering]]
 - **Prompt injection** - untrusted text in a model's input (web pages, documents, tool results) containing instructions that hijack its behaviour. [[prompt-injection]]
+- **Prompt lookup decoding** - draft-free speculative decoding that proposes the tokens that followed the latest matching n-gram in the prompt. [[speculative-decoding-in-serving]]
 - **Prompt optimization** - automatically searching over prompt wording and examples to maximize a metric. [[dspy-and-prompt-optimization]]
 - **Prompt registry** - a service that stores immutable prompt versions and movable labels (such as `production`) that apps fetch at run time. [[prompt-management-and-versioning]]
 - **Pseudonymization** - replacing identifiers with tokens that can be mapped back using separately kept data; the result is still personal data under GDPR. [[pii-redaction-and-pseudonymization]]
@@ -426,6 +432,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Rate limit (LLM API)** - a provider cap on requests or tokens per minute per organization and model; exceeding it returns HTTP 429. [[llm-api-rate-limits-and-retries]]
 - **RANSAC** - robust model fitting that repeatedly fits to random minimal subsets and keeps the model with the most inliers. [[ransac-homography-from-scratch]]
 - **Reasoning model** - an LLM trained to produce a long internal chain of reasoning before answering, trading more tokens for accuracy. [[reasoning-models]]
+- **Recall@k** - share of a query's relevant items that appear in the top k results; the main retrieval number for RAG. [[rag-evaluation]]
 - **Receptive field** - the region of the input that can influence one unit's output in a convolutional network. [[convolution-arithmetic-and-receptive-field]]
 - **Reciprocal rank fusion (RRF)** - combining ranked lists by summing 1/(k + rank) per item; needs no score calibration. [[reciprocal-rank-fusion-from-scratch]]
 - **Recommender system** - a system that predicts which items a user will want, from interactions, content or both. [[recommender-systems]]
@@ -520,6 +527,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Transformer** - a network architecture of stacked attention and feed-forward blocks with residual connections; the basis of modern LLMs. [[transformers-and-attention]]
 - **Triton Inference Server** - NVIDIA's multi-framework model server with dynamic batching and model ensembles. [[onnx-and-triton-inference-server]]
 - **t-SNE** - a non-linear 2D/3D projection that preserves local neighbourhoods; for visualization, not distances between clusters. [[tsne-from-scratch]]
+- **Tool-call parser** - server component (e.g. vLLM `--tool-call-parser`) that turns a model's native tool-call text into structured OpenAI-style `tool_calls`. [[tool-calling-with-self-hosted-models]]
 
 ## U
 

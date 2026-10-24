@@ -15,6 +15,7 @@ sources:
   - https://platform.claude.com/docs/en/api/sdks/python
   - https://platform.openai.com/docs/guides/rate-limits
   - https://github.com/openai/openai-python
+  - https://github.com/openai/openai-cookbook/blob/main/examples/How_to_handle_rate_limits.ipynb
   - https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/
   - https://www.rfc-editor.org/rfc/rfc9110.html#name-retry-after
 ---
@@ -30,7 +31,9 @@ Hosted LLM APIs cap how much each organization can send: requests per minute plu
 - **Cache-aware input limits**: for most Anthropic models, `cache_read_input_tokens` do not count toward ITPM, so prompt caching raises effective throughput as well as cutting cost ([[prompt-caching-and-cost]]).
 - **Rate-limit headers**: Anthropic returns `anthropic-ratelimit-{requests,tokens,input-tokens,output-tokens}-{limit,remaining,reset}` and `retry-after`; OpenAI returns `x-ratelimit-limit-*`, `x-ratelimit-remaining-*` and `x-ratelimit-reset-*` for requests and tokens. Log them; they tell you which limit you are near.
 - **Retryable vs not**: retry connection errors, 408, 409, 429 and 5xx (including 529). Do not retry 400 (bad request, context too long), 401/403 (auth, permission), 404 or 413: they fail the same way every time. Anthropic's spend-limit response is a 429 `rate_limit_error` with no `retry-after` and `error.details.error_code` set to `enforced_spend_limit_reached`; retrying it fails until access resumes.
-- **SDK defaults**: the Anthropic and OpenAI Python SDKs retry connection errors, 408, 409, 429 and >=500 twice by default with short exponential backoff, configurable with `max_retries` per client or per request (`client.with_options(max_retries=5)`), and time out after 10 minutes by default.
+- **SDK defaults**: the Anthropic and OpenAI Python SDKs retry connection errors, 408, 409, 429 and >=500 twice by default with short exponential backoff, configurable with `max_retries` per client or per request (`client.with_options(max_retries=5)`), and time out after 10 minutes by default. The OpenAI SDK retries a request only when its body can be safely resent.
+- **Failed requests still count**: OpenAI's rate-limit cookbook notes that unsuccessful requests contribute to the per-minute limit, so resending in a tight loop keeps you limited; back off, and for bulk work add a steady delay of about 1/limit between requests.
+- **`Retry-After` format**: RFC 9110 defines the value as either an HTTP-date or `delay-seconds` (a non-negative integer number of seconds), e.g. `Retry-After: 120`; handle both (the code below honours the seconds form and falls back to backoff on a date). RFC 9110 itself describes it for 503 and 3xx responses; LLM APIs also send it on 429.
 - **Backoff with jitter**: wait `base * 2^attempt`, capped, and randomize it. "Full jitter" (uniform between 0 and the capped exponential) keeps many clients that failed together from retrying together.
 - **Acceleration limits**: a sharp increase in an organization's usage can itself trigger 429s on the Anthropic API; ramp traffic up gradually.
 
@@ -213,6 +216,7 @@ print("total attempts without jitter:", simulate(jitter=False), "| with full jit
 - Anthropic errors (429, 500, 504, 529 `overloaded_error`): https://platform.claude.com/docs/en/api/errors
 - Anthropic Python SDK (retries, `max_retries`, timeouts, error classes, request IDs): https://platform.claude.com/docs/en/api/sdks/python
 - OpenAI rate limits guide (limits, `x-ratelimit-*` headers, backoff advice): https://platform.openai.com/docs/guides/rate-limits
-- OpenAI Python SDK (retries and error classes): https://github.com/openai/openai-python
+- OpenAI Python SDK (retries, safe-resend rule, 10-minute default timeout): https://github.com/openai/openai-python
+- OpenAI Cookbook, How to handle rate limits (random exponential backoff, failed requests count toward limits, proactive delay, RPM/RPD vs TPM): https://github.com/openai/openai-cookbook/blob/main/examples/How_to_handle_rate_limits.ipynb
 - Brooker, Exponential Backoff and Jitter (AWS Architecture Blog): https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/
-- RFC 9110, HTTP Semantics, `Retry-After`: https://www.rfc-editor.org/rfc/rfc9110.html#name-retry-after
+- RFC 9110, HTTP Semantics, section 10.2.3 `Retry-After` (HTTP-date or delay-seconds): https://www.rfc-editor.org/rfc/rfc9110.html#name-retry-after

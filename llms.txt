@@ -236,6 +236,7 @@ Read the full topic before using its guidance; check last_verified and the offic
 - [Prompt injection and agent security](llm-apps/prompt-injection.md): secure an email-reading assistant against malicious messages (status: draft; verified: 2026-10-03)
 - [Prompt management and versioning](llm-apps/prompt-management-and-versioning.md): let product people change a prompt without a code deploy, but with review and rollback (status: draft; verified: 2026-10-24)
 - [Retrieval-augmented generation (RAG) basics](llm-apps/rag-basics.md): build a chatbot that answers questions from our company wiki and PDFs (status: draft; verified: 2026-10-03)
+- [RAG evaluation (retrieval metrics, faithfulness, context precision and recall, Ragas)](llm-apps/rag-evaluation.md): measure whether our RAG chatbot's wrong answers come from bad retrieval or bad generation (status: draft; verified: 2026-10-24)
 - [Reciprocal rank fusion (RRF) from scratch (hybrid BM25 + dense search)](llm-apps/reciprocal-rank-fusion-from-scratch.md): merge keyword (BM25) and vector search results into one ranked list for RAG (status: stable; verified: 2026-10-04)
 - [Recursive text splitter from scratch (separator hierarchy, greedy packing, overlap, chunk-quality checks)](llm-apps/recursive-text-splitter-from-scratch.md): split documents into chunks for RAG without cutting sentences or facts in half (status: stable; verified: 2026-10-05)
 - [Red-teaming LLM apps (jailbreak and injection suites, garak, PyRIT)](llm-apps/red-teaming-llm-apps.md): red-team our chatbot for jailbreaks and system-prompt leaks before launch (status: draft; verified: 2026-10-15)
@@ -460,7 +461,9 @@ Read the full topic before using its guidance; check last_verified and the offic
 - [Semantic caching for LLM responses](deployment/semantic-caching.md): cut LLM cost for a support bot that gets the same questions phrased many ways (status: draft; verified: 2026-10-15)
 - [Serving LLM apps with FastAPI](deployment/serving-with-fastapi.md): wrap an LLM or RAG pipeline in an HTTP API with token streaming (status: draft; verified: 2026-10-03)
 - [SGLang and TensorRT-LLM (vs vLLM)](deployment/sglang-and-tensorrt-llm.md): choose between vLLM, SGLang and TensorRT-LLM for serving an open-weight LLM (status: draft; verified: 2026-10-15)
+- [Speculative decoding in production serving (vLLM draft models, EAGLE, MTP, n-gram)](deployment/speculative-decoding-in-serving.md): cut inter-token latency of a self-hosted LLM without changing its outputs (status: draft; verified: 2026-10-24)
 - [Streaming ML pipelines (Kafka, stream processing, real-time features and inference)](deployment/streaming-ml-pipelines.md): score card transactions for fraud within a second using features from the last 5 minutes (status: draft; verified: 2026-10-15)
+- [Tool calling with self-hosted open models (vLLM tool parsers, Ollama, llama.cpp)](deployment/tool-calling-with-self-hosted-models.md): make a self-hosted open-weight model return OpenAI-style tool_calls from vLLM (status: draft; verified: 2026-10-24)
 
 ## Optional
 

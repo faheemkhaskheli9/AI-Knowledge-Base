@@ -158,6 +158,7 @@ The TV column is the correctness check. With 20,000 tokens over 2,500 transition
 - With greedy decoding, outputs should be token-for-token identical with and without speculation. If they differ, the cause is usually numerical non-determinism in batched verification, which is worth knowing before blaming the algorithm.
 
 ## Related
+- [[speculative-decoding-in-serving]] - running it in vLLM: methods, config keys and acceptance metrics.
 - [[decoding-strategies-from-scratch-numpy]] - temperature, top-k and top-p, which must be applied identically to draft and target.
 - [[kv-cache-from-scratch-numpy]] - why decoding is memory-bound and how the cache is rolled back.
 - [[decoding-and-sampling]] - overview of decoding methods.

@@ -162,6 +162,7 @@ Generic HTTP load tools also work: Locust (Python user classes) and k6 (JavaScri
 - Report the full setup with every number: model, quantization, GPU, engine version and flags, input/output lengths, rate or concurrency, and duration. A tokens-per-second figure without these is not comparable.
 
 ## Related
+- [[speculative-decoding-in-serving]] - a decode-latency lever to benchmark with real prompts and temperature.
 - [[inference-servers-vllm]] - the server most often benchmarked, and the flags you tune.
 - [[sglang-and-tensorrt-llm]] - alternative engines to compare on the same workload.
 - [[cost-and-latency]] - what TTFT and throughput mean for user experience and cost.
