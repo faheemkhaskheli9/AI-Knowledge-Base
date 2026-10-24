@@ -84,6 +84,7 @@ Track cost per request from `usage` and log it per feature/tenant ([[llm-observa
 - Agent loops without step/token caps are the most common cost incident.
 
 ## Related
+- [[disaggregated-prefill-and-kv-cache-offloading]] - self-hosted KV reuse beyond GPU memory (CPU, disk, shared tiers).
 - [[cost-and-latency]] - deployment-level levers.
 - [[semantic-caching]] - returning stored answers for similar prompts, a different layer from prefix caching.
 - [[llm-cost-calculator]] - worked examples of caching and batch savings.

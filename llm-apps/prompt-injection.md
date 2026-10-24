@@ -84,6 +84,7 @@ for a in ATTACKS:
 - Testing once is not enough; attacks evolve - keep a growing suite.
 
 ## Related
+- [[safety-classifier-models]] - attack-detector models such as Prompt Guard 2, and their limits.
 - [[red-teaming-llm-apps]] - jailbreak and injection test suites, garak, PyRIT, findings as regression evals.
 - [[guardrails-and-safety]] - broader control layers.
 - [[sandboxed-code-execution]] - containing injected code: isolation, no secrets, deny-by-default egress.

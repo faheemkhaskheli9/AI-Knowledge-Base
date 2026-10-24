@@ -12,7 +12,7 @@ last_verified: 2026-10-04
 sources:
   - https://arxiv.org/abs/2211.17192
   - https://arxiv.org/abs/2302.01318
-  - https://docs.vllm.ai/en/latest/features/spec_decode.html
+  - https://docs.vllm.ai/en/latest/features/speculative_decoding/
   - https://huggingface.co/blog/assisted-generation
 ---
 
@@ -168,5 +168,5 @@ The TV column is the correctness check. With 20,000 tokens over 2,500 transition
 ## References
 - Leviathan, Kalman and Matias (2023), "Fast Inference from Transformers via Speculative Decoding": https://arxiv.org/abs/2211.17192
 - Chen et al. (2023), "Accelerating Large Language Model Decoding with Speculative Sampling": https://arxiv.org/abs/2302.01318
-- vLLM documentation, speculative decoding: https://docs.vllm.ai/en/latest/features/spec_decode.html
+- vLLM documentation, speculative decoding: https://docs.vllm.ai/en/latest/features/speculative_decoding/
 - Hugging Face blog, "Assisted Generation": https://huggingface.co/blog/assisted-generation

@@ -77,6 +77,7 @@ These are estimates; measure with `torch.cuda.max_memory_allocated()`.
 - Laptop GPUs may be hybrid: ensure the app runs on the discrete GPU.
 
 ## Related
+- [[amd-rocm-setup]] - the AMD equivalent: ROCm, HIP, gfx targets and ROCm builds of PyTorch and vLLM.
 - [[python-env-uv]] - env and index handling.
 - [[quantization]] - shrink the memory footprint.
 - [[fine-tuning-and-peft]] - training memory needs.

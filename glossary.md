@@ -125,6 +125,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Diffusion language model** - a text model that generates by iteratively denoising (unmasking) many tokens in parallel instead of one token at a time. [[diffusion-language-models]]
 - **Diffusion model** - a generative model that learns to reverse a gradual noising process, producing samples by denoising from pure noise. [[diffusion-models]]
 - **Dimensionality reduction** - mapping data to fewer dimensions while keeping its structure, for visualization, compression or denoising (PCA, UMAP). [[dimensionality-reduction]]
+- **Disaggregated serving (prefill/decode disaggregation)** - running prompt prefill and token decode on separate inference instances and shipping the KV cache between them, so TTFT and inter-token latency can be tuned separately. [[disaggregated-prefill-and-kv-cache-offloading]]
 - **Distance metric** - a function measuring dissimilarity between points, such as Euclidean, Manhattan or cosine distance. [[distance-metrics-and-similarity]]
 - **Distillation (knowledge)** - training a smaller student model to match a larger teacher's outputs or soft probabilities. [[knowledge-distillation-and-compression]]
 - **Docker GPU image** - a container image built on a CUDA base image so a model runs with GPU access under the NVIDIA container toolkit. [[docker-for-ml]]
@@ -232,6 +233,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **He (Kaiming) initialization** - weight initialization scaled for ReLU layers so activation variance stays stable with depth. [[weight-initialization]]
 - **Hidden Markov model (HMM)** - a sequence model with hidden discrete states that emit observations and switch by transition probabilities. [[hidden-markov-models-and-kalman-filters]]
 - **Hierarchical clustering** - building a tree of clusters by repeatedly merging the closest groups under a chosen linkage. [[hierarchical-clustering-from-scratch]]
+- **HIP** - AMD's CUDA-like C++ GPU programming layer in ROCm; PyTorch's ROCm build exposes it through the `torch.cuda` API. [[amd-rocm-setup]]
 - **HNSW** - a layered proximity-graph index for approximate nearest-neighbour search, the default in many vector databases. [[hnsw-from-scratch]]
 - **HOG (histogram of oriented gradients)** - an image descriptor built from histograms of gradient directions over small cells. [[hog-descriptor-from-scratch]]
 - **Holt-Winters** - exponential smoothing with separate level, trend and seasonal components for forecasting. [[holt-winters-exponential-smoothing-from-scratch]]
@@ -279,6 +281,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **KServe** - a Kubernetes custom resource and controller for deploying and autoscaling model servers. [[kubernetes-for-llm-serving]]
 - **Kubernetes GPU autoscaling** - scaling model-server replicas on GPU nodes by load signals such as queue depth. [[kubernetes-for-llm-serving]]
 - **KV cache** - the stored keys and values of earlier tokens, so each new token in generation attends to them without recomputing. [[kv-cache-from-scratch-numpy]]
+- **KV cache offloading** - moving finished KV cache blocks from GPU memory to CPU, disk or remote storage so a later request with the same prefix loads them instead of recomputing the prefill. [[disaggregated-prefill-and-kv-cache-offloading]]
 
 ## L
 
@@ -295,6 +298,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Linear regression** - predicting a number as a weighted sum of features, fitted by least squares. [[linear-models]]
 - **Linear-chain CRF** - a conditional random field over a sequence of labels, scoring transitions and emissions jointly; used for tagging. [[linear-chain-crf-from-scratch]]
 - **Llama** - Meta's family of open-weight LLMs, released under Meta's own licence. [[meta-llama]]
+- **Llama Guard** - Meta's LLM-based safety classifier that labels a prompt or reply safe or unsafe with hazard category codes. [[safety-classifier-models]]
 - **llama.cpp** - a C/C++ runtime for running quantized LLMs on CPUs and GPUs, using GGUF files. [[llama-cpp-gguf]]
 - **LLM gateway** - a proxy in front of several model providers that handles routing, fallbacks, keys, rate limits and cost tracking. [[llm-gateways-and-routing]]
 - **LLM observability** - tracing each LLM and tool call with its inputs, outputs, tokens, latency and cost to debug and monitor an app. [[llm-observability]]
@@ -450,12 +454,14 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **RLVR** - reinforcement learning with verifiable rewards: RL on tasks whose answers can be checked automatically, such as math or unit tests. [[rl-with-verifiable-rewards]]
 - **RMSNorm** - layer normalization that rescales by the root mean square only, without subtracting the mean. [[normalization-layers]]
 - **RNN (recurrent neural network)** - a network that processes a sequence step by step, carrying a hidden state forward. [[cnn-and-rnn-architectures]]
+- **ROCm** - AMD's open GPU compute stack (driver, runtime, math libraries) that PyTorch, vLLM, llama.cpp and Ollama use on AMD GPUs. [[amd-rocm-setup]]
 - **RoPE (rotary position embedding)** - encodes position by rotating query and key vectors by position-dependent angles, so attention depends on relative distance. [[rope-rotary-embeddings-from-scratch-numpy]]
 - **ROUGE** - a summarization metric based on n-gram or longest-common-subsequence overlap with reference summaries, recall-oriented. [[bleu-and-rouge-from-scratch]]
 
 ## S
 
 - **safetensors** - a safe, fast file format for model weights that, unlike pickle, cannot execute code on load. [[model-checkpointing-and-export]]
+- **Safety classifier** - a model that labels prompts or model outputs as safe or unsafe (content categories) or as attacks (jailbreak, injection), used as a moderation layer. [[safety-classifier-models]]
 - **Saliency map** - an image showing which input pixels most affect a model's prediction, typically from gradients. [[saliency-maps-and-neural-attribution]]
 - **SAM (Segment Anything)** - a promptable segmentation model that returns masks for points, boxes or (in later versions) text prompts, in images and video. [[segment-anything-sam2]]
 - **SAM (sharpness-aware minimization)** - an optimizer step that minimizes the worst-case loss in a small neighbourhood, favouring flat minima. [[sam-sharpness-aware-minimization-from-scratch-numpy]]

@@ -191,6 +191,7 @@ Read the full topic before using its guidance; check last_verified and the offic
 - [Qwen models](models/qwen.md): self-host a strong Apache-2.0 multilingual LLM for internal assistants (status: draft; verified: 2026-10-03)
 - [Reading AI benchmarks and leaderboards](models/reading-ai-benchmarks.md): judge whether a vendor's benchmark claim should change our model choice (status: draft; verified: 2026-10-11)
 - [Rerankers](models/rerankers.md): improve RAG answer quality by reranking the top 50 retrieved chunks (status: draft; verified: 2026-10-03)
+- [Safety classifier models (Llama Guard, Prompt Guard, ShieldGemma, Granite Guardian, gpt-oss-safeguard, moderation APIs)](models/safety-classifier-models.md): pick a model to flag unsafe user prompts and model replies in our chatbot (status: draft; verified: 2026-10-24)
 - [Small language models for edge and local use](models/small-language-models.md): run an offline assistant on a laptop or phone without sending data to a cloud API (status: draft; verified: 2026-10-15)
 - [Video generation models](models/video-generation-models.md): generate short product or ad clips from a text prompt (status: draft; verified: 2026-10-15)
 - [Vision-language-action (VLA) and robot foundation models](models/vision-language-action-models.md): pick an open robot policy model to fine-tune for a pick-and-place arm (status: draft; verified: 2026-10-11)
@@ -415,6 +416,7 @@ Read the full topic before using its guidance; check last_verified and the offic
 
 ## setup
 
+- [AMD GPUs with ROCm (PyTorch, vLLM, llama.cpp, Ollama)](setup/amd-rocm-setup.md): get PyTorch to see my AMD Radeon or Instinct GPU on Linux (status: draft; verified: 2026-10-24)
 - [LLM API SDK setup (Anthropic, OpenAI, Google)](setup/api-sdk-setup.md): make a first call to Claude, GPT or Gemini from Python (status: draft; verified: 2026-10-15)
 - [ComfyUI (node-based local image and video generation)](setup/comfyui.md): generate product images locally on my own GPU without a cloud API (status: draft; verified: 2026-10-15)
 - [Docker for ML (CUDA images, GPU access, slim images, model caching)](setup/docker-for-ml.md): package my PyTorch inference service in a Docker image that can see the GPU (status: draft; verified: 2026-10-15)
@@ -438,6 +440,7 @@ Read the full topic before using its guidance; check last_verified and the offic
 - [AI security, privacy and compliance basics](deployment/ai-security-privacy-compliance.md): send customer data to an LLM API without leaking PII (status: stable; verified: 2026-10-03)
 - [Batch inference and provider batch APIs](deployment/batch-inference-and-batch-apis.md): classify or summarize a million documents overnight at the lowest cost (status: draft; verified: 2026-10-15)
 - [LLM cost and latency optimization](deployment/cost-and-latency.md): cut the monthly LLM bill of a production chatbot without hurting quality (status: draft; verified: 2026-10-03)
+- [Disaggregated prefill/decode and KV cache offloading (vLLM connectors, LMCache, llm-d, Dynamo)](deployment/disaggregated-prefill-and-kv-cache-offloading.md): stop long prompts from causing inter-token latency spikes for users already streaming (status: draft; verified: 2026-10-24)
 - [Edge and on-device inference (ONNX, TensorRT, Core ML, mobile)](deployment/edge-on-device.md): run an image model on a phone or camera without sending data to the cloud (status: stable; verified: 2026-10-03)
 - [Serving embedding and reranker models (TEI, vLLM pooling, Sentence Transformers)](deployment/embedding-and-reranker-serving.md): self-host an open embedding model behind an HTTP API for our RAG pipeline (status: draft; verified: 2026-10-24)
 - [Feature stores (online/offline features, point-in-time correctness, Feast)](deployment/feature-stores.md): serve the same customer features to a fraud model in training and in real-time scoring (status: draft; verified: 2026-10-15)

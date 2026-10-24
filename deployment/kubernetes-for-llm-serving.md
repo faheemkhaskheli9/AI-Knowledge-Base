@@ -133,6 +133,7 @@ With a 120 s cold start the queue grows for two minutes before help arrives. Kee
 - Spot/preemptible GPU nodes are cheap but evict; keep at least one on-demand replica for user-facing traffic.
 
 ## Related
+- [[disaggregated-prefill-and-kv-cache-offloading]] - llm-d and Dynamo: cache-aware routing, P/D disaggregation and KV tiers.
 - [[inference-servers-vllm]] - the server running in each pod.
 - [[sglang-and-tensorrt-llm]] - alternative engines with the same deployment shape.
 - [[onnx-and-triton-inference-server]] - Triton/KServe for non-LLM models.
