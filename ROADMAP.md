@@ -35,12 +35,14 @@ holds the detail and any leftover acceptance criteria.
    `deployment/` files whose `last_verified` is older than 90 days, the ones
    whose facts (model IDs, prices, versions) rot. Issue #4 closed: the index now
    includes a `Verified` column and `--stale N` configures the threshold.
-5. [ ] **Fill thin categories.** Add applied topics before more from-scratch
+5. [x] **Fill thin categories.** Add applied topics before more from-scratch
    ones: `models/` (embedding and reranker models, open-weight vision LLMs),
    `setup/` (vLLM/llama.cpp server on Windows, Docker GPU), `deployment/`
    (LLM gateways and rate limits, batch inference, caching). Tracker #98,
    one `topic:*` issue per topic, plus #6, #7 and #10 (A2A, context
    engineering, agent skills).
+   Done: tracker #98 and #6, #7, #10 closed (models 26, setup 15,
+   deployment 23 topics as of 2026-10-24).
 6. [x] **Scenario links.** Each `scenarios/` file links the from-scratch and
    overview topics it relies on; check every overview topic is reachable from
    at least one scenario. Done: `build_index.py` warns on overview topics no

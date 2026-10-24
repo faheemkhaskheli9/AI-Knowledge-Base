@@ -66,10 +66,10 @@ Agent Platform, formerly Vertex AI, and Amazon Bedrock) plus open-weight hosts
 | Provider | Methods | Tunable base models | Cost model |
 |---|---|---|---|
 | OpenAI API | SFT, vision SFT, DPO | SFT/DPO: `gpt-4.1-2025-04-14`, `gpt-4.1-mini-2025-04-14`; vision: `gpt-4o-2024-08-06` | training per 1M tokens (e.g. $5 for gpt-4.1-mini); tuned inference per token |
-| OpenAI API (retiring) | SFT/DPO, RFT | `gpt-4.1-nano-2025-04-14` and `o4-mini-2025-04-16`, the only RFT base, shut down 2026-10-23 (deprecations page) <!-- valid-until: 2026-10-23 --> | RFT $100 per training hour plus grader tokens |
+| OpenAI API (retired) | SFT/DPO, RFT | none: `gpt-4.1-nano-2025-04-14` and `o4-mini-2025-04-16`, the only RFT base, shut down on 2026-10-23 (deprecations page), so the OpenAI API no longer offers RFT | - |
 | Gemini Developer API / AI Studio | none | no tunable model since Gemini 1.5 Flash-001 was deprecated (May 2025) | - |
 | Gemini Enterprise Agent Platform (Vertex AI) | SFT, RL fine-tuning | SFT: Gemini 3.5 Flash, 3.1 Flash-Lite; RL: Gemini 3.5 Flash (pricing page); also Gemma, Llama, Qwen open models | per 1,000 training tokens (dataset tokens x epochs), e.g. $0.01 for Gemini 3.5 Flash; from Gemini 3, tuned-endpoint inference is 1.5x the base price |
-| Agent Platform (retiring) | SFT, preference tuning | Gemini 2.5 Pro, 2.5 Flash and 2.5 Flash-Lite (the only preference-tuning bases) retire 2026-10-20 (model versions page) <!-- valid-until: 2026-10-20 --> | e.g. $0.005 per 1,000 training tokens for 2.5 Flash |
+| Agent Platform (retired) | SFT, preference tuning | none: Gemini 2.5 Pro, 2.5 Flash and 2.5 Flash-Lite, the only preference-tuning bases, retired on 2026-10-20 (model versions page) | - |
 | Amazon Bedrock | SFT, RFT, distillation | SFT: Nova 2 Lite, Nova Lite/Micro/Pro (Active); RFT: Nova 2 Lite, gpt-oss-20B, Qwen3 32B | training per token or per hour (RFT, e.g. $80/hour for gpt-oss-20b), $1.95 per custom model per month storage, on-demand or Provisioned Throughput inference |
 | Bedrock (legacy) | SFT | Llama 3.1 8B/70B and 3.3 70B are Legacy, so no new tuning jobs, with EOL 2027-03-30 (model cards) <!-- valid-until: 2027-03-30 -->; Llama 3.2 (EOL 2026-07-07) and Claude 3 Haiku (EOL 2026-09-10) still sit in the fine-tuning table but are past EOL | - |
 | Together AI | SFT, DPO; LoRA or full | open-weight models listed in its docs | see its pricing page; serve on a dedicated endpoint or download the weights |
@@ -133,7 +133,7 @@ tokens = 2_000_000  # e.g. 4,000 examples x 500 tokens
 print("OpenAI gpt-4.1-mini SFT, 3 epochs: $", training_cost(tokens, 3, 5.00))
 print("Gemini 3.1 Flash-Lite SFT ($0.003 / 1k), 3 epochs: $", training_cost(tokens, 3, 3.00))
 print("Gemini 3.5 Flash SFT ($0.01 / 1k), 3 epochs: $", training_cost(tokens, 3, 10.00))
-print("OpenAI o4-mini RFT, 8 training hours: $", 8 * 100.0, "+ grader tokens")  # <!-- valid-until: 2026-10-23 -->
+print("Bedrock gpt-oss-20b RFT ($80 / hour), 8 training hours: $", 8 * 80.0, "+ grader tokens")
 ```
 Starting a Gemini tuning job on the Agent Platform with the Google Gen AI SDK
 (from Google's codelab; needs a project, a Cloud Storage dataset and

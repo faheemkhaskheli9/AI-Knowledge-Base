@@ -25,8 +25,10 @@ ORDER = ("scenarios", "concepts", "models", "llm-apps", "ml", "cv", "speech", "s
 # Entry points for agents: not topics (not in INDEX.md/llms.txt rows), but their [[links]] are checked.
 GLOSSARY, LEARNING_PATHS = "glossary.md", "learning-paths.md"
 ENTRY_POINTS = (GLOSSARY, LEARNING_PATHS)
-# docs/app-guide.md documents the web apps; it is not a topic (also skipped by check_code, check_links and the Django site).
-SKIP = {"README.md", "AGENTS.md", "CLAUDE.md", "INDEX.md", "ROADMAP.md", "_template.md", "app-guide.md", *ENTRY_POINTS}
+# docs/app-guide.md documents the web apps, CHATGPT-KB-ROUTER.md routes across sibling KBs and references/
+# holds research backlogs; none is a topic (also skipped by check_code, check_links and the Django site).
+SKIP = {"README.md", "AGENTS.md", "CLAUDE.md", "INDEX.md", "ROADMAP.md", "_template.md", "app-guide.md",
+        "CHATGPT-KB-ROUTER.md", "third-party-repository-review-2026-10.md", *ENTRY_POINTS}
 
 
 def links(text):
