@@ -87,6 +87,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Coding agent** - an agent that reads a repository, edits files and runs commands and tests to complete software tasks. [[coding-agents]]
 - **Cohere Command** - Cohere's LLM family, offered with its Embed and Rerank models for enterprise RAG. [[cohere-command]]
 - **ColBERT (late interaction)** - retrieval that keeps one vector per token and scores a document by summing each query token's best match. [[late-interaction-retrieval]]
+- **Cold start (model server)** - the time a new inference replica spends fetching weights, loading them to the GPU and warming up before it can serve. [[model-weight-loading-and-cold-starts]]
 - **ComfyUI** - a node-graph interface for building and running local image and video generation pipelines. [[comfyui]]
 - **Computer-use agent** - an agent that operates a GUI or browser from screenshots by issuing clicks and keystrokes. [[computer-use-agents]]
 - **Concept drift** - a change over time in the relationship between inputs and the target, so a once-accurate model degrades. [[online-learning-and-concept-drift]]
@@ -381,7 +382,9 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **ONNX** - an open model format and runtime for exporting models from one framework and running them elsewhere. [[onnx-and-triton-inference-server]]
 - **OpenAI-compatible API** - a server (vLLM, Ollama, LM Studio and others) exposing the same HTTP endpoints as OpenAI's API, so existing clients work by changing the base URL. [[vllm-local-setup]]
 - **OpenTelemetry GenAI conventions** - standard span and attribute names for tracing LLM calls, tool calls and agents with OpenTelemetry. [[opentelemetry-genai-tracing]]
+- **OpenVINO** - Intel's inference runtime and model format that runs exported models on CPU, GPU or NPU; OpenVINO GenAI adds ready LLM, Whisper and image pipelines. [[intel-gpu-and-openvino-setup]]
 - **Open-vocabulary detection** - detecting objects named by arbitrary text, not only a fixed training label set. [[open-vocabulary-detection]]
+- **Open WebUI** - a self-hosted, multi-user chat web app over Ollama and OpenAI-compatible model servers, with RAG, tools and Python plugins. [[open-webui]]
 - **Open-weight model** - a model whose trained weights are downloadable, so it can be run and fine-tuned locally under its licence. [[open-weight-model-landscape]]
 - **Optical flow** - the apparent per-pixel motion between consecutive video frames. [[lucas-kanade-optical-flow-from-scratch]]
 - **Optimizer** - the update rule that turns gradients into parameter changes (SGD, momentum, Adam). [[optimizers]]
@@ -462,6 +465,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 
 - **safetensors** - a safe, fast file format for model weights that, unlike pickle, cannot execute code on load. [[model-checkpointing-and-export]]
 - **Safety classifier** - a model that labels prompts or model outputs as safe or unsafe (content categories) or as attacks (jailbreak, injection), used as a moderation layer. [[safety-classifier-models]]
+- **Safetensors** - a tensor file format with a JSON header and one raw byte buffer: no pickle code execution and zero-copy loading; the usual format for open model weights. [[model-weight-loading-and-cold-starts]]
 - **Saliency map** - an image showing which input pixels most affect a model's prediction, typically from gradients. [[saliency-maps-and-neural-attribution]]
 - **SAM (Segment Anything)** - a promptable segmentation model that returns masks for points, boxes or (in later versions) text prompts, in images and video. [[segment-anything-sam2]]
 - **SAM (sharpness-aware minimization)** - an optimizer step that minimizes the worst-case loss in a small neighbourhood, favouring flat minima. [[sam-sharpness-aware-minimization-from-scratch-numpy]]
@@ -479,6 +483,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 - **Shadow deployment** - running a new model on live traffic alongside the current one without serving its outputs, to compare them safely. [[ab-testing-and-canary-for-models]]
 - **SHAP** - per-prediction feature attributions based on Shapley values from game theory. [[model-interpretability]]
 - **Sinkhorn algorithm** - fast entropy-regularized optimal transport by alternately normalizing rows and columns of a kernel matrix. [[sinkhorn-optimal-transport-from-scratch]]
+- **Sleep mode (vLLM)** - releasing a running vLLM engine's GPU memory (weights offloaded or discarded, KV cache dropped) without stopping the server, then waking it later. [[model-weight-loading-and-cold-starts]]
 - **SLIC superpixels** - grouping pixels into compact regions by local k-means in colour plus position space. [[slic-superpixels-from-scratch]]
 - **Small language model (SLM)** - a compact LLM sized to run on laptops, phones or edge devices. [[small-language-models]]
 - **SMOTE** - oversampling a minority class by interpolating new synthetic points between its nearest neighbours. [[smote-from-scratch]]
@@ -578,6 +583,7 @@ Format: `- **Term** - definition. [[topic]]`, alphabetical under letter headings
 
 - **Xavier (Glorot) initialization** - weight initialization scaled by fan-in and fan-out to keep activation variance stable for tanh/sigmoid layers. [[weight-initialization]]
 - **XGBoost / LightGBM / CatBoost** - widely used gradient-boosted tree libraries for tabular data. [[gradient-boosting-tabular]]
+- **XPU (PyTorch)** - PyTorch's device name for Intel GPUs: code moves tensors with `.to("xpu")` where it would use `"cuda"`. [[intel-gpu-and-openvino-setup]]
 
 ## Y
 

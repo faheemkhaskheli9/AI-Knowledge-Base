@@ -130,6 +130,7 @@ srv.shutdown()
 - [[api-sdk-setup]] - OpenAI SDK basics reused with a local `base_url`.
 - [[small-language-models]] - models that fit desktop hardware.
 - [[quantization]] - what the GGUF quant names mean.
+- [[open-webui]] - self-hosted web UI when a whole team needs access.
 
 ## References
 - LM Studio developer docs: https://lmstudio.ai/docs/developer

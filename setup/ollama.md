@@ -95,6 +95,8 @@ export OLLAMA_HOST=0.0.0.0:11434
 - [[quantization]] - what the tags mean.
 - [[api-sdk-setup]] - OpenAI SDK usage.
 - [[lm-studio-and-jan]] - GUI desktop apps with the same OpenAI-style local server.
+- [[open-webui]] - a multi-user web chat UI on top of Ollama.
+- [[intel-gpu-and-openvino-setup]] - Ollama on Intel GPUs through Vulkan.
 
 ## References
 - API docs: https://github.com/ollama/ollama/blob/main/docs/api.md
