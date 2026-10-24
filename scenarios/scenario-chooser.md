@@ -46,6 +46,7 @@ KB files to read in full next.
 | Classify text (intent, sentiment, routing, spam) | Few-shot LLM to start; embeddings + logistic regression or a small fine-tuned model at volume | [[nlp-classic-tasks]], [[embeddings]], [[classic-ml-scikit-learn]], [[small-language-models]] |
 | Answer questions over my documents | RAG: parse, chunk, embed, retrieve, rerank, cite | [[rag-basics]], [[advanced-rag]], [[vector-databases]], [[embedding-models]], [[rerankers]] |
 | Self-host embeddings and a reranker for private or high-volume search | TEI or vLLM pooling server, token-budget batching, vector cache keyed by model revision | [[embedding-and-reranker-serving]], [[embedding-models]], [[rerankers]] |
+| Retrieval misses domain jargon even with hybrid search and a reranker | Fine-tune an open embedder on query-passage pairs with in-batch and hard negatives, judged by recall@k on held-out documents, then re-embed | [[embedding-fine-tuning]], [[embedding-models]], [[advanced-rag]] |
 | Answer questions over my database | Text-to-SQL with a read-only role and schema context | [[text-to-sql]], [[data-analytics]] |
 | Automate a multi-step workflow / act on systems | Tool-calling agent, human approval for side effects | [[agents]], [[tool-calling]], [[model-context-protocol]], [[agent-frameworks]], [[guardrails-and-safety]] |
 | Write or fix code | Coding agent with tests as the feedback loop | [[coding-agents]], [[software-engineering]] |
@@ -73,6 +74,8 @@ KB files to read in full next.
 | Tag one input with several labels, or predict several targets from one model | Per-label sigmoid outputs with tuned thresholds; shared encoder with task heads | [[multi-label-and-multi-task-learning]], [[model-evaluation-and-metrics]] |
 | Find and fix mislabeled training data | Confident learning on out-of-fold probabilities, then human review | [[label-noise-and-data-cleaning]], [[data-labeling-and-synthetic-data]] |
 | Make a model smaller or cheaper to serve | Quantize first, then distil into a small student | [[quantization]], [[knowledge-distillation-and-compression]], [[edge-on-device]] |
+| Fit a bigger open model or more concurrent users on our GPUs | FP8 (or W4A16 when memory-bound) checkpoint from llm-compressor plus FP8 KV cache in vLLM, checked on our eval set | [[quantizing-llms-for-serving]], [[quantization]], [[inference-servers-vllm]] |
+| Serve a fine-tune per customer or per task without a GPU each | One base model with many LoRA adapters (vLLM `--enable-lora`, LoRAX), slots sized from active tenants | [[multi-lora-adapter-serving]], [[fine-tuning-and-peft]], [[inference-servers-vllm]] |
 | Recommend items / personalise a feed | Embedding retrieval + ranker; popularity baseline first | [[recommender-systems]], [[embeddings]], [[ecommerce-retail]] |
 | Find items bought together / bundles | Frequent itemsets and association rules, ranked by lift | [[association-rules-market-basket]], [[recommender-systems]] |
 | Keep a model current as data changes | Drift monitoring + scheduled retrain; online learning if labels arrive fast | [[online-learning-and-concept-drift]], [[mlops-lifecycle]] |

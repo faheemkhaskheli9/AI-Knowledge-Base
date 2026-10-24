@@ -88,6 +88,7 @@ print(ce.predict([("refund window", "Damaged items can be refunded within 30 day
 - [[rag-basics]] - pipeline context.
 - [[llm-evaluation]] - measuring the gain.
 - [[cohere-command]] - Cohere's generator and embedder that pair with Rerank.
+- [[embedding-fine-tuning]] - fine-tuning the first-stage embedder instead of (or as well as) reranking.
 
 ## References
 - https://docs.cohere.com/docs/rerank

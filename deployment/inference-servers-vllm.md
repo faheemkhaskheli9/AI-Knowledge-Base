@@ -95,6 +95,8 @@ TGI: Hugging Face states it is in maintenance mode and recommends vLLM, SGLang, 
 - [[vllm-local-setup]] - installing vLLM on Linux/WSL2/Docker and fixing common start-up errors.
 - [[llm-load-testing-and-benchmarking]] - measuring TTFT, TPOT and goodput with `vllm bench serve` before launch.
 - [[embedding-and-reranker-serving]] - serving embedding and reranker (pooling) models instead of generators.
+- [[multi-lora-adapter-serving]] - many LoRA fine-tunes on one shared base model (`--enable-lora`).
+- [[quantizing-llms-for-serving]] - FP8, INT8 and W4A16 checkpoints with llm-compressor, and the FP8 KV cache.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/system-design/load-balancing.md - spreading requests across GPU replicas.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/capacity-planning-and-autoscaling.md - sizing and autoscaling the fleet.
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/kubernetes-basics.md - running the server on a cluster.
