@@ -1,12 +1,21 @@
 # AI Knowledge Base
 
-A reference on AI technologies covering models, core concepts, setup and code,
-deployment, and the scenarios each one fits. It is written as plain Markdown
-so that people and AI coding agents (Claude Code, Codex, Cursor, Copilot)
+**442 practical topics on AI: LLMs, RAG, agents, fine-tuning, computer vision, speech, classical ML and MLOps.**
+Each topic has runnable code, trade-offs, gotchas and sources, plus from-scratch NumPy implementations
+(attention, backprop, GANs, diffusion, DPO, GRPO and more).
+
+![topics](https://img.shields.io/badge/topics-442-blue)
+![format](https://img.shields.io/badge/format-Markdown-lightgrey)
+![code checked in CI](https://img.shields.io/badge/code-checked%20in%20CI-brightgreen)
+
+![Browsing the knowledge base in the built-in web app](docs/screenshots/webapp.png)
+
+It is written as plain Markdown so that people and AI coding agents (Codex, Cursor, Copilot and others)
 can look things up before they build.
 
+⭐ **If this helps you learn or build, please star the repo.** It helps others find it.
+
 - **Start here:** [INDEX.md](INDEX.md) lists every topic with its tags and use cases.
-- **External repository candidates:** [33 third-party projects for deferred review](references/third-party-repository-review-2026-10.md), with project-specific GitHub issues and evaluation criteria.
 - **By problem:** [scenarios/](scenarios/) maps an industry or task to the
   recommended approach.
 - **Terms:** [glossary.md](glossary.md) defines core terms (KV cache, LoRA, MCP, RAG, ...), each
@@ -17,6 +26,7 @@ can look things up before they build.
 - **For agents:** [AGENTS.md](AGENTS.md) explains how to consult the base and how to extend it;
   [llms.txt](llms.txt) is a compact one-line-per-topic index ([llmstxt.org](https://llmstxt.org/) format),
   generated with INDEX.md.
+- **External repository candidates:** [33 third-party projects for deferred review](references/third-party-repository-review-2026-10.md), with project-specific GitHub issues and evaluation criteria.
 
 ## Layout
 
