@@ -93,6 +93,7 @@ The Claude Agent SDK supports subagents and Claude Code supports subagent defini
 
 ## Related
 - [[agents]] - single-agent loop first.
+- [[task-decomposition-and-handoffs]] - where to split, planner plans, handoff payloads and loop limits.
 - [[agent-frameworks]] - supervisors and handoffs in libraries.
 - [[agent-memory]] - shared state.
 - [[coding-agents]] - subagents in practice.

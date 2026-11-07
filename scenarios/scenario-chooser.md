@@ -109,7 +109,8 @@ KB files to read in full next.
   check [[model-licenses]]). Hard multi-step problems: [[reasoning-models]].
 - **One agent vs workflow.** If the steps are known, write a fixed pipeline
   with LLM calls; use an [[agents]] loop only when the path is genuinely
-  dynamic. Multiple agents: [[multi-agent-systems]] only when one cannot cope.
+  dynamic. Multiple agents: [[multi-agent-systems]] only when one cannot cope;
+  where to split and how to hand off: [[task-decomposition-and-handoffs]].
 - **Long document vs retrieval.** Few documents that fit the window ->
   stuff them in ([[long-context]], [[prompt-caching-and-cost]]); large or
   changing corpus -> RAG.
