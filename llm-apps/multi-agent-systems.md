@@ -28,7 +28,7 @@ A multi-agent system splits work across several LLM agents, each with its own pr
 - **Parallelization**: independent sub-tasks run concurrently (sectioning) or the same task runs several times and votes.
 - **Evaluator-optimizer**: generator plus critic loop until criteria are met.
 - **Context isolation**: each sub-agent starts with a clean window and returns a compact summary, not its whole transcript - the main reason to split.
-- **Shared state**: pass artifacts via files/DB or a shared store, not by chatting everything ([[agent-memory]]).
+- **Shared state**: pass artifacts via files/DB or a shared store, not by chatting everything ([[agent-memory]]). When several agents cache the same live fact (an order or appointment status), give the cache an invalidation path (change notifications or pub/sub on the key); private copies with no invalidation drift the moment one agent writes.
 - **Briefs matter**: sub-agents know nothing; give objective, output format, tools, boundaries, and effort budget.
 
 ## When to use / scenarios

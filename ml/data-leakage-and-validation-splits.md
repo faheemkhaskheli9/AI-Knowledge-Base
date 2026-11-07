@@ -98,6 +98,8 @@ print("nested:", cross_val_score(inner, X, y, cv=5).mean())
 - A feature that looks "too good" in importance plots is usually target leakage; check when it is recorded relative to the label ([[model-interpretability]]).
 - Deduplicate (exact hashes, perceptual hashes for images, MinHash for text) before splitting, not after.
 - Early stopping on the test set is tuning on the test set; use a validation split.
+- Time series: give every label an `available_at` timestamp (a daily bar dated D is known only after D closes, e.g. next local midnight) and keep a training row only if its label was available by the train cutoff. Build rolling features per decision time from data `<= t`; computing them on the whole series and slicing rows afterwards has already seen the future.
+- `SimpleImputer` drops all-NaN columns (indicator warm-up periods) unless `keep_empty_features=True`, so train and predict column counts silently diverge; also save the feature names with the model and assert they match at predict time.
 
 ## Related
 - [[ml-fundamentals]] - why train/validation/test exist at all.

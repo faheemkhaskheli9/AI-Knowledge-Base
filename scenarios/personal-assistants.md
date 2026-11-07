@@ -122,6 +122,7 @@ def run_tool(name, args, confirm):
 - [[data-analytics]] - querying personal data.
 - [[marketing-content]] - posting and content automation.
 - [[ai-security-privacy-compliance]] - threat model for agent access.
+- [[agent-memory-lifecycle]] - keeping long-lived memory current, budgeted and deletable.
 
 ## References
 - Model Context Protocol: https://modelcontextprotocol.io/

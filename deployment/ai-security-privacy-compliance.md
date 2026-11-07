@@ -81,6 +81,8 @@ Engineering checklist:
 ## Related
 - [[prompt-injection]] - attack class for LLM apps.
 - [[guardrails-and-safety]] - runtime controls.
+- [[pii-redaction-placeholders]] - reversible placeholder redaction with domain guards.
+- [[agent-memory-lifecycle]] - tenant isolation, audit logs and erasure for agent memory.
 - [[llm-observability]] - logging with retention.
 - [[api-sdk-setup]] - key handling.
 - [[gpu-cloud-options]] - where data is processed.

@@ -28,7 +28,10 @@ LLMs are stateless; "memory" is state your application stores and re-injects. Sp
 - **Procedural memory**: learned instructions/skills, often stored as files or prompts (CLAUDE.md-style notes, [[coding-agents]]).
 - **Write path**: decide what to store (extraction by LLM at end of session or via a `remember` tool), dedupe, resolve contradictions (newer wins; keep history), score importance.
 - **Read path**: retrieve top-k relevant memories per turn, inject into the prompt within a token budget, measure whether they help.
-- **Lifecycle**: importance scoring, decay, consolidation of episodes into semantic facts, retention limits, deletion on request.
+- **Lifecycle**: importance scoring, decay, consolidation of episodes into semantic facts, retention limits, deletion on request. Formulas, budgets, retention tiers, isolation and audit: [[agent-memory-lifecycle]].
+- **API layer covers working memory only**: a server-managed thread/conversation API accumulates session history for you, while a stateless API (for example OpenAI/Azure Responses without stored state) makes you rebuild context each call. Neither gives you episodic or semantic memory; those stay application-managed either way.
+- **Semantic scope**: scope similarity search to the current user/entity by default; a global store shared across users enables population-level patterns but needs de-identification and is an easy privacy leak.
+- **When to trim**: start managing working memory well before the hard limit (a common rule of thumb is ~60% of the context window): keep recent turns, summarize older ones, move them to the episodic store.
 - **Tools**: Anthropic's memory tool (client-side file directory the model reads/writes), LangGraph stores/checkpointers, Mem0/Letta-style libraries, or your own DB.
 
 ## When to use / scenarios
@@ -87,6 +90,7 @@ Extract facts after the session with a structured-output call ([[structured-outp
 
 ## Related
 - [[agents]] - where memory is consumed.
+- [[agent-memory-lifecycle]] - decay, contradiction, context budgets, retention, isolation and audit.
 - [[vector-databases]] - semantic tier storage.
 - [[rag-basics]] - same retrieval mechanics.
 - [[multi-agent-systems]] - shared state between agents.
@@ -97,3 +101,4 @@ Extract facts after the session with a structured-output call ([[structured-outp
 - Anthropic memory tool: https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool
 - Park et al., Generative Agents: https://arxiv.org/abs/2304.03442
 - LangGraph memory concepts: https://langchain-ai.github.io/langgraph/concepts/memory/
+- Microsoft Learn, Design multi-agent memory architectures with Azure Cosmos DB: https://learn.microsoft.com/en-us/training/modules/aaai-design-multi-agent-memory-azure-cosmos-db/

@@ -119,6 +119,8 @@ prompt = ("Draft a SOAP note ONLY from the transcript. If something is not "
 
 ## Related
 - [[ai-security-privacy-compliance]] - data boundary, DPAs, retention.
+- [[pii-redaction-placeholders]] - keep PHI out of hosted-LLM calls without breaking lab values or dosages.
+- [[agent-memory-lifecycle]] - patient-scoped memory, critical facts, audit and retention tiers.
 - [[guardrails-and-safety]] - refusal and escalation rules.
 - [[voice-agents]] - patient phone workflows.
 - [[vision-language-models]] - report generation research (not for unsupervised use).

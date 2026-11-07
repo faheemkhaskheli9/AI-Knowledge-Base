@@ -9,12 +9,13 @@ use_cases:
   - "multi-tenant document search where each customer sees only their data"
   - "add semantic memory to an agent"
 status: draft
-last_verified: 2026-10-03
+last_verified: 2026-11-07
 sources:
   - https://github.com/pgvector/pgvector
   - https://qdrant.tech/documentation/
   - https://docs.trychroma.com/
   - https://github.com/facebookresearch/faiss
+  - https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-dotnet-vector-index-query
 ---
 
 # Vector databases and indexes
@@ -87,6 +88,7 @@ hits = q.query_points("docs", query=[0.1]*384, limit=5,
 - Filter + ANN can return fewer than k results; over-fetch or tune.
 - Deleting source docs must delete their vectors (privacy/right-to-erasure).
 - Benchmarks on public datasets rarely reflect your data; test recall against exact search on a sample.
+- Azure Cosmos DB for NoSQL: enable the account's vector search feature first, then set the vector embedding policy and vector index when the container is created; the policy cannot be added to an existing container, so plan the vector container before data flows. One account can then hold both the episodic documents (partitioned by user/entity id) and the semantic vectors of [[agent-memory]], queried with `VectorDistance` and a minimum-similarity filter.
 
 ## Related
 - [[rag-basics]] - consumer of the store.

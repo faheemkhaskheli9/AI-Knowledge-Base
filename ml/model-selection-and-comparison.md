@@ -93,12 +93,15 @@ print(mcnemar(table, exact=True).pvalue)
 - **Which test.** Repeated k-fold available: corrected resampled t-test. One fixed test set and two classifiers: McNemar. Many models over many datasets (benchmarking): Friedman test plus a post-hoc Nemenyi test (Demšar, 2006). Want a probability that A beats B by a margin that matters: Bayesian correlated t-test (shown in the scikit-learn example in References).
 - **Repeats.** More repeats of k-fold reduce the variance of the mean score but do not remove fold correlation. That is why the correction is still needed.
 - **Choose the simpler model on ties.** If the difference is within noise, prefer the cheaper, faster, more interpretable model (the "one standard error rule").
+- **Accuracy and cost together.** When "efficient" is a requirement, record fit time, per-row predict latency (time your own `predict`, not a scorer that predicts internally) and serialized size (`len(pickle.dumps(model))`) per candidate, rank on one accuracy metric, and flag the Pareto front on (score, fit time, latency, size) separately. That is easier to defend than one blended `accuracy - lambda * time` score with a magic lambda. Treat the timings as relative, not as SLAs.
+- **Sweep economics.** Build the dataset and split once and fit every candidate on the same rows; it is faster and keeps scores comparable. Persist metrics per candidate but only the chosen model's artifact, and let a failing candidate record an error instead of aborting the sweep.
 
 ## Gotchas
 - **Reporting `best_score_` as the expected performance.** It is the selection score, not an estimate. Report the nested or held-out score.
 - **Different folds for each model.** Comparing means from different splits mixes split noise into the comparison. Pass the same `cv` object, with a fixed `random_state`, to every model.
 - **Preprocessing outside the inner loop.** Scaling, feature selection or target encoding fitted on all data before nested CV leaks information into every fold. Put them inside the pipeline being searched.
 - **Testing many pairs.** Ten pairwise tests at p < 0.05 will throw up false positives. Correct for multiple comparisons (Holm, Bonferroni) or use Friedman plus post-hoc ([[statistics-and-ab-testing]]).
+- **A single holdout sweep is not an out-of-sample estimate.** The more candidates you try on one holdout, the more the winner is fitted to its noise; confirm it with walk-forward (time series) or nested CV before trusting the number.
 - **Peeking at the test set.** Every time a decision is made after looking at test scores, the test set becomes part of selection. Keep one final evaluation for the very end.
 - **The nested score belongs to the procedure, not one model.** Each outer fold may pick different hyperparameters. That variation is part of what is being measured.
 

@@ -26,7 +26,9 @@ An agent is an LLM running in a loop: it decides the next step, calls tools, obs
 - **Loop (ReAct style)**: think -> act (tool call) -> observe -> repeat. Built on [[tool-calling]].
 - **Planning**: let the model write a short plan first (or use reasoning/extended thinking), keep a visible to-do list, re-plan when a step fails. Plan-and-execute splits a planner from cheaper executors.
 - **Stopping**: combine (1) the model ending its turn (`end_turn`/no tool call), (2) a hard max-iteration cap sized to the task (about 3 simple, 10-15 research), (3) a token/time/cost budget, (4) explicit failure paths. Never rely on self-reported "done" alone.
-- **Handle every stop reason**: tool request, end turn, `max_tokens`, refusal, timeout, error - each needs a distinct branch.
+- **Handle every stop reason**: tool request, end turn, `max_tokens`, refusal, timeout, error - each needs a distinct branch. A rate limit wants backoff and the same request; a timeout wants a smaller or simpler request, not an identical retry; an invalid-request error will never succeed on retry; a cancellation means clean up and exit.
+- **API style changes plumbing, not the loop**: a hosted run API (poll a status such as `requires_action`, submit tool outputs, resume) and a synchronous messages/responses API (tool calls come back as output items you execute and send back) have the same bounded, stop-reason-branching shape. Write the loop against that shape so an API migration only swaps the transport.
+- **Polling vs streaming**: poll when a backend job only needs the final result; stream when a user watches progress. Both consume the same event model.
 - **Context management**: prune/summarize old tool results, offload to files/memory ([[agent-memory]]), keep the system prompt stable ([[prompt-caching-and-cost]]).
 - **Human-in-the-loop**: approval gates before irreversible actions.
 - **Observability**: log every step, tool args/results, tokens, latency ([[llm-observability]]).
@@ -102,3 +104,4 @@ Note: `spent` sums per-call input tokens, which re-counts the growing history ea
 - Anthropic, Building effective agents: https://www.anthropic.com/engineering/building-effective-agents
 - Yao et al., ReAct: https://arxiv.org/abs/2210.03629
 - Tool use overview: https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview
+- Microsoft Learn, Design stateful agentic loops with Microsoft Foundry Agent Service: https://learn.microsoft.com/en-us/training/modules/aaai-design-agentic-loops-azure-ai-agent-service/

@@ -87,6 +87,10 @@ def answer(q: str, k=4, max_dist=0.8):
 - Stale index: schedule re-ingestion and delete removed documents.
 - Without a "no answer" path the model will make something up ([[hallucination-and-grounding]]).
 - Evaluate on real user questions, including unanswerable ones.
+- Snap chunk ends back to the nearest whitespace so words are not cut, and check that the next start still moves forward when overlap is close to chunk size, or the chunker stalls.
+- "The collection exists" is not "ingestion finished"; write flat-file stores atomically (temp file + rename) or record a completion marker.
+- A blank or whitespace-only completion is a backend failure, not an answer; and let backend errors raise instead of turning them into the "I don't know" fallback, which hides outages.
+- Citations derived from retrieval show what was in the prompt, not what the model actually used; that is coarser than true attribution but reliable enough for a UI or audit trail.
 
 ## Related
 - [[advanced-rag]] - hybrid search, reranking, GraphRAG, contextual retrieval.
