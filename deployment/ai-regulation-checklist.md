@@ -8,7 +8,7 @@ use_cases:
   - "label AI-generated content and chatbot interactions to meet EU transparency rules"
   - "decide whether to pursue ISO/IEC 42001 certification for an AI product company"
   - "build an AI system register and evidence pack an auditor or customer will ask for"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://eur-lex.europa.eu/eli/reg/2024/1689/oj

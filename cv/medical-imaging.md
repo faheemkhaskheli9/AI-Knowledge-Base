@@ -8,7 +8,7 @@ use_cases:
   - "train a 3D segmentation model on our own labelled scans with MONAI or nnU-Net"
   - "de-identify DICOM studies before sending them to a model or vendor"
   - "plan validation and regulatory steps for an AI radiology tool"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/Project-MONAI/MONAI

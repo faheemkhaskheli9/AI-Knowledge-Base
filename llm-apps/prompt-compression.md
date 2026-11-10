@@ -7,7 +7,7 @@ use_cases:
   - "fit long meeting transcripts or tool outputs into a smaller model's context window"
   - "compress retrieved context per question without re-chunking or re-indexing the corpus"
   - "decide between prompt compression, prompt caching and a smaller top-k for an expensive LLM pipeline"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://github.com/microsoft/LLMLingua

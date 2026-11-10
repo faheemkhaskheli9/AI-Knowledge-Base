@@ -7,7 +7,7 @@ use_cases:
   - "detect jailbreak and prompt-injection attempts before they reach the LLM"
   - "moderate user-generated text and images with a self-hosted classifier instead of a cloud API"
   - "enforce our own written content policy rather than a fixed hazard taxonomy"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://github.com/meta-llama/PurpleLlama/blob/main/Llama-Guard4/12B/MODEL_CARD.md

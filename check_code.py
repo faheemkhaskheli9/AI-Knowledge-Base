@@ -32,7 +32,7 @@ NEEDS_NETWORK = re.compile(
 NETWORK_MODULES = {"openai", "anthropic", "requests", "httpx", "mcp", "huggingface_hub", "datasets",
                    "transformers", "sentence_transformers", "trl", "peft", "diffusers", "langchain",
                    "llama_index", "chromadb", "faiss", "ollama", "vllm", "whisper", "openai_whisper",
-                   "gradio", "streamlit", "fastapi", "uvicorn", "cv2", "ultralytics", "timm"}
+                   "gradio", "streamlit", "fastapi", "uvicorn", "cv2", "ultralytics", "timm", "google"}
 LIMIT = re.compile(r"<!--\s*check-timeout:\s*(\d+)\s*-->")
 FENCE = re.compile(r"(<!--\s*skip-check:[^>]*-->\s*\n)?```(?:python|py)\n(.*?)```", re.S)
 

@@ -7,7 +7,7 @@ use_cases:
   - "speed up decoding of a model that ships MTP heads by using them as a built-in draft model"
   - "decide between MTP heads, Medusa heads and a separate draft model for speculative decoding"
   - "evaluate whether adding an auxiliary multi-token loss is worth it in our own pretraining run"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://arxiv.org/abs/2404.19737

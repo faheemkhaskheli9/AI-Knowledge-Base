@@ -7,7 +7,7 @@ use_cases:
   - "put one chat UI in front of a local model and a hosted API with per-user logins"
   - "add a company-wide filter that redacts emails before prompts reach the model"
   - "call our self-hosted models through Open WebUI's OpenAI-compatible API from a script"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://github.com/open-webui/open-webui/blob/main/README.md

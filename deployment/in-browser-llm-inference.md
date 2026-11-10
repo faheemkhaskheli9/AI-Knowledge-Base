@@ -7,7 +7,7 @@ use_cases:
   - "add offline semantic search or classification to a web app without paying for inference servers"
   - "ship a browser extension that summarizes pages with a local model"
   - "decide between in-browser inference, a local runner like Ollama and a server API for a web feature"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://github.com/mlc-ai/web-llm

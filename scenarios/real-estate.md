@@ -8,7 +8,7 @@ use_cases:
   - "extract terms from leases, appraisals and title documents"
   - "add property search and recommendations to a listings site"
   - "forecast rents, occupancy or maintenance needs for a portfolio"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://www.fhfa.gov/regulation/federal-register/final-rule/quality-control-standards-for-automated-valuation-models

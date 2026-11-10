@@ -7,7 +7,7 @@ use_cases:
   - "write reward functions (answer checkers, unit tests, format checks) for GRPO training in TRL"
   - "diagnose a reasoning RL run where reward goes up but real accuracy does not"
   - "decide whether RL fine-tuning is worth it versus SFT or best-of-n sampling"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://arxiv.org/abs/2411.15124

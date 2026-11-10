@@ -7,7 +7,7 @@ use_cases:
   - "find a linear direction for a behaviour (refusal, style, language) in a model's residual stream"
   - "steer a model's behaviour at inference by adding or removing an activation direction"
   - "assess how robust an open-weight model's safety tuning is before release"
-status: draft
+status: stable
 last_verified: 2026-10-19
 sources:
   - https://arxiv.org/abs/2406.11717

@@ -8,7 +8,7 @@ use_cases:
   - "fine-tune a geospatial foundation model on a small labelled land-cover dataset"
   - "build a training pipeline over large GeoTIFF rasters with matching label layers"
   - "compute vegetation and water indices as features for a yield or risk model"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/microsoft/torchgeo

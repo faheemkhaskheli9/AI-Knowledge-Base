@@ -7,7 +7,7 @@ use_cases:
   - "compare two chunking or embedding choices on retrieval recall before shipping one"
   - "score RAG answers for faithfulness to the retrieved documents in CI"
   - "build a labelled question set for evaluating a RAG system over company documents"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/

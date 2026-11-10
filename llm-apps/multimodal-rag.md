@@ -7,7 +7,7 @@ use_cases:
   - "build search over slide decks and scanned manuals without an OCR-then-chunk pipeline"
   - "decide between parsing to text, page-image embeddings and ColPali-style retrieval for a document archive"
   - "combine a text index and a page-image index in one RAG system"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://arxiv.org/abs/2407.01449

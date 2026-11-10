@@ -7,7 +7,7 @@ use_cases:
   - "produce a daily digest of thousands of support tickets or meeting transcripts"
   - "decide between pasting the whole document into a long-context model and map-reduce"
   - "write summaries that cite the section each claim came from and check them for hallucinations"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/long-context-tips

@@ -7,7 +7,7 @@ use_cases:
   - "generate product 3D models from photos for an e-commerce viewer"
   - "prototype a level with AI-generated placeholder assets"
   - "self-host an image-to-3D model with a licence that allows commercial use"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/microsoft/TRELLIS.2

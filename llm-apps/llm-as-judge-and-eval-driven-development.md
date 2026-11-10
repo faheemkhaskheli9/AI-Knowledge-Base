@@ -8,7 +8,7 @@ use_cases:
   - "choose between pairwise comparison and rubric scoring to compare two model versions"
   - "remove position and verbosity bias from an LLM judge"
   - "run a golden dataset in CI and fail the build on a significant quality drop"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://arxiv.org/abs/2306.05685

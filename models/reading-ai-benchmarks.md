@@ -7,7 +7,7 @@ use_cases:
   - "decide if a 3-point gap between two models on a leaderboard is real"
   - "understand what MMLU, GPQA, SWE-bench or ARC-AGI actually measure"
   - "explain why we build our own eval set instead of trusting leaderboard rank"
-status: draft
+status: stable
 last_verified: 2026-10-11
 sources:
   - https://arxiv.org/abs/2009.03300

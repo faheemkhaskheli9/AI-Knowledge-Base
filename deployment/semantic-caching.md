@@ -7,7 +7,7 @@ use_cases:
   - "serve repeated FAQ answers from a cache without serving a wrong answer to a near-miss question"
   - "pick a similarity threshold and TTL for an embedding-keyed response cache"
   - "invalidate cached LLM answers when the docs, prompt or model change"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://redis.io/docs/latest/develop/ai/redisvl/user_guide/how_to_guides/llmcache/

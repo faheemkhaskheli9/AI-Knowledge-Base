@@ -8,7 +8,7 @@ use_cases:
   - "estimate the monthly LLM bill for my startup's feature before launch"
   - "plan the AI architecture for pre-seed, seed and growth stages"
   - "avoid building a thin wrapper that a model update makes obsolete"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://www.anthropic.com/engineering/building-effective-agents

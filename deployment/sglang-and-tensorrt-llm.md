@@ -7,7 +7,7 @@ use_cases:
   - "serve an agent workload with long shared prefixes and JSON-constrained outputs at high throughput"
   - "squeeze maximum tokens per second out of NVIDIA H100/B200 GPUs for a production LLM"
   - "run an LLM server on AMD, TPU or Ascend hardware"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/sgl-project/sglang

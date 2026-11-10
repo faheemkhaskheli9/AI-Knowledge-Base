@@ -7,7 +7,7 @@ use_cases:
   - "host dozens of task-specific LoRA adapters behind one OpenAI-compatible endpoint"
   - "load a newly trained adapter into a running vLLM server without a restart"
   - "decide between merging a LoRA into the base weights and serving it as an adapter"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://docs.vllm.ai/en/latest/features/lora/

@@ -7,7 +7,7 @@ use_cases:
   - "decide which LLM API errors to retry and which to fail fast on"
   - "throttle many workers so together they stay under our tokens-per-minute limit"
   - "handle 529 overloaded and 5xx errors from a model provider without a retry storm"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://platform.claude.com/docs/en/api/rate-limits

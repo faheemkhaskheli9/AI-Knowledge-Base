@@ -7,7 +7,7 @@ use_cases:
   - "know exactly which prompt version produced a given answer in production"
   - "only promote a new prompt version to production after it passes our eval set"
   - "run two prompt versions side by side for an A/B test"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://raw.githubusercontent.com/langfuse/langfuse-docs/main/content/docs/prompt-management/data-model.mdx

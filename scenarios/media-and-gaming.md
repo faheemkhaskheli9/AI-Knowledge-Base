@@ -8,7 +8,7 @@ use_cases:
   - "moderate user-generated text, images, voice chat or video"
   - "recommend videos, articles, music or games to users"
   - "dub, subtitle or localise video and game content"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://eur-lex.europa.eu/eli/reg/2024/1689/oj

@@ -8,7 +8,7 @@ use_cases:
   - "compare real-time vs batch API cost for a nightly classification job"
   - "decide at what volume self-hosting an open model beats paying per token"
   - "compare cost per request across Claude and OpenAI tiers"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://platform.claude.com/docs/en/about-claude/pricing

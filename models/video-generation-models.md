@@ -8,7 +8,7 @@ use_cases:
   - "self-host an open video model so footage never leaves our servers"
   - "control camera motion or character pose in generated video"
   - "estimate the GPU needed to run an open video model locally"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/Wan-Video/Wan2.2

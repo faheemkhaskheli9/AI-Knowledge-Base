@@ -8,7 +8,7 @@ use_cases:
   - "set turn and cost budgets and flag runs that exceed them in CI"
   - "choose a public benchmark (SWE-bench, tau-bench, GAIA, WebArena, OSWorld, Terminal-Bench) for my agent type"
   - "make agent evals reproducible with a replayable sandbox and state-based grading"
-status: draft
+status: stable
 last_verified: 2026-10-11
 sources:
   - https://arxiv.org/abs/2310.06770

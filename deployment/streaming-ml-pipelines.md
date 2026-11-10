@@ -7,7 +7,7 @@ use_cases:
   - "compute real-time features from a Kafka topic and push them to an online feature store"
   - "run an ML model or LLM classifier on every event in a stream"
   - "decide between Flink, Spark Structured Streaming, Kafka Streams and a Python stream library"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://kafka.apache.org/documentation/

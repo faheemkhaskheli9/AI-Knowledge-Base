@@ -7,7 +7,7 @@ use_cases:
   - "replace a slow, expensive agent with a router plus fixed chains for the common cases"
   - "estimate how per-step reliability and loop length affect end-to-end success and cost"
   - "design a hybrid: deterministic workflow for known intents, agent for the long tail"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://www.anthropic.com/engineering/building-effective-agents

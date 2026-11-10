@@ -7,7 +7,7 @@ use_cases:
   - "understand how a masked diffusion model generates text and why fewer denoising steps can lower quality"
   - "fill in the middle of a document or code file with a model that sees both sides of the gap"
   - "explain the trade-offs of text diffusion vs next-token prediction to a team evaluating vendors"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://arxiv.org/abs/2107.03006

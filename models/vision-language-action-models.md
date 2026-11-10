@@ -7,7 +7,7 @@ use_cases:
   - "understand how a VLM is turned into a policy that outputs robot actions"
   - "estimate how many demonstrations and how much GPU a VLA fine-tune needs"
   - "plan the safety envelope around a learned policy on a factory cell"
-status: draft
+status: stable
 last_verified: 2026-10-11
 sources:
   - https://arxiv.org/abs/2307.15818

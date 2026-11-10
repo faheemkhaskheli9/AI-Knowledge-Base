@@ -8,7 +8,7 @@ use_cases:
   - "buy or procure an AI system for a public body"
   - "publish transparency records for algorithms used by government"
   - "search and summarise legislation, policy and consultation responses"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://eur-lex.europa.eu/eli/reg/2024/1689/oj

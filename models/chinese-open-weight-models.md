@@ -7,7 +7,7 @@ use_cases:
   - "compare Kimi, GLM and MiniMax licences before building a commercial product"
   - "choose an open MoE model with 1M-token context for long-document work"
   - "decide between a vendor API and self-hosting for a Chinese open model"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/MoonshotAI/Kimi-K3

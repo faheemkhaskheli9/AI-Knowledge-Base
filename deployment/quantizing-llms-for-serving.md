@@ -7,7 +7,7 @@ use_cases:
   - "produce an FP8 or 4-bit checkpoint of our fine-tuned model for vLLM"
   - "choose between FP8, INT8 and 4-bit weight-only quantization for production serving"
   - "check that a quantized model has not lost accuracy on our own tasks before rollout"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/fp8/

@@ -7,7 +7,7 @@ use_cases:
   - "run a large LLM evaluation or synthetic-data job without hitting rate limits"
   - "decide between a provider batch API and running vLLM offline on our own GPUs"
   - "backfill embeddings or extracted fields for an entire database table"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://platform.claude.com/docs/en/build-with-claude/batch-processing

@@ -7,7 +7,7 @@ use_cases:
   - "run an assistant on a phone or laptop with a 2-4B effective-parameter model"
   - "build on-device semantic search with a small open embedding model"
   - "add an open image-safety classifier in front of a user-upload feature"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://ai.google.dev/gemma/docs

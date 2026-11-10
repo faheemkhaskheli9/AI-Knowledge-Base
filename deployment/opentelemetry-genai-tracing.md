@@ -7,7 +7,7 @@ use_cases:
   - "send LLM traces to our existing Jaeger, Tempo, Datadog or Langfuse backend over OTLP"
   - "use the standard gen_ai.* attributes so dashboards work across OpenAI, Anthropic and agent frameworks"
   - "record token usage and tool errors per agent run without logging prompt contents"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/open-telemetry/semantic-conventions-genai

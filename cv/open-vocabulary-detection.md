@@ -8,7 +8,7 @@ use_cases:
   - "prototype a detector for a new product category in an afternoon"
   - "find every image in a folder that contains 'a forklift' and where it is"
   - "run a text-prompted detector at real-time speed on video"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://huggingface.co/docs/transformers/tasks/zero_shot_object_detection

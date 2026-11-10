@@ -8,7 +8,7 @@ use_cases:
   - "watermark generated speech so we can later prove it came from our system"
   - "detect deepfake or synthetic speech in calls before a voice-authenticated action"
   - "check the legal and licensing constraints on cloning a voice"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/SWivid/F5-TTS

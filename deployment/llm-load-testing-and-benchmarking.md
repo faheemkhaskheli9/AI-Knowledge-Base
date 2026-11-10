@@ -7,7 +7,7 @@ use_cases:
   - "compare two inference servers, quantizations or GPU types on our own traffic shape"
   - "load test an OpenAI-compatible endpoint before launch and size the autoscaling target"
   - "check whether a provider or gateway meets a time-to-first-token target at peak load"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://docs.vllm.ai/en/latest/cli/bench/serve.html

@@ -7,7 +7,7 @@ use_cases:
   - "build a digital twin of a site or facility from drone or walk-through footage"
   - "create 3D product views for e-commerce from a turntable photo set"
   - "capture real locations for VFX, games or virtual production backgrounds"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/graphdeco-inria/gaussian-splatting

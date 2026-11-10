@@ -7,7 +7,7 @@ use_cases:
   - "estimate and reduce time-to-first-audio for a voice assistant"
   - "run an open full-duplex speech model locally for research or a private assistant"
   - "build a voice agent that handles interruptions and backchannels naturally"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://arxiv.org/abs/2410.00037

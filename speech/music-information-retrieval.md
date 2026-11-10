@@ -9,7 +9,7 @@ use_cases:
   - "auto-tag a music library with genre, mood and instruments"
   - "find similar-sounding tracks or search music by a text description"
   - "transcribe a recorded melody or instrument part to MIDI"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://librosa.org/doc/latest/index.html

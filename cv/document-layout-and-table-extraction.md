@@ -8,7 +8,7 @@ use_cases:
   - "get the correct reading order of a multi-column page before chunking for RAG"
   - "turn financial statements or lab reports into structured rows"
   - "choose between a layout pipeline and a vision LLM for document extraction"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/docling-project/docling

@@ -8,7 +8,7 @@ use_cases:
   - "extract data from bills of lading, invoices and customs documents"
   - "predict shipment ETAs and alert on delays or anomalies"
   - "build an assistant that answers where-is-my-shipment questions"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://developers.google.com/optimization/routing

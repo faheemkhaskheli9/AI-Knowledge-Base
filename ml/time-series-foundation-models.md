@@ -7,7 +7,7 @@ use_cases:
   - "decide whether Chronos, TimesFM or Moirai beats seasonal naive and ETS on my own data before adopting it"
   - "set up a rolling-origin backtest with MASE that any forecaster, pretrained or classical, plugs into"
   - "check whether a time-series foundation model's weight licence allows commercial production use"
-status: draft
+status: stable
 last_verified: 2026-10-17
 sources:
   - https://github.com/amazon-science/chronos-forecasting

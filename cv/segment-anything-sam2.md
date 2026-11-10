@@ -8,7 +8,7 @@ use_cases:
   - "auto-label instance masks for a dataset by combining a text detector with SAM"
   - "segment every object matching a text phrase in images or video"
   - "generate all masks in an image to build cut-outs or region proposals"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/facebookresearch/sam2

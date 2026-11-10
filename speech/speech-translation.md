@@ -8,7 +8,7 @@ use_cases:
   - "dub a video into other languages with translated speech"
   - "let a support agent understand callers who speak other languages"
   - "choose between a cascade (ASR + MT + TTS) and a direct speech translation model"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/openai/whisper

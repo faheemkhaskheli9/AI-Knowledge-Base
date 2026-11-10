@@ -7,7 +7,7 @@ use_cases:
   - "port a prompt pipeline to a cheaper or newer model and re-tune it automatically"
   - "pick few-shot examples for a classifier prompt from a labelled set"
   - "decide whether DSPy is worth adopting over hand-written prompts"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/stanfordnlp/dspy

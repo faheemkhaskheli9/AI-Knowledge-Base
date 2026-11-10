@@ -7,7 +7,7 @@ use_cases:
   - "answer multi-hop questions over linked entities (companies, people, contracts, suppliers)"
   - "build a knowledge graph from unstructured documents with an LLM"
   - "decide whether GraphRAG is worth its indexing cost over vector RAG"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://arxiv.org/abs/2404.16130

@@ -7,7 +7,7 @@ use_cases:
   - "serve a cross-encoder reranker with low latency next to the vector database"
   - "re-embed a 50M-chunk corpus quickly without overloading the query-time service"
   - "cut embedding API cost by caching vectors and batching requests"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://huggingface.co/docs/text-embeddings-inference/index

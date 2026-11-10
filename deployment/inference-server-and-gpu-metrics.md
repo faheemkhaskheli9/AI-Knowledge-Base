@@ -7,7 +7,7 @@ use_cases:
   - "tell whether slow responses come from queueing, KV-cache pressure, long prompts or a sick GPU"
   - "export NVIDIA GPU memory, utilization, temperature and XID errors to Prometheus on Kubernetes"
   - "pick the server metric to autoscale on and the latency SLO to alert on"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://docs.vllm.ai/en/stable/usage/metrics/
