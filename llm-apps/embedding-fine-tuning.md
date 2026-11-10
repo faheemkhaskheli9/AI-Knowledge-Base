@@ -7,7 +7,7 @@ use_cases:
   - "build query-passage training pairs from our own corpus when we have no labelled data"
   - "measure whether a fine-tuned embedder actually beats the base model on recall@k"
   - "shrink embedding dimensions for a cheaper index without losing much recall"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://sbert.net/docs/sentence_transformer/training_overview.html

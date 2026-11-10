@@ -7,7 +7,7 @@ use_cases:
   - "replace PII with placeholders and put the real values back into the model's answer"
   - "keep PII out of LLM traces, logs and eval datasets"
   - "measure how much PII our redaction step misses before we rely on it"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://github.com/data-privacy-stack/presidio

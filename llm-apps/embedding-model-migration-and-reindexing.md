@@ -8,7 +8,7 @@ use_cases:
   - "prove a new embedding model retrieves better on our own queries before moving traffic"
   - "roll back to the old embeddings if the new model makes search worse"
   - "change vector dimension or distance metric in pgvector or Qdrant on a live table"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://github.com/qdrant/landing_page/blob/master/qdrant-landing/content/documentation/tutorials-operations/embedding-model-migration.md

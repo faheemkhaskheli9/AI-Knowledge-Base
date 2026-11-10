@@ -8,7 +8,7 @@ use_cases:
   - "scale an LLM deployment to zero overnight and bring it back quickly in the morning"
   - "free GPU memory between jobs without restarting the inference server"
   - "stop every pod from re-downloading the same model from Hugging Face"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://github.com/huggingface/safetensors/blob/main/README.md

@@ -8,7 +8,7 @@ use_cases:
   - "set up a queue where domain experts review and correct a sample of LLM outputs"
   - "check whether our LLM-as-judge agrees with human reviewers before trusting it"
   - "compare two prompt versions on user satisfaction without being fooled by who bothers to click"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://github.com/langfuse/langfuse-docs/blob/main/content/docs/observability/features/user-feedback.mdx

@@ -8,7 +8,7 @@ use_cases:
   - "remove duplicate and near-duplicate examples from an instruction dataset"
   - "check an SFT dataset for overlap with the benchmarks I report"
   - "fix a fine-tuned model that never stops generating or prints role tokens"
-status: draft
+status: stable
 last_verified: 2026-10-19
 sources:
   - https://huggingface.co/docs/transformers/main/en/chat_templating

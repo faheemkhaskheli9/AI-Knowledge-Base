@@ -7,7 +7,7 @@ use_cases:
   - "merge several LoRA or full fine-tunes of one base so we serve a single model instead of many"
   - "recover general ability lost after fine-tuning on a narrow domain by merging back toward the base"
   - "decide whether model merging or multi-task fine-tuning fits our compute budget"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://arxiv.org/abs/2212.04089

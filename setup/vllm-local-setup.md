@@ -7,7 +7,7 @@ use_cases:
   - "run vLLM in Docker with my Hugging Face cache mounted"
   - "fix vLLM failing at start-up with a KV cache or CUDA out-of-memory error"
   - "check whether a model and context length fit my GPU before downloading it"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://docs.vllm.ai/en/latest/getting_started/quickstart/

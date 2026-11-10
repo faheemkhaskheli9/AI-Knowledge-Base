@@ -7,7 +7,7 @@ use_cases:
   - "pick the best of n sampled solutions to a math or coding task with a verifier"
   - "decide between an outcome reward model, a process reward model and unit-test verification for RL training"
   - "detect and limit reward hacking when optimising a model against a learned reward"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://arxiv.org/abs/2110.14168

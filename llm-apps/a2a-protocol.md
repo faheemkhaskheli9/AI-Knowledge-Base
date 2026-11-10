@@ -7,7 +7,7 @@ use_cases:
   - "publish an internal agent so other teams' agents can discover and call it"
   - "decide whether to expose a capability over MCP or A2A"
   - "track a long-running task delegated to a remote agent with streaming or push updates"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/a2aproject/A2A

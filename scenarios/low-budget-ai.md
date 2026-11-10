@@ -8,7 +8,7 @@ use_cases:
   - "run a model locally on CPU or a small GPU instead of paying per token"
   - "cut an existing LLM bill without losing quality"
   - "prototype on free API tiers without leaking sensitive data"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://ai.google.dev/gemini-api/docs/pricing

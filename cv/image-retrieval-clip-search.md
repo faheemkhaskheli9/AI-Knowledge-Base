@@ -8,7 +8,7 @@ use_cases:
   - "detect duplicate and near-duplicate images in a large dataset"
   - "build a reverse image search over my company's image assets"
   - "zero-shot tag images with a list of labels without training"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/mlfoundations/open_clip

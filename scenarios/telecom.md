@@ -8,7 +8,7 @@ use_cases:
   - "automate first-line customer support and bill explanations for a mobile operator"
   - "forecast traffic per cell for capacity planning"
   - "build an assistant for NOC engineers over runbooks, tickets and alarms"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://www.3gpp.org/dynareport/23288.htm

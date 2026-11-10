@@ -8,7 +8,7 @@ use_cases:
   - "extract data from underwriting submissions, medical reports or loss runs"
   - "build a pricing or risk model regulators and customers can understand"
   - "summarise a claim file for an adjuster"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://content.naic.org/sites/default/files/inline-files/2023-12-4%20Model%20Bulletin_Adopted_0.pdf

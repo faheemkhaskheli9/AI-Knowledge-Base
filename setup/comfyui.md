@@ -7,7 +7,7 @@ use_cases:
   - "build a repeatable image pipeline (text-to-image, upscale, inpaint) I can share as one file"
   - "call a local image-generation workflow from my Python backend"
   - "share one folder of checkpoints and LoRAs between ComfyUI and other tools"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/Comfy-Org/ComfyUI

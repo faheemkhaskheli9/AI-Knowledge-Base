@@ -8,7 +8,7 @@ use_cases:
   - "filter and deduplicate LLM-generated training examples before fine-tuning"
   - "check whether a model's terms of use allow training on its outputs"
   - "make sure synthetic training data does not leak our evaluation set"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://arxiv.org/abs/2212.10560

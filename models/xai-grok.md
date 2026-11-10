@@ -7,7 +7,7 @@ use_cases:
   - "process a 500K-token codebase or contract bundle in one request"
   - "add a cheaper coding model behind an internal developer agent"
   - "compare Grok against Claude and GPT on our own eval set before switching"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://docs.x.ai/developers/models
@@ -60,7 +60,7 @@ committing to a price):
 `grok-4.20` variants (reasoning, non-reasoning, multi-agent) are also on the
 pricing page. Image, video (Grok Imagine) and voice are billed per image, second,
 minute or character; see the pricing page.
-`grok-imagine-image-quality` retires on 2026-11-02; move to another Grok Imagine image model listed on the pricing page. <!-- valid-until: 2026-11-02 -->
+`grok-imagine-image-quality` was retired on 2026-11-02; use another Grok Imagine image model listed on the pricing page.
 "Grok 4.7 Fast" is the same model served faster at 2x token rates, and the docs
 say it is only offered in Cursor and Grok Build, not on the public API.
 

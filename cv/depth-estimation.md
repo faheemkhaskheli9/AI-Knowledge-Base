@@ -8,7 +8,7 @@ use_cases:
   - "add depth-aware blur, relighting or occlusion to a photo or video editing app"
   - "give a robot or drone a cheap depth signal when there is no LiDAR"
   - "measure room or object sizes from one image when a scale reference is available"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/DepthAnything/Depth-Anything-V2

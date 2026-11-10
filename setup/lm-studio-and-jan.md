@@ -7,7 +7,7 @@ use_cases:
   - "point an app written for the OpenAI SDK at a model running on my own machine"
   - "let non-technical staff try local models with a GUI before we commit to a server"
   - "compare a few quantized models side by side on my own hardware"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://lmstudio.ai/docs/developer

@@ -8,7 +8,7 @@ use_cases:
   - "show a form filling in live while the model streams JSON"
   - "stop paying for tokens when the user closes the tab or presses stop"
   - "add per-call timeouts and a total deadline to an LLM pipeline"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://platform.claude.com/docs/en/build-with-claude/streaming

@@ -7,7 +7,7 @@ use_cases:
   - "fix a container that cannot see the GPU (could not select device driver)"
   - "shrink a 15 GB ML image and stop re-downloading model weights on every start"
   - "give the team a reproducible GPU dev environment that matches production"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html

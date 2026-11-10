@@ -8,7 +8,7 @@ use_cases:
   - "find when each sound event starts and ends in long recordings"
   - "detect abnormal machine sounds for predictive maintenance"
   - "tag a large audio library for search and moderation"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://huggingface.co/docs/transformers/model_doc/audio-spectrogram-transformer

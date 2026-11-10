@@ -7,7 +7,7 @@ use_cases:
   - "build a training set without leaking future feature values into the labels"
   - "look up user features in a few milliseconds at inference time"
   - "decide whether we need Feast or a managed feature store at all"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://docs.feast.dev/

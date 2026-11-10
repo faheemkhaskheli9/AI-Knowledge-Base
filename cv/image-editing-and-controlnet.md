@@ -8,7 +8,7 @@ use_cases:
   - "keep a brand style or product look consistent across generated images"
   - "edit a photo with a plain-language instruction like 'make it night time'"
   - "extend an image beyond its borders for a new aspect ratio"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://huggingface.co/docs/diffusers/using-diffusers/inpaint

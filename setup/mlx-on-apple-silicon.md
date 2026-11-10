@@ -8,7 +8,7 @@ use_cases:
   - "convert and 4-bit quantize a Hugging Face model for Apple silicon"
   - "serve a local OpenAI-style chat endpoint from a Mac for development"
   - "transcribe audio with Whisper on a Mac"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/ml-explore/mlx

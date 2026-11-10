@@ -8,7 +8,7 @@ use_cases:
   - "classify user-reported phishing emails and auto-close the obvious ones"
   - "draft detection rules (Sigma, KQL, SPL) from a threat report for analyst review"
   - "measure whether an AI triage assistant actually saves analyst time without missing incidents"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://attack.mitre.org/

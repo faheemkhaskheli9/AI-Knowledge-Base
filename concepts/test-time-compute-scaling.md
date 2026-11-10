@@ -8,7 +8,7 @@ use_cases:
   - "use unit tests or a verifier to pick the best of several generated solutions"
   - "set a per-request compute budget that adapts to question difficulty"
   - "estimate how many samples are worth paying for before accuracy plateaus"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://arxiv.org/abs/2408.03314

@@ -7,7 +7,7 @@ use_cases:
   - "decide what goes into the context window on each turn of an agent loop"
   - "cut token cost of an agent whose tool results are huge (logs, web pages, SQL results)"
   - "split a big investigation across sub-agents so the lead agent stays focused"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents

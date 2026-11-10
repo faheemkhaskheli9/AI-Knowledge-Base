@@ -7,7 +7,7 @@ use_cases:
   - "test retries, JSON parsing, tool dispatch and fallbacks around a model call"
   - "record real model responses once and replay them in tests without leaking the API key into fixtures"
   - "decide what belongs in unit tests, in recorded integration tests, in nightly live tests and in evals"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://docs.python.org/3/library/unittest.mock.html

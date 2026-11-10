@@ -7,7 +7,7 @@ use_cases:
   - "test a new LLM against production traffic without showing its answers to users"
   - "run an A/B test between two prompts and know whether the difference is real"
   - "choose online metrics and guardrails for replacing a fraud or ranking model"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://kserve.github.io/website/docs/model-serving/predictive-inference/rollout-strategies/canary

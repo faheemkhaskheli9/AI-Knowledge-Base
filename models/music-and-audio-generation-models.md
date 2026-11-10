@@ -8,7 +8,7 @@ use_cases:
   - "self-host an open-weight music model for commercial use"
   - "check whether we can sell or copyright AI-generated music"
   - "add a soundtrack to generated video clips"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://ai.google.dev/gemini-api/docs/realtime-music-generation

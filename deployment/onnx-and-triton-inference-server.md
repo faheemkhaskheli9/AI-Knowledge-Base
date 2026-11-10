@@ -7,7 +7,7 @@ use_cases:
   - "export a PyTorch model to ONNX and serve it without Python in the request path"
   - "batch many small concurrent inference requests together on one GPU"
   - "host PyTorch, ONNX, TensorRT and scikit-learn/XGBoost models behind one inference server"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/triton-inference-server/server

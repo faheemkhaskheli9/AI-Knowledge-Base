@@ -7,7 +7,7 @@ use_cases:
   - "set up JupyterLab locally with the same environment as my scripts"
   - "make a notebook that a reviewer can re-run and get the same numbers"
   - "run a Kaggle competition notebook and keep my work when the session ends"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://jupyterlab.readthedocs.io/en/latest/getting_started/installation.html

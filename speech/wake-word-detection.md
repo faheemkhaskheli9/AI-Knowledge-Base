@@ -8,7 +8,7 @@ use_cases:
   - "tune a wake word threshold to trade false activations against missed activations"
   - "train a custom wake word without recording thousands of real samples"
   - "gate an always-listening app so audio only leaves the device after the wake word"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/dscripka/openWakeWord

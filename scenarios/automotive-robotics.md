@@ -8,7 +8,7 @@ use_cases:
   - "train or test a driving or manipulation policy in simulation before touching hardware"
   - "fit a model into an embedded GPU's latency and power budget"
   - "add a voice or language interface to a car or robot without compromising safety"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://www.iso.org/standard/68383.html

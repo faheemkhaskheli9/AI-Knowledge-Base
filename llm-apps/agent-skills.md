@@ -8,7 +8,7 @@ use_cases:
   - "decide whether a capability belongs in a skill, an MCP server or CLAUDE.md/AGENTS.md"
   - "write a skill description that triggers reliably"
   - "use pre-built document skills (xlsx, pptx, docx, pdf) through the Claude API"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview

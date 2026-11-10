@@ -8,7 +8,7 @@ use_cases:
   - "roll back to the previous model or prompt in one step when quality drops"
   - "trace a production answer back to the model, prompt, data snapshot and eval run that produced it"
   - "manage prompt versions separately from application deploys"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://mlflow.org/docs/latest/ml/model-registry/

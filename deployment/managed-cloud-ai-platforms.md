@@ -7,7 +7,7 @@ use_cases:
   - "pick between Bedrock, Vertex AI and Azure AI Foundry for a company already on one cloud"
   - "keep LLM traffic inside a private network and in one region or geography for compliance"
   - "work out what changes in code when moving a Claude app from the Anthropic API to a cloud provider"
-status: draft
+status: stable
 last_verified: 2026-10-11
 sources:
   - https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy

@@ -7,7 +7,7 @@ use_cases:
   - "find an open model with a commercial-friendly licence for text, vision, speech or video"
   - "refresh our internal list of approved open models each quarter"
   - "compare open-weight options across modalities for an on-prem AI platform"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://huggingface.co/docs/huggingface_hub/guides/search

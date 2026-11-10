@@ -8,7 +8,7 @@ use_cases:
   - "map crop types or field boundaries from satellite images"
   - "build an agronomy advice assistant for farmers in local languages"
   - "count plants, fruit or livestock from drone or camera images"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://dataspace.copernicus.eu/explore-data/data-collections/sentinel-data/sentinel-2

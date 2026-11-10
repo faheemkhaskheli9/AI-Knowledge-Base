@@ -7,7 +7,7 @@ use_cases:
   - "add graph features to an existing transaction fraud model"
   - "detect money-laundering patterns (fan-in, fan-out, cycles) in a payment network"
   - "decide whether a GNN is worth it over gradient boosting with graph features"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://arxiv.org/abs/1908.02591

@@ -8,7 +8,7 @@ use_cases:
   - "run a multi-hour research or coding agent with a hard cost cap"
   - "run an agent over many sessions and context windows on one project"
   - "choose between Temporal, LangGraph checkpoints and a hand-rolled job table"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents

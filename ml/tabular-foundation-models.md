@@ -7,7 +7,7 @@ use_cases:
   - "decide whether TabPFN or TabICL beats XGBoost/LightGBM on my table before committing"
   - "check whether a tabular foundation model's licence and latency allow production use"
   - "add a pretrained tabular model to an AutoGluon ensemble"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/PriorLabs/TabPFN

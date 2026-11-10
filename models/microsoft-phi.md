@@ -7,7 +7,7 @@ use_cases:
   - "ship an MIT-licensed small model inside a commercial desktop or mobile app"
   - "add step-by-step math reasoning to an offline tutoring app"
   - "fine-tune a 3.8B model for one narrow extraction task"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://azure.microsoft.com/en-us/products/phi

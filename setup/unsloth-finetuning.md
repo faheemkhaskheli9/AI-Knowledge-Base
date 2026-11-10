@@ -8,7 +8,7 @@ use_cases:
   - "export a fine-tuned model to GGUF and run it in Ollama or llama.cpp"
   - "train a model to answer in our company's format from a few thousand examples"
   - "run GRPO or DPO on an open model without a multi-GPU cluster"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/unslothai/unsloth

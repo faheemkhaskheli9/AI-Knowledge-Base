@@ -7,7 +7,7 @@ use_cases:
   - "fix retrieval that returns the right passage but without the product or section it belongs to"
   - "evaluate chunk size, overlap and splitter choice on our own questions before re-indexing"
   - "decide whether semantic chunking, late chunking or contextual retrieval is worth its cost"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://research.trychroma.com/evaluating-chunking

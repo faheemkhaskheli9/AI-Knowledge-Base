@@ -7,7 +7,7 @@ use_cases:
   - "find a feature for a concept (a language, a topic, refusal, a code bug) inside an LLM and steer with it"
   - "load a published sparse autoencoder for an open model and inspect which features fire on a prompt"
   - "train a small sparse autoencoder and judge whether it is any good"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://transformer-circuits.pub/2023/monosemantic-features

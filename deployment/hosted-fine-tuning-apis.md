@@ -7,7 +7,7 @@ use_cases:
   - "decide between prompting, a hosted fine-tune and self-hosted LoRA"
   - "use reinforcement fine-tuning with a grader for a domain reasoning task"
   - "estimate the training and inference cost of a hosted fine-tune"
-status: draft
+status: stable
 last_verified: 2026-10-11
 sources:
   - https://developers.openai.com/api/docs/guides/model-optimization

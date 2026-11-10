@@ -8,7 +8,7 @@ use_cases:
   - "serve an open model with vLLM on Intel Arc or Data Center GPU Max"
   - "build llama.cpp for an Intel GPU, or run Ollama on one"
   - "migrate off Intel Extension for PyTorch or IPEX-LLM now that they are archived"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://github.com/pytorch/pytorch/blob/main/docs/source/notes/get_start_xpu.md

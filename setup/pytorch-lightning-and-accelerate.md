@@ -7,7 +7,7 @@ use_cases:
   - "add bf16 mixed precision and gradient accumulation to a training loop with a few lines"
   - "pick between Lightning, Fabric and Accelerate for a new deep learning project"
   - "move a single-GPU fine-tuning script to FSDP or DeepSpeed on a multi-node cluster"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/Lightning-AI/pytorch-lightning

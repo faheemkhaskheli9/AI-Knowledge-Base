@@ -8,7 +8,7 @@ use_cases:
   - "add fill-in-the-middle completion to an editor or notebook product"
   - "decide which coding benchmarks to trust when comparing models"
   - "evaluate code models on our own repository before rolling one out"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/QwenLM/Qwen3-Coder

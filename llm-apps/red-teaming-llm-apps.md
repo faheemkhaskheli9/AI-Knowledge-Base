@@ -7,7 +7,7 @@ use_cases:
   - "test a RAG or email agent against indirect prompt injection in retrieved content"
   - "run garak or PyRIT against our model endpoint and triage the findings"
   - "turn red-team findings into regression tests that run in CI"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/NVIDIA/garak

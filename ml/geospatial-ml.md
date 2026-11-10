@@ -7,7 +7,7 @@ use_cases:
   - "build distance and neighbourhood features from latitude/longitude"
   - "aggregate GPS points or orders into hexagonal cells with H3"
   - "choose a cross-validation scheme for spatially autocorrelated data"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://h3geo.org/docs/

@@ -7,7 +7,7 @@ use_cases:
   - "serve many customers from one vector database without one tenant's chunks reaching another tenant's prompt"
   - "choose between a collection per tenant, a namespace per tenant and a shared collection with a tenant filter"
   - "keep search results correct after a user loses access to a SharePoint or Drive folder"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://qdrant.tech/documentation/manage-data/multitenancy/

@@ -7,7 +7,7 @@ use_cases:
   - "choose between EAGLE, MTP, a draft model and n-gram speculation in vLLM"
   - "tune num_speculative_tokens and check the acceptance rate on our traffic"
   - "speed up a code-editing or document-rewriting endpoint whose output copies much of its input"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://docs.vllm.ai/en/latest/features/speculative_decoding/

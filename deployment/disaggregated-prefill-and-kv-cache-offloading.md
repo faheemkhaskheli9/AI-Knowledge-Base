@@ -7,7 +7,7 @@ use_cases:
   - "tune time to first token and inter-token latency separately on a self-hosted LLM"
   - "keep the KV cache of long multi-turn chats or agent sessions so the next turn skips prefill"
   - "decide whether we need prefill/decode disaggregation or just chunked prefill and prefix caching"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://docs.vllm.ai/en/latest/features/disagg_prefill/

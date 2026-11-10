@@ -7,7 +7,7 @@ use_cases:
   - "implement flow matching end to end in NumPy: straight-line path, velocity regression, Euler sampling"
   - "explain why rectified flow and reflow let a generator sample in few steps"
   - "pick a sampler, step count and timestep schedule for a flow-matching model in diffusers"
-status: draft
+status: stable
 last_verified: 2026-10-17
 sources:
   - https://arxiv.org/abs/2210.02747

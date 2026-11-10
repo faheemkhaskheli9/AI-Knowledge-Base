@@ -8,7 +8,7 @@ use_cases:
   - "run a bias or adverse-impact audit on a hiring model"
   - "build an HR policy assistant or internal job-mobility recommender"
   - "write or de-bias job descriptions with an LLM"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://eur-lex.europa.eu/eli/reg/2024/1689/oj

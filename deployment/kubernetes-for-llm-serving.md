@@ -7,7 +7,7 @@ use_cases:
   - "autoscale vLLM replicas on request queue depth instead of CPU"
   - "cut cold-start time when a new LLM pod has to download 100+ GB of weights"
   - "choose between KServe, KubeRay/Ray Serve and a plain Deployment for model serving"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://github.com/kserve/kserve

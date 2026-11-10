@@ -7,7 +7,7 @@ use_cases:
   - "run MMLU, GSM8K or HellaSwag on an open-weight model on our own GPUs with vLLM"
   - "benchmark a model already served behind an OpenAI-compatible endpoint (vLLM, llama-server)"
   - "turn our own multiple-choice or QA dataset into a reproducible benchmark task"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://github.com/EleutherAI/lm-evaluation-harness

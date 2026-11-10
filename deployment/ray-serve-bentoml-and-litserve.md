@@ -8,7 +8,7 @@ use_cases:
   - "pack two small models onto one GPU instead of paying for a GPU each"
   - "choose between Ray Serve, BentoML, LitServe and plain FastAPI for a model API"
   - "put an OpenAI-compatible API in front of vLLM with autoscaling across several GPU nodes"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://github.com/ray-project/ray/blob/master/doc/source/serve/index.md

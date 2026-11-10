@@ -7,7 +7,7 @@ use_cases:
   - "add multilingual semantic search plus reranking to an internal document portal"
   - "deploy an LLM inside our own VPC or cloud account for a regulated bank"
   - "use one vendor for the generator, embeddings and reranker in a RAG stack"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://docs.cohere.com/docs/models

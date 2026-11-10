@@ -8,7 +8,7 @@ use_cases:
   - "prototype an explorable game level from a single image and a prompt"
   - "decide between a physics simulator and a learned world model"
   - "run an open camera-controlled world model on one GPU"
-status: draft
+status: stable
 last_verified: 2026-10-15
 sources:
   - https://arxiv.org/abs/1803.10122

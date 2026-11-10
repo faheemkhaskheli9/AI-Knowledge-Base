@@ -8,7 +8,7 @@ use_cases:
   - "build a deep-research agent that writes a cited report from many web sources"
   - "estimate and cap the cost of web search calls in an agent loop"
   - "stop instructions hidden in fetched web pages from hijacking my research agent"
-status: draft
+status: stable
 last_verified: 2026-10-11
 sources:
   - https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool

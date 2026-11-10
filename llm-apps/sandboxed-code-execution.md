@@ -7,7 +7,7 @@ use_cases:
   - "choose between Docker, gVisor, Firecracker microVMs and a hosted sandbox for a coding agent"
   - "lock down network egress and secrets for a data-analysis agent"
   - "set CPU, memory and time limits on model-generated code"
-status: draft
+status: stable
 last_verified: 2026-10-11
 sources:
   - https://gvisor.dev/docs/

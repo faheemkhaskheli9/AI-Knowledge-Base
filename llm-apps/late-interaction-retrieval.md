@@ -7,7 +7,7 @@ use_cases:
   - "get reranker-like precision from first-stage retrieval over a text corpus"
   - "decide between dense+rerank and ColBERT-style retrieval for a RAG system"
   - "estimate index storage for a multi-vector retriever before choosing a vector DB"
-status: draft
+status: stable
 last_verified: 2026-10-11
 sources:
   - https://arxiv.org/abs/2004.12832

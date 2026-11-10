@@ -7,7 +7,7 @@ use_cases:
   - "serve an open model with vLLM on AMD MI300X or a Radeon RX 7900"
   - "run llama.cpp or Ollama on an AMD GPU that ROCm does not officially list"
   - "fix vLLM failing with libcudart.so errors on an AMD machine"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://rocm.docs.amd.com/projects/install-on-linux/en/latest/

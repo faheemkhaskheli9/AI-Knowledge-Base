@@ -7,7 +7,7 @@ use_cases:
   - "fix tool calls that come back as raw text in the content field instead of tool_calls"
   - "run an agent against Ollama or llama-server instead of a hosted API"
   - "test whether an open model picks the right tool with valid arguments before switching to it"
-status: draft
+status: stable
 last_verified: 2026-10-24
 sources:
   - https://docs.vllm.ai/en/latest/features/tool_calling/
