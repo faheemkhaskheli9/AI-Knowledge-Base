@@ -60,7 +60,7 @@ committing to a price):
 `grok-4.20` variants (reasoning, non-reasoning, multi-agent) are also on the
 pricing page. Image, video (Grok Imagine) and voice are billed per image, second,
 minute or character; see the pricing page.
-`grok-imagine-image-quality` retires on 2026-11-02; move to another Grok Imagine image model listed on the pricing page. <!-- valid-until: 2026-11-02 -->
+Historical retirement notice: `grok-imagine-image-quality` was scheduled to retire on 2026-11-02 (as documented in the 2026-10-15 review). Do not select this ID for new integrations; check the [current model catalog](https://docs.x.ai/developers/models) for a supported Grok Imagine image model. The replacement ID has not been independently verified.
 "Grok 4.7 Fast" is the same model served faster at 2x token rates, and the docs
 say it is only offered in Cursor and Grok Build, not on the public API.
 
