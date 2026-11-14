@@ -34,10 +34,28 @@ def topics(files):
             if p.name not in SKIP and not p.relative_to(ROOT).as_posix().startswith(".")]
 
 
+def clean_url(url):
+    """Strip trailing prose punctuation, retaining balanced URL parentheses.
+
+    >>> clean_url("https://en.wikipedia.org/wiki/Phi_(language_model)")
+    'https://en.wikipedia.org/wiki/Phi_(language_model)'
+    >>> clean_url("https://example.org/a_(b)).")
+    'https://example.org/a_(b)'
+    >>> clean_url("https://example.org/a.,;")
+    'https://example.org/a'
+    >>> clean_url("https://example.org/a_(b_(c))")
+    'https://example.org/a_(b_(c))'
+    """
+    url = url.rstrip('.,;').rstrip('"').rstrip("'")
+    while url.endswith(")") and url.count("(") < url.count(")"):
+        url = url[:-1]
+    return url
+
+
 def urls_of(text):
     srcs = (frontmatter(text) or {}).get("sources", [])
     srcs = [srcs] if isinstance(srcs, str) else srcs
-    return [u.rstrip(".,;)\"'") for s in srcs for u in re.findall(r"https?://\S+", s)]
+    return [clean_url(u) for s in srcs for u in re.findall(r"https?://\\S+", s)]
 
 
 def status(url):
