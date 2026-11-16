@@ -55,7 +55,7 @@ def clean_url(url):
 def urls_of(text):
     srcs = (frontmatter(text) or {}).get("sources", [])
     srcs = [srcs] if isinstance(srcs, str) else srcs
-    return [clean_url(u) for s in srcs for u in re.findall(r"https?://\\S+", s)]
+    return [clean_url(u) for s in srcs for u in re.findall(r"https?://\S+", s)]
 
 
 def status(url):
