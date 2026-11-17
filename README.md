@@ -11,6 +11,7 @@ can look things up before they build.
   recommended approach.
 - **Terms:** [glossary.md](glossary.md) defines core terms (KV cache, LoRA, MCP, RAG, ...), each
   linked to the topic that explains it.
+- **Advanced AI courses:** [19-course audit and advanced RL/NeuroAI pathway](learning-paths.md#advanced-ai-courses-and-tutorials-2026-11-17).
 - **Learning:** [learning-paths.md](learning-paths.md) gives ordered reading paths by role
   (beginner, LLM engineer, agent builder, ML engineer, CV, speech, MLOps).
 - **ChatGPT knowledge-base routing:** [CHATGPT-KB-ROUTER.md](CHATGPT-KB-ROUTER.md) maps this AI KB to the software engineering, cybersecurity, medical and optional private personal KBs, with reusable ChatGPT Project instructions.

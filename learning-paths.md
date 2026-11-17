@@ -10,7 +10,7 @@ Not a topic file: `build_index.py` leaves it out of INDEX.md but fails on a brok
 Paths: [Beginner](#beginner) | [LLM engineer](#llm-engineer) | [Agent builder](#agent-builder) |
 [ML engineer](#ml-engineer) | [Computer vision](#computer-vision) | [Speech and audio](#speech-and-audio) |
 [MLOps and deployment](#mlops-and-deployment) | [LLM scientist](#llm-scientist) |
-[Internals from scratch](#internals-from-scratch)
+[Internals from scratch](#internals-from-scratch) | [Advanced RL and NeuroAI](#advanced-rl-and-neuroai-research)
 
 ## Beginner
 
@@ -222,3 +222,74 @@ Small NumPy or pure-Python builds of the pieces inside a modern LLM, in dependen
 13. [[int8-quantization-from-scratch-numpy]] - the arithmetic behind quantized weights.
 14. [[dpo-loss-from-scratch-numpy]] - preference tuning without a reward model.
 15. [[grpo-from-scratch-numpy]] - the RL objective used for reasoning models.
+
+
+## Advanced AI courses and tutorials (2026-11-17)
+
+**Scope and limits:** This is a source-audited map of **19 official university, maintainer, and open-course curricula**, not an assertion that every lecture, assignment and video has been watched or reproduced. Cross-references avoid duplicating existing KB content. The linked providers supply the published course scope; check availability of closed, historical and forthcoming lessons before implementation. Build independent exercises rather than copying proprietary materials or assignment solutions.
+
+### Model internals and pretraining
+
+| Official curriculum | Content reviewed in syllabus | Existing KB connections | Independent exercise / caution |
+|---|---|---|---|
+| [Stanford CS336 (2026)](https://cs336.stanford.edu/) | tokenization, Transformer training, GPU efficiency, data and scaling, post-training | [[tokenization]], [[transformers-and-attention]], [[pretraining-and-scaling-laws]], [[distributed-training]], [[rl-with-verifiable-rewards]] | Train a tiny decoder LM; validate tokens/sec, VRAM, loss and contamination. Do not generate prohibited assignment solutions. |
+| [CMU 11-785 (2026)](https://deeplearning.cs.cmu.edu/) | optimization, deep network training and sequence/application methods | [[deep-learning-training]], [[gradient-descent]], [[debugging-neural-network-training]] | Reimplement a small network and check gradients. Full lecture content was not individually audited. |
+| [Karpathy Zero to Hero](https://karpathy.ai/zero-to-hero.html) | autograd, character LMs, normalization and GPT construction | [[autograd-engine-from-scratch]], [[char-mlp-language-model-from-scratch-numpy]], [[transformer-block-from-scratch-numpy]] | Implement an independent autodiff engine with finite-difference tests. |
+| [Dive into Deep Learning](https://d2l.ai/) | mathematical foundations, CNN/RNN/attention and optimization | [[math-for-machine-learning]], [[cnn-and-rnn-architectures]], [[transformers-and-attention]] | Compare optimizers at equal data/step budgets. |
+| [MIT 6.S191 (2026)](https://introtodeeplearning.com/) | generative modeling, vision, RL and science applications | [[diffusion-models]], [[reinforcement-learning]], [[multimodal-models]] | Test one open lab on distribution-shift inputs; this is an intro bootcamp with advanced applications. |
+| [Stanford CS224N (2026)](https://web.stanford.edu/class/cs224n/) | neural NLP, LLM techniques, reasoning and tool use | [[reasoning-models]], [[tool-calling]], [[fine-tuning-and-peft]] | Evaluate domain transfer; do not assume current lectures are all publicly accessible. |
+| [Hugging Face LLM Course](https://huggingface.co/learn/llm-course/en/chapter1/1) | Transformers, tokenizers, datasets, fine-tuning and evaluation | [[fine-tuning-and-peft]], [[post-training-datasets-and-chat-templates]], [[llm-evaluation]] | Pin dependencies and track held-out metrics and VRAM. |
+| [Hugging Face smol-course](https://huggingface.co/learn/smol-course/unit0/1) | SFT, evaluation, alignment, VLM adaptation and proposed RL/synthetic units | [[fine-tuning-and-peft]], [[rlhf-and-preference-optimization]], [[llm-evaluation]] | Compare SFT/DPO with held-out tasks; future syllabus units may be pending. |
+
+### Agents and production
+
+| Official curriculum | Content reviewed in syllabus | Existing KB connections | Independent exercise / caution |
+|---|---|---|---|
+| [Hugging Face Agents Course](https://github.com/huggingface/agents-course) | agent loops, frameworks, agentic RAG and evaluation | [[agents]], [[agent-frameworks]], [[agent-evaluation]] | Score sandbox state, tool arguments, retries and cost, not answer quality alone. |
+| [Stanford CS329S (historical)](https://web.stanford.edu/class/cs329s/) | requirements, ML data/model systems, deployment and iteration | [[mlops-lifecycle]], [[experiment-tracking]], [[llm-observability]] | Write a production rollback and monitoring experiment; do not label historic course material as 2026. |
+| [Full Stack Deep Learning (2022)](https://fullstackdeeplearning.com/course/2022/) | testing, data annotation, experiment tracking, deployment, monitoring and continual learning | [[experiment-tracking]], [[continual-learning]], [[mlops-lifecycle]] | Implement an evaluation-gated deployment; recheck outdated APIs. |
+
+### RL, generalization and robotics
+
+| Official curriculum | Content reviewed in syllabus | Existing KB connections | Independent exercise / caution |
+|---|---|---|---|
+| [UC Berkeley CS285 (2026)](https://rll.berkeley.edu/deeprlcourse/) | policy gradients, actor-critic, model-based and offline RL | [[reinforcement-learning]], [[actor-critic-from-scratch]], [[world-models]], [[reliable-reinforcement-learning-evaluation]] | Independent training seeds, same interaction budgets and held-out tasks. |
+| [Hugging Face Deep RL Course](https://huggingface.co/learn/deep-rl-course/en/unit0/introduction) | tabular learning, DQN, policy gradients and practical training | [[q-learning-from-scratch]], [[dqn-from-scratch-numpy]], [[ppo-from-scratch]] | Separate training seeds from evaluation episodes; handle truncation correctly. |
+| [Stanford CS330 (Fall 2022)](https://web.stanford.edu/class/cs330/) | multi-task, meta-learning, transfer, self-supervision and lifelong learning | [[meta-learning]], [[continual-learning]], [[transfer-learning-and-domain-adaptation]] | Hold out entire task families. The 2022 outline removed RL/meta-RL material. |
+| [Hugging Face Robotics Course](https://huggingface.co/learn/robotics-course/unit0/1) | LeRobot and classical robotics, with future RL/imitation/foundation modules | [[reinforcement-learning]], [[world-models]], [[vision-language-action-models]] | Test perturbation robustness in simulation; syllabus items marked pending are not released tutorials. |
+
+### Generative AI and neuroscience
+
+| Official curriculum | Content reviewed in syllabus | Existing KB connections | Independent exercise / caution |
+|---|---|---|---|
+| [Hugging Face Diffusion Course](https://huggingface.co/learn/diffusion-course/en/unit0/1) | DDPMs, Diffusers, pipelines and guidance | [[diffusion-models]], [[ddpm-diffusion-from-scratch-numpy]] | Compare quality and generation cost at matched sampling steps. |
+| [Neuromatch Computational Neuroscience](https://compneuro.neuromatch.io/) | neural encoding/decoding, GLMs and population data analysis | [[bayesian-deep-learning-and-uncertainty]], [[autoencoders-and-self-supervised-learning]] | Predict held-out biological data rather than only simulate brain-shaped networks. |
+| [Neuromatch Deep Learning](https://github.com/NeuromatchAcademy/course-content-dl) | representations, generalization, PyTorch and neuroscience bridges | [[generalization-in-deep-learning]], [[model-evaluation-and-metrics]] | Ablate inductive biases with matched data, capacity and compute. |
+| [Neuromatch NeuroAI](https://neuroai.neuromatch.io/) | biological/artificial representations, inductive biases and measurement | [[mechanistic-interpretability]], [[continual-learning]], [[world-models]] | Require independent neural/behavioral measurements and alternative models before claiming brain equivalence. |
+
+### Synthesis and adversarial review
+
+1. **Covered already:** the KB has substantial topics on transformers, training, RL/PPO/DQN, meta-learning, continual learning, world models, agents and evaluation. More tutorial recaps would duplicate content.
+2. **Measurement gap addressed:** the new [[reliable-reinforcement-learning-evaluation]] topic introduces independent training seeds, held-out task families, controlled budgets, robust aggregation, uncertainty and ablations. Sources: [Agarwal et al. (NeurIPS 2021)](https://papers.neurips.cc/paper_files/paper/2021/hash/f514cec81cb148559cf475e7426eed5e-Abstract.html), [Henderson et al. (AAAI 2018)](https://ojs.aaai.org/index.php/AAAI/article/view/11694), [RLiable](https://github.com/google-research/rliable).
+3. **Scientific gap remaining:** a shared benchmark must measure error correction before/after feedback, explicit policy change versus stored answers, long-delay retention, transfer to novel task combinations, planning ablation, worst-case performance and training/inference cost. Courses motivate these methods; no tutorial establishes AGI.
+4. **Neuroscience validity gap:** demonstrate that sparsity, replay, credit assignment or local learning mechanisms improve matched controls; do not infer physiological fidelity from a software analogy. For biological claims compare against independent neural and behavior data.
+5. **Post-training gap:** evaluate SFT, DPO and RL with verifiable rewards on identical held-out questions, equal budget, version-pinned datasets, and regression/safety checks; catch verifier/reward hacking.
+6. **Operational gap:** release gates should check outcome and trajectory correctness plus service latency, memory, drift, tools/permissions, rollback and compute.
+7. **Remaining audit work:** read individual notebooks and recordings for these 19 sources before asserting fine-grained lesson contents; review new versions and pending units quarterly.
+
+**Research evidence record:** falsifiable question; preregistered measures and failure threshold; train/validation/held-out task split; independent seeds; comparison baselines and negative controls; sample, model and search budgets; raw per-run results; confidence intervals; compute; leakage/shortcut checks; explicit supported/rejected/inconclusive conclusion.
+
+### Advanced RL and NeuroAI research
+
+1. [[reinforcement-learning]] — define task and interaction semantics.
+2. [[actor-critic-from-scratch]] — learn the temporal-difference update and its assumptions.
+3. [[reliable-reinforcement-learning-evaluation]] — freeze task splits, seeds and fair budgets first.
+4. [[continual-learning]] — test forgetting, replay and retention.
+5. [[meta-learning]] — adapt to whole unseen task families.
+6. [[transfer-learning-and-domain-adaptation]] — perturb environment and skills.
+7. [[world-models]] — measure prediction error and imagined planning.
+8. [[mcts-from-scratch]] — compare explicit planning with reactive controls.
+9. [[mechanistic-interpretability]] — intervene to test mechanism claims.
+10. [[model-evaluation-and-metrics]] — archive per-seed scores and negative findings.
+
+**Deliverable:** one independent implementation, two fair baselines, one meaningful ablation, held-out generalization, delayed retention, cost and failure reporting.

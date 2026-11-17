@@ -107,6 +107,7 @@ model.save("ppo_cartpole")
 - Offline RL overestimates actions the log never tried; use methods built for it (CQL, IQL), not plain off-policy algorithms.
 
 ## Related
+- [[reliable-reinforcement-learning-evaluation]] - reproducible seeded comparisons, held-out tasks and uncertainty-aware performance.
 - [[ml-fundamentals]] - where RL sits next to supervised and unsupervised learning.
 - [[neural-network-fundamentals]] - function approximators for deep RL.
 - [[rlhf-and-preference-optimization]] - RL applied to aligning LLMs.

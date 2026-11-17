@@ -67,3 +67,13 @@ holds the detail and any leftover acceptance criteria.
     `glossary.md` (`- **Term** - definition. [[topic]]`, alphabetical) and
     `learning-paths.md` (ordered paths by role); `build_index.py` fails on a
     broken `[[link]]` in either and lists both under `## Optional` in `llms.txt`.
+
+
+## Advanced curriculum audit (2026-11-17)
+
+- [x] Cross-reference 19 official advanced curricula and tutorials, lab ideas and caveats in [learning-paths.md](learning-paths.md#advanced-ai-courses-and-tutorials-2026-11-17).
+- [x] Add [[reliable-reinforcement-learning-evaluation]] for multiple seeds, held-out tasks, IQM, bootstrap uncertainty and ablations.
+- [x] Add advanced RL/NeuroAI pathway.
+- [ ] Implement an end-to-end multi-task, multi-seed experiment suite for error correction, transfer, replay, retention and planning with fixed budgets and memory-only/no-learning/frozen-model controls.
+- [ ] Add biological-evidence quality gates with independent neural/behavioral data and alternate model controls before claiming brain fidelity.
+- [ ] Audit individual course videos and notebooks, follow pending releases and re-check official syllabi quarterly.
