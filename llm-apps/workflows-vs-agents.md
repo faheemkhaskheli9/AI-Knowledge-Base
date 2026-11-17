@@ -82,6 +82,45 @@ fixed chains, send the rest to an agent or a human.
 Not either: if one call with good context and examples meets the quality bar,
 stop there ([[prompt-engineering]], [[rag-basics]]).
 
+### Custom multi-turn conversation flows (research note: 2026-11-17)
+
+For a task-oriented chatbot (support, intake, tutoring), use an explicit state machine:
+**user turn -> schema-constrained extraction -> deterministic state update ->
+validated transition -> LLM wording -> output checks -> persisted state**.
+This is a *hybrid*, not a fine-tuned LLM with guaranteed stage adherence.
+Keep required stages and permissible tool calls in code; let the model vary the
+language, clarify ambiguous input, and handle interruptions.
+
+- Treat each user turn as a possible *multi-slot* answer: extract facts from the
+  entire utterance, then only ask for genuinely missing fields. Do not ask
+  a question whose answer is already stored.
+- Represent interruptions explicitly (change topic, correction, handoff,
+  refusal, resume). Validate permissions before acting on extracted IDs.
+- Maintain separate stores for thread-specific state and durable memory:
+  a LangGraph checkpointer persists thread state; a store holds cross-thread
+  facts. Bound history and keep only consented, relevant facts
+  ([[agent-memory]], [[context-engineering]]).
+- Fine-tune on *diverse full trajectories and failure recoveries* only when a
+  held-out test shows prompting plus stateful orchestration is insufficient.
+  A SFT/LoRA model learns conversational *style and decisions probabilistically*;
+  it does not eliminate the need for transition rules ([[fine-tuning-and-peft]]).
+- Evaluate **entire conversations**, not individual answers: path completion,
+  invalid transitions, repeated questions, missed/incorrect slots, recovery
+  after interruption, human escalation, latency and token cost. Split by user
+  or scenario and keep paraphrased/novel tests out of training
+  ([[llm-evaluation]], [[user-feedback-and-human-review]]).
+- Use schema-constrained output for *parsing*, then deterministic semantic
+  validation for *authorization*; valid JSON is not a valid business action
+  ([[structured-output]], [[tool-calling]]).
+
+LangGraph graph-state and persistence docs:
+https://docs.langchain.com/oss/python/langgraph/graph-api and
+https://docs.langchain.com/oss/python/langgraph/persistence.
+The [OpenAI model optimization guide](https://developers.openai.com/api/docs/guides/model-optimization)
+recommends eval -> prompt -> fine-tune only when needed; the
+[TRL SFT trainer](https://huggingface.co/docs/trl/sft_trainer)
+supports multi-turn conversational datasets and PEFT.
+
 ## Setup & code
 A NumPy simulation of the trade-off. Part 1 shows how per-step reliability
 compounds. Part 2 compares a router + fixed chain (escalates unknown requests
@@ -177,6 +216,47 @@ def handle(msg: str, lookup_order, refund_policy: str, run_agent) -> str:
     return draft
 ```
 
+
+A minimal testable conversation controller with no LLM dependency. In
+production, replace `extracted` with schema-validated LLM output; do not
+use raw natural-language values directly as tool arguments.
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class ChatState:
+    intent: str | None = None
+    order_id: str | None = None
+    human_requested: bool = False
+
+def choose_next(state: ChatState, extracted: dict[str, object]) -> tuple[str, str]:
+    """Choose allowed action from facts extracted in the current user turn."""
+    if extracted.get("human_requested") is True:
+        state.human_requested = True
+    intent = extracted.get("intent")
+    if intent in ("order_status", "refund"):
+        state.intent = str(intent)
+    order_id = extracted.get("order_id")
+    if isinstance(order_id, str) and order_id.isalnum() and 3 <= len(order_id) <= 32:
+        state.order_id = order_id
+
+    if state.human_requested:
+        return "handoff", "I will connect you with a human agent."
+    if state.intent is None:
+        return "ask_intent", "Is this about an order status or a refund?"
+    if state.order_id is None:
+        return "ask_order_id", "What is your order number?"
+    return "run_authorized_tool", f"Ready to process {state.intent} for order {state.order_id}."
+
+# Information can arrive out of order; the same field is not asked for again.
+s = ChatState()
+assert choose_next(s, {"order_id": "A123"})[0] == "ask_intent"
+assert choose_next(s, {"intent": "refund"})[0] == "run_authorized_tool"
+assert choose_next(s, {})[0] == "run_authorized_tool"
+assert choose_next(s, {"human_requested": True})[0] == "handoff"
+```
+
 ## Choosing / trade-offs
 | Dimension | Workflow | Agent |
 |---|---|---|
@@ -224,6 +304,10 @@ def handle(msg: str, lookup_order, refund_policy: str, run_agent) -> str:
 - See also (SE KB): https://github.com/faheemkhaskheli9/Software-Engineering-KnowledgeBase/blob/main/reliability/resilience-patterns.md - timeouts, retries and fallbacks around each step.
 
 ## References
+- LangGraph Graph API: https://docs.langchain.com/oss/python/langgraph/graph-api
+- LangGraph persistence: https://docs.langchain.com/oss/python/langgraph/persistence
+- Hugging Face TRL SFTTrainer: https://huggingface.co/docs/trl/sft_trainer
+- OpenAI model optimization: https://developers.openai.com/api/docs/guides/model-optimization
 - Anthropic, Building effective agents: https://www.anthropic.com/engineering/building-effective-agents
 - Anthropic tool use overview: https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview
 - Yao et al., ReAct: Synergizing Reasoning and Acting in Language Models: https://arxiv.org/abs/2210.03629
