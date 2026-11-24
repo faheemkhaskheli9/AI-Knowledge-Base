@@ -203,6 +203,26 @@ asyncio.run(main())
 - Averages hide failure clusters; slice by question type, product or document source.
 - Answer relevancy can be high for a fluent wrong answer; never use it alone.
 
+## Model-size and external-knowledge substitution (research, 2026-11-24)
+
+RETRO (ICML 2022), Atlas (JMLR 2023) and MassiveDS (NeurIPS 2024) demonstrate that retrieval can substitute for generator capacity on certain language modeling and knowledge-intensive workloads. These comparisons do not establish general reasoning equivalence, and external storage and retriever parameters must be counted.
+
+Controlled factual capacity estimates (ICLR 2025; ICML 2026) are not estimates of the fraction of production LLM weights used for factual memory. The April 2026 RAG-considerate pretraining preprint studies joint pretraining/retrieval allocation; the July 2026 Knowledgeless LM preprint studies entity anonymization. Both motivate further controlled experiments, not a universal model compression ratio.
+
+To diagnose smaller generators, compare closed-book, actual retrieval, oracle evidence, distractor and counterfactual contexts on the same questions. Report rescue rate among closed-book failures and damage rate among closed-book successes separately, with denominators. A March 2026 preprint reports poor oracle rescue in tested models up to 7B; this is not a universal threshold. Test novel multi-hop rules, math, code and held-out entities separately. Freeze models and corpora, prevent benchmark leakage, match context and decoding budgets, and report paired uncertainty plus full-system latency, memory and cost per correct answer.
+
+Research article and proposed non-inferiority protocol: https://github.com/faheemkhaskheli9/Articles/blob/main/articles/external-knowledge-reasoning/article.md
+
+Primary sources:
+- https://proceedings.mlr.press/v162/borgeaud22a.html
+- https://www.jmlr.org/papers/v24/23-0037.html
+- https://arxiv.org/abs/2407.12854
+- https://arxiv.org/abs/2404.05405
+- https://proceedings.mlr.press/v306/morris26a.html
+- https://arxiv.org/abs/2604.00715
+- https://arxiv.org/abs/2607.12831
+- https://arxiv.org/abs/2603.11513
+
 ## Related
 - [[rag-basics]] - the pipeline these metrics measure.
 - [[advanced-rag]] - hybrid search, reranking and query rewriting to fix low recall.
