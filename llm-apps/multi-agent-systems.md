@@ -94,6 +94,7 @@ The Claude Agent SDK supports subagents and Claude Code supports subagent defini
 ## Related
 - [[agents]] - single-agent loop first.
 - [[agent-frameworks]] - supervisors and handoffs in libraries.
+- [[task-decomposition-and-handoffs]] - choose subtask boundaries and define handoff contracts.
 - [[agent-memory]] - shared state.
 - [[coding-agents]] - subagents in practice.
 - [[llm-evaluation]] - evaluate end-to-end outcomes.
