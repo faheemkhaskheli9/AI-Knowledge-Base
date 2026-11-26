@@ -20,6 +20,7 @@ import subprocess
 import sys
 import tempfile
 from concurrent.futures import ThreadPoolExecutor
+from io import StringIO
 from pathlib import Path
 
 from build_index import ROOT, SKIP, frontmatter
@@ -34,7 +35,8 @@ NETWORK_MODULES = {"openai", "anthropic", "requests", "httpx", "mcp", "huggingfa
                    "llama_index", "chromadb", "faiss", "ollama", "vllm", "whisper", "openai_whisper",
                    "gradio", "streamlit", "fastapi", "uvicorn", "cv2", "ultralytics", "timm"}
 LIMIT = re.compile(r"<!--\s*check-timeout:\s*(\d+)\s*-->")
-FENCE = re.compile(r"(<!--\s*skip-check:[^>]*-->\s*\n)?```(?:python|py)\n(.*?)```", re.S)
+FENCE = re.compile(r"(?P<indent> {0,3})(?P<fence>`{3,}|~{3,})(?P<info>.*)")
+SKIP_CHECK = re.compile(r"[ \t]*<!--\s*skip-check:[^>]*-->[ \t]*")
 
 
 def imported(code):
@@ -53,7 +55,33 @@ def imported(code):
 
 
 def blocks(text):
-    return [m.group(2) for m in FENCE.finditer(text) if not m.group(1)]
+    """Extract complete Python fences and remove their Markdown indentation."""
+    snippets = []
+    body = []
+    fence = ""
+    indent = 0
+    include = False
+    skip_next = False
+    for line in StringIO(text, newline=None):
+        content = line.rstrip("\n")
+        marker = FENCE.fullmatch(content)
+        if fence:
+            if marker and marker["fence"].startswith(fence) and not marker["info"].strip(" \t"):
+                if include:
+                    snippets.append("".join(body))
+                    body.clear()
+                fence = ""
+            elif include:
+                spaces = len(line) - len(line.lstrip(" "))
+                body.append(line[min(indent, spaces):])
+        elif marker and (marker["fence"][0] != "`" or "`" not in marker["info"]):
+            padding, fence, language = marker.groups()
+            indent = len(padding)
+            include = not skip_next and language.strip(" \t") in {"python", "py"}
+            skip_next = False
+        elif content.strip():
+            skip_next = SKIP_CHECK.fullmatch(content) is not None
+    return snippets
 
 
 def check(path):
